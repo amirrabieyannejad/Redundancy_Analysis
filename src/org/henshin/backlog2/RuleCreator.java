@@ -61,7 +61,7 @@ public class RuleCreator {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		module.addImportsFromFile("Backlog_v2.1.ecore");
+		module.addImportsFromFile("Backlog_v2.3.ecore");
 		RuleCreator ruleCreator = new RuleCreator();
 		// ruleCreator.processJsonFile(jsonObject);
 		ruleCreator.processJsonFile(jsonArray);
