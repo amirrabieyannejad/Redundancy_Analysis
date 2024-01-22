@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_0A7IALh4Ee6keY9217JsHg" name="user_story_33">
+  <lhs xmi:id="_0A7IAbh4Ee6keY9217JsHg" name="Lhs">
+    <nodes xmi:id="_0A7IArh4Ee6keY9217JsHg" name="|8|" outgoing="_0A7ID7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Persona"/>
+      <attributes xmi:id="_0A7IA7h4Ee6keY9217JsHg" value="&quot;Staff member&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7IBLh4Ee6keY9217JsHg" name="|9|" outgoing="_0A7IDrh4Ee6keY9217JsHg _0A7IELh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Action"/>
+    </nodes>
+    <nodes xmi:id="_0A7IBbh4Ee6keY9217JsHg" name="|13|" incoming="_0A7IDrh4Ee6keY9217JsHg _0A7ID7h4Ee6keY9217JsHg" outgoing="_0A7IE7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_0A7IBrh4Ee6keY9217JsHg" value="&quot;Capture&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7IB7h4Ee6keY9217JsHg" name="|14|" incoming="_0A7IELh4Ee6keY9217JsHg" outgoing="_0A7IFLh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_0A7ICLh4Ee6keY9217JsHg" value="&quot;enforce&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7ICbh4Ee6keY9217JsHg" name="|10|" outgoing="_0A7IEbh4Ee6keY9217JsHg _0A7IErh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity"/>
+    </nodes>
+    <nodes xmi:id="_0A7ICrh4Ee6keY9217JsHg" name="|11|" incoming="_0A7IEbh4Ee6keY9217JsHg _0A7IE7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_0A7IC7h4Ee6keY9217JsHg" value="&quot;Hearing Decision&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7IDLh4Ee6keY9217JsHg" name="|12|" incoming="_0A7IErh4Ee6keY9217JsHg _0A7IFLh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_0A7IDbh4Ee6keY9217JsHg" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_0A7IDrh4Ee6keY9217JsHg" source="_0A7IBLh4Ee6keY9217JsHg" target="_0A7IBbh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Action/primary%20actions"/>
+    </edges>
+    <edges xmi:id="_0A7ID7h4Ee6keY9217JsHg" source="_0A7IArh4Ee6keY9217JsHg" target="_0A7IBbh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_0A7IELh4Ee6keY9217JsHg" source="_0A7IBLh4Ee6keY9217JsHg" target="_0A7IB7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Action/secondary%20actions"/>
+    </edges>
+    <edges xmi:id="_0A7IEbh4Ee6keY9217JsHg" source="_0A7ICbh4Ee6keY9217JsHg" target="_0A7ICrh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity/primary%20entities"/>
+    </edges>
+    <edges xmi:id="_0A7IErh4Ee6keY9217JsHg" source="_0A7ICbh4Ee6keY9217JsHg" target="_0A7IDLh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity/secondary%20entities"/>
+    </edges>
+    <edges xmi:id="_0A7IE7h4Ee6keY9217JsHg" source="_0A7IBbh4Ee6keY9217JsHg" target="_0A7ICrh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_0A7IFLh4Ee6keY9217JsHg" source="_0A7IB7h4Ee6keY9217JsHg" target="_0A7IDLh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_0A7IFbh4Ee6keY9217JsHg" name="Rhs">
+    <nodes xmi:id="_0A7IFrh4Ee6keY9217JsHg" name="|8|">
+      <type href="../../../Backlog_v2.1.ecore#//Persona"/>
+      <attributes xmi:id="_0A7IF7h4Ee6keY9217JsHg" value="&quot;Staff member&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7IGLh4Ee6keY9217JsHg" name="|9|">
+      <type href="../../../Backlog_v2.1.ecore#//Action"/>
+    </nodes>
+    <nodes xmi:id="_0A7IGbh4Ee6keY9217JsHg" name="|10|" outgoing="_0A7IHrh4Ee6keY9217JsHg _0A7IH7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity"/>
+    </nodes>
+    <nodes xmi:id="_0A7IGrh4Ee6keY9217JsHg" name="|11|" incoming="_0A7IHrh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_0A7IG7h4Ee6keY9217JsHg" value="&quot;Hearing Decision&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_0A7IHLh4Ee6keY9217JsHg" name="|12|" incoming="_0A7IH7h4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_0A7IHbh4Ee6keY9217JsHg" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.1.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_0A7IHrh4Ee6keY9217JsHg" source="_0A7IGbh4Ee6keY9217JsHg" target="_0A7IGrh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity/primary%20entities"/>
+    </edges>
+    <edges xmi:id="_0A7IH7h4Ee6keY9217JsHg" source="_0A7IGbh4Ee6keY9217JsHg" target="_0A7IHLh4Ee6keY9217JsHg">
+      <type href="../../../Backlog_v2.1.ecore#//Entity/secondary%20entities"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_0A7IILh4Ee6keY9217JsHg" origin="_0A7IArh4Ee6keY9217JsHg" image="_0A7IFrh4Ee6keY9217JsHg"/>
+  <mappings xmi:id="_0A7IIbh4Ee6keY9217JsHg" origin="_0A7IBLh4Ee6keY9217JsHg" image="_0A7IGLh4Ee6keY9217JsHg"/>
+  <mappings xmi:id="_0A7IIrh4Ee6keY9217JsHg" origin="_0A7ICbh4Ee6keY9217JsHg" image="_0A7IGbh4Ee6keY9217JsHg"/>
+  <mappings xmi:id="_0A7II7h4Ee6keY9217JsHg" origin="_0A7ICrh4Ee6keY9217JsHg" image="_0A7IGrh4Ee6keY9217JsHg"/>
+  <mappings xmi:id="_0A7IJLh4Ee6keY9217JsHg" origin="_0A7IDLh4Ee6keY9217JsHg" image="_0A7IHLh4Ee6keY9217JsHg"/>
+</henshin:Rule>

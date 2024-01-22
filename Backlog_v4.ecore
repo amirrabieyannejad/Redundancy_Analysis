@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="product" nsURI="http://product" nsPrefix="product">
+  <eClassifiers xsi:type="ecore:EClass" name="Persona">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="personas" upperBound="-1"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primary actions" upperBound="-1"
+        eType="#//Primary%20Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondary actions" upperBound="-1"
+        eType="#//Secondary%20Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Secondary Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primary entities" upperBound="-1"
+        eType="#//Primary%20Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondary entities" upperBound="-1"
+        eType="#//Secondary%20Entity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Secondary Entity"/>
+</ecore:EPackage>

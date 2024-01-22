@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="product" nsURI="http://product" nsPrefix="product">
+  <eClassifiers xsi:type="ecore:EClass" name="Persona">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="personas" upperBound="-1"
+        eType="#//UI%20designer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UI designer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers_us_01" upperBound="-1"
+        eType="#//create"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="triggers_us_02" upperBound="-1"
+        eType="#//delete"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primary actions" upperBound="-1"
+        eType="#//Primary%20Action" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondary actions" upperBound="-1"
+        eType="#//Secondary%20Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verbs_us_01" upperBound="-1"
+        eType="#//create" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verbs_us_02" upperBound="-1"
+        eType="#//delete" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="create">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets_us_01" upperBound="-1"
+        eType="#//user%20testing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="delete">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets_us_02" upperBound="-1"
+        eType="#//user%20testing"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Secondary Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="verbs" upperBound="-1"
+        eType="#//validate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="validate"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primary entities" upperBound="-1"
+        eType="#//Primary%20Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondary entities" upperBound="-1"
+        eType="#//Secondary%20Entity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primary Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nouns" upperBound="-1"
+        eType="#//user%20testing" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="user testing"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Secondary Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nouns" upperBound="-1"
+        eType="#//stakeholder%20UI%20improvement%20requests" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="stakeholder UI improvement requests"/>
+</ecore:EPackage>
