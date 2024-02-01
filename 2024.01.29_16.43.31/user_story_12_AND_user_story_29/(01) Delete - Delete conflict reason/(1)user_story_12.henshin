@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_KDmxML69Ee6QW7_3P_nbRg" name="user_story_12">
+  <lhs xmi:id="_KDmxMb69Ee6QW7_3P_nbRg" name="Lhs">
+    <nodes xmi:id="_KDmxMr69Ee6QW7_3P_nbRg" name="|0|" outgoing="_KDmxQr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_KDmxM769Ee6QW7_3P_nbRg" value="&quot;Staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxNL69Ee6QW7_3P_nbRg" name="|1|" incoming="_KDmxQr69Ee6QW7_3P_nbRg" outgoing="_KDmxQ769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_KDmxNb69Ee6QW7_3P_nbRg" value="&quot;Assign&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxNr69Ee6QW7_3P_nbRg" name="|2|" outgoing="_KDmxRb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_KDmxN769Ee6QW7_3P_nbRg" value="&quot;subsequently approved&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxOL69Ee6QW7_3P_nbRg" name="|3|" outgoing="_KDmxRr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_KDmxOb69Ee6QW7_3P_nbRg" value="&quot;denied&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxOr69Ee6QW7_3P_nbRg" name="|4|" outgoing="_KDmxRL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_KDmxO769Ee6QW7_3P_nbRg" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxPL69Ee6QW7_3P_nbRg" name="|5|" incoming="_KDmxQ769Ee6QW7_3P_nbRg" outgoing="_KDmxR769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_KDmxPb69Ee6QW7_3P_nbRg" value="&quot;Application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxPr69Ee6QW7_3P_nbRg" name="|6|" incoming="_KDmxRL69Ee6QW7_3P_nbRg _KDmxRb69Ee6QW7_3P_nbRg _KDmxRr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_KDmxP769Ee6QW7_3P_nbRg" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxQL69Ee6QW7_3P_nbRg" name="|7|" incoming="_KDmxR769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_KDmxQb69Ee6QW7_3P_nbRg" value="&quot;Detailed Review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_KDmxQr69Ee6QW7_3P_nbRg" source="_KDmxMr69Ee6QW7_3P_nbRg" target="_KDmxNL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_KDmxQ769Ee6QW7_3P_nbRg" source="_KDmxNL69Ee6QW7_3P_nbRg" target="_KDmxPL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxRL69Ee6QW7_3P_nbRg" source="_KDmxOr69Ee6QW7_3P_nbRg" target="_KDmxPr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxRb69Ee6QW7_3P_nbRg" source="_KDmxNr69Ee6QW7_3P_nbRg" target="_KDmxPr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxRr69Ee6QW7_3P_nbRg" source="_KDmxOL69Ee6QW7_3P_nbRg" target="_KDmxPr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxR769Ee6QW7_3P_nbRg" source="_KDmxPL69Ee6QW7_3P_nbRg" target="_KDmxQL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_KDmxSL69Ee6QW7_3P_nbRg" name="Rhs">
+    <nodes xmi:id="_KDmxSb69Ee6QW7_3P_nbRg" name="|0|" outgoing="_KDmxVb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_KDmxSr69Ee6QW7_3P_nbRg" value="&quot;Staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxS769Ee6QW7_3P_nbRg" name="|1|" incoming="_KDmxVb69Ee6QW7_3P_nbRg" outgoing="_KDmxVr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_KDmxTL69Ee6QW7_3P_nbRg" name="|2|" outgoing="_KDmxWL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_KDmxTb69Ee6QW7_3P_nbRg" name="|3|" outgoing="_KDmxWb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_KDmxTr69Ee6QW7_3P_nbRg" name="|4|" outgoing="_KDmxV769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_KDmxT769Ee6QW7_3P_nbRg" name="|5|" incoming="_KDmxVr69Ee6QW7_3P_nbRg" outgoing="_KDmxWr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_KDmxUL69Ee6QW7_3P_nbRg" value="&quot;Application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxUb69Ee6QW7_3P_nbRg" name="|6|" incoming="_KDmxV769Ee6QW7_3P_nbRg _KDmxWL69Ee6QW7_3P_nbRg _KDmxWb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_KDmxUr69Ee6QW7_3P_nbRg" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_KDmxU769Ee6QW7_3P_nbRg" name="|7|" incoming="_KDmxWr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_KDmxVL69Ee6QW7_3P_nbRg" value="&quot;Detailed Review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_KDmxVb69Ee6QW7_3P_nbRg" source="_KDmxSb69Ee6QW7_3P_nbRg" target="_KDmxS769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_KDmxVr69Ee6QW7_3P_nbRg" source="_KDmxS769Ee6QW7_3P_nbRg" target="_KDmxT769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxV769Ee6QW7_3P_nbRg" source="_KDmxTr69Ee6QW7_3P_nbRg" target="_KDmxUb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxWL69Ee6QW7_3P_nbRg" source="_KDmxTL69Ee6QW7_3P_nbRg" target="_KDmxUb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxWb69Ee6QW7_3P_nbRg" source="_KDmxTb69Ee6QW7_3P_nbRg" target="_KDmxUb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_KDmxWr69Ee6QW7_3P_nbRg" source="_KDmxT769Ee6QW7_3P_nbRg" target="_KDmxU769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_KDmxW769Ee6QW7_3P_nbRg" origin="_KDmxMr69Ee6QW7_3P_nbRg" image="_KDmxSb69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxXL69Ee6QW7_3P_nbRg" origin="_KDmxNL69Ee6QW7_3P_nbRg" image="_KDmxS769Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxXb69Ee6QW7_3P_nbRg" origin="_KDmxNr69Ee6QW7_3P_nbRg" image="_KDmxTL69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxXr69Ee6QW7_3P_nbRg" origin="_KDmxOL69Ee6QW7_3P_nbRg" image="_KDmxTb69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxX769Ee6QW7_3P_nbRg" origin="_KDmxOr69Ee6QW7_3P_nbRg" image="_KDmxTr69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxYL69Ee6QW7_3P_nbRg" origin="_KDmxPL69Ee6QW7_3P_nbRg" image="_KDmxT769Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxYb69Ee6QW7_3P_nbRg" origin="_KDmxPr69Ee6QW7_3P_nbRg" image="_KDmxUb69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_KDmxYr69Ee6QW7_3P_nbRg" origin="_KDmxQL69Ee6QW7_3P_nbRg" image="_KDmxU769Ee6QW7_3P_nbRg"/>
+</henshin:Rule>

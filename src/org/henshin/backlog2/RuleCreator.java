@@ -49,7 +49,7 @@ public class RuleCreator {
 	public static void main(String[] args) {
 		JSONArray jsonArray = null;
 		// JSONObject jsonObject = null;
-		String fileName = "C:\\Users\\amirr\\eclipse-workspace\\org.henshin.backlog2\\g03_baseline_pos_num.json";
+		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\g03_baseline_pos_num.json";
 
 		try (FileReader reader = new FileReader(fileName)) {
 			JSONTokener tokener = new JSONTokener(reader);
@@ -159,7 +159,7 @@ public class RuleCreator {
 				}
 				if (jsonObject.has("Action")) {
 					JSONObject action = jsonObject.getJSONObject("Action");
-					CNode abstractAction = userStory.createNode("Action");
+					//CNode abstractAction = userStory.createNode("Action");
 					if (action.has("Primary Action")) {
 						JSONArray primaryAction = action.getJSONArray("Primary Action");
 						// Creating Nodes for Primary Action/s
@@ -171,7 +171,7 @@ public class RuleCreator {
 							cNode.createAttribute("name", "\"" + primaryAction.getString(i) + "\"");
 
 							// Create Edges from Action to Primary Action names primary actions
-							abstractAction.createEdge(cNode, "primary actions", "delete");
+							//abstractAction.createEdge(cNode, "primary actions", "delete");
 							//abstractAction.createEdge(cNode, "primary actions");
 							nodePersona.createEdge(cNode, "triggers", "delete");
 							//nodePersona.createEdge(cNode, "triggers");
@@ -192,7 +192,7 @@ public class RuleCreator {
 							//CNode cNode = userStory.createNode("Secondary Action");
 							cNode.createAttribute("name", "\"" + secondaryAction.getString(i) + "\"");
 							// Create Edges from Action to Primary Action names secondary actions
-							abstractAction.createEdge(cNode, "secondary actions","delete");
+							//abstractAction.createEdge(cNode, "secondary actions","delete");
 							//abstractAction.createEdge(cNode, "secondary actions");
 							actionMap.put(secondaryAction.getString(i), cNode);
 						}
@@ -203,7 +203,7 @@ public class RuleCreator {
 				}
 				if (jsonObject.has("Entity")) {
 					JSONObject entity = jsonObject.getJSONObject("Entity");
-					CNode abstractEntity = userStory.createNode("Entity");
+					//CNode abstractEntity = userStory.createNode("Entity");
 					if (entity.has("Primary Entity")) {
 						JSONArray primaryEntity = entity.getJSONArray("Primary Entity");
 
@@ -215,7 +215,7 @@ public class RuleCreator {
 							cNode.createAttribute("name", "\"" + primaryEntity.getString(i) + "\"");
 
 							// Create Edges from Entity to Primary Entity names primary entities
-							abstractEntity.createEdge(cNode, "primary entities");
+							//abstractEntity.createEdge(cNode, "primary entities");
 							entityMap.put(primaryEntity.getString(i), cNode);
 						}
 					} else {
@@ -232,8 +232,8 @@ public class RuleCreator {
 							// Create Edges from Entity to Primary Entity names secondary entities
 
 							entityMap.put(secondaryEntity.getString(i), cNode);
-							abstractEntity.createEdge(getNodeByName(entityMap, secondaryEntity.getString(i)),
-									"secondary entities");
+							//abstractEntity.createEdge(getNodeByName(entityMap, secondaryEntity.getString(i)),
+								//	"secondary entities");
 						}
 					} else {
 						LOGGER.info("US_Nr has not found!");

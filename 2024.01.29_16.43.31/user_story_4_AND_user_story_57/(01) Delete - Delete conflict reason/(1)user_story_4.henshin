@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_J-BtoL69Ee6QW7_3P_nbRg" name="user_story_4">
+  <lhs xmi:id="_J-Btob69Ee6QW7_3P_nbRg" name="Lhs">
+    <nodes xmi:id="_J-Btor69Ee6QW7_3P_nbRg" name="|0|" outgoing="_J-Btsr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_J-Bto769Ee6QW7_3P_nbRg" value="&quot;Customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtpL69Ee6QW7_3P_nbRg" name="|1|" incoming="_J-Btsr69Ee6QW7_3P_nbRg" outgoing="_J-Bts769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_J-Btpb69Ee6QW7_3P_nbRg" value="&quot;Create&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-Btpr69Ee6QW7_3P_nbRg" name="|2|" outgoing="_J-BttL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_J-Btp769Ee6QW7_3P_nbRg" value="&quot;log&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtqL69Ee6QW7_3P_nbRg" name="|3|" outgoing="_J-Bttb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_J-Btqb69Ee6QW7_3P_nbRg" value="&quot;perform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-Btqr69Ee6QW7_3P_nbRg" name="|4|" incoming="_J-Bts769Ee6QW7_3P_nbRg _J-Btt769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_J-Btq769Ee6QW7_3P_nbRg" value="&quot;Customer Portal User Account&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtrL69Ee6QW7_3P_nbRg" name="|5|" incoming="_J-BttL69Ee6QW7_3P_nbRg" outgoing="_J-Btt769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btrb69Ee6QW7_3P_nbRg" value="&quot;Customer Portal&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-Btrr69Ee6QW7_3P_nbRg" name="|6|" incoming="_J-Bttb69Ee6QW7_3P_nbRg" outgoing="_J-Bttr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btr769Ee6QW7_3P_nbRg" value="&quot;transactions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtsL69Ee6QW7_3P_nbRg" name="|7|" incoming="_J-Bttr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btsb69Ee6QW7_3P_nbRg" value="&quot;user authentication&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_J-Btsr69Ee6QW7_3P_nbRg" source="_J-Btor69Ee6QW7_3P_nbRg" target="_J-BtpL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_J-Bts769Ee6QW7_3P_nbRg" source="_J-BtpL69Ee6QW7_3P_nbRg" target="_J-Btqr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-BttL69Ee6QW7_3P_nbRg" source="_J-Btpr69Ee6QW7_3P_nbRg" target="_J-BtrL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-Bttb69Ee6QW7_3P_nbRg" source="_J-BtqL69Ee6QW7_3P_nbRg" target="_J-Btrr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-Bttr69Ee6QW7_3P_nbRg" source="_J-Btrr69Ee6QW7_3P_nbRg" target="_J-BtsL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_J-Btt769Ee6QW7_3P_nbRg" source="_J-BtrL69Ee6QW7_3P_nbRg" target="_J-Btqr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_J-BtuL69Ee6QW7_3P_nbRg" name="Rhs">
+    <nodes xmi:id="_J-Btub69Ee6QW7_3P_nbRg" name="|0|" outgoing="_J-Btxr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_J-Btur69Ee6QW7_3P_nbRg" value="&quot;Customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-Btu769Ee6QW7_3P_nbRg" name="|1|" incoming="_J-Btxr69Ee6QW7_3P_nbRg" outgoing="_J-Btx769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_J-BtvL69Ee6QW7_3P_nbRg" name="|2|" outgoing="_J-BtyL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_J-Btvb69Ee6QW7_3P_nbRg" name="|3|" outgoing="_J-Btyb69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_J-Btvr69Ee6QW7_3P_nbRg" name="|4|" incoming="_J-Btx769Ee6QW7_3P_nbRg _J-Bty769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_J-Btv769Ee6QW7_3P_nbRg" value="&quot;Customer Portal User Account&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtwL69Ee6QW7_3P_nbRg" name="|5|" incoming="_J-BtyL69Ee6QW7_3P_nbRg" outgoing="_J-Bty769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btwb69Ee6QW7_3P_nbRg" value="&quot;Customer Portal&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-Btwr69Ee6QW7_3P_nbRg" name="|6|" incoming="_J-Btyb69Ee6QW7_3P_nbRg" outgoing="_J-Btyr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btw769Ee6QW7_3P_nbRg" value="&quot;transactions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_J-BtxL69Ee6QW7_3P_nbRg" name="|7|" incoming="_J-Btyr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_J-Btxb69Ee6QW7_3P_nbRg" value="&quot;user authentication&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_J-Btxr69Ee6QW7_3P_nbRg" source="_J-Btub69Ee6QW7_3P_nbRg" target="_J-Btu769Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_J-Btx769Ee6QW7_3P_nbRg" source="_J-Btu769Ee6QW7_3P_nbRg" target="_J-Btvr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-BtyL69Ee6QW7_3P_nbRg" source="_J-BtvL69Ee6QW7_3P_nbRg" target="_J-BtwL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-Btyb69Ee6QW7_3P_nbRg" source="_J-Btvb69Ee6QW7_3P_nbRg" target="_J-Btwr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_J-Btyr69Ee6QW7_3P_nbRg" source="_J-Btwr69Ee6QW7_3P_nbRg" target="_J-BtxL69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_J-Bty769Ee6QW7_3P_nbRg" source="_J-BtwL69Ee6QW7_3P_nbRg" target="_J-Btvr69Ee6QW7_3P_nbRg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_J-BtzL69Ee6QW7_3P_nbRg" origin="_J-Btor69Ee6QW7_3P_nbRg" image="_J-Btub69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Btzb69Ee6QW7_3P_nbRg" origin="_J-BtpL69Ee6QW7_3P_nbRg" image="_J-Btu769Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Btzr69Ee6QW7_3P_nbRg" origin="_J-Btpr69Ee6QW7_3P_nbRg" image="_J-BtvL69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Btz769Ee6QW7_3P_nbRg" origin="_J-BtqL69Ee6QW7_3P_nbRg" image="_J-Btvb69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Bt0L69Ee6QW7_3P_nbRg" origin="_J-Btqr69Ee6QW7_3P_nbRg" image="_J-Btvr69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Bt0b69Ee6QW7_3P_nbRg" origin="_J-BtrL69Ee6QW7_3P_nbRg" image="_J-BtwL69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Bt0r69Ee6QW7_3P_nbRg" origin="_J-Btrr69Ee6QW7_3P_nbRg" image="_J-Btwr69Ee6QW7_3P_nbRg"/>
+  <mappings xmi:id="_J-Bt0769Ee6QW7_3P_nbRg" origin="_J-BtsL69Ee6QW7_3P_nbRg" image="_J-BtxL69Ee6QW7_3P_nbRg"/>
+</henshin:Rule>
