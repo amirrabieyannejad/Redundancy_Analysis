@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_rpmoQMQfEe6Sx6Q3qNteAg" name="user_story_40">
+  <lhs xmi:id="_rpmoQcQfEe6Sx6Q3qNteAg" name="Lhs">
+    <nodes xmi:id="_rpmoQsQfEe6Sx6Q3qNteAg" name="|14|" outgoing="_rpmoTMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_rpmoQ8QfEe6Sx6Q3qNteAg" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rpmoRMQfEe6Sx6Q3qNteAg" name="|15|" incoming="_rpmoTMQfEe6Sx6Q3qNteAg" outgoing="_rpmoTcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_rpmoRcQfEe6Sx6Q3qNteAg" value="&quot;resubmit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rpmoRsQfEe6Sx6Q3qNteAg" name="|16|" outgoing="_rpmoTsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_rpmoR8QfEe6Sx6Q3qNteAg" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rpmoSMQfEe6Sx6Q3qNteAg" name="|17|" incoming="_rpmoTcQfEe6Sx6Q3qNteAg" outgoing="_rpmoT8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_rpmoScQfEe6Sx6Q3qNteAg" value="&quot;plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rpmoSsQfEe6Sx6Q3qNteAg" name="|18|" incoming="_rpmoTsQfEe6Sx6Q3qNteAg _rpmoT8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rpmoS8QfEe6Sx6Q3qNteAg" value="&quot;revised plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_rpmoTMQfEe6Sx6Q3qNteAg" source="_rpmoQsQfEe6Sx6Q3qNteAg" target="_rpmoRMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_rpmoTcQfEe6Sx6Q3qNteAg" source="_rpmoRMQfEe6Sx6Q3qNteAg" target="_rpmoSMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_rpmoTsQfEe6Sx6Q3qNteAg" source="_rpmoRsQfEe6Sx6Q3qNteAg" target="_rpmoSsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_rpmoT8QfEe6Sx6Q3qNteAg" source="_rpmoSMQfEe6Sx6Q3qNteAg" target="_rpmoSsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_rpmoUMQfEe6Sx6Q3qNteAg" name="Rhs">
+    <nodes xmi:id="_rpmoUcQfEe6Sx6Q3qNteAg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_rpmoUsQfEe6Sx6Q3qNteAg" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rpmoU8QfEe6Sx6Q3qNteAg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_rpmoVMQfEe6Sx6Q3qNteAg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_rpmoVcQfEe6Sx6Q3qNteAg" name="|17|" outgoing="_rpmoV8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_rpmoVsQfEe6Sx6Q3qNteAg" name="|18|" incoming="_rpmoV8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <edges xmi:id="_rpmoV8QfEe6Sx6Q3qNteAg" source="_rpmoVcQfEe6Sx6Q3qNteAg" target="_rpmoVsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_rpmoWMQfEe6Sx6Q3qNteAg" origin="_rpmoQsQfEe6Sx6Q3qNteAg" image="_rpmoUcQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_rpmoWcQfEe6Sx6Q3qNteAg" origin="_rpmoRMQfEe6Sx6Q3qNteAg" image="_rpmoU8QfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_rpmoWsQfEe6Sx6Q3qNteAg" origin="_rpmoRsQfEe6Sx6Q3qNteAg" image="_rpmoVMQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_rpmoW8QfEe6Sx6Q3qNteAg" origin="_rpmoSMQfEe6Sx6Q3qNteAg" image="_rpmoVcQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_rpmoXMQfEe6Sx6Q3qNteAg" origin="_rpmoSsQfEe6Sx6Q3qNteAg" image="_rpmoVsQfEe6Sx6Q3qNteAg"/>
+</henshin:Rule>

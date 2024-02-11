@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_sHgsQMQfEe6Sx6Q3qNteAg" name="user_story_26">
+  <lhs xmi:id="_sHgsQcQfEe6Sx6Q3qNteAg" name="Lhs">
+    <nodes xmi:id="_sHgsQsQfEe6Sx6Q3qNteAg" name="|0|" outgoing="_sHgsUsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_sHgsQ8QfEe6Sx6Q3qNteAg" value="&quot;zoning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsRMQfEe6Sx6Q3qNteAg" name="|1|" incoming="_sHgsUsQfEe6Sx6Q3qNteAg" outgoing="_sHgsU8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_sHgsRcQfEe6Sx6Q3qNteAg" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsRsQfEe6Sx6Q3qNteAg" name="|2|" outgoing="_sHgsVMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_sHgsR8QfEe6Sx6Q3qNteAg" value="&quot;satisfy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsSMQfEe6Sx6Q3qNteAg" name="|3|" incoming="_sHgsU8QfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_sHgsScQfEe6Sx6Q3qNteAg" value="&quot;zoning-related permits&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsSsQfEe6Sx6Q3qNteAg" name="|4|" incoming="_sHgsVMQfEe6Sx6Q3qNteAg _sHgsVcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsS8QfEe6Sx6Q3qNteAg" value="&quot;applicant's request&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsTMQfEe6Sx6Q3qNteAg" name="|5|" outgoing="_sHgsVcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsTcQfEe6Sx6Q3qNteAg" value="&quot;service&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsTsQfEe6Sx6Q3qNteAg" name="|6|" incoming="_sHgsVsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsT8QfEe6Sx6Q3qNteAg" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsUMQfEe6Sx6Q3qNteAg" name="|7|" outgoing="_sHgsVsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsUcQfEe6Sx6Q3qNteAg" value="&quot;zoning ordinance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_sHgsUsQfEe6Sx6Q3qNteAg" source="_sHgsQsQfEe6Sx6Q3qNteAg" target="_sHgsRMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_sHgsU8QfEe6Sx6Q3qNteAg" source="_sHgsRMQfEe6Sx6Q3qNteAg" target="_sHgsSMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_sHgsVMQfEe6Sx6Q3qNteAg" source="_sHgsRsQfEe6Sx6Q3qNteAg" target="_sHgsSsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_sHgsVcQfEe6Sx6Q3qNteAg" source="_sHgsTMQfEe6Sx6Q3qNteAg" target="_sHgsSsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_sHgsVsQfEe6Sx6Q3qNteAg" source="_sHgsUMQfEe6Sx6Q3qNteAg" target="_sHgsTsQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_sHgsV8QfEe6Sx6Q3qNteAg" name="Rhs">
+    <nodes xmi:id="_sHgsWMQfEe6Sx6Q3qNteAg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_sHgsWcQfEe6Sx6Q3qNteAg" value="&quot;zoning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsWsQfEe6Sx6Q3qNteAg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_sHgsW8QfEe6Sx6Q3qNteAg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_sHgsXMQfEe6Sx6Q3qNteAg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_sHgsXcQfEe6Sx6Q3qNteAg" name="|4|" incoming="_sHgsZMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_sHgsXsQfEe6Sx6Q3qNteAg" name="|5|" outgoing="_sHgsZMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsX8QfEe6Sx6Q3qNteAg" value="&quot;service&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsYMQfEe6Sx6Q3qNteAg" name="|6|" incoming="_sHgsZcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsYcQfEe6Sx6Q3qNteAg" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_sHgsYsQfEe6Sx6Q3qNteAg" name="|7|" outgoing="_sHgsZcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_sHgsY8QfEe6Sx6Q3qNteAg" value="&quot;zoning ordinance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_sHgsZMQfEe6Sx6Q3qNteAg" source="_sHgsXsQfEe6Sx6Q3qNteAg" target="_sHgsXcQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_sHgsZcQfEe6Sx6Q3qNteAg" source="_sHgsYsQfEe6Sx6Q3qNteAg" target="_sHgsYMQfEe6Sx6Q3qNteAg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_sHgsZsQfEe6Sx6Q3qNteAg" origin="_sHgsQsQfEe6Sx6Q3qNteAg" image="_sHgsWMQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsZ8QfEe6Sx6Q3qNteAg" origin="_sHgsRMQfEe6Sx6Q3qNteAg" image="_sHgsWsQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsaMQfEe6Sx6Q3qNteAg" origin="_sHgsRsQfEe6Sx6Q3qNteAg" image="_sHgsW8QfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsacQfEe6Sx6Q3qNteAg" origin="_sHgsSMQfEe6Sx6Q3qNteAg" image="_sHgsXMQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsasQfEe6Sx6Q3qNteAg" origin="_sHgsSsQfEe6Sx6Q3qNteAg" image="_sHgsXcQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsa8QfEe6Sx6Q3qNteAg" origin="_sHgsTMQfEe6Sx6Q3qNteAg" image="_sHgsXsQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsbMQfEe6Sx6Q3qNteAg" origin="_sHgsTsQfEe6Sx6Q3qNteAg" image="_sHgsYMQfEe6Sx6Q3qNteAg"/>
+  <mappings xmi:id="_sHgsbcQfEe6Sx6Q3qNteAg" origin="_sHgsUMQfEe6Sx6Q3qNteAg" image="_sHgsYsQfEe6Sx6Q3qNteAg"/>
+</henshin:Rule>
