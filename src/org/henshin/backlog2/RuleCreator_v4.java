@@ -131,7 +131,7 @@ public class RuleCreator_v4 {
 	private void processText(JSONObject jsonObject, CRule userStory, String text) {
 		try {
 			CNode nodeText = userStory.createNode("Story");
-			nodeText.createAttribute("text","\"" + text+ "\"");
+			nodeText.createAttribute("text","\"" + text.toLowerCase()+ "\"");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -142,7 +142,7 @@ public class RuleCreator_v4 {
 			if (jsonObject.has("Persona")) {
 				LOGGER.info("Persona is: " + persona.getString(0) + " length is: " + persona.length());
 				CNode nodePersona = userStory.createNode("Persona");
-				nodePersona.createAttribute("name", "\"" + persona.getString(0) + "\"");
+				nodePersona.createAttribute("name", "\"" + persona.getString(0).toLowerCase() + "\"");
 				return nodePersona;
 
 			} else {
