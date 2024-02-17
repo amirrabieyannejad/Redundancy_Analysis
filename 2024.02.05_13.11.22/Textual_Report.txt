@@ -5,6 +5,8 @@ user_story_01_AND_user_story_52
 Conflict-Reasons are: 
 * Primary Action: search
 * Secondary Action: obtain
+There is Delete - Delete conflict reason between user_story_01_AND_user_story_52. If the following elements are deleted or modified, the other user story can no longer be applied: [search, obtain]
+
 
  user_story_01: #g03# as a public user, i want to #search# for information, so that i can #obtain# publicly available information concerning properties, county services, processes and other general information.
 
@@ -18,6 +20,8 @@ user_story_03_AND_user_story_37
 Conflict-Reasons are: 
 * Primary Action: request
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_03_AND_user_story_37. If the following elements are deleted or modified, the other user story can no longer be applied: [request, triggers]
+
 
  user_story_03: #g03# as an applicant, i want to #request# preapplication assistance, so that i can receive a response to a request for a meeting or information that is a result of the preapplication assistance.
 
@@ -31,6 +35,8 @@ user_story_05_AND_user_story_06
 Conflict-Reasons are: 
 * Primary Action: submit
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_05_AND_user_story_06. If the following elements are deleted or modified, the other user story can no longer be applied: [submit, triggers]
+
 
  user_story_05: #g03# as an applicant, i want to #submit# application, so that i can provide my information, plans and/or documents to initiate a transaction with the county.
 
@@ -43,7 +49,11 @@ user_story_05_AND_user_story_08
   
 Conflict-Reasons are: 
 * Secondary Entity: information
+There is Delete conflict reason between user_story_05_AND_user_story_08. If the element "information" in user_story_05 deleted or modified that used by user_story_08, this means the user_story_08 can no longer be applied. 
+
 * Secondary Entity: transaction
+There is Delete conflict reason between user_story_05_AND_user_story_08. If the element "transaction" in user_story_05 deleted or modified that used by user_story_08, this means the user_story_08 can no longer be applied. 
+
 
  user_story_05: #g03# as an applicant, i want to submit application, so that i can provide my #information#, plans and/or documents to initiate a #transaction# with the county.
 
@@ -57,6 +67,8 @@ user_story_05_AND_user_story_09
 Conflict-Reasons are: 
 * Primary Entity: application
 * Secondary Entity: information
+There is Delete - Delete conflict reason between user_story_05_AND_user_story_09. If the following elements are deleted or modified, the other user story can no longer be applied: [application, information]
+
 
  user_story_05: #g03# as an applicant, i want to submit #application#, so that i can provide my #information#, plans and/or documents to initiate a transaction with the county.
 
@@ -70,6 +82,8 @@ user_story_06_AND_user_story_05
 Conflict-Reasons are: 
 * Primary Action: submit
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_06_AND_user_story_05. If the following elements are deleted or modified, the other user story can no longer be applied: [submit, triggers]
+
 
  user_story_05: #g03# as an applicant, i want to #submit# application, so that i can provide my information, plans and/or documents to initiate a transaction with the county.
 
@@ -83,6 +97,8 @@ user_story_09_AND_user_story_05
 Conflict-Reasons are: 
 * Primary Entity: application
 * Secondary Entity: information
+There is Delete - Delete conflict reason between user_story_09_AND_user_story_05. If the following elements are deleted or modified, the other user story can no longer be applied: [application, information]
+
 
  user_story_05: #g03# as an applicant, i want to submit #application#, so that i can provide my #information#, plans and/or documents to initiate a transaction with the county.
 
@@ -95,9 +111,13 @@ user_story_10_AND_user_story_24
   
 Conflict-Reasons are: 
 * Secondary Entity: application
+There is Delete conflict reason between user_story_10_AND_user_story_24. If the element "application" in user_story_10 deleted or modified that used by user_story_24, this means the user_story_24 can no longer be applied. 
+
 * Primary Action: perform
 * Persona: triggers
 * Secondary Action: validate
+There is Delete - Delete conflict reason between user_story_10_AND_user_story_24. If the following elements are deleted or modified, the other user story can no longer be applied: [perform, triggers, validate]
+
 
  user_story_10: #g03# as a staff member, i want to #perform# a completeness review, so that i can #validate# when an #application# is complete and eligible for further technical review.
 
@@ -111,6 +131,8 @@ user_story_12_AND_user_story_29
 Conflict-Reasons are: 
 * Primary Action: assign
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_12_AND_user_story_29. If the following elements are deleted or modified, the other user story can no longer be applied: [assign, triggers]
+
 
  user_story_12: #g03# as a staff member, i want to #assign# an application for detailed review, so that i can review the for compliance and subsequently approved or denied.
 
@@ -125,6 +147,8 @@ Conflict-Reasons are:
 * Secondary Action: review
 * Secondary Entity: compliance
 * Secondary Action: targets
+There is Delete - Delete conflict reason between user_story_12_AND_user_story_39. If the following elements are deleted or modified, the other user story can no longer be applied: [review, compliance, targets]
+
 
  user_story_12: #g03# as a staff member, i want to assign an application for detailed review, so that i can #review# the for #compliance# and subsequently approved or denied.
 
@@ -139,7 +163,11 @@ Conflict-Reasons are:
 * Secondary Entity: progression
 * Primary Entity: hold
 * Secondary Entity: issue
+There is Delete - Delete conflict reason between user_story_13_AND_user_story_14. If the following elements are deleted or modified, the other user story can no longer be applied: [progression, hold, issue]
+
 * Secondary Entity: other actions
+There is Delete conflict reason between user_story_13_AND_user_story_14. If the element "other actions" in user_story_13 deleted or modified that used by user_story_14, this means the user_story_14 can no longer be applied. 
+
 
  user_story_13: #g03# as a staff member, i want to apply a #hold#, so that i can prevent #progression# through the workflow or #other actions# in the system until the #issue# is resolved.
 
@@ -152,9 +180,13 @@ user_story_14_AND_user_story_13
   
 Conflict-Reasons are: 
 * Secondary Entity: issue
+There is Delete conflict reason between user_story_14_AND_user_story_13. If the element "issue" in user_story_14 deleted or modified that used by user_story_13, this means the user_story_13 can no longer be applied. 
+
 * Primary Entity: hold
 * Secondary Entity: progression
 * Secondary Entity: other actions
+There is Delete - Delete conflict reason between user_story_14_AND_user_story_13. If the following elements are deleted or modified, the other user story can no longer be applied: [hold, progression, other actions]
+
 
  user_story_13: #g03# as a staff member, i want to apply a #hold#, so that i can prevent #progression# through the workflow or #other actions# in the system until the #issue# is resolved.
 
@@ -168,6 +200,8 @@ user_story_15_AND_user_story_57
 Conflict-Reasons are: 
 * Primary Action: send
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_15_AND_user_story_57. If the following elements are deleted or modified, the other user story can no longer be applied: [send, triggers]
+
 
  user_story_15: #g03# as a staff member, i want to #send# a formal response to applicant, so that i can satisfy communication and records responsibilities.
 
@@ -181,6 +215,8 @@ user_story_17_AND_user_story_18
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_17_AND_user_story_18. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -194,6 +230,8 @@ user_story_17_AND_user_story_28
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_17_AND_user_story_28. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -210,6 +248,8 @@ Conflict-Reasons are:
 * Persona: triggers
 * Secondary Entity: compliance
 * Secondary Action: targets
+There is Delete - Delete conflict reason between user_story_17_AND_user_story_30. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure, triggers, compliance, targets]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can #ensure# #compliance# with and satisfaction of the proffer in the future.
 
@@ -223,6 +263,8 @@ user_story_17_AND_user_story_36
 Conflict-Reasons are: 
 * Primary Action: manage
 * Secondary Action: ensure
+There is Delete - Delete conflict reason between user_story_17_AND_user_story_36. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can #ensure# compliance with and satisfaction of the proffer in the future.
 
@@ -236,6 +278,8 @@ user_story_17_AND_user_story_44
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_17_AND_user_story_44. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -249,6 +293,8 @@ user_story_18_AND_user_story_17
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_18_AND_user_story_17. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -262,6 +308,8 @@ user_story_18_AND_user_story_28
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_18_AND_user_story_28. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -275,6 +323,8 @@ user_story_18_AND_user_story_30
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_18_AND_user_story_30. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -288,6 +338,8 @@ user_story_18_AND_user_story_44
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_18_AND_user_story_44. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -303,6 +355,8 @@ Conflict-Reasons are:
 * Secondary Action: validate
 * Secondary Entity: application
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_24_AND_user_story_10. If the following elements are deleted or modified, the other user story can no longer be applied: [perform, validate, application, triggers]
+
 
  user_story_10: #g03# as a staff member, i want to #perform# a completeness review, so that i can #validate# when an #application# is complete and eligible for further technical review.
 
@@ -316,6 +370,8 @@ user_story_28_AND_user_story_17
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_28_AND_user_story_17. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -329,6 +385,8 @@ user_story_28_AND_user_story_18
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_28_AND_user_story_18. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -342,6 +400,8 @@ user_story_28_AND_user_story_30
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_28_AND_user_story_30. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_28: #g03# as a staff member, i want to #manage# hearing calendars, so that i can track hearing-related activities and due dates.
 
@@ -356,6 +416,8 @@ Conflict-Reasons are:
 * Primary Action: manage
 * Persona: triggers
 * Secondary Action: track
+There is Delete - Delete conflict reason between user_story_28_AND_user_story_44. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers, track]
+
 
  user_story_28: #g03# as a staff member, i want to #manage# hearing calendars, so that i can #track# hearing-related activities and due dates.
 
@@ -369,6 +431,8 @@ user_story_29_AND_user_story_12
 Conflict-Reasons are: 
 * Primary Action: assign
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_29_AND_user_story_12. If the following elements are deleted or modified, the other user story can no longer be applied: [assign, triggers]
+
 
  user_story_12: #g03# as a staff member, i want to #assign# an application for detailed review, so that i can review the for compliance and subsequently approved or denied.
 
@@ -381,6 +445,8 @@ user_story_29_AND_user_story_24
   
 Conflict-Reasons are: 
 * Secondary Entity: application
+There is Delete conflict reason between user_story_29_AND_user_story_24. If the element "application" in user_story_29 deleted or modified that used by user_story_24, this means the user_story_24 can no longer be applied. 
+
 
  user_story_24: #g03# as a staff member, i want to perform a staff review, so that i can validate compliance of an #application# with the zoning ordinance and impact approval/denial of the application accordingly.
 
@@ -397,6 +463,8 @@ Conflict-Reasons are:
 * Secondary Entity: compliance
 * Persona: triggers
 * Secondary Action: targets
+There is Delete - Delete conflict reason between user_story_30_AND_user_story_17. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure, compliance, triggers, targets]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can #ensure# #compliance# with and satisfaction of the proffer in the future.
 
@@ -410,6 +478,8 @@ user_story_30_AND_user_story_18
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_30_AND_user_story_18. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -423,6 +493,8 @@ user_story_30_AND_user_story_28
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_30_AND_user_story_28. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_28: #g03# as a staff member, i want to #manage# hearing calendars, so that i can track hearing-related activities and due dates.
 
@@ -436,6 +508,8 @@ user_story_30_AND_user_story_36
 Conflict-Reasons are: 
 * Primary Action: manage
 * Secondary Action: ensure
+There is Delete - Delete conflict reason between user_story_30_AND_user_story_36. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure]
+
 
  user_story_30: #g03# as a staff member, i want to #manage# affidavits, so that i can #ensure# compliance with the requirements prior to the hearing.
 
@@ -449,6 +523,8 @@ user_story_30_AND_user_story_44
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_30_AND_user_story_44. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_30: #g03# as a staff member, i want to #manage# affidavits, so that i can ensure compliance with the requirements prior to the hearing.
 
@@ -461,6 +537,8 @@ user_story_33_AND_user_story_25
   
 Conflict-Reasons are: 
 * Secondary Entity: system
+There is Delete conflict reason between user_story_33_AND_user_story_25. If the element "system" in user_story_33 deleted or modified that used by user_story_25, this means the user_story_25 can no longer be applied. 
+
 
  user_story_25: #g03# as a zoning staff member, i want to process the requests for zoning information, so that i can capture my response to the request in the #system# and also send a communication from the system to the applicant.
 
@@ -473,6 +551,8 @@ user_story_35_AND_user_story_39
   
 Conflict-Reasons are: 
 * Primary Entity: plans
+There is Delete - Delete conflict reason between user_story_35_AND_user_story_39. If the following elements are deleted or modified, the other user story can no longer be applied: [plans]
+
 
  user_story_35: #g03# as a plan review staff member, i want to assign #plans# for review, so that i can ensure plans have been assigned to the appropriate plan reviewer.
 
@@ -486,6 +566,8 @@ user_story_36_AND_user_story_17
 Conflict-Reasons are: 
 * Primary Action: manage
 * Secondary Action: ensure
+There is Delete - Delete conflict reason between user_story_36_AND_user_story_17. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can #ensure# compliance with and satisfaction of the proffer in the future.
 
@@ -499,6 +581,8 @@ user_story_36_AND_user_story_30
 Conflict-Reasons are: 
 * Primary Action: manage
 * Secondary Action: ensure
+There is Delete - Delete conflict reason between user_story_36_AND_user_story_30. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, ensure]
+
 
  user_story_30: #g03# as a staff member, i want to #manage# affidavits, so that i can #ensure# compliance with the requirements prior to the hearing.
 
@@ -512,6 +596,8 @@ user_story_37_AND_user_story_03
 Conflict-Reasons are: 
 * Primary Action: request
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_37_AND_user_story_03. If the following elements are deleted or modified, the other user story can no longer be applied: [request, triggers]
+
 
  user_story_03: #g03# as an applicant, i want to #request# preapplication assistance, so that i can receive a response to a request for a meeting or information that is a result of the preapplication assistance.
 
@@ -526,6 +612,8 @@ Conflict-Reasons are:
 * Secondary Action: review
 * Secondary Entity: compliance
 * Secondary Action: targets
+There is Delete - Delete conflict reason between user_story_39_AND_user_story_12. If the following elements are deleted or modified, the other user story can no longer be applied: [review, compliance, targets]
+
 
  user_story_12: #g03# as a staff member, i want to assign an application for detailed review, so that i can #review# the for #compliance# and subsequently approved or denied.
 
@@ -538,6 +626,8 @@ user_story_39_AND_user_story_35
   
 Conflict-Reasons are: 
 * Primary Entity: plans
+There is Delete - Delete conflict reason between user_story_39_AND_user_story_35. If the following elements are deleted or modified, the other user story can no longer be applied: [plans]
+
 
  user_story_35: #g03# as a plan review staff member, i want to assign #plans# for review, so that i can ensure plans have been assigned to the appropriate plan reviewer.
 
@@ -551,6 +641,8 @@ user_story_39_AND_user_story_40
 Conflict-Reasons are: 
 * Primary Entity: plans
 * Secondary Action: review
+There is Delete - Delete conflict reason between user_story_39_AND_user_story_40. If the following elements are deleted or modified, the other user story can no longer be applied: [plans, review]
+
 
  user_story_39: #g03# as a plan review staff member, i want to review #plans#, so that i can #review# them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.
 
@@ -564,6 +656,8 @@ user_story_39_AND_user_story_41
 Conflict-Reasons are: 
 * Primary Action: review
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_39_AND_user_story_41. If the following elements are deleted or modified, the other user story can no longer be applied: [review, triggers]
+
 
  user_story_39: #g03# as a plan #review# staff member, i want to review plans, so that i can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.
 
@@ -577,6 +671,8 @@ user_story_40_AND_user_story_39
 Conflict-Reasons are: 
 * Primary Entity: plans
 * Secondary Action: review
+There is Delete - Delete conflict reason between user_story_40_AND_user_story_39. If the following elements are deleted or modified, the other user story can no longer be applied: [plans, review]
+
 
  user_story_39: #g03# as a plan review staff member, i want to review #plans#, so that i can #review# them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.
 
@@ -590,6 +686,8 @@ user_story_41_AND_user_story_39
 Conflict-Reasons are: 
 * Primary Action: review
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_41_AND_user_story_39. If the following elements are deleted or modified, the other user story can no longer be applied: [review, triggers]
+
 
  user_story_39: #g03# as a plan #review# staff member, i want to review plans, so that i can review them for compliance and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.
 
@@ -603,6 +701,8 @@ user_story_44_AND_user_story_17
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_44_AND_user_story_17. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_17: #g03# as a staff member, i want to #manage# approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.
 
@@ -616,6 +716,8 @@ user_story_44_AND_user_story_18
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_44_AND_user_story_18. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_18: #g03# as a staff member, i want to #manage# ordinances, so that i can maintain accurate ordinance information in the system.
 
@@ -630,6 +732,8 @@ Conflict-Reasons are:
 * Primary Action: manage
 * Persona: triggers
 * Secondary Action: track
+There is Delete - Delete conflict reason between user_story_44_AND_user_story_28. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers, track]
+
 
  user_story_28: #g03# as a staff member, i want to #manage# hearing calendars, so that i can #track# hearing-related activities and due dates.
 
@@ -643,6 +747,8 @@ user_story_44_AND_user_story_30
 Conflict-Reasons are: 
 * Primary Action: manage
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_44_AND_user_story_30. If the following elements are deleted or modified, the other user story can no longer be applied: [manage, triggers]
+
 
  user_story_30: #g03# as a staff member, i want to #manage# affidavits, so that i can ensure compliance with the requirements prior to the hearing.
 
@@ -655,6 +761,8 @@ user_story_46_AND_user_story_47
   
 Conflict-Reasons are: 
 * Primary Entity: inspection
+There is Delete - Delete conflict reason between user_story_46_AND_user_story_47. If the following elements are deleted or modified, the other user story can no longer be applied: [inspection]
+
 
  user_story_46: #g03# as a customer, i want to request #inspection#, so that a county inspector is assigned to perform an inspection of my project.
 
@@ -667,6 +775,8 @@ user_story_47_AND_user_story_46
   
 Conflict-Reasons are: 
 * Primary Entity: inspection
+There is Delete - Delete conflict reason between user_story_47_AND_user_story_46. If the following elements are deleted or modified, the other user story can no longer be applied: [inspection]
+
 
  user_story_46: #g03# as a customer, i want to request #inspection#, so that a county inspector is assigned to perform an inspection of my project.
 
@@ -680,6 +790,8 @@ user_story_52_AND_user_story_01
 Conflict-Reasons are: 
 * Primary Action: search
 * Secondary Action: obtain
+There is Delete - Delete conflict reason between user_story_52_AND_user_story_01. If the following elements are deleted or modified, the other user story can no longer be applied: [search, obtain]
+
 
  user_story_01: #g03# as a public user, i want to #search# for information, so that i can #obtain# publicly available information concerning properties, county services, processes and other general information.
 
@@ -692,6 +804,8 @@ user_story_53_AND_user_story_24
   
 Conflict-Reasons are: 
 * Secondary Entity: application
+There is Delete conflict reason between user_story_53_AND_user_story_24. If the element "application" in user_story_53 deleted or modified that used by user_story_24, this means the user_story_24 can no longer be applied. 
+
 
  user_story_24: #g03# as a staff member, i want to perform a staff review, so that i can validate compliance of an #application# with the zoning ordinance and impact approval/denial of the application accordingly.
 
@@ -705,6 +819,8 @@ user_story_57_AND_user_story_15
 Conflict-Reasons are: 
 * Primary Action: send
 * Persona: triggers
+There is Delete - Delete conflict reason between user_story_57_AND_user_story_15. If the following elements are deleted or modified, the other user story can no longer be applied: [send, triggers]
+
 
  user_story_15: #g03# as a staff member, i want to #send# a formal response to applicant, so that i can satisfy communication and records responsibilities.
 

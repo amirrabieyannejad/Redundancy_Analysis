@@ -36,10 +36,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //-----Delete Annotation for Attributes actions and entities plus their entities which have target edges or triggers edge 
-public class CdaConvertor {
+public class CdaConvertorV2 {
 	private static String dirName;
 
-	public CdaConvertor(String directroyName) {
+	public CdaConvertorV2(String directroyName) {
 		dirName = directroyName;
 	}
 
@@ -48,14 +48,18 @@ public class CdaConvertor {
 	private static ArrayList<String> arrayExMax;
 	private static ArrayList<String> arrayDelDelConflict;
 	private static ArrayList<String> arrayDelUseConflict;
-	private static List<SecondaryEntity> secondaryEntity;
-	private static List<PrimaryEntity> primaryEntity;
-	private static List<SecondaryAction> secondaryAction;
-	private static List<PrimaryAction> primaryAction;
+	private static SecondaryEntity secondaryEntity;
+	private static PrimaryEntity primaryEntity;
+	private static SecondaryAction secondaryAction;
+	private static PrimaryAction primaryAction;
+	private static Triggers triggers;
+	private static Targets targets;
+	private static ConflictingItems conflictingItems;
+	private static List<String> pairList = new ArrayList<>();
 
 	public static void main(String[] args) throws IOException {
 
-		CdaConvertor cdaConvertor = new CdaConvertor("2024.02.05_13.11.22");
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.05_13.11.22");
 		cdaConvertor.extractReports();
 
 	}
@@ -65,7 +69,7 @@ public class CdaConvertor {
 
 		File main = new File(path);
 		try {
-			File totalCda = new File(path + "\\Textual_Report_v1.txt");
+			File totalCda = new File(path + "\\Textual_Report_v2.txt");
 			if (totalCda.createNewFile()) {
 				System.out.println("CDA file created succesfully: " + totalCda.getName());
 				cdaWriter = new FileWriter(totalCda);
@@ -82,65 +86,75 @@ public class CdaConvertor {
 		String[] criticalPairsDir = main.list();
 		// Iterate through critical pairs
 		for (int i = 0; i < criticalPairsDir.length; i++) {
+			if (!checkIfReportExist(criticalPairsDir[i])) {
 
-			File conflictReasonDir = new File(path + "\\" + criticalPairsDir[i]);
+				File conflictReasonDir = new File(path + "\\" + criticalPairsDir[i]);
 
-			if (!conflictReasonDir.isFile()) {
-
-				String[] conflictReasonListing = conflictReasonDir.list();
-				// Iterate through conflict reasons if there is more than one conflict_reason.
-
-				if (conflictReasonListing.length > 1) {
-					cdaWriter.write("\n------------------[Potential-Critical-Pair-Found]--------------------------\n"
-							+ criticalPairsDir[i] + "\n  ");
-					arrayMaximal = new ArrayList<String>();
-					arrayExMax = new ArrayList<String>();
-					secondaryEntity = new ArrayList<>();
-					primaryEntity = new ArrayList<>();
-					secondaryAction = new ArrayList<>();
-					primaryAction = new ArrayList<>();
+				if (!conflictReasonDir.isFile()) {
 					String conflictReason = null;
+					arrayExMax = new ArrayList<String>();
+					conflictingItems = new ConflictingItems();
+					String[] conflictReasonListing = conflictReasonDir.list();
+					// Iterate through conflict reasons if there is more than one conflict_reason.
 
-					cdaWriter.write("\nConflict-Reasons are: ");
-					for (int j = 0; j < conflictReasonListing.length; j++) {
-						arrayDelDelConflict = new ArrayList<String>();
-						arrayDelUseConflict = new ArrayList<String>();
-						File minimalModelEcoreFile = new File(path + "\\" + criticalPairsDir[i] + "\\"
-								+ conflictReasonListing[j] + "\\minimal-model.ecore");
-						try {
-							if (minimalModelEcoreFile.exists()) {
-								Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;
-								resourceFactoryRegistry.getExtensionToFactoryMap().put("ecore",
-										new XMIResourceFactoryImpl());
-								ResourceSet resourceSet = new ResourceSetImpl();
-								Resource resource = resourceSet
-										.getResource(URI.createFileURI(minimalModelEcoreFile.getAbsolutePath()), true);
-								if (resource != null && !resource.getContents().isEmpty()) {
+					if (conflictReasonListing.length > 1) {
 
-									for (EObject eObject : resource.getContents()) {
-										EPackage minimalPackage = (EPackage) eObject;
+						arrayMaximal = new ArrayList<String>();
 
-										// check whther the conflict is del-use or del-del conflict
-										conflictReason = conflictReasonListing[j];
-										conflictReason = conflictReason.replaceAll("\\S\\d+\\S\\s(.*)", "$1");
+						conflictReason = null;
 
-										iteratePackages(minimalPackage, conflictReason);
+						for (int j = 0; j < conflictReasonListing.length; j++) {
+							arrayDelDelConflict = new ArrayList<String>();
+							arrayDelUseConflict = new ArrayList<String>();
+							File minimalModelEcoreFile = new File(path + "\\" + criticalPairsDir[i] + "\\"
+									+ conflictReasonListing[j] + "\\minimal-model.ecore");
+							try {
+								if (minimalModelEcoreFile.exists()) {
+									Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;
+									resourceFactoryRegistry.getExtensionToFactoryMap().put("ecore",
+											new XMIResourceFactoryImpl());
+									ResourceSet resourceSet = new ResourceSetImpl();
+									Resource resource = resourceSet.getResource(
+											URI.createFileURI(minimalModelEcoreFile.getAbsolutePath()), true);
+									if (resource != null && !resource.getContents().isEmpty()) {
 
+										for (EObject eObject : resource.getContents()) {
+											EPackage minimalPackage = (EPackage) eObject;
+
+											// check whther the conflict is del-use or del-del conflict
+											conflictReason = conflictReasonListing[j];
+											conflictReason = conflictReason.replaceAll("\\S\\d+\\S\\s(.*)", "$1");
+
+											iteratePackages(minimalPackage, conflictReason);
+
+										}
+									} else {
+										System.out.println("minimal-model.ecore not found!");
+										cdaWriter.write("minimal-model.ecore not found!");
 									}
 								} else {
-									System.out.println("minimal-model.ecore not found!");
-									cdaWriter.write("minimal-model.ecore not found!");
+									System.err.println("No registered resource factory founded: "
+											+ minimalModelEcoreFile.getAbsolutePath());
+									cdaWriter.write("No registered resource factory founded: "
+											+ minimalModelEcoreFile.getAbsolutePath());
 								}
-							} else {
-								System.err.println("No registered resource factory founded: "
-										+ minimalModelEcoreFile.getAbsolutePath());
-								cdaWriter.write("No registered resource factory founded: "
-										+ minimalModelEcoreFile.getAbsolutePath());
+							} catch (Exception e) {
+								e.printStackTrace();
 							}
-						} catch (Exception e) {
-							e.printStackTrace();
+
 						}
-						
+//					cdaWriter.write("\nArray ExMax : " + arrayExMax.toString() + " Array Maximal is: "
+//							+ arrayMaximal.toString() + "\n");
+
+					}
+					// Write only the Elements which contains Primary/Secondary Action and
+					// Primary/Secondary Entity
+					if (hasEntitys() && hasActions() && hasTargets()) {
+						cdaWriter
+								.write("\n------------------[Potential-Critical-Pair-Found]--------------------------\n"
+										+ criticalPairsDir[i] + "\n  ");
+						cdaWriter.write("\nConflict-Reasons are: ");
+						conflictingItems.printConflictingItems(cdaWriter);
 						if (conflictReason.equals("Delete - Delete conflict reason")
 								&& !arrayDelDelConflict.isEmpty()) {
 
@@ -153,17 +167,79 @@ public class CdaConvertor {
 							checkWhichUsCauseConflict(criticalPairsDir[i], conflictReason);
 
 						}
+						writeUsText(criticalPairsDir[i], arrayExMax);
+						cdaWriter.write("\n\nMaximal conflict element between " + criticalPairsDir[i] + " is: "
+								+ arrayMaximal.size() + "\n");
 
 					}
-					
-					writeUsText(criticalPairsDir[i], arrayExMax);
-					cdaWriter.write("\n\nMaximal conflict element between " + criticalPairsDir[i] + " is: "
-							+ arrayMaximal.size() + "\n");
 
 				}
+
 			}
 		}
 		cdaWriter.close();
+	}
+
+	// check if critical pair list already contain of
+	// whether user_story_XX_AND_user_story_YY
+	// or user_story_YY_AND_user_story_XX if yes return true,
+	// Otherwise return false
+	private boolean checkIfReportExist(String usPairs) {
+		if (!pairList.contains(usPairs)) {
+			String us1 = usPairs.replaceAll("(.*)_AND.*", "$1");
+			String us2 = usPairs.replaceAll(".*_AND_(.*)", "$1");
+			pairList.add(usPairs);
+			pairList.add(us2 + "_AND_" + us1);
+			return false;
+		} else {
+
+			return true;
+		}
+
+	}
+
+	private boolean hasTargets() {
+		for (String item : arrayExMax) {
+			for (Targets target : conflictingItems.getTargets()) {
+				if (item.equals(target.getName())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean hasActions() {
+		for (String item : arrayExMax) {
+			for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
+				if (item.equals(secondaryAction.getName())) {
+					return true;
+				}
+			}
+			for (PrimaryAction primaryAction : conflictingItems.getPrimaryActions()) {
+				if (item.equals(primaryAction.getName())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean hasEntitys() {
+		for (String item : arrayExMax) {
+			for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
+				if (item.equals(secondaryEntity.getName())) {
+					return true;
+				}
+			}
+			for (PrimaryEntity primaryEntity : conflictingItems.getPrimaryEntity()) {
+				if (item.equals(primaryEntity.getName())) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	private void checkWhichUsCauseConflict(String string, String conflictReason) throws IOException {
@@ -273,23 +349,23 @@ public class CdaConvertor {
 
 	private String highlightConflict(String us) throws IOException {
 
-		for (PrimaryAction action : primaryAction) {
+		for (PrimaryAction action : conflictingItems.getPrimaryActions()) {
 			us = us.replaceFirst("\\b" + action.getName() + "\\b", "#" + action.getName() + "#");
 
 		}
-		for (PrimaryEntity entity : primaryEntity) {
+		for (PrimaryEntity entity : conflictingItems.getPrimaryEntity()) {
 			us = us.replaceFirst("\\b" + entity.getName() + "\\b", "#" + entity.getName() + "#");
-
 		}
+
 		int firstComma = us.indexOf(',');
 		int secondComma = us.indexOf(',', firstComma + 1);
 		String subString = us.substring(secondComma + 1);
-		for (SecondaryAction secondaryAction : secondaryAction) {
+		for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
 			subString = subString.replaceFirst("\\b" + secondaryAction.getName() + "\\b",
 					"#" + secondaryAction.getName() + "#");
 			us = us.substring(0, secondComma + 1) + subString;
 		}
-		for (SecondaryEntity secondaryEntity : secondaryEntity) {
+		for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
 			subString = subString.replaceFirst("\\b" + secondaryEntity.getName() + "\\b",
 					"#" + secondaryEntity.getName() + "#");
 
@@ -313,7 +389,7 @@ public class CdaConvertor {
 					if (attribute != null && !arrayMaximal.contains(attribute.getName())) {
 
 						String attName = getAttName(attribute.getName());
-						cdaWriter.write("\n* " + className + ": " + attName);
+						// cdaWriter.write("\n* " + className + ": " + attName);
 						arrayMaximal.add(attribute.getName());
 						arrayExMax.add(attName);
 						if (conflictReasonListing.equals("Delete - Delete conflict reason")) {
@@ -326,16 +402,20 @@ public class CdaConvertor {
 
 						switch (className) {
 						case "Primary Action":
-							primaryAction.add(new PrimaryAction(attName));
+
+							conflictingItems.addPrimaryAction(new PrimaryAction(attName));
 							break;
 						case "Secondary Action":
-							secondaryAction.add(new SecondaryAction(attName));
+
+							conflictingItems.addSecondaryAction(new SecondaryAction(attName));
 							break;
 						case "Secondary Entity":
-							secondaryEntity.add(new SecondaryEntity(attName));
+
+							conflictingItems.addSecondaryEntity(new SecondaryEntity(attName));
 							break;
 						case "Primary Entity":
-							primaryEntity.add(new PrimaryEntity(attName));
+
+							conflictingItems.addPrimaryEntity(new PrimaryEntity(attName));
 							break;
 						default:
 							break;
@@ -350,7 +430,14 @@ public class CdaConvertor {
 						arrayMaximal.add(eReference.getName());
 						arrayExMax.add(refName);
 						arrayDelDelConflict.add(refName);
-						cdaWriter.write("\n* " + className + ": " + refName);
+						if (refName.equals("triggers")) {
+							conflictingItems.addTriggers(new Triggers(refName, className));
+							// triggers.add(new Triggers(refName, className));
+						} else if (refName.equals("targets")) {
+							conflictingItems.addTargets(new Targets(refName, className));
+							// targets.add(new Targets(refName, className));
+						}
+						// cdaWriter.write("\n* " + className + ": " + refName);
 
 					}
 

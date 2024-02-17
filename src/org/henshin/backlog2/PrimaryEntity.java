@@ -1,6 +1,6 @@
 package org.henshin.backlog2;
 
-public class PrimaryEntity {
+public class PrimaryEntity extends ConflictingItems{
 	private String name;
 	final private String classType = "Primary Entity";
 
@@ -12,7 +12,7 @@ public class PrimaryEntity {
 		return name;
 	}
 
-	public String classType() {
+	public String getType() {
 		return classType;
 
 	}

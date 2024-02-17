@@ -1,12 +1,12 @@
 package org.henshin.backlog2;
 
-public class SecondaryAction extends ConflictingItems{
+public class Targets extends ConflictingItems{
 	private String name;
-	final private String classType = "Secondary Action";
+	private String classType;
 
-	public SecondaryAction(String name) {
+	public Targets(String name, String type) {
 		this.name = name;
-
+		this.classType =type;
 	}
 
 	public String getName() {
@@ -15,5 +15,6 @@ public class SecondaryAction extends ConflictingItems{
 
 	public String getType() {
 		return classType;
+
 	}
 }

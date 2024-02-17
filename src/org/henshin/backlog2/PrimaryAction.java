@@ -1,6 +1,6 @@
 package org.henshin.backlog2;
 
-public class PrimaryAction {
+public class PrimaryAction extends ConflictingItems{
 	private String name;
 	final private String classType = "Primary Aciton";
 

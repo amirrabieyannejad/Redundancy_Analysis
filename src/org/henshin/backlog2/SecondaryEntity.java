@@ -1,10 +1,11 @@
 package org.henshin.backlog2;
 
-public class SecondaryEntity {
+public class SecondaryEntity  extends ConflictingItems{
 	private String name;
 	final private String classType = "Secondary Entity";
 
 	public SecondaryEntity(String name) {
+		
 		this.name = name;
 	}
 
