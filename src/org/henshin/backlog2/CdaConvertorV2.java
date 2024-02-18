@@ -12,30 +12,25 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.henshin.model.compact.CNode;
 
+import java.io.BufferedReader;
 import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
-import java.rmi.registry.Registry;
-import java.util.Map;
-import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONException;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 //-----Delete Annotation for Attributes actions and entities plus their entities which have target edges or triggers edge 
+/**
+ * @author amirr
+ *
+ */
 public class CdaConvertorV2 {
 	private static String dirName;
 
@@ -48,14 +43,10 @@ public class CdaConvertorV2 {
 	private static ArrayList<String> arrayExMax;
 	private static ArrayList<String> arrayDelDelConflict;
 	private static ArrayList<String> arrayDelUseConflict;
-	private static SecondaryEntity secondaryEntity;
-	private static PrimaryEntity primaryEntity;
-	private static SecondaryAction secondaryAction;
-	private static PrimaryAction primaryAction;
-	private static Triggers triggers;
-	private static Targets targets;
+	private static List<ConflictPair> conflictPairs;
 	private static ConflictingItems conflictingItems;
 	private static List<String> pairList = new ArrayList<>();
+	private static List<String> pairListSeperate = new ArrayList<>();
 
 	public static void main(String[] args) throws IOException {
 
@@ -66,10 +57,12 @@ public class CdaConvertorV2 {
 
 	public void extractReports() throws IOException {
 		String path = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + dirName;
-
 		File main = new File(path);
+		File totalCda = null;
+		// Instantiate conflictPairs
+		conflictPairs = new ArrayList<>();
 		try {
-			File totalCda = new File(path + "\\Textual_Report_v2.txt");
+			totalCda = new File(path + "\\Textual_Report_v2.txt");
 			if (totalCda.createNewFile()) {
 				System.out.println("CDA file created succesfully: " + totalCda.getName());
 				cdaWriter = new FileWriter(totalCda);
@@ -121,7 +114,7 @@ public class CdaConvertorV2 {
 										for (EObject eObject : resource.getContents()) {
 											EPackage minimalPackage = (EPackage) eObject;
 
-											// check whther the conflict is del-use or del-del conflict
+											// check whether the conflict is del-use or del-del conflict
 											conflictReason = conflictReasonListing[j];
 											conflictReason = conflictReason.replaceAll("\\S\\d+\\S\\s(.*)", "$1");
 
@@ -143,15 +136,12 @@ public class CdaConvertorV2 {
 							}
 
 						}
-//					cdaWriter.write("\nArray ExMax : " + arrayExMax.toString() + " Array Maximal is: "
-//							+ arrayMaximal.toString() + "\n");
-
 					}
 					// Write only the Elements which contains Primary/Secondary Action and
 					// Primary/Secondary Entity
 					if (hasEntitys() && hasActions() && hasTargets()) {
-						cdaWriter
-								.write("\n------------------[Potential-Critical-Pair-Found]--------------------------\n"
+						cdaWriter.write(
+								"\n------------------[Potentially redundant user stries found]--------------------------\n"
 										+ criticalPairsDir[i] + "\n  ");
 						cdaWriter.write("\nConflict-Reasons are: ");
 						conflictingItems.printConflictingItems(cdaWriter);
@@ -168,8 +158,8 @@ public class CdaConvertorV2 {
 
 						}
 						writeUsText(criticalPairsDir[i], arrayExMax);
-						cdaWriter.write("\n\nMaximal conflict element between " + criticalPairsDir[i] + " is: "
-								+ arrayMaximal.size() + "\n");
+						cdaWriter.write("\n\nMaximal number of conflicted elements between " + criticalPairsDir[i]
+								+ " is: " + arrayMaximal.size() + "\n");
 
 					}
 
@@ -178,6 +168,95 @@ public class CdaConvertorV2 {
 			}
 		}
 		cdaWriter.close();
+		writeTable(totalCda);
+
+	}
+
+	// in order to insert the table at the very first place of the file
+	// we need to first store the report at StringBuilder and then make
+	// file again but at this time writing the table first
+	private void writeTable(File totalCda) throws IOException {
+
+		StringBuilder report = new StringBuilder();
+		BufferedReader reader = new BufferedReader(new FileReader(totalCda));
+		String line;
+		while ((line = reader.readLine()) != null) {
+			report.append(line).append("\n");
+		}
+		reader.close();
+		try (FileWriter writer = new FileWriter(totalCda)) {
+			// display the table
+			StringBuilder table = new StringBuilder();
+			// add new line before the table
+			table.append(
+					"* Table of potential redundancies between user stories and the number of overlapping elements\n\n");
+			// table.append("\t");
+			for (ConflictPair it : conflictPairs) {
+				if (!pairListSeperate.contains(it.getConflictPair1())) {
+					pairListSeperate.add(it.getConflictPair1());
+				}
+				if (!pairListSeperate.contains(it.getConflictPair2())) {
+					pairListSeperate.add(it.getConflictPair2());
+				}
+			}
+			String[][] stringTable = createTable(pairListSeperate, conflictPairs);
+			int numRows = stringTable.length;
+			int numCols = stringTable[0].length;
+
+			// find the maximum width for each column
+			int[] maxWidths = new int[numCols];
+			for (String[] row : stringTable) {
+				for (int j = 0; j < numCols; j++) {
+					maxWidths[j] = Math.max(maxWidths[j], row[j].length());
+				}
+			}
+			for (String[] row : stringTable) {
+				for (int j = 0; j < numCols; j++) {
+					
+					table.append(String.format("%-" + (maxWidths[j] + 2) + "s", row[j]));
+				}
+				table.append("\n");
+			}
+			writer.write(table.toString());
+			writer.write(report.toString());
+		} catch (
+
+		IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private String[][] createTable(List<String> pairListSeperate2, List<ConflictPair> conflictPairs2) {
+		int size = pairListSeperate2.size();
+		String[][] table = new String[size + 1][size + 1];
+
+		table[0][0] = "";
+		for (int i = 0; i < size; i++) {
+			table[0][i + 1] = pairListSeperate2.get(i); // header row
+			table[i + 1][0] = pairListSeperate2.get(i); // first column
+		}
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				String pair1 = pairListSeperate2.get(i);
+				String pair2 = pairListSeperate2.get(j);
+				int maximal = findMaximal(conflictPairs2, pair1, pair2);
+				table[i + 1][j + 1] = String.valueOf(maximal);
+			}
+
+		}
+		return table;
+	}
+
+	private int findMaximal(List<ConflictPair> cPs, String pair1, String pair2) {
+		for (ConflictPair cp : cPs) {
+			if ((cp.getConflictPair1().equals(pair1) && cp.getConflictPair2().equals(pair2))
+					|| (cp.getConflictPair1().equals(pair2) && cp.getConflictPair2().equals(pair1))) {
+				return cp.getMaximal();
+			}
+		}
+
+		return 0;
 	}
 
 	// check if critical pair list already contain of
@@ -189,7 +268,9 @@ public class CdaConvertorV2 {
 			String us1 = usPairs.replaceAll("(.*)_AND.*", "$1");
 			String us2 = usPairs.replaceAll(".*_AND_(.*)", "$1");
 			pairList.add(usPairs);
+			// Add also reverse item
 			pairList.add(us2 + "_AND_" + us1);
+
 			return false;
 		} else {
 
@@ -311,6 +392,13 @@ public class CdaConvertorV2 {
 		String usNr = null;
 		String us1 = string.replaceAll("(.*)_AND.*", "$1");
 		String us2 = string.replaceAll(".*_AND_(.*)", "$1");
+		// add conflict pairs with maximal overlapping and save it
+		// in order to filling table
+		ConflictPair cp = new ConflictPair();
+		cp.setConflictPair1(us1);
+		cp.setConflictPair2(us2);
+		cp.setMaximal(arrayMax.size());
+		conflictPairs.add(cp);
 		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\g03_baseline_pos_num.json";
 
 		try (FileReader reader = new FileReader(fileName)) {
@@ -330,11 +418,11 @@ public class CdaConvertorV2 {
 					if (usNr.equals(us1)) {
 						String highlightedUs1 = highlightConflict(jsonObject.getString("Text").toLowerCase());
 						cdaWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-						// cdaWriter.write("\n\n " + us1 + ": " + jsonObject.getString("Text"));
+
 					} else if (usNr.equals(us2)) {
 						String highlightedUs2 = highlightConflict(jsonObject.getString("Text").toLowerCase());
 						cdaWriter.write("\n\n " + us2 + ": " + highlightedUs2);
-						// cdaWriter.write("\n\n " + us2 + ": " + jsonObject.getString("Text"));
+
 					}
 				} else {
 					cdaWriter.write("US_Nr or Text Element not found in JSON-Data!");
@@ -389,7 +477,6 @@ public class CdaConvertorV2 {
 					if (attribute != null && !arrayMaximal.contains(attribute.getName())) {
 
 						String attName = getAttName(attribute.getName());
-						// cdaWriter.write("\n* " + className + ": " + attName);
 						arrayMaximal.add(attribute.getName());
 						arrayExMax.add(attName);
 						if (conflictReasonListing.equals("Delete - Delete conflict reason")) {
@@ -432,12 +519,11 @@ public class CdaConvertorV2 {
 						arrayDelDelConflict.add(refName);
 						if (refName.equals("triggers")) {
 							conflictingItems.addTriggers(new Triggers(refName, className));
-							// triggers.add(new Triggers(refName, className));
+
 						} else if (refName.equals("targets")) {
 							conflictingItems.addTargets(new Targets(refName, className));
-							// targets.add(new Targets(refName, className));
+
 						}
-						// cdaWriter.write("\n* " + className + ": " + refName);
 
 					}
 
