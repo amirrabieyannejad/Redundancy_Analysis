@@ -1,4 +1,4 @@
-package org.henshin.backlog2;
+package org.henshin.backlog2.Archive;
 
 //import org.eclipse.core.internal.resources.Resource;
 import org.eclipse.emf.common.util.URI;
@@ -35,23 +35,23 @@ import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//-----Delete Annotation for Attributes actions and entities plus their entities which have target edges or triggers edge 
+// Make CDA Report which all Maximal Conflict going to be reported
 public class CdaConvertor {
 	private static String dirName;
 
 	public CdaConvertor(String directroyName) {
 		dirName = directroyName;
 	}
-
+	
 	private static FileWriter cdaWriter = null;
 	private static ArrayList<String> arrayMaximal;
 	private static ArrayList<String> arrayExMax;
 	private static ArrayList<String> arrayDelDelConflict;
 	private static ArrayList<String> arrayDelUseConflict;
-	private static List<SecondaryEntity> secondaryEntity;
-	private static List<PrimaryEntity> primaryEntity;
-	private static List<SecondaryAction> secondaryAction;
-	private static List<PrimaryAction> primaryAction;
+	private static List<org.henshin.backlog2.SecondaryEntity> secondaryEntity;
+	private static List<org.henshin.backlog2.PrimaryEntity> primaryEntity;
+	private static List<org.henshin.backlog2.SecondaryAction> secondaryAction;
+	private static List<org.henshin.backlog2.PrimaryAction> primaryAction;
 
 	public static void main(String[] args) throws IOException {
 
@@ -273,23 +273,23 @@ public class CdaConvertor {
 
 	private String highlightConflict(String us) throws IOException {
 
-		for (PrimaryAction action : primaryAction) {
+		for (org.henshin.backlog2.PrimaryAction action : primaryAction) {
 			us = us.replaceFirst("\\b" + action.getName() + "\\b", "#" + action.getName() + "#");
 
 		}
-		for (PrimaryEntity entity : primaryEntity) {
+		for (org.henshin.backlog2.PrimaryEntity entity : primaryEntity) {
 			us = us.replaceFirst("\\b" + entity.getName() + "\\b", "#" + entity.getName() + "#");
 
 		}
 		int firstComma = us.indexOf(',');
 		int secondComma = us.indexOf(',', firstComma + 1);
 		String subString = us.substring(secondComma + 1);
-		for (SecondaryAction secondaryAction : secondaryAction) {
+		for (org.henshin.backlog2.SecondaryAction secondaryAction : secondaryAction) {
 			subString = subString.replaceFirst("\\b" + secondaryAction.getName() + "\\b",
 					"#" + secondaryAction.getName() + "#");
 			us = us.substring(0, secondComma + 1) + subString;
 		}
-		for (SecondaryEntity secondaryEntity : secondaryEntity) {
+		for (org.henshin.backlog2.SecondaryEntity secondaryEntity : secondaryEntity) {
 			subString = subString.replaceFirst("\\b" + secondaryEntity.getName() + "\\b",
 					"#" + secondaryEntity.getName() + "#");
 
@@ -326,16 +326,16 @@ public class CdaConvertor {
 
 						switch (className) {
 						case "Primary Action":
-							primaryAction.add(new PrimaryAction(attName));
+							primaryAction.add(new org.henshin.backlog2.PrimaryAction(attName));
 							break;
 						case "Secondary Action":
-							secondaryAction.add(new SecondaryAction(attName));
+							secondaryAction.add(new org.henshin.backlog2.SecondaryAction(attName));
 							break;
 						case "Secondary Entity":
-							secondaryEntity.add(new SecondaryEntity(attName));
+							secondaryEntity.add(new org.henshin.backlog2.SecondaryEntity(attName));
 							break;
 						case "Primary Entity":
-							primaryEntity.add(new PrimaryEntity(attName));
+							primaryEntity.add(new org.henshin.backlog2.PrimaryEntity(attName));
 							break;
 						default:
 							break;

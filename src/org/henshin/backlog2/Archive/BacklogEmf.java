@@ -1,4 +1,4 @@
-package org.henshin.backlog2;
+package org.henshin.backlog2.Archive;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -25,7 +25,9 @@ import org.eclipse.emf.henshin.model.compact.CNode;
 import org.eclipse.emf.henshin.model.compact.CRule;
 import org.eclipse.emf.henshin.model.compact.CUnit;
 
+// create ECore Model automatically 
 public class BacklogEmf {
+	
 	
 	//public static final String PATH = "src/org/henshin/backlog/";
 	/**

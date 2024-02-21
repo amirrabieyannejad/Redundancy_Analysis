@@ -14,7 +14,10 @@ import org.json.JSONTokener;
 import org.json.JSONException;
 import java.util.HashMap;
 
-//-----Delete Annotation for Attributes actions and entities plus their entities which have target edges or triggers edge 
+/*  Delete Annotation for Attributes actions and entities
+ *  plus their edges which have target edges or triggers edge
+ *  This version is include US "Text"
+ */
 public class RuleCreator_v4 {
 	public static CModule module = new CModule("backlog_v4");
 	private static final Logger LOGGER = Logger.getLogger(RuleCreator_v4.class.getName());
@@ -32,7 +35,8 @@ public class RuleCreator_v4 {
 	public static void main(String[] args) {
 		JSONArray jsonArray = null;
 		// JSONObject jsonObject = null;
-		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\g03_baseline_pos_num.json";
+		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\"
+				+ "org.henshin.backlog2\\g03_baseline_pos_num.json";
 
 		try (FileReader reader = new FileReader(fileName)) {
 			JSONTokener tokener = new JSONTokener(reader);
@@ -103,7 +107,7 @@ public class RuleCreator_v4 {
 
 				CNode personaNode = processPersona(jsonObject, personaM, userStoryM, usNrM);
 
-				processText(jsonObject,userStoryM,textM);
+				processText(jsonObject, userStoryM, textM);
 				processActions(jsonObject, userStoryM, actionM, personaNode);
 				processEntities(jsonObject, userStoryM, entityM, targetsArrayM);
 				processTargetsEdges(jsonObject, targetsArrayM);
@@ -114,7 +118,6 @@ public class RuleCreator_v4 {
 
 		}
 	}
-
 
 	private CRule processRule(JSONObject jsonObject, String usNr) {
 		try {
@@ -127,16 +130,17 @@ public class RuleCreator_v4 {
 			return null;
 		}
 	}
-	
+
 	private void processText(JSONObject jsonObject, CRule userStory, String text) {
 		try {
 			CNode nodeText = userStory.createNode("Story");
-			nodeText.createAttribute("text","\"" + text.toLowerCase()+ "\"");
+			nodeText.createAttribute("text", "\"" + text.toLowerCase() + "\"");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	private CNode processPersona(JSONObject jsonObject, JSONArray persona, CRule userStory, String usNr) {
 		try {
 			if (jsonObject.has("Persona")) {
@@ -166,9 +170,10 @@ public class RuleCreator_v4 {
 							+ primaryAction.length());
 					CNode cNode = userStory.createNode("Primary Action");
 					// CNode cNode = userStory.createNode("Primary Action");
-					cNode.createAttribute("name", "\"" + primaryAction.getString(i) + "\"", "delete");
+					cNode.createAttribute("name", "\"" + primaryAction.getString(i).toLowerCase() + "\"", "delete");
 
-					// Create Edges from Action to Primary Action names primary actions
+					// Create Edges from Action to Primary Action names
+					// primary actions
 					nodePersona.createEdge(cNode, "triggers", "delete");
 					actionMap.put(primaryAction.getString(i), cNode);
 
@@ -184,7 +189,7 @@ public class RuleCreator_v4 {
 							+ secondaryAction.length());
 					CNode cNode = userStory.createNode("Secondary Action");
 					// CNode cNode = userStory.createNode("Secondary Action");
-					cNode.createAttribute("name", "\"" + secondaryAction.getString(i) + "\"", "delete");
+					cNode.createAttribute("name", "\"" + secondaryAction.getString(i).toLowerCase() + "\"", "delete");
 
 					actionMap.put(secondaryAction.getString(i), cNode);
 				}
@@ -212,13 +217,13 @@ public class RuleCreator_v4 {
 					if (checkEntityIsTarget(primaryEntity.getString(i), targetsArray)) {
 						LOGGER.info("[CreateDeleteAttribute] primaryEntity is: " + primaryEntity.getString(i));
 						cNode = userStory.createNode("Primary Entity");
-						cNode.createAttribute("name", "\"" + primaryEntity.getString(i) + "\"", "delete");
+						cNode.createAttribute("name", "\"" + primaryEntity.getString(i).toLowerCase() + "\"", "delete");
 						entityMap.put(primaryEntity.getString(i), cNode);
 					} else {
-						LOGGER.info("[CreatePreserveAttribute] SecondaryEntity *NOT* exist in entityMap which is: "
-								+ primaryEntity.getString(i));
+						LOGGER.info("[CreatePreserveAttribute] " + "SecondaryEntity *NOT*"
+								+ " exist in entityMap which is: " + primaryEntity.getString(i));
 						cNode = userStory.createNode("Primary Entity");
-						cNode.createAttribute("name", "\"" + primaryEntity.getString(i) + "\"");
+						cNode.createAttribute("name", "\"" + primaryEntity.getString(i).toLowerCase() + "\"");
 						entityMap.put(primaryEntity.getString(i), cNode);
 
 					}
@@ -239,13 +244,14 @@ public class RuleCreator_v4 {
 					if (checkEntityIsTarget(secondaryEntity.getString(i), targetsArray)) {
 						LOGGER.info("[CreateDeleteAttribute] SecondaryEntity is: " + secondaryEntity.getString(i));
 						cNode = userStory.createNode("Secondary Entity");
-						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i) + "\"", "delete");
+						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i).toLowerCase() + "\"",
+								"delete");
 						entityMap.put(secondaryEntity.getString(i), cNode);
 					} else {
-						LOGGER.info("[CreatePreserveAttribute] SecondaryEntity *NOT* exist in entityMap which is: "
-								+ secondaryEntity.getString(i));
+						LOGGER.info("[CreatePreserveAttribute] " + "SecondaryEntity *NOT* "
+								+ "exist in entityMap which is: " + secondaryEntity.getString(i));
 						cNode = userStory.createNode("Secondary Entity");
-						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i) + "\"");
+						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i).toLowerCase() + "\"");
 						entityMap.put(secondaryEntity.getString(i), cNode);
 
 					}

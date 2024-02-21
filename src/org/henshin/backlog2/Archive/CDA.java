@@ -1,4 +1,4 @@
-package org.henshin.backlog2;
+package org.henshin.backlog2.Archive;
 
 //import org.graalvm.compiler.nodes.ReturnNode;
 import org.eclipse.emf.henshin.model.compact.CModule;

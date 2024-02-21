@@ -1,4 +1,4 @@
-package org.henshin.backlog2;
+package org.henshin.backlog2.Archive;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Engine;

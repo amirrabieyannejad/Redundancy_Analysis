@@ -1,4 +1,4 @@
-package org.henshin.backlog2;
+package org.henshin.backlog2.Archive;
 
 import org.eclipse.core.internal.runtime.Log;
 import org.eclipse.emf.ecore.EcorePackage;

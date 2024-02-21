@@ -23,19 +23,24 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.json.JSONException;
 import java.util.List;
+import java.util.regex.*;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-//-----Delete Annotation for Attributes actions and entities plus their entities which have target edges or triggers edge 
+/** Report maximal overlap if and only if in Minimal Models
+ * at least Entity, Action and Triggers exist. With Table summary
+ */
 /**
  * @author amirr
  *
  */
 public class CdaConvertorV2 {
 	private static String dirName;
+	private static String jsonFile;
 
-	public CdaConvertorV2(String directroyName) {
+	public CdaConvertorV2(String directroyName, String jsonFile) {
 		dirName = directroyName;
+		this.jsonFile = jsonFile;
 	}
 
 	private static FileWriter cdaWriter = null;
@@ -47,10 +52,11 @@ public class CdaConvertorV2 {
 	private static ConflictingItems conflictingItems;
 	private static List<String> pairList = new ArrayList<>();
 	private static List<String> pairListSeperate = new ArrayList<>();
+	private static List<String> highlightedUs;
 
 	public static void main(String[] args) throws IOException {
 
-		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.05_13.11.22");
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.19_10.53.16", "g03_baseline_pos_num.json");
 		cdaConvertor.extractReports();
 
 	}
@@ -141,9 +147,10 @@ public class CdaConvertorV2 {
 					// Primary/Secondary Entity
 					if (hasEntitys() && hasActions() && hasTargets()) {
 						cdaWriter.write(
-								"\n------------------[Potentially redundant user stries found]--------------------------\n"
-										+ criticalPairsDir[i] + "\n  ");
-						cdaWriter.write("\nConflict-Reasons are: ");
+								"\n------------------[Potentially redundant user stries found]--------------------------\n{"
+										+ criticalPairsDir[i] + "}\n  ");
+
+						cdaWriter.write("\nRedundants elements are: ");
 						conflictingItems.printConflictingItems(cdaWriter);
 						if (conflictReason.equals("Delete - Delete conflict reason")
 								&& !arrayDelDelConflict.isEmpty()) {
@@ -158,8 +165,11 @@ public class CdaConvertorV2 {
 
 						}
 						writeUsText(criticalPairsDir[i], arrayExMax);
-						cdaWriter.write("\n\nMaximal number of conflicted elements between " + criticalPairsDir[i]
-								+ " is: " + arrayMaximal.size() + "\n");
+//						cdaWriter.write("\n\nMaximal number of conflicted elements between " + criticalPairsDir[i]
+//								+ " is: " + arrayMaximal.size() + "\n");
+						cdaWriter.write("\n\nThe following sentence parts are candidates for possible"
+								+ " redundancies between user stories:\n\n");
+						writeUsSentencePart(criticalPairsDir[i], highlightedUs);
 
 					}
 
@@ -169,6 +179,36 @@ public class CdaConvertorV2 {
 		}
 		cdaWriter.close();
 		writeTable(totalCda);
+
+	}
+
+	// get only the parts of sentences which seems to be potential redundancy in
+	// each user story
+	private void writeUsSentencePart(String string, List<String> uSs) throws IOException {
+		String usNum1 = string.replaceAll("(.*)_AND.*", "$1");
+		String usNum2 = string.replaceAll(".*_AND_(.*)", "$1");
+		String us1 = uSs.get(0);
+		String us2 = uSs.get(1);
+		splitUs(us1, usNum1);
+		splitUs(us2, usNum2);
+
+	}
+
+	private void splitUs(String us1, String title) throws IOException {
+		String[] parts = us1.split(",", 3);
+		String regex = "#\\w+#";
+		Pattern pattern = Pattern.compile(regex);
+		for (String part : parts) {
+			Matcher matcher = pattern.matcher(part);
+			int count = 0;
+			while (matcher.find()) {
+				count++;
+			}
+			if (count >= 2) {
+				cdaWriter.write(title + ": " + part + "\n");
+			}
+
+		}
 
 	}
 
@@ -212,7 +252,7 @@ public class CdaConvertorV2 {
 			}
 			for (String[] row : stringTable) {
 				for (int j = 0; j < numCols; j++) {
-					
+
 					table.append(String.format("%-" + (maxWidths[j] + 2) + "s", row[j]));
 				}
 				table.append("\n");
@@ -328,7 +368,7 @@ public class CdaConvertorV2 {
 		String usNr = null;
 		String us1 = string.replaceAll("(.*)_AND.*", "$1");
 		String us2 = string.replaceAll(".*_AND_(.*)", "$1");
-		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\g03_baseline_pos_num.json";
+		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Datasets\\" + jsonFile;
 
 		try (FileReader reader = new FileReader(fileName)) {
 			JSONTokener tokener = new JSONTokener(reader);
@@ -388,6 +428,7 @@ public class CdaConvertorV2 {
 	}
 
 	private void writeUsText(String string, ArrayList<String> arrayMax) throws IOException {
+		highlightedUs = new ArrayList<>();
 		JSONArray json = null;
 		String usNr = null;
 		String us1 = string.replaceAll("(.*)_AND.*", "$1");
@@ -399,7 +440,7 @@ public class CdaConvertorV2 {
 		cp.setConflictPair2(us2);
 		cp.setMaximal(arrayMax.size());
 		conflictPairs.add(cp);
-		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\g03_baseline_pos_num.json";
+		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Datasets\\" + jsonFile;
 
 		try (FileReader reader = new FileReader(fileName)) {
 			JSONTokener tokener = new JSONTokener(reader);
@@ -418,11 +459,11 @@ public class CdaConvertorV2 {
 					if (usNr.equals(us1)) {
 						String highlightedUs1 = highlightConflict(jsonObject.getString("Text").toLowerCase());
 						cdaWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-
+						highlightedUs.add(highlightedUs1);
 					} else if (usNr.equals(us2)) {
 						String highlightedUs2 = highlightConflict(jsonObject.getString("Text").toLowerCase());
 						cdaWriter.write("\n\n " + us2 + ": " + highlightedUs2);
-
+						highlightedUs.add(highlightedUs2);
 					}
 				} else {
 					cdaWriter.write("US_Nr or Text Element not found in JSON-Data!");
