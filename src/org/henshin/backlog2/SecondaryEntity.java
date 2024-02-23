@@ -5,7 +5,7 @@ public class SecondaryEntity  extends ConflictingItems{
 	final private String classType = "Secondary Entity";
 
 	public SecondaryEntity(String name) {
-		
+
 		this.name = name;
 	}
 

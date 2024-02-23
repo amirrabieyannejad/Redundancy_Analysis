@@ -1,18 +1,19 @@
 package org.henshin.backlog2;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
 //import org.graalvm.compiler.nodes.ReturnNode;
 import org.eclipse.emf.henshin.model.compact.CModule;
 import org.eclipse.emf.henshin.model.compact.CNode;
 import org.eclipse.emf.henshin.model.compact.CRule;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Map;
-import java.util.logging.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-import org.json.JSONException;
-import java.util.HashMap;
 
 /*  Delete Annotation for Attributes actions and entities
  *  plus their edges which have target edges or triggers edge

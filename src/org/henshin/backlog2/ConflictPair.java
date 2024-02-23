@@ -1,15 +1,12 @@
 package org.henshin.backlog2;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ConflictPair {
 	private String conflictPair1;
 	private String conflictPair2;
 	private int maximal;
 
 	public ConflictPair() {
-	
+
 	}
 
 
@@ -50,6 +47,6 @@ public class ConflictPair {
 	public void setMaximal(int maximal) {
 		this.maximal = maximal;
 	}
-	
+
 
 }

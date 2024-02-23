@@ -12,7 +12,6 @@ public class ConflictingItems {
 	private List<PrimaryAction> primaryAction;
 	private List<Triggers> triggers;
 	private List<Targets> targets;
-
 	public ConflictingItems() {
 		this.secondaryEntity = new ArrayList<>();
 		this.primaryEntity = new ArrayList<>();
