@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Z9Tl8NPTEe6X4LkvHOS59g" name="user_story_55">
+  <lhs xmi:id="_Z9Tl8dPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_Z9Tl8tPTEe6X4LkvHOS59g" name="|0|" outgoing="_Z9TmBNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Z9Tl89PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl9NPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Z9Tl9dPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to create each condo unit, so that i can associate it to the child parcel and address after the condominiums are recorded in the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl9tPTEe6X4LkvHOS59g" name="|2|" incoming="_Z9TmBNPTEe6X4LkvHOS59g" outgoing="_Z9TmB9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Z9Tl99PTEe6X4LkvHOS59g" value="&quot;create&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl-NPTEe6X4LkvHOS59g" name="|3|" outgoing="_Z9TmBdPTEe6X4LkvHOS59g _Z9TmCNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Z9Tl-dPTEe6X4LkvHOS59g" value="&quot;associate&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl-tPTEe6X4LkvHOS59g" name="|4|" outgoing="_Z9TmBtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Z9Tl-9PTEe6X4LkvHOS59g" value="&quot;address&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl_NPTEe6X4LkvHOS59g" name="|5|" incoming="_Z9TmB9PTEe6X4LkvHOS59g _Z9TmCNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Z9Tl_dPTEe6X4LkvHOS59g" value="&quot;each condo unit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9Tl_tPTEe6X4LkvHOS59g" name="|6|" incoming="_Z9TmBdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z9Tl_9PTEe6X4LkvHOS59g" value="&quot;child parcel&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9TmANPTEe6X4LkvHOS59g" name="|7|" incoming="_Z9TmBtPTEe6X4LkvHOS59g _Z9TmCdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z9TmAdPTEe6X4LkvHOS59g" value="&quot;condominiums&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9TmAtPTEe6X4LkvHOS59g" name="|8|" outgoing="_Z9TmCdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z9TmA9PTEe6X4LkvHOS59g" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Z9TmBNPTEe6X4LkvHOS59g" source="_Z9Tl8tPTEe6X4LkvHOS59g" target="_Z9Tl9tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Z9TmBdPTEe6X4LkvHOS59g" source="_Z9Tl-NPTEe6X4LkvHOS59g" target="_Z9Tl_tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z9TmBtPTEe6X4LkvHOS59g" source="_Z9Tl-tPTEe6X4LkvHOS59g" target="_Z9TmANPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z9TmB9PTEe6X4LkvHOS59g" source="_Z9Tl9tPTEe6X4LkvHOS59g" target="_Z9Tl_NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z9TmCNPTEe6X4LkvHOS59g" source="_Z9Tl-NPTEe6X4LkvHOS59g" target="_Z9Tl_NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z9TmCdPTEe6X4LkvHOS59g" source="_Z9TmAtPTEe6X4LkvHOS59g" target="_Z9TmANPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Z9TmCtPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_Z9TmC9PTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Z9TmDNPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9TmDdPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Z9TmDtPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to create each condo unit, so that i can associate it to the child parcel and address after the condominiums are recorded in the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z9TmD9PTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmENPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmEdPTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmEtPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmE9PTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmFNPTEe6X4LkvHOS59g" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z9TmFdPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z9TmFtPTEe6X4LkvHOS59g" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Z9TmF9PTEe6X4LkvHOS59g" origin="_Z9Tl8tPTEe6X4LkvHOS59g" image="_Z9TmC9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmGNPTEe6X4LkvHOS59g" origin="_Z9Tl9NPTEe6X4LkvHOS59g" image="_Z9TmDdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmGdPTEe6X4LkvHOS59g" origin="_Z9Tl9tPTEe6X4LkvHOS59g" image="_Z9TmD9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmGtPTEe6X4LkvHOS59g" origin="_Z9Tl-NPTEe6X4LkvHOS59g" image="_Z9TmENPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmG9PTEe6X4LkvHOS59g" origin="_Z9Tl-tPTEe6X4LkvHOS59g" image="_Z9TmEdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmHNPTEe6X4LkvHOS59g" origin="_Z9Tl_NPTEe6X4LkvHOS59g" image="_Z9TmEtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmHdPTEe6X4LkvHOS59g" origin="_Z9Tl_tPTEe6X4LkvHOS59g" image="_Z9TmE9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmHtPTEe6X4LkvHOS59g" origin="_Z9TmANPTEe6X4LkvHOS59g" image="_Z9TmFNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z9TmH9PTEe6X4LkvHOS59g" origin="_Z9TmAtPTEe6X4LkvHOS59g" image="_Z9TmFdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

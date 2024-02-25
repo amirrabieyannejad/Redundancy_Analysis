@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_axXgINPTEe6X4LkvHOS59g" name="user_story_06">
+  <lhs xmi:id="_axXgIdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_axXgItPTEe6X4LkvHOS59g" name="|11|" outgoing="_axYuQtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_axXgI9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axXgJNPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_axXgJdPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to submit supporting documentation, so that i can satisfy documentation requirements for my application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axXgJtPTEe6X4LkvHOS59g" name="|13|" incoming="_axYuQtPTEe6X4LkvHOS59g" outgoing="_axYuQ9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_axXgJ9PTEe6X4LkvHOS59g" value="&quot;submit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axXgKNPTEe6X4LkvHOS59g" name="|14|" outgoing="_axYuRNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_axXgKdPTEe6X4LkvHOS59g" value="&quot;satisfy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axXgKtPTEe6X4LkvHOS59g" name="|15|" incoming="_axYuQ9PTEe6X4LkvHOS59g _axYuRdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_axXgK9PTEe6X4LkvHOS59g" value="&quot;supporting documentation&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axXgLNPTEe6X4LkvHOS59g" name="|16|" incoming="_axYuRNPTEe6X4LkvHOS59g _axYuRtPTEe6X4LkvHOS59g" outgoing="_axYuRdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_axXgLdPTEe6X4LkvHOS59g" value="&quot;documentation requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axYuQNPTEe6X4LkvHOS59g" name="|17|" outgoing="_axYuRtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_axYuQdPTEe6X4LkvHOS59g" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_axYuQtPTEe6X4LkvHOS59g" source="_axXgItPTEe6X4LkvHOS59g" target="_axXgJtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_axYuQ9PTEe6X4LkvHOS59g" source="_axXgJtPTEe6X4LkvHOS59g" target="_axXgKtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_axYuRNPTEe6X4LkvHOS59g" source="_axXgKNPTEe6X4LkvHOS59g" target="_axXgLNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_axYuRdPTEe6X4LkvHOS59g" source="_axXgLNPTEe6X4LkvHOS59g" target="_axXgKtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_axYuRtPTEe6X4LkvHOS59g" source="_axYuQNPTEe6X4LkvHOS59g" target="_axXgLNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_axYuR9PTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_axYuSNPTEe6X4LkvHOS59g" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_axYuSdPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axYuStPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_axYuS9PTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to submit supporting documentation, so that i can satisfy documentation requirements for my application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_axYuTNPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_axYuTdPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_axYuTtPTEe6X4LkvHOS59g" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_axYuT9PTEe6X4LkvHOS59g" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_axYuUNPTEe6X4LkvHOS59g" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_axYuUdPTEe6X4LkvHOS59g" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_axYuUtPTEe6X4LkvHOS59g" origin="_axXgItPTEe6X4LkvHOS59g" image="_axYuSNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuU9PTEe6X4LkvHOS59g" origin="_axXgJNPTEe6X4LkvHOS59g" image="_axYuStPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuVNPTEe6X4LkvHOS59g" origin="_axXgJtPTEe6X4LkvHOS59g" image="_axYuTNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuVdPTEe6X4LkvHOS59g" origin="_axXgKNPTEe6X4LkvHOS59g" image="_axYuTdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuVtPTEe6X4LkvHOS59g" origin="_axXgKtPTEe6X4LkvHOS59g" image="_axYuTtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuV9PTEe6X4LkvHOS59g" origin="_axXgLNPTEe6X4LkvHOS59g" image="_axYuT9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_axYuWNPTEe6X4LkvHOS59g" origin="_axYuQNPTEe6X4LkvHOS59g" image="_axYuUNPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aDyocNPTEe6X4LkvHOS59g" name="user_story_20">
+  <lhs xmi:id="_aDyocdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aDyoctPTEe6X4LkvHOS59g" name="|11|" outgoing="_aDyoftPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aDyoc9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyodNPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aDyoddPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to denote an application with a final action status. so that i can finish it.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyodtPTEe6X4LkvHOS59g" name="|13|" incoming="_aDyoftPTEe6X4LkvHOS59g" outgoing="_aDyof9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aDyod9PTEe6X4LkvHOS59g" value="&quot;denote&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyoeNPTEe6X4LkvHOS59g" name="|14|" outgoing="_aDyogNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aDyoedPTEe6X4LkvHOS59g" value="&quot;finish&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyoetPTEe6X4LkvHOS59g" name="|15|" incoming="_aDyof9PTEe6X4LkvHOS59g _aDyogNPTEe6X4LkvHOS59g" outgoing="_aDyogdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aDyoe9PTEe6X4LkvHOS59g" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyofNPTEe6X4LkvHOS59g" name="|16|" incoming="_aDyogdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aDyofdPTEe6X4LkvHOS59g" value="&quot;final action status&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aDyoftPTEe6X4LkvHOS59g" source="_aDyoctPTEe6X4LkvHOS59g" target="_aDyodtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aDyof9PTEe6X4LkvHOS59g" source="_aDyodtPTEe6X4LkvHOS59g" target="_aDyoetPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aDyogNPTEe6X4LkvHOS59g" source="_aDyoeNPTEe6X4LkvHOS59g" target="_aDyoetPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aDyogdPTEe6X4LkvHOS59g" source="_aDyoetPTEe6X4LkvHOS59g" target="_aDyofNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aDyogtPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aDyog9PTEe6X4LkvHOS59g" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aDyohNPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyohdPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aDyohtPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to denote an application with a final action status. so that i can finish it.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aDyoh9PTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aDyoiNPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aDyoidPTEe6X4LkvHOS59g" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aDyoitPTEe6X4LkvHOS59g" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aDyoi9PTEe6X4LkvHOS59g" value="&quot;final action status&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aDyojNPTEe6X4LkvHOS59g" origin="_aDyoctPTEe6X4LkvHOS59g" image="_aDyog9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aDyojdPTEe6X4LkvHOS59g" origin="_aDyodNPTEe6X4LkvHOS59g" image="_aDyohdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aDyojtPTEe6X4LkvHOS59g" origin="_aDyodtPTEe6X4LkvHOS59g" image="_aDyoh9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aDyoj9PTEe6X4LkvHOS59g" origin="_aDyoeNPTEe6X4LkvHOS59g" image="_aDyoiNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aDyokNPTEe6X4LkvHOS59g" origin="_aDyoetPTEe6X4LkvHOS59g" image="_aDyoidPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aDyokdPTEe6X4LkvHOS59g" origin="_aDyofNPTEe6X4LkvHOS59g" image="_aDyoitPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

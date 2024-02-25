@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aWQ4gNPTEe6X4LkvHOS59g" name="user_story_26">
+  <lhs xmi:id="_aWQ4gdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aWQ4gtPTEe6X4LkvHOS59g" name="|12|" outgoing="_aWQ4lNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aWQ4g9PTEe6X4LkvHOS59g" value="&quot;zoning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4hNPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aWQ4hdPTEe6X4LkvHOS59g" value="&quot;#g03# as a zoning staff member, i want to issue the zoning-related permits, so that i can satisfy an applicant's request for service that has proven to be eligible and in compliance with the zoning ordinance.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4htPTEe6X4LkvHOS59g" name="|14|" incoming="_aWQ4lNPTEe6X4LkvHOS59g" outgoing="_aWQ4ldPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aWQ4h9PTEe6X4LkvHOS59g" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4iNPTEe6X4LkvHOS59g" name="|15|" outgoing="_aWQ4ltPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aWQ4idPTEe6X4LkvHOS59g" value="&quot;satisfy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4itPTEe6X4LkvHOS59g" name="|16|" incoming="_aWQ4ldPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aWQ4i9PTEe6X4LkvHOS59g" value="&quot;zoning-related permits&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4jNPTEe6X4LkvHOS59g" name="|17|" incoming="_aWQ4ltPTEe6X4LkvHOS59g _aWQ4l9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4jdPTEe6X4LkvHOS59g" value="&quot;applicant's request&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4jtPTEe6X4LkvHOS59g" name="|18|" outgoing="_aWQ4l9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4j9PTEe6X4LkvHOS59g" value="&quot;service&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4kNPTEe6X4LkvHOS59g" name="|19|" incoming="_aWQ4mNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4kdPTEe6X4LkvHOS59g" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4ktPTEe6X4LkvHOS59g" name="|20|" outgoing="_aWQ4mNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4k9PTEe6X4LkvHOS59g" value="&quot;zoning ordinance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aWQ4lNPTEe6X4LkvHOS59g" source="_aWQ4gtPTEe6X4LkvHOS59g" target="_aWQ4htPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aWQ4ldPTEe6X4LkvHOS59g" source="_aWQ4htPTEe6X4LkvHOS59g" target="_aWQ4itPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aWQ4ltPTEe6X4LkvHOS59g" source="_aWQ4iNPTEe6X4LkvHOS59g" target="_aWQ4jNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aWQ4l9PTEe6X4LkvHOS59g" source="_aWQ4jtPTEe6X4LkvHOS59g" target="_aWQ4jNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_aWQ4mNPTEe6X4LkvHOS59g" source="_aWQ4ktPTEe6X4LkvHOS59g" target="_aWQ4kNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aWQ4mdPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aWQ4mtPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aWQ4m9PTEe6X4LkvHOS59g" value="&quot;zoning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4nNPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aWQ4ndPTEe6X4LkvHOS59g" value="&quot;#g03# as a zoning staff member, i want to issue the zoning-related permits, so that i can satisfy an applicant's request for service that has proven to be eligible and in compliance with the zoning ordinance.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4ntPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aWQ4n9PTEe6X4LkvHOS59g" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aWQ4oNPTEe6X4LkvHOS59g" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aWQ4odPTEe6X4LkvHOS59g" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aWQ4otPTEe6X4LkvHOS59g" name="|18|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4o9PTEe6X4LkvHOS59g" value="&quot;service&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4pNPTEe6X4LkvHOS59g" name="|19|" incoming="_aWQ4qNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4pdPTEe6X4LkvHOS59g" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aWQ4ptPTEe6X4LkvHOS59g" name="|20|" outgoing="_aWQ4qNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aWQ4p9PTEe6X4LkvHOS59g" value="&quot;zoning ordinance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aWQ4qNPTEe6X4LkvHOS59g" source="_aWQ4ptPTEe6X4LkvHOS59g" target="_aWQ4pNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_aWQ4qdPTEe6X4LkvHOS59g" origin="_aWQ4gtPTEe6X4LkvHOS59g" image="_aWQ4mtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4qtPTEe6X4LkvHOS59g" origin="_aWQ4hNPTEe6X4LkvHOS59g" image="_aWQ4nNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4q9PTEe6X4LkvHOS59g" origin="_aWQ4htPTEe6X4LkvHOS59g" image="_aWQ4ntPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4rNPTEe6X4LkvHOS59g" origin="_aWQ4iNPTEe6X4LkvHOS59g" image="_aWQ4n9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4rdPTEe6X4LkvHOS59g" origin="_aWQ4itPTEe6X4LkvHOS59g" image="_aWQ4oNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4rtPTEe6X4LkvHOS59g" origin="_aWQ4jNPTEe6X4LkvHOS59g" image="_aWQ4odPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4r9PTEe6X4LkvHOS59g" origin="_aWQ4jtPTEe6X4LkvHOS59g" image="_aWQ4otPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4sNPTEe6X4LkvHOS59g" origin="_aWQ4kNPTEe6X4LkvHOS59g" image="_aWQ4pNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aWQ4sdPTEe6X4LkvHOS59g" origin="_aWQ4ktPTEe6X4LkvHOS59g" image="_aWQ4ptPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

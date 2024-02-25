@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aMJ6QNPTEe6X4LkvHOS59g" name="user_story_45">
+  <lhs xmi:id="_aMJ6QdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aMJ6QtPTEe6X4LkvHOS59g" name="|0|" outgoing="_aMJ6UtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aMJ6Q9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6RNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aMJ6RdPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to complete building development project, so that i can receive any posted bond and/or obtain occupancy.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6RtPTEe6X4LkvHOS59g" name="|2|" incoming="_aMJ6UtPTEe6X4LkvHOS59g" outgoing="_aMJ6U9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aMJ6R9PTEe6X4LkvHOS59g" value="&quot;complete&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6SNPTEe6X4LkvHOS59g" name="|3|" outgoing="_aMJ6VNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aMJ6SdPTEe6X4LkvHOS59g" value="&quot;receive&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6StPTEe6X4LkvHOS59g" name="|4|" outgoing="_aMJ6VdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aMJ6S9PTEe6X4LkvHOS59g" value="&quot;obtain&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6TNPTEe6X4LkvHOS59g" name="|5|" incoming="_aMJ6U9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aMJ6TdPTEe6X4LkvHOS59g" value="&quot;building development project&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6TtPTEe6X4LkvHOS59g" name="|6|" incoming="_aMJ6VNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aMJ6T9PTEe6X4LkvHOS59g" value="&quot;any posted bond&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6UNPTEe6X4LkvHOS59g" name="|7|" incoming="_aMJ6VdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aMJ6UdPTEe6X4LkvHOS59g" value="&quot;occupancy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aMJ6UtPTEe6X4LkvHOS59g" source="_aMJ6QtPTEe6X4LkvHOS59g" target="_aMJ6RtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aMJ6U9PTEe6X4LkvHOS59g" source="_aMJ6RtPTEe6X4LkvHOS59g" target="_aMJ6TNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aMJ6VNPTEe6X4LkvHOS59g" source="_aMJ6SNPTEe6X4LkvHOS59g" target="_aMJ6TtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aMJ6VdPTEe6X4LkvHOS59g" source="_aMJ6StPTEe6X4LkvHOS59g" target="_aMJ6UNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aMJ6VtPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aMJ6V9PTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aMJ6WNPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6WdPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aMJ6WtPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to complete building development project, so that i can receive any posted bond and/or obtain occupancy.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aMJ6W9PTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aMJ6XNPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aMJ6XdPTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aMJ6XtPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aMJ6X9PTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aMJ6YNPTEe6X4LkvHOS59g" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aMJ6YdPTEe6X4LkvHOS59g" origin="_aMJ6QtPTEe6X4LkvHOS59g" image="_aMJ6V9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6YtPTEe6X4LkvHOS59g" origin="_aMJ6RNPTEe6X4LkvHOS59g" image="_aMJ6WdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6Y9PTEe6X4LkvHOS59g" origin="_aMJ6RtPTEe6X4LkvHOS59g" image="_aMJ6W9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6ZNPTEe6X4LkvHOS59g" origin="_aMJ6SNPTEe6X4LkvHOS59g" image="_aMJ6XNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6ZdPTEe6X4LkvHOS59g" origin="_aMJ6StPTEe6X4LkvHOS59g" image="_aMJ6XdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6ZtPTEe6X4LkvHOS59g" origin="_aMJ6TNPTEe6X4LkvHOS59g" image="_aMJ6XtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6Z9PTEe6X4LkvHOS59g" origin="_aMJ6TtPTEe6X4LkvHOS59g" image="_aMJ6X9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aMJ6aNPTEe6X4LkvHOS59g" origin="_aMJ6UNPTEe6X4LkvHOS59g" image="_aMJ6YNPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

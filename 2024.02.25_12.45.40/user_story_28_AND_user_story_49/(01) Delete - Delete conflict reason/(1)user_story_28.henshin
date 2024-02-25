@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aEaTgNPTEe6X4LkvHOS59g" name="user_story_28">
+  <lhs xmi:id="_aEaTgdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aEaTgtPTEe6X4LkvHOS59g" name="|0|" outgoing="_aEaTkNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aEaTg9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaThNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aEaThdPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage hearing calendars, so that i can track hearing-related activities and due dates.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaThtPTEe6X4LkvHOS59g" name="|2|" incoming="_aEaTkNPTEe6X4LkvHOS59g" outgoing="_aEaTkdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aEaTh9PTEe6X4LkvHOS59g" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTiNPTEe6X4LkvHOS59g" name="|3|" outgoing="_aEaTktPTEe6X4LkvHOS59g _aEaTk9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aEaTidPTEe6X4LkvHOS59g" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTitPTEe6X4LkvHOS59g" name="|4|" incoming="_aEaTkdPTEe6X4LkvHOS59g" outgoing="_aEaTlNPTEe6X4LkvHOS59g _aEaTldPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aEaTi9PTEe6X4LkvHOS59g" value="&quot;hearing calendars&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTjNPTEe6X4LkvHOS59g" name="|5|" incoming="_aEaTk9PTEe6X4LkvHOS59g _aEaTldPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aEaTjdPTEe6X4LkvHOS59g" value="&quot;due dates&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTjtPTEe6X4LkvHOS59g" name="|6|" incoming="_aEaTktPTEe6X4LkvHOS59g _aEaTlNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aEaTj9PTEe6X4LkvHOS59g" value="&quot;hearing-related activities&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aEaTkNPTEe6X4LkvHOS59g" source="_aEaTgtPTEe6X4LkvHOS59g" target="_aEaThtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aEaTkdPTEe6X4LkvHOS59g" source="_aEaThtPTEe6X4LkvHOS59g" target="_aEaTitPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aEaTktPTEe6X4LkvHOS59g" source="_aEaTiNPTEe6X4LkvHOS59g" target="_aEaTjtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aEaTk9PTEe6X4LkvHOS59g" source="_aEaTiNPTEe6X4LkvHOS59g" target="_aEaTjNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aEaTlNPTEe6X4LkvHOS59g" source="_aEaTitPTEe6X4LkvHOS59g" target="_aEaTjtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_aEaTldPTEe6X4LkvHOS59g" source="_aEaTitPTEe6X4LkvHOS59g" target="_aEaTjNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aEaTltPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aEaTl9PTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aEaTmNPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTmdPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aEaTmtPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage hearing calendars, so that i can track hearing-related activities and due dates.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aEaTm9PTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aEaTnNPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aEaTndPTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aEaTntPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aEaTn9PTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aEaToNPTEe6X4LkvHOS59g" origin="_aEaTgtPTEe6X4LkvHOS59g" image="_aEaTl9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTodPTEe6X4LkvHOS59g" origin="_aEaThNPTEe6X4LkvHOS59g" image="_aEaTmdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTotPTEe6X4LkvHOS59g" origin="_aEaThtPTEe6X4LkvHOS59g" image="_aEaTm9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTo9PTEe6X4LkvHOS59g" origin="_aEaTiNPTEe6X4LkvHOS59g" image="_aEaTnNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTpNPTEe6X4LkvHOS59g" origin="_aEaTitPTEe6X4LkvHOS59g" image="_aEaTndPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTpdPTEe6X4LkvHOS59g" origin="_aEaTjNPTEe6X4LkvHOS59g" image="_aEaTntPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aEaTptPTEe6X4LkvHOS59g" origin="_aEaTjtPTEe6X4LkvHOS59g" image="_aEaTn9PTEe6X4LkvHOS59g"/>
+</henshin:Rule>

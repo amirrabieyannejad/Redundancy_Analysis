@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aUsyQNPTEe6X4LkvHOS59g" name="user_story_47">
+  <lhs xmi:id="_aUsyQdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aUsyQtPTEe6X4LkvHOS59g" name="|0|" outgoing="_aUsyUNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aUsyQ9PTEe6X4LkvHOS59g" value="&quot;inspection staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyRNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aUsyRdPTEe6X4LkvHOS59g" value="&quot;#g03# as an inspection staff member, i want to create an inspection, so that i can schedule and assign the inspection.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyRtPTEe6X4LkvHOS59g" name="|2|" incoming="_aUsyUNPTEe6X4LkvHOS59g" outgoing="_aUsyUdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aUsyR9PTEe6X4LkvHOS59g" value="&quot;create&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsySNPTEe6X4LkvHOS59g" name="|3|" outgoing="_aUsyUtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aUsySdPTEe6X4LkvHOS59g" value="&quot;schedule&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyStPTEe6X4LkvHOS59g" name="|4|" outgoing="_aUsyU9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aUsyS9PTEe6X4LkvHOS59g" value="&quot;assign&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyTNPTEe6X4LkvHOS59g" name="|5|" incoming="_aUsyUdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aUsyTdPTEe6X4LkvHOS59g" value="&quot;inspection&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyTtPTEe6X4LkvHOS59g" name="|6|" incoming="_aUsyUtPTEe6X4LkvHOS59g _aUsyU9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aUsyT9PTEe6X4LkvHOS59g" value="&quot;inspection&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aUsyUNPTEe6X4LkvHOS59g" source="_aUsyQtPTEe6X4LkvHOS59g" target="_aUsyRtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aUsyUdPTEe6X4LkvHOS59g" source="_aUsyRtPTEe6X4LkvHOS59g" target="_aUsyTNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aUsyUtPTEe6X4LkvHOS59g" source="_aUsySNPTEe6X4LkvHOS59g" target="_aUsyTtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aUsyU9PTEe6X4LkvHOS59g" source="_aUsyStPTEe6X4LkvHOS59g" target="_aUsyTtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aUsyVNPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aUsyVdPTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aUsyVtPTEe6X4LkvHOS59g" value="&quot;inspection staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyV9PTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aUsyWNPTEe6X4LkvHOS59g" value="&quot;#g03# as an inspection staff member, i want to create an inspection, so that i can schedule and assign the inspection.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aUsyWdPTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aUsyWtPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aUsyW9PTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aUsyXNPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aUsyXdPTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aUsyXtPTEe6X4LkvHOS59g" origin="_aUsyQtPTEe6X4LkvHOS59g" image="_aUsyVdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyX9PTEe6X4LkvHOS59g" origin="_aUsyRNPTEe6X4LkvHOS59g" image="_aUsyV9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyYNPTEe6X4LkvHOS59g" origin="_aUsyRtPTEe6X4LkvHOS59g" image="_aUsyWdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyYdPTEe6X4LkvHOS59g" origin="_aUsySNPTEe6X4LkvHOS59g" image="_aUsyWtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyYtPTEe6X4LkvHOS59g" origin="_aUsyStPTEe6X4LkvHOS59g" image="_aUsyW9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyY9PTEe6X4LkvHOS59g" origin="_aUsyTNPTEe6X4LkvHOS59g" image="_aUsyXNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aUsyZNPTEe6X4LkvHOS59g" origin="_aUsyTtPTEe6X4LkvHOS59g" image="_aUsyXdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

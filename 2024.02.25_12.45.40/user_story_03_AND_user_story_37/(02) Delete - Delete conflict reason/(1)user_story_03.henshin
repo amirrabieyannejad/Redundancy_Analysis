@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_apKmYNPTEe6X4LkvHOS59g" name="user_story_03">
+  <lhs xmi:id="_apKmYdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_apKmYtPTEe6X4LkvHOS59g" name="|0|" outgoing="_apKmdtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_apKmY9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmZNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_apKmZdPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to request preapplication assistance, so that i can receive a response to a request for a meeting or information that is a result of the preapplication assistance.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmZtPTEe6X4LkvHOS59g" name="|2|" incoming="_apKmdtPTEe6X4LkvHOS59g" outgoing="_apKmd9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_apKmZ9PTEe6X4LkvHOS59g" value="&quot;request&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmaNPTEe6X4LkvHOS59g" name="|3|" outgoing="_apKmeNPTEe6X4LkvHOS59g _apKmedPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_apKmadPTEe6X4LkvHOS59g" value="&quot;receive&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmatPTEe6X4LkvHOS59g" name="|4|" incoming="_apKmd9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_apKma9PTEe6X4LkvHOS59g" value="&quot;preapplication assistance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmbNPTEe6X4LkvHOS59g" name="|5|" outgoing="_apKmetPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmbdPTEe6X4LkvHOS59g" value="&quot;request for a meeting&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmbtPTEe6X4LkvHOS59g" name="|6|" incoming="_apKmedPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmb9PTEe6X4LkvHOS59g" value="&quot;information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmcNPTEe6X4LkvHOS59g" name="|7|" outgoing="_apKme9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmcdPTEe6X4LkvHOS59g" value="&quot;preapplication assistance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmctPTEe6X4LkvHOS59g" name="|8|" incoming="_apKmeNPTEe6X4LkvHOS59g _apKmetPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmc9PTEe6X4LkvHOS59g" value="&quot;response&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmdNPTEe6X4LkvHOS59g" name="|9|" incoming="_apKme9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmddPTEe6X4LkvHOS59g" value="&quot;result&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_apKmdtPTEe6X4LkvHOS59g" source="_apKmYtPTEe6X4LkvHOS59g" target="_apKmZtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_apKmd9PTEe6X4LkvHOS59g" source="_apKmZtPTEe6X4LkvHOS59g" target="_apKmatPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_apKmeNPTEe6X4LkvHOS59g" source="_apKmaNPTEe6X4LkvHOS59g" target="_apKmctPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_apKmedPTEe6X4LkvHOS59g" source="_apKmaNPTEe6X4LkvHOS59g" target="_apKmbtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_apKmetPTEe6X4LkvHOS59g" source="_apKmbNPTEe6X4LkvHOS59g" target="_apKmctPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_apKme9PTEe6X4LkvHOS59g" source="_apKmcNPTEe6X4LkvHOS59g" target="_apKmdNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_apKmfNPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_apKmfdPTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_apKmftPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmf9PTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_apKmgNPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to request preapplication assistance, so that i can receive a response to a request for a meeting or information that is a result of the preapplication assistance.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmgdPTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_apKmgtPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_apKmg9PTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_apKmhNPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmhdPTEe6X4LkvHOS59g" value="&quot;request for a meeting&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmhtPTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_apKmh9PTEe6X4LkvHOS59g" name="|7|" outgoing="_apKmjNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmiNPTEe6X4LkvHOS59g" value="&quot;preapplication assistance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_apKmidPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_apKmitPTEe6X4LkvHOS59g" name="|9|" incoming="_apKmjNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_apKmi9PTEe6X4LkvHOS59g" value="&quot;result&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_apKmjNPTEe6X4LkvHOS59g" source="_apKmh9PTEe6X4LkvHOS59g" target="_apKmitPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_apKmjdPTEe6X4LkvHOS59g" origin="_apKmYtPTEe6X4LkvHOS59g" image="_apKmfdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmjtPTEe6X4LkvHOS59g" origin="_apKmZNPTEe6X4LkvHOS59g" image="_apKmf9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmj9PTEe6X4LkvHOS59g" origin="_apKmZtPTEe6X4LkvHOS59g" image="_apKmgdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmkNPTEe6X4LkvHOS59g" origin="_apKmaNPTEe6X4LkvHOS59g" image="_apKmgtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmkdPTEe6X4LkvHOS59g" origin="_apKmatPTEe6X4LkvHOS59g" image="_apKmg9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmktPTEe6X4LkvHOS59g" origin="_apKmbNPTEe6X4LkvHOS59g" image="_apKmhNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmk9PTEe6X4LkvHOS59g" origin="_apKmbtPTEe6X4LkvHOS59g" image="_apKmhtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmlNPTEe6X4LkvHOS59g" origin="_apKmcNPTEe6X4LkvHOS59g" image="_apKmh9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmldPTEe6X4LkvHOS59g" origin="_apKmctPTEe6X4LkvHOS59g" image="_apKmidPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_apKmltPTEe6X4LkvHOS59g" origin="_apKmdNPTEe6X4LkvHOS59g" image="_apKmitPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

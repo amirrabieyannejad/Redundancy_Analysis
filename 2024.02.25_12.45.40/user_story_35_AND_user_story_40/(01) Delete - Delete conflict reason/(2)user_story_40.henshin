@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aNk2kNPTEe6X4LkvHOS59g" name="user_story_40">
+  <lhs xmi:id="_aNk2kdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aNk2ktPTEe6X4LkvHOS59g" name="|9|" outgoing="_aNk2ntPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aNk2k9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2lNPTEe6X4LkvHOS59g" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aNk2ldPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to resubmit plans, so that i can review revised plans.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2ltPTEe6X4LkvHOS59g" name="|11|" incoming="_aNk2ntPTEe6X4LkvHOS59g" outgoing="_aNk2n9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aNk2l9PTEe6X4LkvHOS59g" value="&quot;resubmit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2mNPTEe6X4LkvHOS59g" name="|12|" outgoing="_aNk2oNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aNk2mdPTEe6X4LkvHOS59g" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2mtPTEe6X4LkvHOS59g" name="|13|" incoming="_aNk2n9PTEe6X4LkvHOS59g" outgoing="_aNk2odPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aNk2m9PTEe6X4LkvHOS59g" value="&quot;plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2nNPTEe6X4LkvHOS59g" name="|14|" incoming="_aNk2oNPTEe6X4LkvHOS59g _aNk2odPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aNk2ndPTEe6X4LkvHOS59g" value="&quot;revised plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aNk2ntPTEe6X4LkvHOS59g" source="_aNk2ktPTEe6X4LkvHOS59g" target="_aNk2ltPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aNk2n9PTEe6X4LkvHOS59g" source="_aNk2ltPTEe6X4LkvHOS59g" target="_aNk2mtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aNk2oNPTEe6X4LkvHOS59g" source="_aNk2mNPTEe6X4LkvHOS59g" target="_aNk2nNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aNk2odPTEe6X4LkvHOS59g" source="_aNk2mtPTEe6X4LkvHOS59g" target="_aNk2nNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aNk2otPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aNk2o9PTEe6X4LkvHOS59g" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aNk2pNPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2pdPTEe6X4LkvHOS59g" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aNk2ptPTEe6X4LkvHOS59g" value="&quot;#g03# as an applicant, i want to resubmit plans, so that i can review revised plans.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNk2p9PTEe6X4LkvHOS59g" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aNk2qNPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aNk2qdPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aNk2qtPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aNk2q9PTEe6X4LkvHOS59g" origin="_aNk2ktPTEe6X4LkvHOS59g" image="_aNk2o9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNk2rNPTEe6X4LkvHOS59g" origin="_aNk2lNPTEe6X4LkvHOS59g" image="_aNk2pdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNk2rdPTEe6X4LkvHOS59g" origin="_aNk2ltPTEe6X4LkvHOS59g" image="_aNk2p9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNk2rtPTEe6X4LkvHOS59g" origin="_aNk2mNPTEe6X4LkvHOS59g" image="_aNk2qNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNk2r9PTEe6X4LkvHOS59g" origin="_aNk2mtPTEe6X4LkvHOS59g" image="_aNk2qdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNk2sNPTEe6X4LkvHOS59g" origin="_aNk2nNPTEe6X4LkvHOS59g" image="_aNk2qtPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

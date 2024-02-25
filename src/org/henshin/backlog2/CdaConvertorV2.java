@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -38,16 +41,15 @@ public class CdaConvertorV2 {
 	private static String dirName;
 	private static String jsonFile;
 
-	public CdaConvertorV2(String directroyName, String jsonFile) {
+	public CdaConvertorV2(String directroyName, String jsonFileName) {
 		dirName = directroyName;
-		CdaConvertorV2.jsonFile = jsonFile;
+		jsonFile = jsonFileName;
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
 
-		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.19_10.53.16", "Datasets\\g03_baseline_pos_num.json");
-		File cdaReport = new File(cdaConvertor.getPath() + "\\Textual_Report_v2.txt");
-
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.25_12.45.40", "Datasets\\g03_baseline_pos_num.json");
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_v2.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 		List<ConflictPair> conflictPairs = cdaConvertor.extractReports(fileWrite);
 
@@ -62,8 +64,25 @@ public class CdaConvertorV2 {
 		return jsonFile;
 	}
 
-	public String getPath() {
-		return "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + this.getDirName();
+	public String getAbsoluteDirPath() {
+		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getDirName());
+		if (Files.exists(path)) {
+
+			return path.toString();
+		} else {
+			return null;
+		}
+
+	}
+
+	public String getAbsoluteJsonFileDir() {
+		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getJsonFile());
+		if (Files.exists(path)) {
+
+			return path.toString();
+		} else {
+			return null;
+		} 
 	}
 
 	// Create or overwrite report file which return/pass the FileWriter object
@@ -87,20 +106,21 @@ public class CdaConvertorV2 {
 		return null;
 	}
 
-	public List<ConflictPair> extractReports(FileWriter fileWriter) throws IOException {
+	public List<ConflictPair> extractReports(FileWriter fileWriter)
+			throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
 		ConflictingItems conflictingItems;
 		List<ConflictPair> conflictPairs;
 		ArrayList<String> arrayMaximalElements;
 		ArrayList<String> arrayMaximalElementsNames;
 		List<String> pairList = new ArrayList<>();
-		File main = new File(this.getPath());
+		File main = new File(getAbsoluteDirPath());
 		// Instantiate conflictPairs
 		conflictPairs = new ArrayList<>();
 		// Iterate through critical pairs
-		if (main.exists()) {
-			for (String element : main.list()) {
-				if (!checkIfReportExist(element, pairList)) {
-					File conflictReasonDir = new File(this.getPath() + "\\" + element);
+		if (main.exists() && main.list().length != 0) {
+			for (String confPair : main.list()) {
+				if (!checkIfReportExist(confPair, pairList) && containsAnd(confPair)) {
+					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + confPair);
 					if (!conflictReasonDir.isFile()) {
 						arrayMaximalElementsNames = new ArrayList<>();
 						arrayMaximalElements = new ArrayList<>();
@@ -108,14 +128,16 @@ public class CdaConvertorV2 {
 						String[] conflictReasonListing = conflictReasonDir.list();
 						// Iterate through conflict reasons if there is more than one conflict_reason.
 						if (conflictReasonListing.length > 1) {
-							for (String element2 : conflictReasonListing) {
-								File minimalModelEcoreFile = new File(
-										this.getPath() + "\\" + element + "\\" + element2 + "\\minimal-model.ecore");
-								try {
-									processMinimalModels(minimalModelEcoreFile, fileWriter, arrayMaximalElements,
-											arrayMaximalElementsNames, conflictingItems);
-								} catch (Exception e) {
-									e.printStackTrace();
+							for (String conflictReason : conflictReasonListing) {
+								if (minimalEcoreExist(confPair, conflictReason)) {
+									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + confPair + "\\"
+											+ conflictReason + "\\minimal-model.ecore");
+									try {
+										processMinimalModels(minimalModelEcoreFile, fileWriter, arrayMaximalElements,
+												arrayMaximalElementsNames, conflictingItems);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
 								}
 							}
 						}
@@ -125,17 +147,18 @@ public class CdaConvertorV2 {
 								&& hasActions(arrayMaximalElementsNames, conflictingItems)
 								&& hasTargets(arrayMaximalElementsNames, conflictingItems)) {
 							fileWriter.write("\n------------------[Potentially redundant user"
-									+ " stries found]--------------------------\n{" + element + "}\n  ");
+									+ " stries found]--------------------------\n{" + confPair + "}\n  ");
 
 							fileWriter.write("\nRedundants elements are: ");
 							conflictingItems.printConflictingItems(fileWriter);
 
-							List<String> highlightedUss = writeUsText(element, arrayMaximalElementsNames, conflictPairs,
-									conflictingItems, fileWriter);
-							fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
-									+ " redundancies between user stories:\n\n");
-							writeUsSentencePart(element, highlightedUss, fileWriter);
-
+							List<String> highlightedUss = writeUsText(confPair, arrayMaximalElementsNames,
+									conflictPairs, conflictingItems, fileWriter);
+							if (highlightedUss.size() != 0) {
+								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
+										+ " redundancies between user stories:\n\n");
+								writeUsSentencePart(confPair, highlightedUss, fileWriter);
+							}
 						}
 
 					}
@@ -148,8 +171,27 @@ public class CdaConvertorV2 {
 			}
 			fileWriter.close();
 		}
+
 		return conflictPairs;
 
+	}
+
+	private boolean minimalEcoreExist(String confPair, String conflictReason) {
+		Path path = Paths.get(getAbsoluteDirPath() + "\\" + confPair + "\\" + conflictReason + "\\minimal-model.ecore");
+		if (Files.exists(path)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	private boolean containsAnd(String folder) {
+		if (folder.toLowerCase().contains("and")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private void processMinimalModels(File minimalModelEcoreFile, FileWriter cdaWriter,
@@ -366,7 +408,7 @@ public class CdaConvertorV2 {
 	}
 
 	private List<String> writeUsText(String string, ArrayList<String> arrayMax, List<ConflictPair> conflictPairs,
-			ConflictingItems conflictingItems, FileWriter fileWriter) throws IOException {
+			ConflictingItems conflictingItems, FileWriter fileWriter) throws IOException, EmptyOrNotExistJsonFile {
 		List<String> highlightedUss = new ArrayList<>();
 		JSONArray json = null;
 		String usNr = null;
@@ -379,18 +421,28 @@ public class CdaConvertorV2 {
 		conflictPair.setConflictPair2(us2);
 		conflictPair.setMaximal(arrayMax.size());
 		conflictPairs.add(conflictPair);
-		String fileName = "C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + this.getJsonFile();
 
-		try (FileReader reader = new FileReader(fileName)) {
+		try {
+			
+			FileReader reader = new FileReader(getAbsoluteJsonFileDir());
 			JSONTokener tokener = new JSONTokener(reader);
-
+			if (!tokener.more()) {
+				System.out.println("EmptyOrNotExistJsonFileException");
+				throw new EmptyOrNotExistJsonFile();
+			} 
 			// Read JSON file
 			json = new JSONArray(tokener);
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
-		for (int i = 0; i < json.length(); i++) {
-			try {
+		try {
+
+			for (int i = 0; i < json.length(); i++) {
+
 				JSONObject jsonObject = json.getJSONObject(i);
 
 				if (jsonObject.has("US_Nr") && jsonObject.has("Text")) {
@@ -410,11 +462,14 @@ public class CdaConvertorV2 {
 					fileWriter.write("US_Nr or Text Element not found in JSON-Data!");
 				}
 
-			} catch (JSONException e) {
-				e.printStackTrace();
 			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (NullPointerException e) {
+			e.printStackTrace();
 
 		}
+
 		return highlightedUss;
 	}
 

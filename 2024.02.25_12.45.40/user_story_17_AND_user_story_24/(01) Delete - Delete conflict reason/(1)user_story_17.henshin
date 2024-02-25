@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aNGVcNPTEe6X4LkvHOS59g" name="user_story_17">
+  <lhs xmi:id="_aNGVcdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aNGVctPTEe6X4LkvHOS59g" name="|0|" outgoing="_aNGVgtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aNGVc9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVdNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aNGVddPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVdtPTEe6X4LkvHOS59g" name="|2|" incoming="_aNGVgtPTEe6X4LkvHOS59g" outgoing="_aNGVg9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aNGVd9PTEe6X4LkvHOS59g" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVeNPTEe6X4LkvHOS59g" name="|3|" outgoing="_aNGVhNPTEe6X4LkvHOS59g _aNGVhdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aNGVedPTEe6X4LkvHOS59g" value="&quot;ensure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVetPTEe6X4LkvHOS59g" name="|4|" incoming="_aNGVg9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aNGVe9PTEe6X4LkvHOS59g" value="&quot;approved proffers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVfNPTEe6X4LkvHOS59g" name="|5|" incoming="_aNGVhNPTEe6X4LkvHOS59g _aNGVh9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aNGVfdPTEe6X4LkvHOS59g" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVftPTEe6X4LkvHOS59g" name="|6|" outgoing="_aNGVhtPTEe6X4LkvHOS59g _aNGVh9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aNGVf9PTEe6X4LkvHOS59g" value="&quot;proffer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVgNPTEe6X4LkvHOS59g" name="|7|" incoming="_aNGVhdPTEe6X4LkvHOS59g _aNGVhtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aNGVgdPTEe6X4LkvHOS59g" value="&quot;satisfaction&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aNGVgtPTEe6X4LkvHOS59g" source="_aNGVctPTEe6X4LkvHOS59g" target="_aNGVdtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aNGVg9PTEe6X4LkvHOS59g" source="_aNGVdtPTEe6X4LkvHOS59g" target="_aNGVetPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aNGVhNPTEe6X4LkvHOS59g" source="_aNGVeNPTEe6X4LkvHOS59g" target="_aNGVfNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aNGVhdPTEe6X4LkvHOS59g" source="_aNGVeNPTEe6X4LkvHOS59g" target="_aNGVgNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aNGVhtPTEe6X4LkvHOS59g" source="_aNGVftPTEe6X4LkvHOS59g" target="_aNGVgNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_aNGVh9PTEe6X4LkvHOS59g" source="_aNGVftPTEe6X4LkvHOS59g" target="_aNGVfNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aNGViNPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aNGVidPTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aNGVitPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVi9PTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aNGVjNPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage approved proffers, so that i can ensure compliance with and satisfaction of the proffer in the future.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVjdPTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aNGVjtPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aNGVj9PTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aNGVkNPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aNGVkdPTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aNGVktPTEe6X4LkvHOS59g" value="&quot;proffer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aNGVk9PTEe6X4LkvHOS59g" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aNGVlNPTEe6X4LkvHOS59g" origin="_aNGVctPTEe6X4LkvHOS59g" image="_aNGVidPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVldPTEe6X4LkvHOS59g" origin="_aNGVdNPTEe6X4LkvHOS59g" image="_aNGVi9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVltPTEe6X4LkvHOS59g" origin="_aNGVdtPTEe6X4LkvHOS59g" image="_aNGVjdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVl9PTEe6X4LkvHOS59g" origin="_aNGVeNPTEe6X4LkvHOS59g" image="_aNGVjtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVmNPTEe6X4LkvHOS59g" origin="_aNGVetPTEe6X4LkvHOS59g" image="_aNGVj9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVmdPTEe6X4LkvHOS59g" origin="_aNGVfNPTEe6X4LkvHOS59g" image="_aNGVkNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVmtPTEe6X4LkvHOS59g" origin="_aNGVftPTEe6X4LkvHOS59g" image="_aNGVkdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aNGVm9PTEe6X4LkvHOS59g" origin="_aNGVgNPTEe6X4LkvHOS59g" image="_aNGVk9PTEe6X4LkvHOS59g"/>
+</henshin:Rule>

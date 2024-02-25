@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Z1oQoNPTEe6X4LkvHOS59g" name="user_story_43">
+  <lhs xmi:id="_Z1oQodPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_Z1oQotPTEe6X4LkvHOS59g" name="|0|" outgoing="_Z1oQtNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Z1oQo9PTEe6X4LkvHOS59g" value="&quot;development staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQpNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Z1oQpdPTEe6X4LkvHOS59g" value="&quot;#g03# as a development staff member, i want to issue a development-related permit, so that i can grant the request to the applicant to begin work&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQptPTEe6X4LkvHOS59g" name="|2|" incoming="_Z1oQtNPTEe6X4LkvHOS59g" outgoing="_Z1oQtdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Z1oQp9PTEe6X4LkvHOS59g" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQqNPTEe6X4LkvHOS59g" name="|3|" outgoing="_Z1oQttPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Z1oQqdPTEe6X4LkvHOS59g" value="&quot;grant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQqtPTEe6X4LkvHOS59g" name="|4|" outgoing="_Z1oQt9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Z1oQq9PTEe6X4LkvHOS59g" value="&quot;begin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQrNPTEe6X4LkvHOS59g" name="|5|" incoming="_Z1oQtdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Z1oQrdPTEe6X4LkvHOS59g" value="&quot;development-related permit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQrtPTEe6X4LkvHOS59g" name="|6|" incoming="_Z1oQttPTEe6X4LkvHOS59g _Z1oQudPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z1oQr9PTEe6X4LkvHOS59g" value="&quot;request&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQsNPTEe6X4LkvHOS59g" name="|7|" incoming="_Z1oQt9PTEe6X4LkvHOS59g _Z1oQuNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z1oQsdPTEe6X4LkvHOS59g" value="&quot;work&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQstPTEe6X4LkvHOS59g" name="|8|" outgoing="_Z1oQuNPTEe6X4LkvHOS59g _Z1oQudPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z1oQs9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Z1oQtNPTEe6X4LkvHOS59g" source="_Z1oQotPTEe6X4LkvHOS59g" target="_Z1oQptPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Z1oQtdPTEe6X4LkvHOS59g" source="_Z1oQptPTEe6X4LkvHOS59g" target="_Z1oQrNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z1oQttPTEe6X4LkvHOS59g" source="_Z1oQqNPTEe6X4LkvHOS59g" target="_Z1oQrtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z1oQt9PTEe6X4LkvHOS59g" source="_Z1oQqtPTEe6X4LkvHOS59g" target="_Z1oQsNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Z1oQuNPTEe6X4LkvHOS59g" source="_Z1oQstPTEe6X4LkvHOS59g" target="_Z1oQsNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_Z1oQudPTEe6X4LkvHOS59g" source="_Z1oQstPTEe6X4LkvHOS59g" target="_Z1oQrtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Z1oQutPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_Z1oQu9PTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Z1oQvNPTEe6X4LkvHOS59g" value="&quot;development staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQvdPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Z1oQvtPTEe6X4LkvHOS59g" value="&quot;#g03# as a development staff member, i want to issue a development-related permit, so that i can grant the request to the applicant to begin work&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Z1oQv9PTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQwNPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQwdPTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQwtPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQw9PTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQxNPTEe6X4LkvHOS59g" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Z1oQxdPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Z1oQxtPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Z1oQx9PTEe6X4LkvHOS59g" origin="_Z1oQotPTEe6X4LkvHOS59g" image="_Z1oQu9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQyNPTEe6X4LkvHOS59g" origin="_Z1oQpNPTEe6X4LkvHOS59g" image="_Z1oQvdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQydPTEe6X4LkvHOS59g" origin="_Z1oQptPTEe6X4LkvHOS59g" image="_Z1oQv9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQytPTEe6X4LkvHOS59g" origin="_Z1oQqNPTEe6X4LkvHOS59g" image="_Z1oQwNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQy9PTEe6X4LkvHOS59g" origin="_Z1oQqtPTEe6X4LkvHOS59g" image="_Z1oQwdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQzNPTEe6X4LkvHOS59g" origin="_Z1oQrNPTEe6X4LkvHOS59g" image="_Z1oQwtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQzdPTEe6X4LkvHOS59g" origin="_Z1oQrtPTEe6X4LkvHOS59g" image="_Z1oQw9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQztPTEe6X4LkvHOS59g" origin="_Z1oQsNPTEe6X4LkvHOS59g" image="_Z1oQxNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Z1oQz9PTEe6X4LkvHOS59g" origin="_Z1oQstPTEe6X4LkvHOS59g" image="_Z1oQxdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

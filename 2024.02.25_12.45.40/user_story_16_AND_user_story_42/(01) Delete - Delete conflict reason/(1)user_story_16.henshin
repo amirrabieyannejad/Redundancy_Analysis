@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aeEJoNPTEe6X4LkvHOS59g" name="user_story_16">
+  <lhs xmi:id="_aeEJodPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aeEJotPTEe6X4LkvHOS59g" name="|0|" outgoing="_aeEJsNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aeEJo9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJpNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aeEJpdPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to track  the draft proffers, so that i can preserve the history of draft proffer statements submitted by the applicant.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJptPTEe6X4LkvHOS59g" name="|2|" incoming="_aeEJsNPTEe6X4LkvHOS59g" outgoing="_aeEJsdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aeEJp9PTEe6X4LkvHOS59g" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJqNPTEe6X4LkvHOS59g" name="|3|" outgoing="_aeEJstPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aeEJqdPTEe6X4LkvHOS59g" value="&quot;preserve&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJqtPTEe6X4LkvHOS59g" name="|4|" incoming="_aeEJsdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aeEJq9PTEe6X4LkvHOS59g" value="&quot;draft proffers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJrNPTEe6X4LkvHOS59g" name="|5|" incoming="_aeEJstPTEe6X4LkvHOS59g _aeEJs9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aeEJrdPTEe6X4LkvHOS59g" value="&quot;history of draft proffer statements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJrtPTEe6X4LkvHOS59g" name="|6|" outgoing="_aeEJs9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aeEJr9PTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aeEJsNPTEe6X4LkvHOS59g" source="_aeEJotPTEe6X4LkvHOS59g" target="_aeEJptPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aeEJsdPTEe6X4LkvHOS59g" source="_aeEJptPTEe6X4LkvHOS59g" target="_aeEJqtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aeEJstPTEe6X4LkvHOS59g" source="_aeEJqNPTEe6X4LkvHOS59g" target="_aeEJrNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aeEJs9PTEe6X4LkvHOS59g" source="_aeEJrtPTEe6X4LkvHOS59g" target="_aeEJrNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aeEJtNPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aeEJtdPTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aeEJttPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJt9PTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aeEJuNPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to track  the draft proffers, so that i can preserve the history of draft proffer statements submitted by the applicant.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aeEJudPTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aeEJutPTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aeEJu9PTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aeEJvNPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aeEJvdPTEe6X4LkvHOS59g" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aeEJvtPTEe6X4LkvHOS59g" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aeEJv9PTEe6X4LkvHOS59g" origin="_aeEJotPTEe6X4LkvHOS59g" image="_aeEJtdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJwNPTEe6X4LkvHOS59g" origin="_aeEJpNPTEe6X4LkvHOS59g" image="_aeEJt9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJwdPTEe6X4LkvHOS59g" origin="_aeEJptPTEe6X4LkvHOS59g" image="_aeEJudPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJwtPTEe6X4LkvHOS59g" origin="_aeEJqNPTEe6X4LkvHOS59g" image="_aeEJutPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJw9PTEe6X4LkvHOS59g" origin="_aeEJqtPTEe6X4LkvHOS59g" image="_aeEJu9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJxNPTEe6X4LkvHOS59g" origin="_aeEJrNPTEe6X4LkvHOS59g" image="_aeEJvNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aeEJxdPTEe6X4LkvHOS59g" origin="_aeEJrtPTEe6X4LkvHOS59g" image="_aeEJvdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

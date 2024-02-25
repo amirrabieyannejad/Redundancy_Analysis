@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ayik0NPTEe6X4LkvHOS59g" name="user_story_34">
+  <lhs xmi:id="_ayik0dPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_ayik0tPTEe6X4LkvHOS59g" name="|13|" outgoing="_ayik5NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_ayik09PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik1NPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_ayik1dPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to process the appeals, so that i can track the outcome and record the impact on the relevant records.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik1tPTEe6X4LkvHOS59g" name="|15|" incoming="_ayik5NPTEe6X4LkvHOS59g" outgoing="_ayik5dPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_ayik19PTEe6X4LkvHOS59g" value="&quot;process&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik2NPTEe6X4LkvHOS59g" name="|16|" outgoing="_ayik5tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_ayik2dPTEe6X4LkvHOS59g" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik2tPTEe6X4LkvHOS59g" name="|17|" outgoing="_ayik59PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_ayik29PTEe6X4LkvHOS59g" value="&quot;record&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik3NPTEe6X4LkvHOS59g" name="|18|" incoming="_ayik5dPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_ayik3dPTEe6X4LkvHOS59g" value="&quot;appeals&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik3tPTEe6X4LkvHOS59g" name="|19|" incoming="_ayik5tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ayik39PTEe6X4LkvHOS59g" value="&quot;outcome&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik4NPTEe6X4LkvHOS59g" name="|20|" incoming="_ayik59PTEe6X4LkvHOS59g _ayik6NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ayik4dPTEe6X4LkvHOS59g" value="&quot;impact&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik4tPTEe6X4LkvHOS59g" name="|21|" outgoing="_ayik6NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ayik49PTEe6X4LkvHOS59g" value="&quot;relevant records&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_ayik5NPTEe6X4LkvHOS59g" source="_ayik0tPTEe6X4LkvHOS59g" target="_ayik1tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_ayik5dPTEe6X4LkvHOS59g" source="_ayik1tPTEe6X4LkvHOS59g" target="_ayik3NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ayik5tPTEe6X4LkvHOS59g" source="_ayik2NPTEe6X4LkvHOS59g" target="_ayik3tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ayik59PTEe6X4LkvHOS59g" source="_ayik2tPTEe6X4LkvHOS59g" target="_ayik4NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ayik6NPTEe6X4LkvHOS59g" source="_ayik4tPTEe6X4LkvHOS59g" target="_ayik4NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_ayik6dPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_ayik6tPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_ayik69PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik7NPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_ayik7dPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to process the appeals, so that i can track the outcome and record the impact on the relevant records.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ayik7tPTEe6X4LkvHOS59g" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ayik79PTEe6X4LkvHOS59g" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ayik8NPTEe6X4LkvHOS59g" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ayik8dPTEe6X4LkvHOS59g" name="|18|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ayik8tPTEe6X4LkvHOS59g" name="|19|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ayik89PTEe6X4LkvHOS59g" name="|20|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ayik9NPTEe6X4LkvHOS59g" name="|21|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ayik9dPTEe6X4LkvHOS59g" value="&quot;relevant records&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_ayik9tPTEe6X4LkvHOS59g" origin="_ayik0tPTEe6X4LkvHOS59g" image="_ayik6tPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik99PTEe6X4LkvHOS59g" origin="_ayik1NPTEe6X4LkvHOS59g" image="_ayik7NPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik-NPTEe6X4LkvHOS59g" origin="_ayik1tPTEe6X4LkvHOS59g" image="_ayik7tPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik-dPTEe6X4LkvHOS59g" origin="_ayik2NPTEe6X4LkvHOS59g" image="_ayik79PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik-tPTEe6X4LkvHOS59g" origin="_ayik2tPTEe6X4LkvHOS59g" image="_ayik8NPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik-9PTEe6X4LkvHOS59g" origin="_ayik3NPTEe6X4LkvHOS59g" image="_ayik8dPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik_NPTEe6X4LkvHOS59g" origin="_ayik3tPTEe6X4LkvHOS59g" image="_ayik8tPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik_dPTEe6X4LkvHOS59g" origin="_ayik4NPTEe6X4LkvHOS59g" image="_ayik89PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ayik_tPTEe6X4LkvHOS59g" origin="_ayik4tPTEe6X4LkvHOS59g" image="_ayik9NPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

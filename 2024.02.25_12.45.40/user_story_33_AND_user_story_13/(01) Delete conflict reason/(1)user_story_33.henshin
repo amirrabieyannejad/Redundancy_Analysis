@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Zw-aINPTEe6X4LkvHOS59g" name="user_story_33">
+  <lhs xmi:id="_Zw-aIdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_Zw-aItPTEe6X4LkvHOS59g" name="|0|" outgoing="_Zw-aLtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Zw-aI9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aJNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Zw-aJdPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to capture a hearing decision, so that i can enforce the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aJtPTEe6X4LkvHOS59g" name="|2|" incoming="_Zw-aLtPTEe6X4LkvHOS59g" outgoing="_Zw-aL9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Zw-aJ9PTEe6X4LkvHOS59g" value="&quot;capture&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aKNPTEe6X4LkvHOS59g" name="|3|" outgoing="_Zw-aMNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Zw-aKdPTEe6X4LkvHOS59g" value="&quot;enforce&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aKtPTEe6X4LkvHOS59g" name="|4|" incoming="_Zw-aL9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Zw-aK9PTEe6X4LkvHOS59g" value="&quot;hearing decision&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aLNPTEe6X4LkvHOS59g" name="|5|" incoming="_Zw-aMNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Zw-aLdPTEe6X4LkvHOS59g" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Zw-aLtPTEe6X4LkvHOS59g" source="_Zw-aItPTEe6X4LkvHOS59g" target="_Zw-aJtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Zw-aL9PTEe6X4LkvHOS59g" source="_Zw-aJtPTEe6X4LkvHOS59g" target="_Zw-aKtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Zw-aMNPTEe6X4LkvHOS59g" source="_Zw-aKNPTEe6X4LkvHOS59g" target="_Zw-aLNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Zw-aMdPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_Zw-aMtPTEe6X4LkvHOS59g" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Zw-aM9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aNNPTEe6X4LkvHOS59g" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Zw-aNdPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to capture a hearing decision, so that i can enforce the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Zw-aNtPTEe6X4LkvHOS59g" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Zw-aN9PTEe6X4LkvHOS59g" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Zw-aONPTEe6X4LkvHOS59g" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Zw-aOdPTEe6X4LkvHOS59g" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Zw-aOtPTEe6X4LkvHOS59g" origin="_Zw-aItPTEe6X4LkvHOS59g" image="_Zw-aMtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Zw-aO9PTEe6X4LkvHOS59g" origin="_Zw-aJNPTEe6X4LkvHOS59g" image="_Zw-aNNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Zw-aPNPTEe6X4LkvHOS59g" origin="_Zw-aJtPTEe6X4LkvHOS59g" image="_Zw-aNtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Zw-aPdPTEe6X4LkvHOS59g" origin="_Zw-aKNPTEe6X4LkvHOS59g" image="_Zw-aN9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Zw-aPtPTEe6X4LkvHOS59g" origin="_Zw-aKtPTEe6X4LkvHOS59g" image="_Zw-aONPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_Zw-aP9PTEe6X4LkvHOS59g" origin="_Zw-aLNPTEe6X4LkvHOS59g" image="_Zw-aOdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_aIUjINPTEe6X4LkvHOS59g" name="user_story_18">
+  <lhs xmi:id="_aIUjIdPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_aIUjItPTEe6X4LkvHOS59g" name="|8|" outgoing="_aIUjMNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aIUjI9PTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjJNPTEe6X4LkvHOS59g" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aIUjJdPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage ordinances, so that i can maintain accurate ordinance information in the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjJtPTEe6X4LkvHOS59g" name="|10|" incoming="_aIUjMNPTEe6X4LkvHOS59g" outgoing="_aIUjMdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_aIUjJ9PTEe6X4LkvHOS59g" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjKNPTEe6X4LkvHOS59g" name="|11|" outgoing="_aIUjMtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_aIUjKdPTEe6X4LkvHOS59g" value="&quot;maintain&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjKtPTEe6X4LkvHOS59g" name="|12|" incoming="_aIUjMdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_aIUjK9PTEe6X4LkvHOS59g" value="&quot;ordinances&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjLNPTEe6X4LkvHOS59g" name="|13|" incoming="_aIUjMtPTEe6X4LkvHOS59g _aIUjM9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aIUjLdPTEe6X4LkvHOS59g" value="&quot;accurate ordinance information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjLtPTEe6X4LkvHOS59g" name="|14|" outgoing="_aIUjM9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aIUjL9PTEe6X4LkvHOS59g" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_aIUjMNPTEe6X4LkvHOS59g" source="_aIUjItPTEe6X4LkvHOS59g" target="_aIUjJtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_aIUjMdPTEe6X4LkvHOS59g" source="_aIUjJtPTEe6X4LkvHOS59g" target="_aIUjKtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aIUjMtPTEe6X4LkvHOS59g" source="_aIUjKNPTEe6X4LkvHOS59g" target="_aIUjLNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_aIUjM9PTEe6X4LkvHOS59g" source="_aIUjLtPTEe6X4LkvHOS59g" target="_aIUjLNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_aIUjNNPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_aIUjNdPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_aIUjNtPTEe6X4LkvHOS59g" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjN9PTEe6X4LkvHOS59g" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_aIUjONPTEe6X4LkvHOS59g" value="&quot;#g03# as a staff member, i want to manage ordinances, so that i can maintain accurate ordinance information in the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_aIUjOdPTEe6X4LkvHOS59g" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aIUjOtPTEe6X4LkvHOS59g" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_aIUjO9PTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aIUjPNPTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_aIUjPdPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_aIUjPtPTEe6X4LkvHOS59g" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_aIUjP9PTEe6X4LkvHOS59g" origin="_aIUjItPTEe6X4LkvHOS59g" image="_aIUjNdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjQNPTEe6X4LkvHOS59g" origin="_aIUjJNPTEe6X4LkvHOS59g" image="_aIUjN9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjQdPTEe6X4LkvHOS59g" origin="_aIUjJtPTEe6X4LkvHOS59g" image="_aIUjOdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjQtPTEe6X4LkvHOS59g" origin="_aIUjKNPTEe6X4LkvHOS59g" image="_aIUjOtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjQ9PTEe6X4LkvHOS59g" origin="_aIUjKtPTEe6X4LkvHOS59g" image="_aIUjO9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjRNPTEe6X4LkvHOS59g" origin="_aIUjLNPTEe6X4LkvHOS59g" image="_aIUjPNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_aIUjRdPTEe6X4LkvHOS59g" origin="_aIUjLtPTEe6X4LkvHOS59g" image="_aIUjPdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_ZmQ-8NPTEe6X4LkvHOS59g" name="user_story_04">
+  <lhs xmi:id="_ZmQ-8dPTEe6X4LkvHOS59g" name="Lhs">
+    <nodes xmi:id="_ZmQ-8tPTEe6X4LkvHOS59g" name="|7|" outgoing="_ZmQ_BNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_ZmQ-89PTEe6X4LkvHOS59g" value="&quot;customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ-9NPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_ZmQ-9dPTEe6X4LkvHOS59g" value="&quot;#g03# as a customer, i want to create a customer portal user account, so that i can log on to the customer portal and perform transactions that first require user authentication.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ-9tPTEe6X4LkvHOS59g" name="|9|" incoming="_ZmQ_BNPTEe6X4LkvHOS59g" outgoing="_ZmQ_BdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_ZmQ-99PTEe6X4LkvHOS59g" value="&quot;create&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ--NPTEe6X4LkvHOS59g" name="|10|" outgoing="_ZmQ_BtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_ZmQ--dPTEe6X4LkvHOS59g" value="&quot;log&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ--tPTEe6X4LkvHOS59g" name="|11|" outgoing="_ZmQ_B9PTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_ZmQ--9PTEe6X4LkvHOS59g" value="&quot;perform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ-_NPTEe6X4LkvHOS59g" name="|12|" incoming="_ZmQ_BdPTEe6X4LkvHOS59g _ZmQ_CdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_ZmQ-_dPTEe6X4LkvHOS59g" value="&quot;customer portal user account&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ-_tPTEe6X4LkvHOS59g" name="|13|" incoming="_ZmQ_BtPTEe6X4LkvHOS59g" outgoing="_ZmQ_CdPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ZmQ-_9PTEe6X4LkvHOS59g" value="&quot;customer portal&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ_ANPTEe6X4LkvHOS59g" name="|14|" incoming="_ZmQ_B9PTEe6X4LkvHOS59g" outgoing="_ZmQ_CNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ZmQ_AdPTEe6X4LkvHOS59g" value="&quot;transactions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ_AtPTEe6X4LkvHOS59g" name="|15|" incoming="_ZmQ_CNPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ZmQ_A9PTEe6X4LkvHOS59g" value="&quot;user authentication&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_ZmQ_BNPTEe6X4LkvHOS59g" source="_ZmQ-8tPTEe6X4LkvHOS59g" target="_ZmQ-9tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_ZmQ_BdPTEe6X4LkvHOS59g" source="_ZmQ-9tPTEe6X4LkvHOS59g" target="_ZmQ-_NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ZmQ_BtPTEe6X4LkvHOS59g" source="_ZmQ--NPTEe6X4LkvHOS59g" target="_ZmQ-_tPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ZmQ_B9PTEe6X4LkvHOS59g" source="_ZmQ--tPTEe6X4LkvHOS59g" target="_ZmQ_ANPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_ZmQ_CNPTEe6X4LkvHOS59g" source="_ZmQ_ANPTEe6X4LkvHOS59g" target="_ZmQ_AtPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_ZmQ_CdPTEe6X4LkvHOS59g" source="_ZmQ-_tPTEe6X4LkvHOS59g" target="_ZmQ-_NPTEe6X4LkvHOS59g">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_ZmQ_CtPTEe6X4LkvHOS59g" name="Rhs">
+    <nodes xmi:id="_ZmQ_C9PTEe6X4LkvHOS59g" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_ZmQ_DNPTEe6X4LkvHOS59g" value="&quot;customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ_DdPTEe6X4LkvHOS59g" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_ZmQ_DtPTEe6X4LkvHOS59g" value="&quot;#g03# as a customer, i want to create a customer portal user account, so that i can log on to the customer portal and perform transactions that first require user authentication.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_ZmQ_D9PTEe6X4LkvHOS59g" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_ENPTEe6X4LkvHOS59g" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_EdPTEe6X4LkvHOS59g" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_EtPTEe6X4LkvHOS59g" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_E9PTEe6X4LkvHOS59g" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_FNPTEe6X4LkvHOS59g" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_ZmQ_FdPTEe6X4LkvHOS59g" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_ZmQ_FtPTEe6X4LkvHOS59g" value="&quot;user authentication&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_ZmQ_F9PTEe6X4LkvHOS59g" origin="_ZmQ-8tPTEe6X4LkvHOS59g" image="_ZmQ_C9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_GNPTEe6X4LkvHOS59g" origin="_ZmQ-9NPTEe6X4LkvHOS59g" image="_ZmQ_DdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_GdPTEe6X4LkvHOS59g" origin="_ZmQ-9tPTEe6X4LkvHOS59g" image="_ZmQ_D9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_GtPTEe6X4LkvHOS59g" origin="_ZmQ--NPTEe6X4LkvHOS59g" image="_ZmQ_ENPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_G9PTEe6X4LkvHOS59g" origin="_ZmQ--tPTEe6X4LkvHOS59g" image="_ZmQ_EdPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_HNPTEe6X4LkvHOS59g" origin="_ZmQ-_NPTEe6X4LkvHOS59g" image="_ZmQ_EtPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_HdPTEe6X4LkvHOS59g" origin="_ZmQ-_tPTEe6X4LkvHOS59g" image="_ZmQ_E9PTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_HtPTEe6X4LkvHOS59g" origin="_ZmQ_ANPTEe6X4LkvHOS59g" image="_ZmQ_FNPTEe6X4LkvHOS59g"/>
+  <mappings xmi:id="_ZmQ_H9PTEe6X4LkvHOS59g" origin="_ZmQ_AtPTEe6X4LkvHOS59g" image="_ZmQ_FdPTEe6X4LkvHOS59g"/>
+</henshin:Rule>
