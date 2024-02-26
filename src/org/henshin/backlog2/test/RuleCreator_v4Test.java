@@ -13,6 +13,7 @@ import org.henshin.backlog2.RuleCreator_v4;
 import org.henshin.backlog2.TargetsInJsonFileNotFound;
 import org.henshin.backlog2.TextInJsonFileNotFound;
 import org.henshin.backlog2.TriggersInJsonFileNotFound;
+
 import org.henshin.backlog2.UsNrInJsonFileNotFound;
 import org.json.JSONArray;
 import org.junit.Test;
@@ -93,6 +94,68 @@ public class RuleCreator_v4Test {
 	@Test(expected = TextInJsonFileNotFound.class)
 	public void testprocessJsonFile_TextNotExist() throws EmptyOrNotExistJsonFile,PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound {
 		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\Text_Not_Exist.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessContainsEdges_UndefindedEntity() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound,  EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\UndefindedEntity_in_Contains.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+		
+		
+	}
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testprocessTargetsEdges_UndefindedEntity() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound,  EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\UndefindedEntity_in_Targets.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testprocessTargetsEdges_PrimaryEntityNotFound() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\PrimaryEntityNotFound.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testprocessTargetsEdges_SecondaryEntityNotFound() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\SecondaryEntityNotFound.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testprocessTargetsEdges_PrimaryActionNotFound() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\PrimaryActionNotFound.json", "backlog_v4",
+				"Backlog_v2.3.ecore");
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testprocessTargetsEdges_SecondaryActionNotFound() throws EcoreFileNotFound,
+	PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+	EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+	TextInJsonFileNotFound, TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile{
+		RuleCreator_v4 ruleCreator_v4 = new RuleCreator_v4("Tests\\SecondrayActionNotFound.json", "backlog_v4",
 				"Backlog_v2.3.ecore");
 		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
 		ruleCreator_v4.processJsonFile(jsonArray);

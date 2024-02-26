@@ -14,20 +14,13 @@ import java.util.List;
 
 public class CdaConvertorV2Test {
 
-	/*
-	 * Test Case: Successful Extraction Scenario: Provide a directory with valid
-	 * files and a valid JSON file. Expected Outcome: The method should successfully
-	 * extract reports without any errors.
-	 * 
-	 */
 
 	@Test
-	public void testExtractReports_completeMajorElements() throws EmptyOrNotExistJsonFile {
-		// Arrange: Prepare the test data
+	public void testExtractReports_completeMajorElements_edge() throws EmptyOrNotExistJsonFile {
+		
 		String directoryName = "Tests\\ExactMatch";
 		String jsonFileName = "Tests\\g03_baseline_pos_num.json";
 
-		// Act: Call the method you want to test
 		CdaConvertorV2 cdaConvertor = new CdaConvertorV2(directoryName, jsonFileName);
 		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 
@@ -48,6 +41,40 @@ public class CdaConvertorV2Test {
 			assertTrue(result.toString().contains("Secondary Entity: compliance")
 					&& result.toString().contains("Secondary Action: review")
 					&& result.toString().contains("Link from Secondary Action: targets"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+	@Test
+	public void testExtractReports_completeMajorElements_upperEdge() throws EmptyOrNotExistJsonFile {
+		
+		String directoryName = "Tests\\ExactMatch_upperEdge";
+		String jsonFileName = "Tests\\g03_baseline_pos_num.json";
+
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append("\n");
+			}
+			reader.close();
+			fileWrite.close();
+			assertTrue(result.toString().contains("Secondary Entity: compliance")
+					&& result.toString().contains("Secondary Action: ensure")
+					&& result.toString().contains("Primary Aciton: manage")
+					&& result.toString().contains("Link from Secondary Action: targets")
+					&& result.toString().contains("Link from Persona: triggers")
+					);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -106,7 +133,7 @@ public class CdaConvertorV2Test {
 
 	@Test(expected = NullPointerException.class)
 	public void testInvalidJsonFile() throws EmptyOrNotExistJsonFile, NullPointerException, IOException {
-		String directoryName = "Tests\\ExactMatch";
+		String directoryName = "Tests\\ExactMatch_testInvalidJsonFile";
 		String jsonFileName = "Tests\\dummyJOSN.json";
 		CdaConvertorV2 cdaConvertor = new CdaConvertorV2(directoryName, jsonFileName);
 		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
@@ -137,7 +164,7 @@ public class CdaConvertorV2Test {
 
 	@Test(expected = EmptyOrNotExistJsonFile.class)
 	public void testEmptyJSONFile() throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException {
-		String directoryNamed = "Tests\\ExactMatch";
+		String directoryNamed = "Tests\\ExactMatch_testEmptyJSONFile";
 		String jsonFileNameds = "Tests\\empty_json_file.json";
 		CdaConvertorV2 cdaConv = new CdaConvertorV2(directoryNamed, jsonFileNameds);
 		System.out.println("[testEmptyJSONFile] json path is: " + cdaConv.getAbsoluteJsonFileDir());
