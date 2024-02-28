@@ -1,12 +1,13 @@
 package org.henshin.backlog2;
 
-public class Targets extends ConflictingItems{
+public class Targets extends ConflictingItems {
 	private String name;
 	private String classType;
 
 	public Targets(String name, String type) {
 		this.name = name;
-		this.classType =type;
+		this.classType = type;
+
 	}
 
 	public String getName() {
@@ -17,4 +18,5 @@ public class Targets extends ConflictingItems{
 		return classType;
 
 	}
+
 }

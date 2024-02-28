@@ -6,7 +6,8 @@ public class Triggers extends ConflictingItems {
 
 	public Triggers(String name, String type) {
 		this.name = name;
-		this.classType =type;
+		this.classType = type;
+
 	}
 
 	public String getName() {
@@ -17,4 +18,5 @@ public class Triggers extends ConflictingItems {
 		return classType;
 
 	}
+
 }
