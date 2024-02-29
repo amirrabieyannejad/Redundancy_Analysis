@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VVjLENcdEe6D36Q-j819ng" name="user_story_03">
+  <lhs xmi:id="_VVjLEdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VVjLEtcdEe6D36Q-j819ng" name="|0|" outgoing="_VVjLJNcdEe6D36Q-j819ng _VVjLJdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VVjLE9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLFNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VVjLFdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to enter my zip code and get a list of nearby recycling facilities, so that i can determine which ones i should consider.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLFtcdEe6D36Q-j819ng" name="|2|" incoming="_VVjLJNcdEe6D36Q-j819ng" outgoing="_VVjLJtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VVjLF9cdEe6D36Q-j819ng" value="&quot;enter&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLGNcdEe6D36Q-j819ng" name="|3|" incoming="_VVjLJdcdEe6D36Q-j819ng" outgoing="_VVjLJ9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VVjLGdcdEe6D36Q-j819ng" value="&quot;get&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLGtcdEe6D36Q-j819ng" name="|4|" outgoing="_VVjLKNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VVjLG9cdEe6D36Q-j819ng" value="&quot;determine&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLHNcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VVjLHdcdEe6D36Q-j819ng" value="&quot;consider&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLHtcdEe6D36Q-j819ng" name="|6|" incoming="_VVjLJtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VVjLH9cdEe6D36Q-j819ng" value="&quot;zip code&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLINcdEe6D36Q-j819ng" name="|7|" incoming="_VVjLJ9cdEe6D36Q-j819ng" outgoing="_VVjLKdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VVjLIdcdEe6D36Q-j819ng" value="&quot;list&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLItcdEe6D36Q-j819ng" name="|8|" incoming="_VVjLKNcdEe6D36Q-j819ng _VVjLKdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VVjLI9cdEe6D36Q-j819ng" value="&quot;nearby recycling facilities&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VVjLJNcdEe6D36Q-j819ng" source="_VVjLEtcdEe6D36Q-j819ng" target="_VVjLFtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VVjLJdcdEe6D36Q-j819ng" source="_VVjLEtcdEe6D36Q-j819ng" target="_VVjLGNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VVjLJtcdEe6D36Q-j819ng" source="_VVjLFtcdEe6D36Q-j819ng" target="_VVjLHtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVjLJ9cdEe6D36Q-j819ng" source="_VVjLGNcdEe6D36Q-j819ng" target="_VVjLINcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVjLKNcdEe6D36Q-j819ng" source="_VVjLGtcdEe6D36Q-j819ng" target="_VVjLItcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVjLKdcdEe6D36Q-j819ng" source="_VVjLINcdEe6D36Q-j819ng" target="_VVjLItcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VVjLKtcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VVjLK9cdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VVjLLNcdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLLdcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VVjLLtcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to enter my zip code and get a list of nearby recycling facilities, so that i can determine which ones i should consider.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVjLL9cdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVjLMNcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVjLMdcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVjLMtcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVjLM9cdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VVjLNNcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VVjLNdcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VVjLNtcdEe6D36Q-j819ng" origin="_VVjLEtcdEe6D36Q-j819ng" image="_VVjLK9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLN9cdEe6D36Q-j819ng" origin="_VVjLFNcdEe6D36Q-j819ng" image="_VVjLLdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLONcdEe6D36Q-j819ng" origin="_VVjLFtcdEe6D36Q-j819ng" image="_VVjLL9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLOdcdEe6D36Q-j819ng" origin="_VVjLGNcdEe6D36Q-j819ng" image="_VVjLMNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLOtcdEe6D36Q-j819ng" origin="_VVjLGtcdEe6D36Q-j819ng" image="_VVjLMdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLO9cdEe6D36Q-j819ng" origin="_VVjLHNcdEe6D36Q-j819ng" image="_VVjLMtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLPNcdEe6D36Q-j819ng" origin="_VVjLHtcdEe6D36Q-j819ng" image="_VVjLM9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLPdcdEe6D36Q-j819ng" origin="_VVjLINcdEe6D36Q-j819ng" image="_VVjLNNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVjLPtcdEe6D36Q-j819ng" origin="_VVjLItcdEe6D36Q-j819ng" image="_VVjLNdcdEe6D36Q-j819ng"/>
+</henshin:Rule>

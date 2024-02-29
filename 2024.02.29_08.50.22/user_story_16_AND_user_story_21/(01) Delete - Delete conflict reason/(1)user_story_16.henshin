@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MiigINbXEe6D36Q-j819ng" name="user_story_16">
+  <lhs xmi:id="_MiigIdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MiigItbXEe6D36Q-j819ng" name="|0|" outgoing="_MiigMNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MiigI9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigJNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MiigJdbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to track  the draft proffers, so that i can preserve the history of draft proffer statements submitted by the applicant.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigJtbXEe6D36Q-j819ng" name="|2|" incoming="_MiigMNbXEe6D36Q-j819ng" outgoing="_MiigMdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MiigJ9bXEe6D36Q-j819ng" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigKNbXEe6D36Q-j819ng" name="|3|" outgoing="_MiigMtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MiigKdbXEe6D36Q-j819ng" value="&quot;preserve&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigKtbXEe6D36Q-j819ng" name="|4|" incoming="_MiigMdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MiigK9bXEe6D36Q-j819ng" value="&quot;draft proffers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigLNbXEe6D36Q-j819ng" name="|5|" incoming="_MiigMtbXEe6D36Q-j819ng _MiigM9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MiigLdbXEe6D36Q-j819ng" value="&quot;history of draft proffer statements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigLtbXEe6D36Q-j819ng" name="|6|" outgoing="_MiigM9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MiigL9bXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MiigMNbXEe6D36Q-j819ng" source="_MiigItbXEe6D36Q-j819ng" target="_MiigJtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MiigMdbXEe6D36Q-j819ng" source="_MiigJtbXEe6D36Q-j819ng" target="_MiigKtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MiigMtbXEe6D36Q-j819ng" source="_MiigKNbXEe6D36Q-j819ng" target="_MiigLNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MiigM9bXEe6D36Q-j819ng" source="_MiigLtbXEe6D36Q-j819ng" target="_MiigLNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MiigNNbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MiigNdbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MiigNtbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigN9bXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MiigONbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to track  the draft proffers, so that i can preserve the history of draft proffer statements submitted by the applicant.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MiigOdbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MiigOtbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MiigO9bXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MiigPNbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MiigPdbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MiigPtbXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MiigP9bXEe6D36Q-j819ng" origin="_MiigItbXEe6D36Q-j819ng" image="_MiigNdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigQNbXEe6D36Q-j819ng" origin="_MiigJNbXEe6D36Q-j819ng" image="_MiigN9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigQdbXEe6D36Q-j819ng" origin="_MiigJtbXEe6D36Q-j819ng" image="_MiigOdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigQtbXEe6D36Q-j819ng" origin="_MiigKNbXEe6D36Q-j819ng" image="_MiigOtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigQ9bXEe6D36Q-j819ng" origin="_MiigKtbXEe6D36Q-j819ng" image="_MiigO9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigRNbXEe6D36Q-j819ng" origin="_MiigLNbXEe6D36Q-j819ng" image="_MiigPNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MiigRdbXEe6D36Q-j819ng" origin="_MiigLtbXEe6D36Q-j819ng" image="_MiigPdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

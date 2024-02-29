@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MYo9QNbXEe6D36Q-j819ng" name="user_story_29">
+  <lhs xmi:id="_MYo9QdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MYo9QtbXEe6D36Q-j819ng" name="|0|" outgoing="_MYo9VNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MYo9Q9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9RNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MYo9RdbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to assign a hearing date, so that i can present the application to the appropriate governing body within the timelines dictated by the relevant county rules and procedures.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9RtbXEe6D36Q-j819ng" name="|2|" incoming="_MYo9VNbXEe6D36Q-j819ng" outgoing="_MYo9VdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MYo9R9bXEe6D36Q-j819ng" value="&quot;assign&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9SNbXEe6D36Q-j819ng" name="|3|" outgoing="_MYo9VtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MYo9SdbXEe6D36Q-j819ng" value="&quot;present&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9StbXEe6D36Q-j819ng" name="|4|" incoming="_MYo9VdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MYo9S9bXEe6D36Q-j819ng" value="&quot;hearing date&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9TNbXEe6D36Q-j819ng" name="|5|" incoming="_MYo9VtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9TdbXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9TtbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9T9bXEe6D36Q-j819ng" value="&quot;appropriate governing body&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9UNbXEe6D36Q-j819ng" name="|7|" incoming="_MYo9V9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9UdbXEe6D36Q-j819ng" value="&quot;timelines&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9UtbXEe6D36Q-j819ng" name="|8|" outgoing="_MYo9V9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9U9bXEe6D36Q-j819ng" value="&quot;relevant county rules and procedures&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MYo9VNbXEe6D36Q-j819ng" source="_MYo9QtbXEe6D36Q-j819ng" target="_MYo9RtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MYo9VdbXEe6D36Q-j819ng" source="_MYo9RtbXEe6D36Q-j819ng" target="_MYo9StbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MYo9VtbXEe6D36Q-j819ng" source="_MYo9SNbXEe6D36Q-j819ng" target="_MYo9TNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MYo9V9bXEe6D36Q-j819ng" source="_MYo9UtbXEe6D36Q-j819ng" target="_MYo9UNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MYo9WNbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MYo9WdbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MYo9WtbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9W9bXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MYo9XNbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to assign a hearing date, so that i can present the application to the appropriate governing body within the timelines dictated by the relevant county rules and procedures.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9XdbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MYo9XtbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MYo9X9bXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MYo9YNbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MYo9YdbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9YtbXEe6D36Q-j819ng" value="&quot;appropriate governing body&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9Y9bXEe6D36Q-j819ng" name="|7|" incoming="_MYo9Z9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9ZNbXEe6D36Q-j819ng" value="&quot;timelines&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MYo9ZdbXEe6D36Q-j819ng" name="|8|" outgoing="_MYo9Z9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MYo9ZtbXEe6D36Q-j819ng" value="&quot;relevant county rules and procedures&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MYo9Z9bXEe6D36Q-j819ng" source="_MYo9ZdbXEe6D36Q-j819ng" target="_MYo9Y9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_MYo9aNbXEe6D36Q-j819ng" origin="_MYo9QtbXEe6D36Q-j819ng" image="_MYo9WdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9adbXEe6D36Q-j819ng" origin="_MYo9RNbXEe6D36Q-j819ng" image="_MYo9W9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9atbXEe6D36Q-j819ng" origin="_MYo9RtbXEe6D36Q-j819ng" image="_MYo9XdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9a9bXEe6D36Q-j819ng" origin="_MYo9SNbXEe6D36Q-j819ng" image="_MYo9XtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9bNbXEe6D36Q-j819ng" origin="_MYo9StbXEe6D36Q-j819ng" image="_MYo9X9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9bdbXEe6D36Q-j819ng" origin="_MYo9TNbXEe6D36Q-j819ng" image="_MYo9YNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9btbXEe6D36Q-j819ng" origin="_MYo9TtbXEe6D36Q-j819ng" image="_MYo9YdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9b9bXEe6D36Q-j819ng" origin="_MYo9UNbXEe6D36Q-j819ng" image="_MYo9Y9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MYo9cNbXEe6D36Q-j819ng" origin="_MYo9UtbXEe6D36Q-j819ng" image="_MYo9ZdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

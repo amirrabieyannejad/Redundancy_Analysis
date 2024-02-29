@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VnYh8NcdEe6D36Q-j819ng" name="user_story_36">
+  <lhs xmi:id="_VnYh8dcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VnYh8tcdEe6D36Q-j819ng" name="|6|" outgoing="_VnYiAtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VnYh89cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh9NcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VnYh9dcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to view all locations of recycling centers on a map, so that i can check which routes to take to drop off waste.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh9tcdEe6D36Q-j819ng" name="|8|" incoming="_VnYiAtcdEe6D36Q-j819ng" outgoing="_VnYiA9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VnYh99cdEe6D36Q-j819ng" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh-NcdEe6D36Q-j819ng" name="|9|" outgoing="_VnYiBNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VnYh-dcdEe6D36Q-j819ng" value="&quot;check&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh-tcdEe6D36Q-j819ng" name="|10|" incoming="_VnYiA9cdEe6D36Q-j819ng _VnYiBdcdEe6D36Q-j819ng" outgoing="_VnYiBtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VnYh-9cdEe6D36Q-j819ng" value="&quot;locations of recycling centers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh_NcdEe6D36Q-j819ng" name="|11|" outgoing="_VnYiBdcdEe6D36Q-j819ng _VnYiB9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VnYh_dcdEe6D36Q-j819ng" value="&quot;map&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYh_tcdEe6D36Q-j819ng" name="|12|" incoming="_VnYiBNcdEe6D36Q-j819ng _VnYiB9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VnYh_9cdEe6D36Q-j819ng" value="&quot;routes&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYiANcdEe6D36Q-j819ng" name="|13|" incoming="_VnYiBtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VnYiAdcdEe6D36Q-j819ng" value="&quot;drop off waste&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VnYiAtcdEe6D36Q-j819ng" source="_VnYh8tcdEe6D36Q-j819ng" target="_VnYh9tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VnYiA9cdEe6D36Q-j819ng" source="_VnYh9tcdEe6D36Q-j819ng" target="_VnYh-tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VnYiBNcdEe6D36Q-j819ng" source="_VnYh-NcdEe6D36Q-j819ng" target="_VnYh_tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VnYiBdcdEe6D36Q-j819ng" source="_VnYh_NcdEe6D36Q-j819ng" target="_VnYh-tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VnYiBtcdEe6D36Q-j819ng" source="_VnYh-tcdEe6D36Q-j819ng" target="_VnYiANcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VnYiB9cdEe6D36Q-j819ng" source="_VnYh_NcdEe6D36Q-j819ng" target="_VnYh_tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VnYiCNcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VnYiCdcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VnYiCtcdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYiC9cdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VnYiDNcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to view all locations of recycling centers on a map, so that i can check which routes to take to drop off waste.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYiDdcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VnYiDtcdEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VnYiD9cdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VnYiENcdEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VnYiEdcdEe6D36Q-j819ng" value="&quot;map&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VnYiEtcdEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VnYiE9cdEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VnYiFNcdEe6D36Q-j819ng" value="&quot;drop off waste&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VnYiFdcdEe6D36Q-j819ng" origin="_VnYh8tcdEe6D36Q-j819ng" image="_VnYiCdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiFtcdEe6D36Q-j819ng" origin="_VnYh9NcdEe6D36Q-j819ng" image="_VnYiC9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiF9cdEe6D36Q-j819ng" origin="_VnYh9tcdEe6D36Q-j819ng" image="_VnYiDdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiGNcdEe6D36Q-j819ng" origin="_VnYh-NcdEe6D36Q-j819ng" image="_VnYiDtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiGdcdEe6D36Q-j819ng" origin="_VnYh-tcdEe6D36Q-j819ng" image="_VnYiD9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiGtcdEe6D36Q-j819ng" origin="_VnYh_NcdEe6D36Q-j819ng" image="_VnYiENcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiG9cdEe6D36Q-j819ng" origin="_VnYh_tcdEe6D36Q-j819ng" image="_VnYiEtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VnYiHNcdEe6D36Q-j819ng" origin="_VnYiANcdEe6D36Q-j819ng" image="_VnYiE9cdEe6D36Q-j819ng"/>
+</henshin:Rule>

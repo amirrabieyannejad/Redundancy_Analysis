@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MtzU8NbXEe6D36Q-j819ng" name="user_story_30">
+  <lhs xmi:id="_MtzU8dbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MtzU8tbXEe6D36Q-j819ng" name="|0|" outgoing="_MtzVAtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MtzU89bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU9NbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MtzU9dbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to manage affidavits, so that i can ensure compliance with the requirements prior to the hearing.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU9tbXEe6D36Q-j819ng" name="|2|" incoming="_MtzVAtbXEe6D36Q-j819ng" outgoing="_MtzVA9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MtzU99bXEe6D36Q-j819ng" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU-NbXEe6D36Q-j819ng" name="|3|" outgoing="_MtzVBNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MtzU-dbXEe6D36Q-j819ng" value="&quot;ensure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU-tbXEe6D36Q-j819ng" name="|4|" incoming="_MtzVA9bXEe6D36Q-j819ng" outgoing="_MtzVBdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MtzU-9bXEe6D36Q-j819ng" value="&quot;affidavits&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU_NbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MtzU_dbXEe6D36Q-j819ng" value="&quot;requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzU_tbXEe6D36Q-j819ng" name="|6|" incoming="_MtzVBNbXEe6D36Q-j819ng _MtzVBdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MtzU_9bXEe6D36Q-j819ng" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzVANbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MtzVAdbXEe6D36Q-j819ng" value="&quot;hearing&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MtzVAtbXEe6D36Q-j819ng" source="_MtzU8tbXEe6D36Q-j819ng" target="_MtzU9tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MtzVA9bXEe6D36Q-j819ng" source="_MtzU9tbXEe6D36Q-j819ng" target="_MtzU-tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MtzVBNbXEe6D36Q-j819ng" source="_MtzU-NbXEe6D36Q-j819ng" target="_MtzU_tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MtzVBdbXEe6D36Q-j819ng" source="_MtzU-tbXEe6D36Q-j819ng" target="_MtzU_tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MtzVBtbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MtzVB9bXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MtzVCNbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzVCdbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MtzVCtbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to manage affidavits, so that i can ensure compliance with the requirements prior to the hearing.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzVC9bXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MtzVDNbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MtzVDdbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MtzVDtbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MtzVD9bXEe6D36Q-j819ng" value="&quot;requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MtzVENbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MtzVEdbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MtzVEtbXEe6D36Q-j819ng" value="&quot;hearing&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MtzVE9bXEe6D36Q-j819ng" origin="_MtzU8tbXEe6D36Q-j819ng" image="_MtzVB9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVFNbXEe6D36Q-j819ng" origin="_MtzU9NbXEe6D36Q-j819ng" image="_MtzVCdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVFdbXEe6D36Q-j819ng" origin="_MtzU9tbXEe6D36Q-j819ng" image="_MtzVC9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVFtbXEe6D36Q-j819ng" origin="_MtzU-NbXEe6D36Q-j819ng" image="_MtzVDNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVF9bXEe6D36Q-j819ng" origin="_MtzU-tbXEe6D36Q-j819ng" image="_MtzVDdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVGNbXEe6D36Q-j819ng" origin="_MtzU_NbXEe6D36Q-j819ng" image="_MtzVDtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVGdbXEe6D36Q-j819ng" origin="_MtzU_tbXEe6D36Q-j819ng" image="_MtzVENbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MtzVGtbXEe6D36Q-j819ng" origin="_MtzVANbXEe6D36Q-j819ng" image="_MtzVEdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

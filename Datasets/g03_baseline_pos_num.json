@@ -1648,13 +1648,15 @@
   },
   {
     "PID": "#G03#",
-    "Text": "#G03# As a Staff member, I want to Assign an Application for Detailed Review, so that I can review the for compliance and subsequently approved or denied.",
+    "Text": "#g03# as a planning staff member, i want to assign and conduct and track application and plan amendments and planning studies for detailed review, so that i can review the for compliance and subsequently approved or denied.",
     "Persona": [
-      "Staff member"
+      "Planning Staff member"
     ],
     "Action": {
       "Primary Action": [
-        "Assign"
+        "Assign",
+		"Conduct",
+        "Track"
       ],
       "Secondary Action": [
         "subsequently approved",
@@ -1664,7 +1666,9 @@
     },
     "Entity": {
       "Primary Entity": [
-        "Application"
+        "Application",
+		"Plan Amendments",
+        "Planning Studies"
       ],
       "Secondary Entity": [
         "compliance",
@@ -1676,10 +1680,26 @@
       [
         "Staff member",
         "Assign"
+      ],
+	  [
+        "Planning Staff member",
+        "Conduct"
+      ],
+      [
+        "Planning Staff member",
+        "Track"
       ]
     ],
     "Targets": [
       [
+        "Track",
+        "Plan Amendments"
+      ],
+      [
+        "Track",
+        "Planning Studies"
+      ],
+	  [
         "Assign",
         "Application"
       ],
@@ -3409,7 +3429,8 @@
         "Perform"
       ],
       "Secondary Action": [
-        "validate"
+        "validate",
+		"impact"
       ]
     },
     "Entity": {

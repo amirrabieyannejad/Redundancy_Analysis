@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MmvDoNbXEe6D36Q-j819ng" name="user_story_52">
+  <lhs xmi:id="_MmvDodbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MmvDotbXEe6D36Q-j819ng" name="|0|" outgoing="_MmvDstbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmvDo9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDpNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmvDpdbXEe6D36Q-j819ng" value="&quot;#g03# as a l staff member, i want to search for property information, so that i can obtain all associated current and historic owners, permits, and applications.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDptbXEe6D36Q-j819ng" name="|2|" incoming="_MmvDstbXEe6D36Q-j819ng" outgoing="_MmvDs9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MmvDp9bXEe6D36Q-j819ng" value="&quot;search&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDqNbXEe6D36Q-j819ng" name="|3|" outgoing="_MmvDtNbXEe6D36Q-j819ng _MmvDtdbXEe6D36Q-j819ng _MmvDttbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MmvDqdbXEe6D36Q-j819ng" value="&quot;obtain&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDqtbXEe6D36Q-j819ng" name="|4|" incoming="_MmvDs9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MmvDq9bXEe6D36Q-j819ng" value="&quot;property information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDrNbXEe6D36Q-j819ng" name="|5|" incoming="_MmvDtNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmvDrdbXEe6D36Q-j819ng" value="&quot;associated current and historic owners&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDrtbXEe6D36Q-j819ng" name="|6|" incoming="_MmvDtdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmvDr9bXEe6D36Q-j819ng" value="&quot;permits&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDsNbXEe6D36Q-j819ng" name="|7|" incoming="_MmvDttbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmvDsdbXEe6D36Q-j819ng" value="&quot;applications&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MmvDstbXEe6D36Q-j819ng" source="_MmvDotbXEe6D36Q-j819ng" target="_MmvDptbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MmvDs9bXEe6D36Q-j819ng" source="_MmvDptbXEe6D36Q-j819ng" target="_MmvDqtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmvDtNbXEe6D36Q-j819ng" source="_MmvDqNbXEe6D36Q-j819ng" target="_MmvDrNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmvDtdbXEe6D36Q-j819ng" source="_MmvDqNbXEe6D36Q-j819ng" target="_MmvDrtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmvDttbXEe6D36Q-j819ng" source="_MmvDqNbXEe6D36Q-j819ng" target="_MmvDsNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MmvDt9bXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MmvDuNbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmvDudbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDutbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmvDu9bXEe6D36Q-j819ng" value="&quot;#g03# as a l staff member, i want to search for property information, so that i can obtain all associated current and historic owners, permits, and applications.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmvDvNbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmvDvdbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmvDvtbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmvDv9bXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmvDwNbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmvDwdbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MmvDwtbXEe6D36Q-j819ng" origin="_MmvDotbXEe6D36Q-j819ng" image="_MmvDuNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDw9bXEe6D36Q-j819ng" origin="_MmvDpNbXEe6D36Q-j819ng" image="_MmvDutbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDxNbXEe6D36Q-j819ng" origin="_MmvDptbXEe6D36Q-j819ng" image="_MmvDvNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDxdbXEe6D36Q-j819ng" origin="_MmvDqNbXEe6D36Q-j819ng" image="_MmvDvdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDxtbXEe6D36Q-j819ng" origin="_MmvDqtbXEe6D36Q-j819ng" image="_MmvDvtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDx9bXEe6D36Q-j819ng" origin="_MmvDrNbXEe6D36Q-j819ng" image="_MmvDv9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDyNbXEe6D36Q-j819ng" origin="_MmvDrtbXEe6D36Q-j819ng" image="_MmvDwNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmvDydbXEe6D36Q-j819ng" origin="_MmvDsNbXEe6D36Q-j819ng" image="_MmvDwdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

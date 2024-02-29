@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VO6-oNcdEe6D36Q-j819ng" name="user_story_02">
+  <lhs xmi:id="_VO6-odcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VO6-otcdEe6D36Q-j819ng" name="|0|" outgoing="_VO6-stcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VO6-o9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-pNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VO6-pdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to anonymously view public information, so that i know about recycling centers near me before creating an account.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-ptcdEe6D36Q-j819ng" name="|2|" incoming="_VO6-stcdEe6D36Q-j819ng" outgoing="_VO6-s9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VO6-p9cdEe6D36Q-j819ng" value="&quot;anonymously view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-qNcdEe6D36Q-j819ng" name="|3|" outgoing="_VO6-tNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VO6-qdcdEe6D36Q-j819ng" value="&quot;know&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-qtcdEe6D36Q-j819ng" name="|4|" outgoing="_VO6-tdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VO6-q9cdEe6D36Q-j819ng" value="&quot;creating&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-rNcdEe6D36Q-j819ng" name="|5|" incoming="_VO6-s9cdEe6D36Q-j819ng" outgoing="_VO6-ttcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VO6-rdcdEe6D36Q-j819ng" value="&quot;public information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-rtcdEe6D36Q-j819ng" name="|6|" incoming="_VO6-tNcdEe6D36Q-j819ng _VO6-ttcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VO6-r9cdEe6D36Q-j819ng" value="&quot;recycling centers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-sNcdEe6D36Q-j819ng" name="|7|" incoming="_VO6-tdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VO6-sdcdEe6D36Q-j819ng" value="&quot;account&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VO6-stcdEe6D36Q-j819ng" source="_VO6-otcdEe6D36Q-j819ng" target="_VO6-ptcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VO6-s9cdEe6D36Q-j819ng" source="_VO6-ptcdEe6D36Q-j819ng" target="_VO6-rNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VO6-tNcdEe6D36Q-j819ng" source="_VO6-qNcdEe6D36Q-j819ng" target="_VO6-rtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VO6-tdcdEe6D36Q-j819ng" source="_VO6-qtcdEe6D36Q-j819ng" target="_VO6-sNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VO6-ttcdEe6D36Q-j819ng" source="_VO6-rNcdEe6D36Q-j819ng" target="_VO6-rtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VO6-t9cdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VO6-uNcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VO6-udcdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-utcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VO6-u9cdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to anonymously view public information, so that i know about recycling centers near me before creating an account.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VO6-vNcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VO6-vdcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VO6-vtcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VO6-v9cdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VO6-wNcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VO6-wdcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VO6-wtcdEe6D36Q-j819ng" origin="_VO6-otcdEe6D36Q-j819ng" image="_VO6-uNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-w9cdEe6D36Q-j819ng" origin="_VO6-pNcdEe6D36Q-j819ng" image="_VO6-utcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-xNcdEe6D36Q-j819ng" origin="_VO6-ptcdEe6D36Q-j819ng" image="_VO6-vNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-xdcdEe6D36Q-j819ng" origin="_VO6-qNcdEe6D36Q-j819ng" image="_VO6-vdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-xtcdEe6D36Q-j819ng" origin="_VO6-qtcdEe6D36Q-j819ng" image="_VO6-vtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-x9cdEe6D36Q-j819ng" origin="_VO6-rNcdEe6D36Q-j819ng" image="_VO6-v9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-yNcdEe6D36Q-j819ng" origin="_VO6-rtcdEe6D36Q-j819ng" image="_VO6-wNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VO6-ydcdEe6D36Q-j819ng" origin="_VO6-sNcdEe6D36Q-j819ng" image="_VO6-wdcdEe6D36Q-j819ng"/>
+</henshin:Rule>

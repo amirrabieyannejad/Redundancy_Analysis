@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VLJ48NcdEe6D36Q-j819ng" name="user_story_31">
+  <lhs xmi:id="_VLJ48dcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VLJ48tcdEe6D36Q-j819ng" name="|0|" outgoing="_VLJ5ANcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VLJ489cdEe6D36Q-j819ng" value="&quot;company&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ49NcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VLJ49dcdEe6D36Q-j819ng" value="&quot;#g04# as a company, i want to have a website that is easy to use, so that i can upload or delete stuff step by step.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ49tcdEe6D36Q-j819ng" name="|2|" incoming="_VLJ5ANcdEe6D36Q-j819ng" outgoing="_VLJ5AdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VLJ499cdEe6D36Q-j819ng" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ4-NcdEe6D36Q-j819ng" name="|3|" outgoing="_VLJ5AtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VLJ4-dcdEe6D36Q-j819ng" value="&quot;upload&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ4-tcdEe6D36Q-j819ng" name="|4|" outgoing="_VLJ5A9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VLJ4-9cdEe6D36Q-j819ng" value="&quot;delete&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ4_NcdEe6D36Q-j819ng" name="|5|" incoming="_VLJ5AdcdEe6D36Q-j819ng" outgoing="_VLJ5BNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VLJ4_dcdEe6D36Q-j819ng" value="&quot;website&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ4_tcdEe6D36Q-j819ng" name="|6|" incoming="_VLJ5AtcdEe6D36Q-j819ng _VLJ5A9cdEe6D36Q-j819ng _VLJ5BNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VLJ4_9cdEe6D36Q-j819ng" value="&quot;stuff&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VLJ5ANcdEe6D36Q-j819ng" source="_VLJ48tcdEe6D36Q-j819ng" target="_VLJ49tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VLJ5AdcdEe6D36Q-j819ng" source="_VLJ49tcdEe6D36Q-j819ng" target="_VLJ4_NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VLJ5AtcdEe6D36Q-j819ng" source="_VLJ4-NcdEe6D36Q-j819ng" target="_VLJ4_tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VLJ5A9cdEe6D36Q-j819ng" source="_VLJ4-tcdEe6D36Q-j819ng" target="_VLJ4_tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VLJ5BNcdEe6D36Q-j819ng" source="_VLJ4_NcdEe6D36Q-j819ng" target="_VLJ4_tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VLJ5BdcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VLJ5BtcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VLJ5B9cdEe6D36Q-j819ng" value="&quot;company&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ5CNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VLJ5CdcdEe6D36Q-j819ng" value="&quot;#g04# as a company, i want to have a website that is easy to use, so that i can upload or delete stuff step by step.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VLJ5CtcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VLJ5C9cdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VLJ5DNcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VLJ5DdcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VLJ5DtcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VLJ5D9cdEe6D36Q-j819ng" origin="_VLJ48tcdEe6D36Q-j819ng" image="_VLJ5BtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5ENcdEe6D36Q-j819ng" origin="_VLJ49NcdEe6D36Q-j819ng" image="_VLJ5CNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5EdcdEe6D36Q-j819ng" origin="_VLJ49tcdEe6D36Q-j819ng" image="_VLJ5CtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5EtcdEe6D36Q-j819ng" origin="_VLJ4-NcdEe6D36Q-j819ng" image="_VLJ5C9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5E9cdEe6D36Q-j819ng" origin="_VLJ4-tcdEe6D36Q-j819ng" image="_VLJ5DNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5FNcdEe6D36Q-j819ng" origin="_VLJ4_NcdEe6D36Q-j819ng" image="_VLJ5DdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VLJ5FdcdEe6D36Q-j819ng" origin="_VLJ4_tcdEe6D36Q-j819ng" image="_VLJ5DtcdEe6D36Q-j819ng"/>
+</henshin:Rule>

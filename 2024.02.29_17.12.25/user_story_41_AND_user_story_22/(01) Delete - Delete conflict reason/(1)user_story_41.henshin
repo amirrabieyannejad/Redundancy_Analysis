@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VTvNMNcdEe6D36Q-j819ng" name="user_story_41">
+  <lhs xmi:id="_VTvNMdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VTvNMtcdEe6D36Q-j819ng" name="|0|" outgoing="_VTvNRNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VTvNM9cdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNNNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VTvNNdcdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to view user error logs, so that i can fix or review any issues that are being faced by users of the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNNtcdEe6D36Q-j819ng" name="|2|" incoming="_VTvNRNcdEe6D36Q-j819ng" outgoing="_VTvNRdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VTvNN9cdEe6D36Q-j819ng" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNONcdEe6D36Q-j819ng" name="|3|" outgoing="_VTvNR9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VTvNOdcdEe6D36Q-j819ng" value="&quot;fix&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNOtcdEe6D36Q-j819ng" name="|4|" outgoing="_VTvNRtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VTvNO9cdEe6D36Q-j819ng" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNPNcdEe6D36Q-j819ng" name="|5|" incoming="_VTvNRdcdEe6D36Q-j819ng" outgoing="_VTvNSdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VTvNPdcdEe6D36Q-j819ng" value="&quot;user error logs&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNPtcdEe6D36Q-j819ng" name="|6|" incoming="_VTvNSNcdEe6D36Q-j819ng" outgoing="_VTvNStcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VTvNP9cdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNQNcdEe6D36Q-j819ng" name="|7|" outgoing="_VTvNSNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VTvNQdcdEe6D36Q-j819ng" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNQtcdEe6D36Q-j819ng" name="|8|" incoming="_VTvNRtcdEe6D36Q-j819ng _VTvNR9cdEe6D36Q-j819ng _VTvNSdcdEe6D36Q-j819ng _VTvNStcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VTvNQ9cdEe6D36Q-j819ng" value="&quot;any issues&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VTvNRNcdEe6D36Q-j819ng" source="_VTvNMtcdEe6D36Q-j819ng" target="_VTvNNtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VTvNRdcdEe6D36Q-j819ng" source="_VTvNNtcdEe6D36Q-j819ng" target="_VTvNPNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VTvNRtcdEe6D36Q-j819ng" source="_VTvNOtcdEe6D36Q-j819ng" target="_VTvNQtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VTvNR9cdEe6D36Q-j819ng" source="_VTvNONcdEe6D36Q-j819ng" target="_VTvNQtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VTvNSNcdEe6D36Q-j819ng" source="_VTvNQNcdEe6D36Q-j819ng" target="_VTvNPtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VTvNSdcdEe6D36Q-j819ng" source="_VTvNPNcdEe6D36Q-j819ng" target="_VTvNQtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VTvNStcdEe6D36Q-j819ng" source="_VTvNPtcdEe6D36Q-j819ng" target="_VTvNQtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VTvNS9cdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VTvNTNcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VTvNTdcdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNTtcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VTvNT9cdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to view user error logs, so that i can fix or review any issues that are being faced by users of the system.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNUNcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VTvNUdcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VTvNUtcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VTvNU9cdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VTvNVNcdEe6D36Q-j819ng" name="|6|" incoming="_VTvNWdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VTvNVdcdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNVtcdEe6D36Q-j819ng" name="|7|" outgoing="_VTvNWdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VTvNV9cdEe6D36Q-j819ng" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VTvNWNcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <edges xmi:id="_VTvNWdcdEe6D36Q-j819ng" source="_VTvNVtcdEe6D36Q-j819ng" target="_VTvNVNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_VTvNWtcdEe6D36Q-j819ng" origin="_VTvNMtcdEe6D36Q-j819ng" image="_VTvNTNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNW9cdEe6D36Q-j819ng" origin="_VTvNNNcdEe6D36Q-j819ng" image="_VTvNTtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNXNcdEe6D36Q-j819ng" origin="_VTvNNtcdEe6D36Q-j819ng" image="_VTvNUNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNXdcdEe6D36Q-j819ng" origin="_VTvNONcdEe6D36Q-j819ng" image="_VTvNUdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNXtcdEe6D36Q-j819ng" origin="_VTvNOtcdEe6D36Q-j819ng" image="_VTvNUtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNX9cdEe6D36Q-j819ng" origin="_VTvNPNcdEe6D36Q-j819ng" image="_VTvNU9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNYNcdEe6D36Q-j819ng" origin="_VTvNPtcdEe6D36Q-j819ng" image="_VTvNVNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNYdcdEe6D36Q-j819ng" origin="_VTvNQNcdEe6D36Q-j819ng" image="_VTvNVtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VTvNYtcdEe6D36Q-j819ng" origin="_VTvNQtcdEe6D36Q-j819ng" image="_VTvNWNcdEe6D36Q-j819ng"/>
+</henshin:Rule>

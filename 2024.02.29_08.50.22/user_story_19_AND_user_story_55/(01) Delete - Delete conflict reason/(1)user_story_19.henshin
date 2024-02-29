@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MmSXsNbXEe6D36Q-j819ng" name="user_story_19">
+  <lhs xmi:id="_MmSXsdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MmSXstbXEe6D36Q-j819ng" name="|0|" outgoing="_MmSXxNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmSXs9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXtNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmSXtdbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to schedule a meeting, so that i can bring the required parties together at a specific date/time to address an issue.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXttbXEe6D36Q-j819ng" name="|2|" incoming="_MmSXxNbXEe6D36Q-j819ng" outgoing="_MmSXxdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MmSXt9bXEe6D36Q-j819ng" value="&quot;schedule&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXuNbXEe6D36Q-j819ng" name="|3|" outgoing="_MmSXx9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MmSXudbXEe6D36Q-j819ng" value="&quot;address&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXutbXEe6D36Q-j819ng" name="|4|" outgoing="_MmSXxtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MmSXu9bXEe6D36Q-j819ng" value="&quot;bring&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXvNbXEe6D36Q-j819ng" name="|5|" incoming="_MmSXxdbXEe6D36Q-j819ng" outgoing="_MmSXyNbXEe6D36Q-j819ng _MmSXydbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MmSXvdbXEe6D36Q-j819ng" value="&quot;meeting&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXvtbXEe6D36Q-j819ng" name="|6|" incoming="_MmSXydbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmSXv9bXEe6D36Q-j819ng" value="&quot;specific date/time&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXwNbXEe6D36Q-j819ng" name="|7|" incoming="_MmSXx9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmSXwdbXEe6D36Q-j819ng" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXwtbXEe6D36Q-j819ng" name="|8|" incoming="_MmSXxtbXEe6D36Q-j819ng _MmSXyNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmSXw9bXEe6D36Q-j819ng" value="&quot;required parties&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MmSXxNbXEe6D36Q-j819ng" source="_MmSXstbXEe6D36Q-j819ng" target="_MmSXttbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MmSXxdbXEe6D36Q-j819ng" source="_MmSXttbXEe6D36Q-j819ng" target="_MmSXvNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmSXxtbXEe6D36Q-j819ng" source="_MmSXutbXEe6D36Q-j819ng" target="_MmSXwtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmSXx9bXEe6D36Q-j819ng" source="_MmSXuNbXEe6D36Q-j819ng" target="_MmSXwNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmSXyNbXEe6D36Q-j819ng" source="_MmSXvNbXEe6D36Q-j819ng" target="_MmSXwtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MmSXydbXEe6D36Q-j819ng" source="_MmSXvNbXEe6D36Q-j819ng" target="_MmSXvtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MmSXytbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MmSXy9bXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmSXzNbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXzdbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmSXztbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to schedule a meeting, so that i can bring the required parties together at a specific date/time to address an issue.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSXz9bXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmSX0NbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmSX0dbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmSX0tbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmSX09bXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmSX1NbXEe6D36Q-j819ng" value="&quot;specific date/time&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmSX1dbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmSX1tbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MmSX19bXEe6D36Q-j819ng" origin="_MmSXstbXEe6D36Q-j819ng" image="_MmSXy9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX2NbXEe6D36Q-j819ng" origin="_MmSXtNbXEe6D36Q-j819ng" image="_MmSXzdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX2dbXEe6D36Q-j819ng" origin="_MmSXttbXEe6D36Q-j819ng" image="_MmSXz9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX2tbXEe6D36Q-j819ng" origin="_MmSXuNbXEe6D36Q-j819ng" image="_MmSX0NbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX29bXEe6D36Q-j819ng" origin="_MmSXutbXEe6D36Q-j819ng" image="_MmSX0dbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX3NbXEe6D36Q-j819ng" origin="_MmSXvNbXEe6D36Q-j819ng" image="_MmSX0tbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX3dbXEe6D36Q-j819ng" origin="_MmSXvtbXEe6D36Q-j819ng" image="_MmSX09bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX3tbXEe6D36Q-j819ng" origin="_MmSXwNbXEe6D36Q-j819ng" image="_MmSX1dbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmSX39bXEe6D36Q-j819ng" origin="_MmSXwtbXEe6D36Q-j819ng" image="_MmSX1tbXEe6D36Q-j819ng"/>
+</henshin:Rule>

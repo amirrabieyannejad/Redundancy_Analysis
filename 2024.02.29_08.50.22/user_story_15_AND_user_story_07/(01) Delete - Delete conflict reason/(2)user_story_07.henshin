@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NGtkMNbXEe6D36Q-j819ng" name="user_story_07">
+  <lhs xmi:id="_NGtkMdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_NGtkMtbXEe6D36Q-j819ng" name="|8|" outgoing="_NGtkRNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NGtkM9bXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkNNbXEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NGtkNdbXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to pay fee, so that i can satisfy outstanding charge associated with the service requested or received from the county.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkNtbXEe6D36Q-j819ng" name="|10|" incoming="_NGtkRNbXEe6D36Q-j819ng" outgoing="_NGtkRtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_NGtkN9bXEe6D36Q-j819ng" value="&quot;pay&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkONbXEe6D36Q-j819ng" name="|11|" outgoing="_NGtkRdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NGtkOdbXEe6D36Q-j819ng" value="&quot;satisfy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkOtbXEe6D36Q-j819ng" name="|12|" outgoing="_NGtkR9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NGtkO9bXEe6D36Q-j819ng" value="&quot;received from&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkPNbXEe6D36Q-j819ng" name="|13|" incoming="_NGtkRtbXEe6D36Q-j819ng _NGtkSNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_NGtkPdbXEe6D36Q-j819ng" value="&quot;fee&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkPtbXEe6D36Q-j819ng" name="|14|" incoming="_NGtkRdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NGtkP9bXEe6D36Q-j819ng" value="&quot;outstanding charge&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkQNbXEe6D36Q-j819ng" name="|15|" outgoing="_NGtkSNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NGtkQdbXEe6D36Q-j819ng" value="&quot;service requested&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkQtbXEe6D36Q-j819ng" name="|16|" incoming="_NGtkR9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NGtkQ9bXEe6D36Q-j819ng" value="&quot;county&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_NGtkRNbXEe6D36Q-j819ng" source="_NGtkMtbXEe6D36Q-j819ng" target="_NGtkNtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_NGtkRdbXEe6D36Q-j819ng" source="_NGtkONbXEe6D36Q-j819ng" target="_NGtkPtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NGtkRtbXEe6D36Q-j819ng" source="_NGtkNtbXEe6D36Q-j819ng" target="_NGtkPNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NGtkR9bXEe6D36Q-j819ng" source="_NGtkOtbXEe6D36Q-j819ng" target="_NGtkQtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NGtkSNbXEe6D36Q-j819ng" source="_NGtkQNbXEe6D36Q-j819ng" target="_NGtkPNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_NGtkSdbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_NGtkStbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NGtkS9bXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkTNbXEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NGtkTdbXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to pay fee, so that i can satisfy outstanding charge associated with the service requested or received from the county.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkTtbXEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NGtkT9bXEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NGtkUNbXEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NGtkUdbXEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NGtkUtbXEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NGtkU9bXEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NGtkVNbXEe6D36Q-j819ng" value="&quot;service requested&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NGtkVdbXEe6D36Q-j819ng" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_NGtkVtbXEe6D36Q-j819ng" origin="_NGtkMtbXEe6D36Q-j819ng" image="_NGtkStbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkV9bXEe6D36Q-j819ng" origin="_NGtkNNbXEe6D36Q-j819ng" image="_NGtkTNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkWNbXEe6D36Q-j819ng" origin="_NGtkNtbXEe6D36Q-j819ng" image="_NGtkTtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkWdbXEe6D36Q-j819ng" origin="_NGtkONbXEe6D36Q-j819ng" image="_NGtkT9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkWtbXEe6D36Q-j819ng" origin="_NGtkOtbXEe6D36Q-j819ng" image="_NGtkUNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkW9bXEe6D36Q-j819ng" origin="_NGtkPNbXEe6D36Q-j819ng" image="_NGtkUdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkXNbXEe6D36Q-j819ng" origin="_NGtkPtbXEe6D36Q-j819ng" image="_NGtkUtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkXdbXEe6D36Q-j819ng" origin="_NGtkQNbXEe6D36Q-j819ng" image="_NGtkU9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NGtkXtbXEe6D36Q-j819ng" origin="_NGtkQtbXEe6D36Q-j819ng" image="_NGtkVdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

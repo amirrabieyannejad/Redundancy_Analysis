@@ -69,8 +69,9 @@ public class RuleCreator_v4 {
 
 	public static void main(String[] args) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
-			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound {
-		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Datasets\\g03_baseline_pos_num.json", "backlog_v4",
+			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
+			EdgeWithSameSourceAndTarget {
+		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Datasets\\g04_baseline_pos.json", "backlog_g04",
 				"Backlog_v2.3.ecore");
 		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();
 		CModule cModule = ruleCreator.processJsonFile(jsonArray);
@@ -107,9 +108,10 @@ public class RuleCreator_v4 {
 
 	}
 
-	public CModule processJsonFile(JSONArray json) throws EcoreFileNotFound, PersonaInJsonFileNotFound,
-			UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound,
-			ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound {
+	public CModule processJsonFile(JSONArray json)
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 		CModule cModule = assignCmodule();
 		String usNrM = null;
 		CRule userStoryM = null;
@@ -203,7 +205,8 @@ public class RuleCreator_v4 {
 		}
 	}
 
-	// Create node as a story with an attribute called "text" that contains the "Text"
+	// Create node as a story with an attribute called "text" that contains the
+	// "Text"
 	// JSONObject of the JSON file
 	private void processText(JSONObject jsonObject, CRule userStory, String text) {
 		try {
@@ -232,7 +235,7 @@ public class RuleCreator_v4 {
 	}
 
 	private void processActions(JSONObject jsonObject, CRule userStory, JSONObject action, CNode nodePersona,
-			Map<String, CNode> actionMap, String usNrM) throws ActionInJsonFileNotFound {
+			Map<String, CNode> actionMap, String usNrM) throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 		try {
 			// CNode abstractAction = userStory.createNode("Action");
 			if (action.has("Primary Action")) {
@@ -246,7 +249,15 @@ public class RuleCreator_v4 {
 
 					// Create Edges from Action to Primary Action names
 					// primary actions
-					nodePersona.createEdge(cNode, "triggers", "delete");
+
+					try {
+						nodePersona.createEdge(cNode, "triggers", "delete");
+					} catch (RuntimeException e) {
+
+						throw new EdgeWithSameSourceAndTarget(
+								"Edge with Action: \"" + primaryAction.getString(i).toLowerCase()
+										+ "\" and with Persona" + " is already created!");
+					}
 					actionMap.put(primaryAction.getString(i), cNode);
 
 				}
@@ -334,27 +345,45 @@ public class RuleCreator_v4 {
 	}
 
 	private void processTargetsEdges(JSONObject jsonObject, JSONArray targetsArray, Map<String, CNode> entityMap,
-			Map<String, CNode> actionMap) throws EntityInJsonFileNotFound {
+			Map<String, CNode> actionMap) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
 
 		for (int i = 0; i < targetsArray.length(); i++) {
 			JSONArray currentArray = targetsArray.getJSONArray(i);
 			String action = currentArray.getString(0);
-
 			String entity = currentArray.getString(1);
-			if ((actionMap.get(action) != null) && (entityMap.get(entity) != null)) {
-				CNode nodeAction = actionMap.get(action);
-				CNode nodeEntity = entityMap.get(entity);
-
-				nodeAction.createEdge(nodeEntity, "targets", "delete");
+			CNode nodeEntity = null;
+			CNode nodeAction = null;
+			// check if action and entity are exist in corresponding JSON Object in file
+			if ((actionMap.get(action) != null)) {
+				nodeAction = actionMap.get(action);
 			} else {
-				throw new EntityInJsonFileNotFound();
+				throw new ActionInJsonFileNotFound("Action: \"" + action.toString() + "\" is not found!" );
 			}
-		}
 
+			if ((entityMap.get(entity) != null)) {
+
+				nodeEntity = entityMap.get(entity);
+			} else {
+
+				throw new EntityInJsonFileNotFound("Entity: \"" + entity.toString() + "\" is not found!");
+			}
+
+			// throw exception if Failed to create Edge
+			try {
+				nodeAction.createEdge(nodeEntity, "targets", "delete");
+			} catch (RuntimeException e) {
+
+				throw new EdgeWithSameSourceAndTarget("Edge with Action: \"" + action.toString()
+						+ "\" and with Entity: \"" + entity.toString() + "\" is already created!");
+			}
+
+		}
 	}
 
+	
+
 	private void processContainsEdges(JSONObject jsonObject, JSONArray containsArray, JSONArray targetsArray,
-			Map<String, CNode> entityMap) throws EntityInJsonFileNotFound {
+			Map<String, CNode> entityMap) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 
 		// iterate through contains JSONArray
 		for (int i = 0; i < containsArray.length(); i++) {
@@ -375,12 +404,26 @@ public class RuleCreator_v4 {
 				// otherwise annotate the contains edge as <preserve>
 				if (checkEntityIsTarget(firstEntity, targetsArray) || checkEntityIsTarget(secondEntity, targetsArray)) {
 
-					// add an edge from first Entity to second Entity and annotated it as<delete>
-					nodefirstEntity.createEdge(nodeSecondEntity, "contains", "delete");
+					try {
+						// add an edge from first Entity to second Entity and annotated it as<delete>
+						nodefirstEntity.createEdge(nodeSecondEntity, "contains", "delete");
+					} catch (RuntimeException e) {
+
+						throw new EdgeWithSameSourceAndTarget(
+								"Edge with Entity: \"" + firstEntity.toLowerCase().toString() + "\" and Entity"
+										+ secondEntity.toString() + " is already created!");
+					}
 
 				} else {
-					// add an edge from first Entity to second Entity and annotated it as<preserve>
-					nodefirstEntity.createEdge(nodeSecondEntity, "contains");
+					try {
+						// add an edge from first Entity to second Entity and annotated it as<preserve>
+						nodefirstEntity.createEdge(nodeSecondEntity, "contains");
+					} catch (RuntimeException e) {
+
+						throw new EdgeWithSameSourceAndTarget(
+								"Edge with Entity: \"" + firstEntity.toLowerCase().toString() + "\" and Entity"
+										+ secondEntity.toString() + " is already created!");
+					}
 
 				}
 			} else {

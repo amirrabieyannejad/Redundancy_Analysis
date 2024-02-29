@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VVaBINcdEe6D36Q-j819ng" name="user_story_16">
+  <lhs xmi:id="_VVaBIdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VVaBItcdEe6D36Q-j819ng" name="|0|" outgoing="_VVaBMtcdEe6D36Q-j819ng _VVaBM9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VVaBI9cdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBJNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VVaBJdcdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to be able to add or remove recycling facilities' information, so that users get the most recent information.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBJtcdEe6D36Q-j819ng" name="|2|" incoming="_VVaBMtcdEe6D36Q-j819ng" outgoing="_VVaBNNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VVaBJ9cdEe6D36Q-j819ng" value="&quot;add&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBKNcdEe6D36Q-j819ng" name="|3|" incoming="_VVaBM9cdEe6D36Q-j819ng" outgoing="_VVaBNdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VVaBKdcdEe6D36Q-j819ng" value="&quot;remove&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBKtcdEe6D36Q-j819ng" name="|4|" outgoing="_VVaBNtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VVaBK9cdEe6D36Q-j819ng" value="&quot;get&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBLNcdEe6D36Q-j819ng" name="|5|" incoming="_VVaBNNcdEe6D36Q-j819ng _VVaBNdcdEe6D36Q-j819ng" outgoing="_VVaBN9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VVaBLdcdEe6D36Q-j819ng" value="&quot;recycling facilities' information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBLtcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VVaBL9cdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBMNcdEe6D36Q-j819ng" name="|7|" incoming="_VVaBNtcdEe6D36Q-j819ng _VVaBN9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VVaBMdcdEe6D36Q-j819ng" value="&quot;recent information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VVaBMtcdEe6D36Q-j819ng" source="_VVaBItcdEe6D36Q-j819ng" target="_VVaBJtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VVaBM9cdEe6D36Q-j819ng" source="_VVaBItcdEe6D36Q-j819ng" target="_VVaBKNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VVaBNNcdEe6D36Q-j819ng" source="_VVaBJtcdEe6D36Q-j819ng" target="_VVaBLNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVaBNdcdEe6D36Q-j819ng" source="_VVaBKNcdEe6D36Q-j819ng" target="_VVaBLNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVaBNtcdEe6D36Q-j819ng" source="_VVaBKtcdEe6D36Q-j819ng" target="_VVaBMNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VVaBN9cdEe6D36Q-j819ng" source="_VVaBLNcdEe6D36Q-j819ng" target="_VVaBMNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VVaBONcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VVaBOdcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VVaBOtcdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBO9cdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VVaBPNcdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to be able to add or remove recycling facilities' information, so that users get the most recent information.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBPdcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVaBPtcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVaBP9cdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VVaBQNcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VVaBQdcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VVaBQtcdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VVaBQ9cdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VVaBRNcdEe6D36Q-j819ng" origin="_VVaBItcdEe6D36Q-j819ng" image="_VVaBOdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBRdcdEe6D36Q-j819ng" origin="_VVaBJNcdEe6D36Q-j819ng" image="_VVaBO9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBRtcdEe6D36Q-j819ng" origin="_VVaBJtcdEe6D36Q-j819ng" image="_VVaBPdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBR9cdEe6D36Q-j819ng" origin="_VVaBKNcdEe6D36Q-j819ng" image="_VVaBPtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBSNcdEe6D36Q-j819ng" origin="_VVaBKtcdEe6D36Q-j819ng" image="_VVaBP9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBSdcdEe6D36Q-j819ng" origin="_VVaBLNcdEe6D36Q-j819ng" image="_VVaBQNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBStcdEe6D36Q-j819ng" origin="_VVaBLtcdEe6D36Q-j819ng" image="_VVaBQdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VVaBS9cdEe6D36Q-j819ng" origin="_VVaBMNcdEe6D36Q-j819ng" image="_VVaBQ9cdEe6D36Q-j819ng"/>
+</henshin:Rule>

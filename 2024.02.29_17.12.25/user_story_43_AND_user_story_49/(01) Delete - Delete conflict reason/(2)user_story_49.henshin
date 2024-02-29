@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VL4RsNcdEe6D36Q-j819ng" name="user_story_49">
+  <lhs xmi:id="_VL4RsdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VL4RstcdEe6D36Q-j819ng" name="|7|" outgoing="_VL4RxNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VL4Rs9cdEe6D36Q-j819ng" value="&quot;recyclingfacility representative&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RtNcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VL4RtdcdEe6D36Q-j819ng" value="&quot;#g04# as a recyclingfacility representative, i want to be able to update my information and the type of material i accept, so that i can avoid any miscommunication with users.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RttcdEe6D36Q-j819ng" name="|9|" incoming="_VL4RxNcdEe6D36Q-j819ng" outgoing="_VL4RxdcdEe6D36Q-j819ng _VL4RxtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VL4Rt9cdEe6D36Q-j819ng" value="&quot;update&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RuNcdEe6D36Q-j819ng" name="|10|" outgoing="_VL4Rx9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VL4RudcdEe6D36Q-j819ng" value="&quot;accept&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RutcdEe6D36Q-j819ng" name="|11|" outgoing="_VL4RyNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VL4Ru9cdEe6D36Q-j819ng" value="&quot;avoid&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RvNcdEe6D36Q-j819ng" name="|12|" incoming="_VL4RxdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VL4RvdcdEe6D36Q-j819ng" value="&quot;information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RvtcdEe6D36Q-j819ng" name="|13|" incoming="_VL4RxtcdEe6D36Q-j819ng _VL4Rx9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VL4Rv9cdEe6D36Q-j819ng" value="&quot;type of material&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RwNcdEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VL4RwdcdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RwtcdEe6D36Q-j819ng" name="|15|" incoming="_VL4RyNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VL4Rw9cdEe6D36Q-j819ng" value="&quot;any miscommunication&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VL4RxNcdEe6D36Q-j819ng" source="_VL4RstcdEe6D36Q-j819ng" target="_VL4RttcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VL4RxdcdEe6D36Q-j819ng" source="_VL4RttcdEe6D36Q-j819ng" target="_VL4RvNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VL4RxtcdEe6D36Q-j819ng" source="_VL4RttcdEe6D36Q-j819ng" target="_VL4RvtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VL4Rx9cdEe6D36Q-j819ng" source="_VL4RuNcdEe6D36Q-j819ng" target="_VL4RvtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VL4RyNcdEe6D36Q-j819ng" source="_VL4RutcdEe6D36Q-j819ng" target="_VL4RwtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VL4RydcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VL4RytcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VL4Ry9cdEe6D36Q-j819ng" value="&quot;recyclingfacility representative&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RzNcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VL4RzdcdEe6D36Q-j819ng" value="&quot;#g04# as a recyclingfacility representative, i want to be able to update my information and the type of material i accept, so that i can avoid any miscommunication with users.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4RztcdEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VL4Rz9cdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VL4R0NcdEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VL4R0dcdEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VL4R0tcdEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VL4R09cdEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VL4R1NcdEe6D36Q-j819ng" value="&quot;users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VL4R1dcdEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VL4R1tcdEe6D36Q-j819ng" origin="_VL4RstcdEe6D36Q-j819ng" image="_VL4RytcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R19cdEe6D36Q-j819ng" origin="_VL4RtNcdEe6D36Q-j819ng" image="_VL4RzNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R2NcdEe6D36Q-j819ng" origin="_VL4RttcdEe6D36Q-j819ng" image="_VL4RztcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R2dcdEe6D36Q-j819ng" origin="_VL4RuNcdEe6D36Q-j819ng" image="_VL4Rz9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R2tcdEe6D36Q-j819ng" origin="_VL4RutcdEe6D36Q-j819ng" image="_VL4R0NcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R29cdEe6D36Q-j819ng" origin="_VL4RvNcdEe6D36Q-j819ng" image="_VL4R0dcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R3NcdEe6D36Q-j819ng" origin="_VL4RvtcdEe6D36Q-j819ng" image="_VL4R0tcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R3dcdEe6D36Q-j819ng" origin="_VL4RwNcdEe6D36Q-j819ng" image="_VL4R09cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VL4R3tcdEe6D36Q-j819ng" origin="_VL4RwtcdEe6D36Q-j819ng" image="_VL4R1dcdEe6D36Q-j819ng"/>
+</henshin:Rule>

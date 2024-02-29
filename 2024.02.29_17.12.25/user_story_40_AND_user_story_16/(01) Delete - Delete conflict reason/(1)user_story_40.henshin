@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Vkp-ENcdEe6D36Q-j819ng" name="user_story_40">
+  <lhs xmi:id="_Vkp-EdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_Vkp-EtcdEe6D36Q-j819ng" name="|0|" outgoing="_Vkp-HtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Vkp-E9cdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-FNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Vkp-FdcdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to add recycling center information, so that i can keep the database up-to-date over time.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-FtcdEe6D36Q-j819ng" name="|2|" incoming="_Vkp-HtcdEe6D36Q-j819ng" outgoing="_Vkp-H9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Vkp-F9cdEe6D36Q-j819ng" value="&quot;add&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-GNcdEe6D36Q-j819ng" name="|3|" outgoing="_Vkp-INcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Vkp-GdcdEe6D36Q-j819ng" value="&quot;keep&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-GtcdEe6D36Q-j819ng" name="|4|" incoming="_Vkp-H9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Vkp-G9cdEe6D36Q-j819ng" value="&quot;recycling center information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-HNcdEe6D36Q-j819ng" name="|5|" incoming="_Vkp-INcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Vkp-HdcdEe6D36Q-j819ng" value="&quot;database up-to-date&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Vkp-HtcdEe6D36Q-j819ng" source="_Vkp-EtcdEe6D36Q-j819ng" target="_Vkp-FtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Vkp-H9cdEe6D36Q-j819ng" source="_Vkp-FtcdEe6D36Q-j819ng" target="_Vkp-GtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Vkp-INcdEe6D36Q-j819ng" source="_Vkp-GNcdEe6D36Q-j819ng" target="_Vkp-HNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Vkp-IdcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_Vkp-ItcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Vkp-I9cdEe6D36Q-j819ng" value="&quot;admin&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-JNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Vkp-JdcdEe6D36Q-j819ng" value="&quot;#g04# as an admin, i want to add recycling center information, so that i can keep the database up-to-date over time.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Vkp-JtcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Vkp-J9cdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Vkp-KNcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Vkp-KdcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Vkp-KtcdEe6D36Q-j819ng" origin="_Vkp-EtcdEe6D36Q-j819ng" image="_Vkp-ItcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Vkp-K9cdEe6D36Q-j819ng" origin="_Vkp-FNcdEe6D36Q-j819ng" image="_Vkp-JNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Vkp-LNcdEe6D36Q-j819ng" origin="_Vkp-FtcdEe6D36Q-j819ng" image="_Vkp-JtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Vkp-LdcdEe6D36Q-j819ng" origin="_Vkp-GNcdEe6D36Q-j819ng" image="_Vkp-J9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Vkp-LtcdEe6D36Q-j819ng" origin="_Vkp-GtcdEe6D36Q-j819ng" image="_Vkp-KNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Vkp-L9cdEe6D36Q-j819ng" origin="_Vkp-HNcdEe6D36Q-j819ng" image="_Vkp-KdcdEe6D36Q-j819ng"/>
+</henshin:Rule>

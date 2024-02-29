@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MoaeoNbXEe6D36Q-j819ng" name="user_story_01">
+  <lhs xmi:id="_MoaeodbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MoaeotbXEe6D36Q-j819ng" name="|0|" outgoing="_MoaettbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Moaeo9bXEe6D36Q-j819ng" value="&quot;public user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaepNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MoaepdbXEe6D36Q-j819ng" value="&quot;#g03# as a public user, i want to search for information, so that i can obtain publicly available information concerning properties, county services, processes and other general information.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaeptbXEe6D36Q-j819ng" name="|2|" incoming="_MoaettbXEe6D36Q-j819ng" outgoing="_Moaet9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Moaep9bXEe6D36Q-j819ng" value="&quot;search&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaeqNbXEe6D36Q-j819ng" name="|3|" outgoing="_MoaeuNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MoaeqdbXEe6D36Q-j819ng" value="&quot;obtain&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaeqtbXEe6D36Q-j819ng" name="|4|" incoming="_Moaet9bXEe6D36Q-j819ng" outgoing="_MoaevdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Moaeq9bXEe6D36Q-j819ng" value="&quot;information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaerNbXEe6D36Q-j819ng" name="|5|" incoming="_MoaeudbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaerdbXEe6D36Q-j819ng" value="&quot;properties&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaertbXEe6D36Q-j819ng" name="|6|" incoming="_Moaeu9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Moaer9bXEe6D36Q-j819ng" value="&quot;processes&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaesNbXEe6D36Q-j819ng" name="|7|" incoming="_MoaeuNbXEe6D36Q-j819ng _MoaevdbXEe6D36Q-j819ng" outgoing="_MoaeudbXEe6D36Q-j819ng _MoaeutbXEe6D36Q-j819ng _Moaeu9bXEe6D36Q-j819ng _MoaevNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaesdbXEe6D36Q-j819ng" value="&quot;publicly available information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaestbXEe6D36Q-j819ng" name="|8|" incoming="_MoaeutbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Moaes9bXEe6D36Q-j819ng" value="&quot;county services&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaetNbXEe6D36Q-j819ng" name="|9|" incoming="_MoaevNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaetdbXEe6D36Q-j819ng" value="&quot;other general information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MoaettbXEe6D36Q-j819ng" source="_MoaeotbXEe6D36Q-j819ng" target="_MoaeptbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Moaet9bXEe6D36Q-j819ng" source="_MoaeptbXEe6D36Q-j819ng" target="_MoaeqtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MoaeuNbXEe6D36Q-j819ng" source="_MoaeqNbXEe6D36Q-j819ng" target="_MoaesNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MoaeudbXEe6D36Q-j819ng" source="_MoaesNbXEe6D36Q-j819ng" target="_MoaerNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MoaeutbXEe6D36Q-j819ng" source="_MoaesNbXEe6D36Q-j819ng" target="_MoaestbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_Moaeu9bXEe6D36Q-j819ng" source="_MoaesNbXEe6D36Q-j819ng" target="_MoaertbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MoaevNbXEe6D36Q-j819ng" source="_MoaesNbXEe6D36Q-j819ng" target="_MoaetNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MoaevdbXEe6D36Q-j819ng" source="_MoaeqtbXEe6D36Q-j819ng" target="_MoaesNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MoaevtbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_Moaev9bXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MoaewNbXEe6D36Q-j819ng" value="&quot;public user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaewdbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MoaewtbXEe6D36Q-j819ng" value="&quot;#g03# as a public user, i want to search for information, so that i can obtain publicly available information concerning properties, county services, processes and other general information.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Moaew9bXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MoaexNbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MoaexdbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MoaextbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Moaex9bXEe6D36Q-j819ng" value="&quot;properties&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaeyNbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaeydbXEe6D36Q-j819ng" value="&quot;processes&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaeytbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Moaey9bXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaezNbXEe6D36Q-j819ng" value="&quot;county services&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MoaezdbXEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MoaeztbXEe6D36Q-j819ng" value="&quot;other general information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Moaez9bXEe6D36Q-j819ng" origin="_MoaeotbXEe6D36Q-j819ng" image="_Moaev9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae0NbXEe6D36Q-j819ng" origin="_MoaepNbXEe6D36Q-j819ng" image="_MoaewdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae0dbXEe6D36Q-j819ng" origin="_MoaeptbXEe6D36Q-j819ng" image="_Moaew9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae0tbXEe6D36Q-j819ng" origin="_MoaeqNbXEe6D36Q-j819ng" image="_MoaexNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae09bXEe6D36Q-j819ng" origin="_MoaeqtbXEe6D36Q-j819ng" image="_MoaexdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae1NbXEe6D36Q-j819ng" origin="_MoaerNbXEe6D36Q-j819ng" image="_MoaextbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae1dbXEe6D36Q-j819ng" origin="_MoaertbXEe6D36Q-j819ng" image="_MoaeyNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae1tbXEe6D36Q-j819ng" origin="_MoaesNbXEe6D36Q-j819ng" image="_MoaeytbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae19bXEe6D36Q-j819ng" origin="_MoaestbXEe6D36Q-j819ng" image="_Moaey9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Moae2NbXEe6D36Q-j819ng" origin="_MoaetNbXEe6D36Q-j819ng" image="_MoaezdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

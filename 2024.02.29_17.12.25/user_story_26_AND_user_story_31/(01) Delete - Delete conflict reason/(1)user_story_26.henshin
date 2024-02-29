@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VYULMNcdEe6D36Q-j819ng" name="user_story_26">
+  <lhs xmi:id="_VYULMdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VYULMtcdEe6D36Q-j819ng" name="|0|" outgoing="_VYULQtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VYULM9cdEe6D36Q-j819ng" value="&quot;employee from the hr department&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULNNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VYULNdcdEe6D36Q-j819ng" value="&quot;#g04# as an employee from the hr department, i want to have access to the full information of all employees working for this business.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULNtcdEe6D36Q-j819ng" name="|2|" incoming="_VYULQtcdEe6D36Q-j819ng" outgoing="_VYULQ9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VYULN9cdEe6D36Q-j819ng" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULONcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VYULOdcdEe6D36Q-j819ng" value="&quot;&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULOtcdEe6D36Q-j819ng" name="|4|" incoming="_VYULQ9cdEe6D36Q-j819ng _VYULRdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VYULO9cdEe6D36Q-j819ng" value="&quot;access&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULPNcdEe6D36Q-j819ng" name="|5|" incoming="_VYULRNcdEe6D36Q-j819ng" outgoing="_VYULRtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULPdcdEe6D36Q-j819ng" value="&quot;employees&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULPtcdEe6D36Q-j819ng" name="|6|" outgoing="_VYULRNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULP9cdEe6D36Q-j819ng" value="&quot;business&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULQNcdEe6D36Q-j819ng" name="|7|" incoming="_VYULRtcdEe6D36Q-j819ng" outgoing="_VYULRdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULQdcdEe6D36Q-j819ng" value="&quot;full information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VYULQtcdEe6D36Q-j819ng" source="_VYULMtcdEe6D36Q-j819ng" target="_VYULNtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VYULQ9cdEe6D36Q-j819ng" source="_VYULNtcdEe6D36Q-j819ng" target="_VYULOtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VYULRNcdEe6D36Q-j819ng" source="_VYULPtcdEe6D36Q-j819ng" target="_VYULPNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VYULRdcdEe6D36Q-j819ng" source="_VYULQNcdEe6D36Q-j819ng" target="_VYULOtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VYULRtcdEe6D36Q-j819ng" source="_VYULPNcdEe6D36Q-j819ng" target="_VYULQNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VYULR9cdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VYULSNcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VYULSdcdEe6D36Q-j819ng" value="&quot;employee from the hr department&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULStcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VYULS9cdEe6D36Q-j819ng" value="&quot;#g04# as an employee from the hr department, i want to have access to the full information of all employees working for this business.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULTNcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VYULTdcdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VYULTtcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VYULT9cdEe6D36Q-j819ng" name="|5|" incoming="_VYULVdcdEe6D36Q-j819ng" outgoing="_VYULVtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULUNcdEe6D36Q-j819ng" value="&quot;employees&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULUdcdEe6D36Q-j819ng" name="|6|" outgoing="_VYULVdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULUtcdEe6D36Q-j819ng" value="&quot;business&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VYULU9cdEe6D36Q-j819ng" name="|7|" incoming="_VYULVtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VYULVNcdEe6D36Q-j819ng" value="&quot;full information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VYULVdcdEe6D36Q-j819ng" source="_VYULUdcdEe6D36Q-j819ng" target="_VYULT9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VYULVtcdEe6D36Q-j819ng" source="_VYULT9cdEe6D36Q-j819ng" target="_VYULU9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_VYULV9cdEe6D36Q-j819ng" origin="_VYULMtcdEe6D36Q-j819ng" image="_VYULSNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULWNcdEe6D36Q-j819ng" origin="_VYULNNcdEe6D36Q-j819ng" image="_VYULStcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULWdcdEe6D36Q-j819ng" origin="_VYULNtcdEe6D36Q-j819ng" image="_VYULTNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULWtcdEe6D36Q-j819ng" origin="_VYULONcdEe6D36Q-j819ng" image="_VYULTdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULW9cdEe6D36Q-j819ng" origin="_VYULOtcdEe6D36Q-j819ng" image="_VYULTtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULXNcdEe6D36Q-j819ng" origin="_VYULPNcdEe6D36Q-j819ng" image="_VYULT9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULXdcdEe6D36Q-j819ng" origin="_VYULPtcdEe6D36Q-j819ng" image="_VYULUdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VYULXtcdEe6D36Q-j819ng" origin="_VYULQNcdEe6D36Q-j819ng" image="_VYULU9cdEe6D36Q-j819ng"/>
+</henshin:Rule>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MuhGoNbXEe6D36Q-j819ng" name="user_story_23">
+  <lhs xmi:id="_MuhGodbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MuhGotbXEe6D36Q-j819ng" name="|7|" outgoing="_MuhGtNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MuhGo9bXEe6D36Q-j819ng" value="&quot;planning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGpNbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MuhGpdbXEe6D36Q-j819ng" value="&quot;#g03# as a planning staff member, i want to evaluate consistency with the comprehensive plan, so that i can complete my required review of a plan set and/or application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGptbXEe6D36Q-j819ng" name="|9|" incoming="_MuhGtNbXEe6D36Q-j819ng" outgoing="_MuhGtdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MuhGp9bXEe6D36Q-j819ng" value="&quot;evaluate&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGqNbXEe6D36Q-j819ng" name="|10|" outgoing="_MuhGttbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MuhGqdbXEe6D36Q-j819ng" value="&quot;complete&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGqtbXEe6D36Q-j819ng" name="|11|" incoming="_MuhGtdbXEe6D36Q-j819ng _MuhGudbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MuhGq9bXEe6D36Q-j819ng" value="&quot;consistency&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGrNbXEe6D36Q-j819ng" name="|12|" incoming="_MuhGttbXEe6D36Q-j819ng" outgoing="_MuhGt9bXEe6D36Q-j819ng _MuhGuNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGrdbXEe6D36Q-j819ng" value="&quot;required review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGrtbXEe6D36Q-j819ng" name="|13|" incoming="_MuhGt9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGr9bXEe6D36Q-j819ng" value="&quot;plan set&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGsNbXEe6D36Q-j819ng" name="|14|" outgoing="_MuhGudbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGsdbXEe6D36Q-j819ng" value="&quot;comprehensive plan&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGstbXEe6D36Q-j819ng" name="|15|" incoming="_MuhGuNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGs9bXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MuhGtNbXEe6D36Q-j819ng" source="_MuhGotbXEe6D36Q-j819ng" target="_MuhGptbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MuhGtdbXEe6D36Q-j819ng" source="_MuhGptbXEe6D36Q-j819ng" target="_MuhGqtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MuhGttbXEe6D36Q-j819ng" source="_MuhGqNbXEe6D36Q-j819ng" target="_MuhGrNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MuhGt9bXEe6D36Q-j819ng" source="_MuhGrNbXEe6D36Q-j819ng" target="_MuhGrtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MuhGuNbXEe6D36Q-j819ng" source="_MuhGrNbXEe6D36Q-j819ng" target="_MuhGstbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_MuhGudbXEe6D36Q-j819ng" source="_MuhGsNbXEe6D36Q-j819ng" target="_MuhGqtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MuhGutbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MuhGu9bXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MuhGvNbXEe6D36Q-j819ng" value="&quot;planning staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGvdbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MuhGvtbXEe6D36Q-j819ng" value="&quot;#g03# as a planning staff member, i want to evaluate consistency with the comprehensive plan, so that i can complete my required review of a plan set and/or application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGv9bXEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MuhGwNbXEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MuhGwdbXEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MuhGwtbXEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MuhGw9bXEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGxNbXEe6D36Q-j819ng" value="&quot;plan set&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGxdbXEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGxtbXEe6D36Q-j819ng" value="&quot;comprehensive plan&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuhGx9bXEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuhGyNbXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MuhGydbXEe6D36Q-j819ng" origin="_MuhGotbXEe6D36Q-j819ng" image="_MuhGu9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGytbXEe6D36Q-j819ng" origin="_MuhGpNbXEe6D36Q-j819ng" image="_MuhGvdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGy9bXEe6D36Q-j819ng" origin="_MuhGptbXEe6D36Q-j819ng" image="_MuhGv9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGzNbXEe6D36Q-j819ng" origin="_MuhGqNbXEe6D36Q-j819ng" image="_MuhGwNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGzdbXEe6D36Q-j819ng" origin="_MuhGqtbXEe6D36Q-j819ng" image="_MuhGwdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGztbXEe6D36Q-j819ng" origin="_MuhGrNbXEe6D36Q-j819ng" image="_MuhGwtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhGz9bXEe6D36Q-j819ng" origin="_MuhGrtbXEe6D36Q-j819ng" image="_MuhGw9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhG0NbXEe6D36Q-j819ng" origin="_MuhGsNbXEe6D36Q-j819ng" image="_MuhGxdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuhG0dbXEe6D36Q-j819ng" origin="_MuhGstbXEe6D36Q-j819ng" image="_MuhGx9bXEe6D36Q-j819ng"/>
+</henshin:Rule>

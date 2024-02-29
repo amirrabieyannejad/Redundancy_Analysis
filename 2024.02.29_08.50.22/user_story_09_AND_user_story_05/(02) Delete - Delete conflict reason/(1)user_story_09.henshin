@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MWj5oNbXEe6D36Q-j819ng" name="user_story_09">
+  <lhs xmi:id="_MWj5odbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MWj5otbXEe6D36Q-j819ng" name="|0|" outgoing="_MWj5sNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MWj5o9bXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5pNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MWj5pdbXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to modify my application, so that i can successfully change information on an application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5ptbXEe6D36Q-j819ng" name="|2|" incoming="_MWj5sNbXEe6D36Q-j819ng" outgoing="_MWj5sdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MWj5p9bXEe6D36Q-j819ng" value="&quot;modify&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5qNbXEe6D36Q-j819ng" name="|3|" outgoing="_MWj5stbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MWj5qdbXEe6D36Q-j819ng" value="&quot;successfully change&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5qtbXEe6D36Q-j819ng" name="|4|" incoming="_MWj5sdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MWj5q9bXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5rNbXEe6D36Q-j819ng" name="|5|" incoming="_MWj5stbXEe6D36Q-j819ng _MWj5s9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MWj5rdbXEe6D36Q-j819ng" value="&quot;information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5rtbXEe6D36Q-j819ng" name="|6|" outgoing="_MWj5s9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MWj5r9bXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MWj5sNbXEe6D36Q-j819ng" source="_MWj5otbXEe6D36Q-j819ng" target="_MWj5ptbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MWj5sdbXEe6D36Q-j819ng" source="_MWj5ptbXEe6D36Q-j819ng" target="_MWj5qtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MWj5stbXEe6D36Q-j819ng" source="_MWj5qNbXEe6D36Q-j819ng" target="_MWj5rNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MWj5s9bXEe6D36Q-j819ng" source="_MWj5rtbXEe6D36Q-j819ng" target="_MWj5rNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MWj5tNbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MWj5tdbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MWj5ttbXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5t9bXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MWj5uNbXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to modify my application, so that i can successfully change information on an application.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MWj5udbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MWj5utbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MWj5u9bXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MWj5vNbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MWj5vdbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MWj5vtbXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MWj5v9bXEe6D36Q-j819ng" origin="_MWj5otbXEe6D36Q-j819ng" image="_MWj5tdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5wNbXEe6D36Q-j819ng" origin="_MWj5pNbXEe6D36Q-j819ng" image="_MWj5t9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5wdbXEe6D36Q-j819ng" origin="_MWj5ptbXEe6D36Q-j819ng" image="_MWj5udbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5wtbXEe6D36Q-j819ng" origin="_MWj5qNbXEe6D36Q-j819ng" image="_MWj5utbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5w9bXEe6D36Q-j819ng" origin="_MWj5qtbXEe6D36Q-j819ng" image="_MWj5u9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5xNbXEe6D36Q-j819ng" origin="_MWj5rNbXEe6D36Q-j819ng" image="_MWj5vNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MWj5xdbXEe6D36Q-j819ng" origin="_MWj5rtbXEe6D36Q-j819ng" image="_MWj5vdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

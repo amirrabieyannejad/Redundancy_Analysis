@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_M9ldYNbXEe6D36Q-j819ng" name="user_story_44">
+  <lhs xmi:id="_M9ldYdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_M9ldYtbXEe6D36Q-j819ng" name="|0|" outgoing="_M9lddNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_M9ldY9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldZNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_M9ldZdbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to manage bonds, so that i can track and manage bonds throughout the lifecycle of the project until release.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldZtbXEe6D36Q-j819ng" name="|2|" incoming="_M9lddNbXEe6D36Q-j819ng" outgoing="_M9ldddbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_M9ldZ9bXEe6D36Q-j819ng" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldaNbXEe6D36Q-j819ng" name="|3|" outgoing="_M9lddtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_M9ldadbXEe6D36Q-j819ng" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldatbXEe6D36Q-j819ng" name="|4|" outgoing="_M9ldd9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_M9lda9bXEe6D36Q-j819ng" value="&quot;manage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldbNbXEe6D36Q-j819ng" name="|5|" incoming="_M9ldddbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_M9ldbdbXEe6D36Q-j819ng" value="&quot;bonds&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldbtbXEe6D36Q-j819ng" name="|6|" incoming="_M9lddtbXEe6D36Q-j819ng _M9ldd9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_M9ldb9bXEe6D36Q-j819ng" value="&quot;bonds&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldcNbXEe6D36Q-j819ng" name="|7|" outgoing="_M9ldeNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_M9ldcdbXEe6D36Q-j819ng" value="&quot;project&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldctbXEe6D36Q-j819ng" name="|8|" incoming="_M9ldeNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_M9ldc9bXEe6D36Q-j819ng" value="&quot;lifecycle&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_M9lddNbXEe6D36Q-j819ng" source="_M9ldYtbXEe6D36Q-j819ng" target="_M9ldZtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_M9ldddbXEe6D36Q-j819ng" source="_M9ldZtbXEe6D36Q-j819ng" target="_M9ldbNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_M9lddtbXEe6D36Q-j819ng" source="_M9ldaNbXEe6D36Q-j819ng" target="_M9ldbtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_M9ldd9bXEe6D36Q-j819ng" source="_M9ldatbXEe6D36Q-j819ng" target="_M9ldbtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_M9ldeNbXEe6D36Q-j819ng" source="_M9ldcNbXEe6D36Q-j819ng" target="_M9ldctbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_M9ldedbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_M9ldetbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_M9lde9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldfNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_M9ldfdbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to manage bonds, so that i can track and manage bonds throughout the lifecycle of the project until release.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldftbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_M9ldf9bXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_M9ldgNbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_M9ldgdbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_M9ldgtbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_M9ldg9bXEe6D36Q-j819ng" name="|7|" outgoing="_M9ldh9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_M9ldhNbXEe6D36Q-j819ng" value="&quot;project&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_M9ldhdbXEe6D36Q-j819ng" name="|8|" incoming="_M9ldh9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_M9ldhtbXEe6D36Q-j819ng" value="&quot;lifecycle&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_M9ldh9bXEe6D36Q-j819ng" source="_M9ldg9bXEe6D36Q-j819ng" target="_M9ldhdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_M9ldiNbXEe6D36Q-j819ng" origin="_M9ldYtbXEe6D36Q-j819ng" image="_M9ldetbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldidbXEe6D36Q-j819ng" origin="_M9ldZNbXEe6D36Q-j819ng" image="_M9ldfNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9lditbXEe6D36Q-j819ng" origin="_M9ldZtbXEe6D36Q-j819ng" image="_M9ldftbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldi9bXEe6D36Q-j819ng" origin="_M9ldaNbXEe6D36Q-j819ng" image="_M9ldf9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldjNbXEe6D36Q-j819ng" origin="_M9ldatbXEe6D36Q-j819ng" image="_M9ldgNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldjdbXEe6D36Q-j819ng" origin="_M9ldbNbXEe6D36Q-j819ng" image="_M9ldgdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldjtbXEe6D36Q-j819ng" origin="_M9ldbtbXEe6D36Q-j819ng" image="_M9ldgtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldj9bXEe6D36Q-j819ng" origin="_M9ldcNbXEe6D36Q-j819ng" image="_M9ldg9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_M9ldkNbXEe6D36Q-j819ng" origin="_M9ldctbXEe6D36Q-j819ng" image="_M9ldhdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

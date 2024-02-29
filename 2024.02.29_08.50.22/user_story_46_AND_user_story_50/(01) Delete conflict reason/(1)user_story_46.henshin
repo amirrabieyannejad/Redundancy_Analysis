@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MuEasNbXEe6D36Q-j819ng" name="user_story_46">
+  <lhs xmi:id="_MuEasdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MuEastbXEe6D36Q-j819ng" name="|0|" outgoing="_MuEaxNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MuEas9bXEe6D36Q-j819ng" value="&quot;customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEatNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MuEatdbXEe6D36Q-j819ng" value="&quot;#g03# as a customer, i want to request inspection, so that a county inspector is assigned to perform an inspection of my project.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEattbXEe6D36Q-j819ng" name="|2|" incoming="_MuEaxNbXEe6D36Q-j819ng" outgoing="_MuEaxdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MuEat9bXEe6D36Q-j819ng" value="&quot;request&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEauNbXEe6D36Q-j819ng" name="|3|" outgoing="_MuEaxtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MuEaudbXEe6D36Q-j819ng" value="&quot;perform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEautbXEe6D36Q-j819ng" name="|4|" outgoing="_MuEax9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MuEau9bXEe6D36Q-j819ng" value="&quot;assigned&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEavNbXEe6D36Q-j819ng" name="|5|" incoming="_MuEaxdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MuEavdbXEe6D36Q-j819ng" value="&quot;inspection&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEavtbXEe6D36Q-j819ng" name="|6|" incoming="_MuEax9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuEav9bXEe6D36Q-j819ng" value="&quot;county inspector&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEawNbXEe6D36Q-j819ng" name="|7|" incoming="_MuEaxtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuEawdbXEe6D36Q-j819ng" value="&quot;inspection&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEawtbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuEaw9bXEe6D36Q-j819ng" value="&quot;project&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MuEaxNbXEe6D36Q-j819ng" source="_MuEastbXEe6D36Q-j819ng" target="_MuEattbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MuEaxdbXEe6D36Q-j819ng" source="_MuEattbXEe6D36Q-j819ng" target="_MuEavNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MuEaxtbXEe6D36Q-j819ng" source="_MuEauNbXEe6D36Q-j819ng" target="_MuEawNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MuEax9bXEe6D36Q-j819ng" source="_MuEautbXEe6D36Q-j819ng" target="_MuEavtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MuEayNbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MuEaydbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MuEaytbXEe6D36Q-j819ng" value="&quot;customer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEay9bXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MuEazNbXEe6D36Q-j819ng" value="&quot;#g03# as a customer, i want to request inspection, so that a county inspector is assigned to perform an inspection of my project.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MuEazdbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MuEaztbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MuEaz9bXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MuEa0NbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MuEa0dbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MuEa0tbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MuEa09bXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MuEa1NbXEe6D36Q-j819ng" value="&quot;project&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MuEa1dbXEe6D36Q-j819ng" origin="_MuEastbXEe6D36Q-j819ng" image="_MuEaydbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa1tbXEe6D36Q-j819ng" origin="_MuEatNbXEe6D36Q-j819ng" image="_MuEay9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa19bXEe6D36Q-j819ng" origin="_MuEattbXEe6D36Q-j819ng" image="_MuEazdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa2NbXEe6D36Q-j819ng" origin="_MuEauNbXEe6D36Q-j819ng" image="_MuEaztbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa2dbXEe6D36Q-j819ng" origin="_MuEautbXEe6D36Q-j819ng" image="_MuEaz9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa2tbXEe6D36Q-j819ng" origin="_MuEavNbXEe6D36Q-j819ng" image="_MuEa0NbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa29bXEe6D36Q-j819ng" origin="_MuEavtbXEe6D36Q-j819ng" image="_MuEa0dbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa3NbXEe6D36Q-j819ng" origin="_MuEawNbXEe6D36Q-j819ng" image="_MuEa0tbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MuEa3dbXEe6D36Q-j819ng" origin="_MuEawtbXEe6D36Q-j819ng" image="_MuEa09bXEe6D36Q-j819ng"/>
+</henshin:Rule>

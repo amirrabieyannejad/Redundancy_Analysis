@@ -5,5 +5,6 @@ public class EcoreFileNotFound extends Exception{
 	public EcoreFileNotFound() {
 		super("ECore file not found!");
 	}
+	
 
 }

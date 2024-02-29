@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Mo_tcNbXEe6D36Q-j819ng" name="user_story_13">
+  <lhs xmi:id="_Mo_tcdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_Mo_tctbXEe6D36Q-j819ng" name="|6|" outgoing="_Mo_thtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Mo_tc9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tdNbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Mo_tddbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to apply a hold, so that i can prevent progression through the workflow or other actions in the system until the issue is resolved.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tdtbXEe6D36Q-j819ng" name="|8|" incoming="_Mo_thtbXEe6D36Q-j819ng" outgoing="_Mo_th9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Mo_td9bXEe6D36Q-j819ng" value="&quot;apply&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_teNbXEe6D36Q-j819ng" name="|9|" outgoing="_Mo_tiNbXEe6D36Q-j819ng _Mo_tidbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Mo_tedbXEe6D36Q-j819ng" value="&quot;prevent&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tetbXEe6D36Q-j819ng" name="|10|" incoming="_Mo_th9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Mo_te9bXEe6D36Q-j819ng" value="&quot;hold&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tfNbXEe6D36Q-j819ng" name="|11|" incoming="_Mo_tiNbXEe6D36Q-j819ng _Mo_titbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tfdbXEe6D36Q-j819ng" value="&quot;progression&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tftbXEe6D36Q-j819ng" name="|12|" outgoing="_Mo_titbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tf9bXEe6D36Q-j819ng" value="&quot;workflow&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tgNbXEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tgdbXEe6D36Q-j819ng" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tgtbXEe6D36Q-j819ng" name="|14|" incoming="_Mo_tidbXEe6D36Q-j819ng _Mo_ti9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tg9bXEe6D36Q-j819ng" value="&quot;other actions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_thNbXEe6D36Q-j819ng" name="|15|" outgoing="_Mo_ti9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_thdbXEe6D36Q-j819ng" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Mo_thtbXEe6D36Q-j819ng" source="_Mo_tctbXEe6D36Q-j819ng" target="_Mo_tdtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Mo_th9bXEe6D36Q-j819ng" source="_Mo_tdtbXEe6D36Q-j819ng" target="_Mo_tetbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Mo_tiNbXEe6D36Q-j819ng" source="_Mo_teNbXEe6D36Q-j819ng" target="_Mo_tfNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Mo_tidbXEe6D36Q-j819ng" source="_Mo_teNbXEe6D36Q-j819ng" target="_Mo_tgtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Mo_titbXEe6D36Q-j819ng" source="_Mo_tftbXEe6D36Q-j819ng" target="_Mo_tfNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_Mo_ti9bXEe6D36Q-j819ng" source="_Mo_thNbXEe6D36Q-j819ng" target="_Mo_tgtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Mo_tjNbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_Mo_tjdbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Mo_tjtbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tj9bXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Mo_tkNbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to apply a hold, so that i can prevent progression through the workflow or other actions in the system until the issue is resolved.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tkdbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Mo_tktbXEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Mo_tk9bXEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Mo_tlNbXEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Mo_tldbXEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tltbXEe6D36Q-j819ng" value="&quot;workflow&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tl9bXEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tmNbXEe6D36Q-j819ng" value="&quot;issue&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo_tmdbXEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Mo_tmtbXEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo_tm9bXEe6D36Q-j819ng" value="&quot;system&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Mo_tnNbXEe6D36Q-j819ng" origin="_Mo_tctbXEe6D36Q-j819ng" image="_Mo_tjdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_tndbXEe6D36Q-j819ng" origin="_Mo_tdNbXEe6D36Q-j819ng" image="_Mo_tj9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_tntbXEe6D36Q-j819ng" origin="_Mo_tdtbXEe6D36Q-j819ng" image="_Mo_tkdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_tn9bXEe6D36Q-j819ng" origin="_Mo_teNbXEe6D36Q-j819ng" image="_Mo_tktbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_toNbXEe6D36Q-j819ng" origin="_Mo_tetbXEe6D36Q-j819ng" image="_Mo_tk9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_todbXEe6D36Q-j819ng" origin="_Mo_tfNbXEe6D36Q-j819ng" image="_Mo_tlNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_totbXEe6D36Q-j819ng" origin="_Mo_tftbXEe6D36Q-j819ng" image="_Mo_tldbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_to9bXEe6D36Q-j819ng" origin="_Mo_tgNbXEe6D36Q-j819ng" image="_Mo_tl9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_tpNbXEe6D36Q-j819ng" origin="_Mo_tgtbXEe6D36Q-j819ng" image="_Mo_tmdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_Mo_tpdbXEe6D36Q-j819ng" origin="_Mo_thNbXEe6D36Q-j819ng" image="_Mo_tmtbXEe6D36Q-j819ng"/>
+</henshin:Rule>

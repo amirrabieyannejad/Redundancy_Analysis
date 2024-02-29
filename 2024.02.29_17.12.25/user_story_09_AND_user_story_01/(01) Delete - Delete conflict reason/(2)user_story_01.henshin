@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_U80iANcdEe6D36Q-j819ng" name="user_story_01">
+  <lhs xmi:id="_U80iAdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_U80iAtcdEe6D36Q-j819ng" name="|7|" outgoing="_U80iENcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_U80iA9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iBNcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_U80iBdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to click on the address, so that it takes me to a new tab with google maps.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iBtcdEe6D36Q-j819ng" name="|9|" incoming="_U80iENcdEe6D36Q-j819ng" outgoing="_U80iEdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_U80iB9cdEe6D36Q-j819ng" value="&quot;click&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iCNcdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_U80iCdcdEe6D36Q-j819ng" value="&quot;&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iCtcdEe6D36Q-j819ng" name="|11|" incoming="_U80iEdcdEe6D36Q-j819ng _U80iEtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_U80iC9cdEe6D36Q-j819ng" value="&quot;address&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iDNcdEe6D36Q-j819ng" name="|12|" outgoing="_U80iE9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_U80iDdcdEe6D36Q-j819ng" value="&quot;new tab&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iDtcdEe6D36Q-j819ng" name="|13|" incoming="_U80iE9cdEe6D36Q-j819ng" outgoing="_U80iEtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_U80iD9cdEe6D36Q-j819ng" value="&quot;google maps&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_U80iENcdEe6D36Q-j819ng" source="_U80iAtcdEe6D36Q-j819ng" target="_U80iBtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_U80iEdcdEe6D36Q-j819ng" source="_U80iBtcdEe6D36Q-j819ng" target="_U80iCtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_U80iEtcdEe6D36Q-j819ng" source="_U80iDtcdEe6D36Q-j819ng" target="_U80iCtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_U80iE9cdEe6D36Q-j819ng" source="_U80iDNcdEe6D36Q-j819ng" target="_U80iDtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_U80iFNcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_U80iFdcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_U80iFtcdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iF9cdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_U80iGNcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to click on the address, so that it takes me to a new tab with google maps.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iGdcdEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_U80iGtcdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_U80iG9cdEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_U80iHNcdEe6D36Q-j819ng" name="|12|" outgoing="_U80iINcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_U80iHdcdEe6D36Q-j819ng" value="&quot;new tab&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_U80iHtcdEe6D36Q-j819ng" name="|13|" incoming="_U80iINcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_U80iH9cdEe6D36Q-j819ng" value="&quot;google maps&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_U80iINcdEe6D36Q-j819ng" source="_U80iHNcdEe6D36Q-j819ng" target="_U80iHtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_U80iIdcdEe6D36Q-j819ng" origin="_U80iAtcdEe6D36Q-j819ng" image="_U80iFdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iItcdEe6D36Q-j819ng" origin="_U80iBNcdEe6D36Q-j819ng" image="_U80iF9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iI9cdEe6D36Q-j819ng" origin="_U80iBtcdEe6D36Q-j819ng" image="_U80iGdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iJNcdEe6D36Q-j819ng" origin="_U80iCNcdEe6D36Q-j819ng" image="_U80iGtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iJdcdEe6D36Q-j819ng" origin="_U80iCtcdEe6D36Q-j819ng" image="_U80iG9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iJtcdEe6D36Q-j819ng" origin="_U80iDNcdEe6D36Q-j819ng" image="_U80iHNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_U80iJ9cdEe6D36Q-j819ng" origin="_U80iDtcdEe6D36Q-j819ng" image="_U80iHtcdEe6D36Q-j819ng"/>
+</henshin:Rule>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NAoxYNbXEe6D36Q-j819ng" name="user_story_35">
+  <lhs xmi:id="_NAoxYdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_NAoxYtbXEe6D36Q-j819ng" name="|0|" outgoing="_NAoxdNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NAoxY9bXEe6D36Q-j819ng" value="&quot;plan review staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxZNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NAoxZdbXEe6D36Q-j819ng" value="&quot;#g03# as a plan review staff member, i want to assign plans for review, so that i can ensure plans have been assigned to the appropriate plan reviewer.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxZtbXEe6D36Q-j819ng" name="|2|" incoming="_NAoxdNbXEe6D36Q-j819ng" outgoing="_NAoxddbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_NAoxZ9bXEe6D36Q-j819ng" value="&quot;assign&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxaNbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NAoxadbXEe6D36Q-j819ng" value="&quot;ensure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxatbXEe6D36Q-j819ng" name="|4|" outgoing="_NAoxdtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NAoxa9bXEe6D36Q-j819ng" value="&quot;assigned&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxbNbXEe6D36Q-j819ng" name="|5|" incoming="_NAoxddbXEe6D36Q-j819ng _NAoxd9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_NAoxbdbXEe6D36Q-j819ng" value="&quot;plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxbtbXEe6D36Q-j819ng" name="|6|" outgoing="_NAoxd9bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAoxb9bXEe6D36Q-j819ng" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxcNbXEe6D36Q-j819ng" name="|7|" outgoing="_NAoxeNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAoxcdbXEe6D36Q-j819ng" value="&quot;appropriate plan reviewer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxctbXEe6D36Q-j819ng" name="|8|" incoming="_NAoxdtbXEe6D36Q-j819ng _NAoxeNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAoxc9bXEe6D36Q-j819ng" value="&quot;plans&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_NAoxdNbXEe6D36Q-j819ng" source="_NAoxYtbXEe6D36Q-j819ng" target="_NAoxZtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_NAoxddbXEe6D36Q-j819ng" source="_NAoxZtbXEe6D36Q-j819ng" target="_NAoxbNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAoxdtbXEe6D36Q-j819ng" source="_NAoxatbXEe6D36Q-j819ng" target="_NAoxctbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAoxd9bXEe6D36Q-j819ng" source="_NAoxbtbXEe6D36Q-j819ng" target="_NAoxbNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_NAoxeNbXEe6D36Q-j819ng" source="_NAoxcNbXEe6D36Q-j819ng" target="_NAoxctbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_NAoxedbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_NAoxetbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NAoxe9bXEe6D36Q-j819ng" value="&quot;plan review staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxfNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NAoxfdbXEe6D36Q-j819ng" value="&quot;#g03# as a plan review staff member, i want to assign plans for review, so that i can ensure plans have been assigned to the appropriate plan reviewer.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxftbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAoxf9bXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAoxgNbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAoxgdbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NAoxgtbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAoxg9bXEe6D36Q-j819ng" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxhNbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAoxhdbXEe6D36Q-j819ng" value="&quot;appropriate plan reviewer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAoxhtbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_NAoxh9bXEe6D36Q-j819ng" origin="_NAoxYtbXEe6D36Q-j819ng" image="_NAoxetbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxiNbXEe6D36Q-j819ng" origin="_NAoxZNbXEe6D36Q-j819ng" image="_NAoxfNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxidbXEe6D36Q-j819ng" origin="_NAoxZtbXEe6D36Q-j819ng" image="_NAoxftbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxitbXEe6D36Q-j819ng" origin="_NAoxaNbXEe6D36Q-j819ng" image="_NAoxf9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxi9bXEe6D36Q-j819ng" origin="_NAoxatbXEe6D36Q-j819ng" image="_NAoxgNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxjNbXEe6D36Q-j819ng" origin="_NAoxbNbXEe6D36Q-j819ng" image="_NAoxgdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxjdbXEe6D36Q-j819ng" origin="_NAoxbtbXEe6D36Q-j819ng" image="_NAoxgtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxjtbXEe6D36Q-j819ng" origin="_NAoxcNbXEe6D36Q-j819ng" image="_NAoxhNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAoxj9bXEe6D36Q-j819ng" origin="_NAoxctbXEe6D36Q-j819ng" image="_NAoxhtbXEe6D36Q-j819ng"/>
+</henshin:Rule>

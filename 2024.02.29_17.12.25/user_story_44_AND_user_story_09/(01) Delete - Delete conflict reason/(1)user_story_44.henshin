@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VAGfgNcdEe6D36Q-j819ng" name="user_story_44">
+  <lhs xmi:id="_VAGfgdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VAGfgtcdEe6D36Q-j819ng" name="|0|" outgoing="_VAGflNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VAGfg9cdEe6D36Q-j819ng" value="&quot;superuser&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfhNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VAGfhdcdEe6D36Q-j819ng" value="&quot;#g04# as a superuser, i want to view users' stats, so that i can view in real-time how many users have visited my recycling center information and their recyclable waste.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfhtcdEe6D36Q-j819ng" name="|2|" incoming="_VAGflNcdEe6D36Q-j819ng" outgoing="_VAGfldcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VAGfh9cdEe6D36Q-j819ng" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfiNcdEe6D36Q-j819ng" name="|3|" outgoing="_VAGfltcdEe6D36Q-j819ng _VAGfl9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VAGfidcdEe6D36Q-j819ng" value="&quot;view in real-time&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfitcdEe6D36Q-j819ng" name="|4|" outgoing="_VAGfmNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VAGfi9cdEe6D36Q-j819ng" value="&quot;visited&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfjNcdEe6D36Q-j819ng" name="|5|" incoming="_VAGfldcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VAGfjdcdEe6D36Q-j819ng" value="&quot;users' stats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfjtcdEe6D36Q-j819ng" name="|6|" incoming="_VAGfmNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VAGfj9cdEe6D36Q-j819ng" value="&quot;recycling center information&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfkNcdEe6D36Q-j819ng" name="|7|" incoming="_VAGfltcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VAGfkdcdEe6D36Q-j819ng" value="&quot;recyclable waste.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfktcdEe6D36Q-j819ng" name="|8|" incoming="_VAGfl9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VAGfk9cdEe6D36Q-j819ng" value="&quot;how many users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VAGflNcdEe6D36Q-j819ng" source="_VAGfgtcdEe6D36Q-j819ng" target="_VAGfhtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VAGfldcdEe6D36Q-j819ng" source="_VAGfhtcdEe6D36Q-j819ng" target="_VAGfjNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VAGfltcdEe6D36Q-j819ng" source="_VAGfiNcdEe6D36Q-j819ng" target="_VAGfkNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VAGfl9cdEe6D36Q-j819ng" source="_VAGfiNcdEe6D36Q-j819ng" target="_VAGfktcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VAGfmNcdEe6D36Q-j819ng" source="_VAGfitcdEe6D36Q-j819ng" target="_VAGfjtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VAGfmdcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VAGfmtcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VAGfm9cdEe6D36Q-j819ng" value="&quot;superuser&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfnNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VAGfndcdEe6D36Q-j819ng" value="&quot;#g04# as a superuser, i want to view users' stats, so that i can view in real-time how many users have visited my recycling center information and their recyclable waste.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VAGfntcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VAGfn9cdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VAGfoNcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VAGfodcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VAGfotcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VAGfo9cdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VAGfpNcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VAGfpdcdEe6D36Q-j819ng" origin="_VAGfgtcdEe6D36Q-j819ng" image="_VAGfmtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfptcdEe6D36Q-j819ng" origin="_VAGfhNcdEe6D36Q-j819ng" image="_VAGfnNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfp9cdEe6D36Q-j819ng" origin="_VAGfhtcdEe6D36Q-j819ng" image="_VAGfntcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfqNcdEe6D36Q-j819ng" origin="_VAGfiNcdEe6D36Q-j819ng" image="_VAGfn9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfqdcdEe6D36Q-j819ng" origin="_VAGfitcdEe6D36Q-j819ng" image="_VAGfoNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfqtcdEe6D36Q-j819ng" origin="_VAGfjNcdEe6D36Q-j819ng" image="_VAGfodcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfq9cdEe6D36Q-j819ng" origin="_VAGfjtcdEe6D36Q-j819ng" image="_VAGfotcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfrNcdEe6D36Q-j819ng" origin="_VAGfkNcdEe6D36Q-j819ng" image="_VAGfo9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VAGfrdcdEe6D36Q-j819ng" origin="_VAGfktcdEe6D36Q-j819ng" image="_VAGfpNcdEe6D36Q-j819ng"/>
+</henshin:Rule>

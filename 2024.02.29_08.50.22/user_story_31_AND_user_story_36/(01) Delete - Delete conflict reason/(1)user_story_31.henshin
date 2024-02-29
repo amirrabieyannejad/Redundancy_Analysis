@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_MmWpINbXEe6D36Q-j819ng" name="user_story_31">
+  <lhs xmi:id="_MmWpIdbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_MmWpItbXEe6D36Q-j819ng" name="|0|" outgoing="_MmWpMNbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmWpI9bXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpJNbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmWpJdbXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to satisfy hearing requirements, so that i can ensure all pre-hearing requirements are satisfied in time for the hearing.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpJtbXEe6D36Q-j819ng" name="|2|" incoming="_MmWpMNbXEe6D36Q-j819ng" outgoing="_MmWpMdbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_MmWpJ9bXEe6D36Q-j819ng" value="&quot;satisfy&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpKNbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_MmWpKdbXEe6D36Q-j819ng" value="&quot;ensure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpKtbXEe6D36Q-j819ng" name="|4|" incoming="_MmWpMdbXEe6D36Q-j819ng _MmWpMtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_MmWpK9bXEe6D36Q-j819ng" value="&quot;hearing requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpLNbXEe6D36Q-j819ng" name="|5|" outgoing="_MmWpMtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmWpLdbXEe6D36Q-j819ng" value="&quot;hearing&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpLtbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmWpL9bXEe6D36Q-j819ng" value="&quot;all pre-hearing requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_MmWpMNbXEe6D36Q-j819ng" source="_MmWpItbXEe6D36Q-j819ng" target="_MmWpJtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_MmWpMdbXEe6D36Q-j819ng" source="_MmWpJtbXEe6D36Q-j819ng" target="_MmWpKtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_MmWpMtbXEe6D36Q-j819ng" source="_MmWpLNbXEe6D36Q-j819ng" target="_MmWpKtbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_MmWpM9bXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_MmWpNNbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_MmWpNdbXEe6D36Q-j819ng" value="&quot;applicant&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpNtbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_MmWpN9bXEe6D36Q-j819ng" value="&quot;#g03# as an applicant, i want to satisfy hearing requirements, so that i can ensure all pre-hearing requirements are satisfied in time for the hearing.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpONbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmWpOdbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_MmWpOtbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_MmWpO9bXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmWpPNbXEe6D36Q-j819ng" value="&quot;hearing&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_MmWpPdbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_MmWpPtbXEe6D36Q-j819ng" value="&quot;all pre-hearing requirements&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_MmWpP9bXEe6D36Q-j819ng" origin="_MmWpItbXEe6D36Q-j819ng" image="_MmWpNNbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpQNbXEe6D36Q-j819ng" origin="_MmWpJNbXEe6D36Q-j819ng" image="_MmWpNtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpQdbXEe6D36Q-j819ng" origin="_MmWpJtbXEe6D36Q-j819ng" image="_MmWpONbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpQtbXEe6D36Q-j819ng" origin="_MmWpKNbXEe6D36Q-j819ng" image="_MmWpOdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpQ9bXEe6D36Q-j819ng" origin="_MmWpKtbXEe6D36Q-j819ng" image="_MmWpOtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpRNbXEe6D36Q-j819ng" origin="_MmWpLNbXEe6D36Q-j819ng" image="_MmWpO9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_MmWpRdbXEe6D36Q-j819ng" origin="_MmWpLtbXEe6D36Q-j819ng" image="_MmWpPdbXEe6D36Q-j819ng"/>
+</henshin:Rule>

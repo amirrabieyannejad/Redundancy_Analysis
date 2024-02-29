@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VMjAENcdEe6D36Q-j819ng" name="user_story_07">
+  <lhs xmi:id="_VMjAEdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VMjAEtcdEe6D36Q-j819ng" name="|0|" outgoing="_VMjAINcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VMjAE9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAFNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VMjAFdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to add donation centers as favorites on my profile, so that i can view them later.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAFtcdEe6D36Q-j819ng" name="|2|" incoming="_VMjAINcdEe6D36Q-j819ng" outgoing="_VMjAIdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VMjAF9cdEe6D36Q-j819ng" value="&quot;add&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAGNcdEe6D36Q-j819ng" name="|3|" outgoing="_VMjAItcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VMjAGdcdEe6D36Q-j819ng" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAGtcdEe6D36Q-j819ng" name="|4|" incoming="_VMjAIdcdEe6D36Q-j819ng _VMjAItcdEe6D36Q-j819ng _VMjAJNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VMjAG9cdEe6D36Q-j819ng" value="&quot;donation centers&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAHNcdEe6D36Q-j819ng" name="|5|" incoming="_VMjAI9cdEe6D36Q-j819ng" outgoing="_VMjAJNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VMjAHdcdEe6D36Q-j819ng" value="&quot;favorites&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAHtcdEe6D36Q-j819ng" name="|6|" outgoing="_VMjAI9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VMjAH9cdEe6D36Q-j819ng" value="&quot;profile&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VMjAINcdEe6D36Q-j819ng" source="_VMjAEtcdEe6D36Q-j819ng" target="_VMjAFtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VMjAIdcdEe6D36Q-j819ng" source="_VMjAFtcdEe6D36Q-j819ng" target="_VMjAGtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VMjAItcdEe6D36Q-j819ng" source="_VMjAGNcdEe6D36Q-j819ng" target="_VMjAGtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VMjAI9cdEe6D36Q-j819ng" source="_VMjAHtcdEe6D36Q-j819ng" target="_VMjAHNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_VMjAJNcdEe6D36Q-j819ng" source="_VMjAHNcdEe6D36Q-j819ng" target="_VMjAGtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VMjAJdcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VMjAJtcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VMjAJ9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAKNcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VMjAKdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to add donation centers as favorites on my profile, so that i can view them later.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAKtcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VMjAK9cdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VMjALNcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VMjALdcdEe6D36Q-j819ng" name="|5|" incoming="_VMjAMdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VMjALtcdEe6D36Q-j819ng" value="&quot;favorites&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VMjAL9cdEe6D36Q-j819ng" name="|6|" outgoing="_VMjAMdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VMjAMNcdEe6D36Q-j819ng" value="&quot;profile&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VMjAMdcdEe6D36Q-j819ng" source="_VMjAL9cdEe6D36Q-j819ng" target="_VMjALdcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_VMjAMtcdEe6D36Q-j819ng" origin="_VMjAEtcdEe6D36Q-j819ng" image="_VMjAJtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjAM9cdEe6D36Q-j819ng" origin="_VMjAFNcdEe6D36Q-j819ng" image="_VMjAKNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjANNcdEe6D36Q-j819ng" origin="_VMjAFtcdEe6D36Q-j819ng" image="_VMjAKtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjANdcdEe6D36Q-j819ng" origin="_VMjAGNcdEe6D36Q-j819ng" image="_VMjAK9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjANtcdEe6D36Q-j819ng" origin="_VMjAGtcdEe6D36Q-j819ng" image="_VMjALNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjAN9cdEe6D36Q-j819ng" origin="_VMjAHNcdEe6D36Q-j819ng" image="_VMjALdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VMjAONcdEe6D36Q-j819ng" origin="_VMjAHtcdEe6D36Q-j819ng" image="_VMjAL9cdEe6D36Q-j819ng"/>
+</henshin:Rule>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NAjR0NbXEe6D36Q-j819ng" name="user_story_12">
+  <lhs xmi:id="_NAjR0dbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_NAjR0tbXEe6D36Q-j819ng" name="|0|" outgoing="_NAjR5NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NAjR09bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR1NbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NAjR1dbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to assign an application for detailed review, so that i can review the for compliance and subsequently approved or denied.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR1tbXEe6D36Q-j819ng" name="|2|" incoming="_NAjR5NbXEe6D36Q-j819ng" outgoing="_NAjR5dbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_NAjR19bXEe6D36Q-j819ng" value="&quot;assign&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR2NbXEe6D36Q-j819ng" name="|3|" outgoing="_NAjR59bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NAjR2dbXEe6D36Q-j819ng" value="&quot;subsequently approved&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR2tbXEe6D36Q-j819ng" name="|4|" outgoing="_NAjR6NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NAjR29bXEe6D36Q-j819ng" value="&quot;denied&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR3NbXEe6D36Q-j819ng" name="|5|" outgoing="_NAjR5tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NAjR3dbXEe6D36Q-j819ng" value="&quot;review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR3tbXEe6D36Q-j819ng" name="|6|" incoming="_NAjR5dbXEe6D36Q-j819ng" outgoing="_NAjR6dbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_NAjR39bXEe6D36Q-j819ng" value="&quot;application&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR4NbXEe6D36Q-j819ng" name="|7|" incoming="_NAjR5tbXEe6D36Q-j819ng _NAjR59bXEe6D36Q-j819ng _NAjR6NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAjR4dbXEe6D36Q-j819ng" value="&quot;compliance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR4tbXEe6D36Q-j819ng" name="|8|" incoming="_NAjR6dbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAjR49bXEe6D36Q-j819ng" value="&quot;detailed review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_NAjR5NbXEe6D36Q-j819ng" source="_NAjR0tbXEe6D36Q-j819ng" target="_NAjR1tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_NAjR5dbXEe6D36Q-j819ng" source="_NAjR1tbXEe6D36Q-j819ng" target="_NAjR3tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAjR5tbXEe6D36Q-j819ng" source="_NAjR3NbXEe6D36Q-j819ng" target="_NAjR4NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAjR59bXEe6D36Q-j819ng" source="_NAjR2NbXEe6D36Q-j819ng" target="_NAjR4NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAjR6NbXEe6D36Q-j819ng" source="_NAjR2tbXEe6D36Q-j819ng" target="_NAjR4NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NAjR6dbXEe6D36Q-j819ng" source="_NAjR3tbXEe6D36Q-j819ng" target="_NAjR4tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_NAjR6tbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_NAjR69bXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NAjR7NbXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR7dbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NAjR7tbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to assign an application for detailed review, so that i can review the for compliance and subsequently approved or denied.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NAjR79bXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAjR8NbXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAjR8dbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAjR8tbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NAjR89bXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NAjR9NbXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NAjR9dbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NAjR9tbXEe6D36Q-j819ng" value="&quot;detailed review&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_NAjR99bXEe6D36Q-j819ng" origin="_NAjR0tbXEe6D36Q-j819ng" image="_NAjR69bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR-NbXEe6D36Q-j819ng" origin="_NAjR1NbXEe6D36Q-j819ng" image="_NAjR7dbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR-dbXEe6D36Q-j819ng" origin="_NAjR1tbXEe6D36Q-j819ng" image="_NAjR79bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR-tbXEe6D36Q-j819ng" origin="_NAjR2NbXEe6D36Q-j819ng" image="_NAjR8NbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR-9bXEe6D36Q-j819ng" origin="_NAjR2tbXEe6D36Q-j819ng" image="_NAjR8dbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR_NbXEe6D36Q-j819ng" origin="_NAjR3NbXEe6D36Q-j819ng" image="_NAjR8tbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR_dbXEe6D36Q-j819ng" origin="_NAjR3tbXEe6D36Q-j819ng" image="_NAjR89bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR_tbXEe6D36Q-j819ng" origin="_NAjR4NbXEe6D36Q-j819ng" image="_NAjR9NbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NAjR_9bXEe6D36Q-j819ng" origin="_NAjR4tbXEe6D36Q-j819ng" image="_NAjR9dbXEe6D36Q-j819ng"/>
+</henshin:Rule>

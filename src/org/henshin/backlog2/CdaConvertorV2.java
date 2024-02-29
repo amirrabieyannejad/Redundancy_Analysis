@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -48,8 +49,8 @@ public class CdaConvertorV2 {
 
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
 
-		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.25_12.45.40", "Datasets\\g03_baseline_pos_num.json");
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_v2.txt");
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("2024.02.29_17.12.25", "Datasets\\g04_baseline_pos.json");
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_v3.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 		List<ConflictPair> conflictPairs = cdaConvertor.extractReports(fileWrite);
 
@@ -150,15 +151,16 @@ public class CdaConvertorV2 {
 									+ " stories found]--------------------------\n{" + confPair + "}\n  ");
 
 							fileWriter.write("\nRedundants elements are: ");
-							conflictingItems.printConflictingItems(fileWriter, getTargetsJsonArray(confPair));
+							conflictingItems.printConflictingItems(fileWriter, getCommonTargets(confPair));
 
-							List<String> highlightedUss = writeUsText(confPair, arrayMaximalElementsNames,
+							// receive text of user stories which are highlighted
+							List<String> highlightedUssTexts = writeUsText(confPair, arrayMaximalElementsNames,
 									conflictPairs, conflictingItems, fileWriter);
-							if (highlightedUss.size() != 0) {
+							if (highlightedUssTexts.size() != 0) {
 								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
 										+ " redundancies between user stories:\n\n");
-								writeUsSentencePart(confPair, highlightedUss, fileWriter);
-							}
+							writeUsSentencePart(confPair, highlightedUssTexts, fileWriter);
+							} 
 						}
 
 					}
@@ -176,30 +178,44 @@ public class CdaConvertorV2 {
 
 	}
 
-	private JSONArray getTargetsJsonArray(String confPair) throws EmptyOrNotExistJsonFile {
-		String us;
-
+	private List<TargetPair> getCommonTargets(String confPair) throws EmptyOrNotExistJsonFile {
+		String us1 = getUsName1(confPair);
+		String us2 = getUsName2(confPair);
+		List<TargetPair> targetPairs = new ArrayList<>();
+		JSONArray us1TargetArray = null;
+		JSONArray us2TargetArray = null;
 		JSONArray jsonArray = readJsonArrayFromFile();
-		// Check if received text is user story pair
-		// if so, we need only of the user stories
-		// if received text contains only one user story
-		if (confPair.toLowerCase().contains("and")) {
-			us = confPair.replaceAll("(.*)_AND.*", "$1");
-		} else {
-			us = confPair;
-		}
 
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 			if (jsonObject.has("US_Nr") && jsonObject.has("Targets")) {
 				String usNr = jsonObject.getString("US_Nr");
-				if (usNr.equals(us)) {
-					return jsonObject.getJSONArray("Targets");
+				if (usNr.equals(us1)) {
+					us1TargetArray = jsonObject.getJSONArray("Targets");
+					
+				} else if (usNr.equals(us2)) {
+					us2TargetArray = jsonObject.getJSONArray("Targets");
+					
 				}
 			}
 		}
-
-		return null;
+		if (us2TargetArray != null && us1TargetArray != null) {
+			for (int i = 0; i < us1TargetArray.length(); i++) {
+				JSONArray jsonArrayUs1 = us1TargetArray.getJSONArray(i);
+				String actionUs1 = jsonArrayUs1.getString(0);
+				String enttiyUs1 = jsonArrayUs1.getString(1);
+				for (int j = 0; j < us2TargetArray.length(); j++) {
+					JSONArray jsonArrayUs2 = us2TargetArray.getJSONArray(j);
+					String actionUs2 = jsonArrayUs2.getString(0);
+					String enttiyUs2 = jsonArrayUs2.getString(1);
+					if (enttiyUs2.equalsIgnoreCase(enttiyUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
+						targetPairs.add(new TargetPair(actionUs1, enttiyUs1));
+						break;
+					}
+				}
+			}
+		}
+		return targetPairs;
 	}
 
 	private boolean minimalEcoreExist(String confPair, String conflictReason) {
@@ -250,31 +266,40 @@ public class CdaConvertorV2 {
 		}
 	}
 
-	// get only the parts of sentences which seems to be potential redundancy in
-	// each user story
-	private void writeUsSentencePart(String string, List<String> uSs, FileWriter fileWriter) throws IOException {
-		String usNum1 = string.replaceAll("(.*)_AND.*", "$1");
-		String usNum2 = string.replaceAll(".*_AND_(.*)", "$1");
-		String us1 = uSs.get(0);
-		String us2 = uSs.get(1);
-		splitUs(us1, usNum1, fileWriter);
-		splitUs(us2, usNum2, fileWriter);
+	private String getUsName1(String us) {
+		return us.replaceAll("(.*)_AND.*", "$1");
+	}
+
+	private String getUsName2(String us) {
+		return us.replaceAll(".*_AND_(.*)", "$1");
+	}
+
+	// Receive user stories texts with highlighted elements and 
+	// return only the part/region of sentences which highlighted elements is appears
+	private void writeUsSentencePart(String string, List<String> usTexts, FileWriter fileWriter) throws IOException {
+		String usNum1 = getUsName1(string);
+		String usNum2 = getUsName2(string);
+		String usText1 = usTexts.get(0);
+		String usText2 = usTexts.get(1);
+		splitUsText(usText1, usNum1, fileWriter);
+		splitUsText(usText2, usNum2, fileWriter);
 
 	}
 
-	private void splitUs(String us1, String title, FileWriter fileWriter) throws IOException {
-		String[] parts = us1.split(",", 3);
-		String regex = "#\\w+#";
+	private void splitUsText(String us, String usNr, FileWriter fileWriter) throws IOException {
+		String[] parts = us.split(",", 3);
+		String regex = "#[^#]+#";
 		Pattern pattern = Pattern.compile(regex);
 		for (String part : parts) {
 			Matcher matcher = pattern.matcher(part);
 			int count = 0;
 			while (matcher.find()) {
 				count++;
+				if (count >= 2) {
+					fileWriter.write(usNr + ": " + part + "\n");
+				}
 			}
-			if (count >= 2) {
-				fileWriter.write(title + ": " + part + "\n");
-			}
+
 
 		}
 
@@ -394,8 +419,8 @@ public class CdaConvertorV2 {
 	// Otherwise return false
 	private boolean checkIfReportExist(String usPairs, List<String> pairList) {
 		if (!pairList.contains(usPairs)) {
-			String us1 = usPairs.replaceAll("(.*)_AND.*", "$1");
-			String us2 = usPairs.replaceAll(".*_AND_(.*)", "$1");
+			String us1 = getUsName1(usPairs);
+			String us2 = getUsName2(usPairs);
 			pairList.add(usPairs);
 			// Add also reverse item
 			pairList.add(us2 + "_AND_" + us1);
@@ -452,14 +477,14 @@ public class CdaConvertorV2 {
 		return false;
 	}
 
-	private List<String> writeUsText(String jsonPath, ArrayList<String> arrayMax, List<ConflictPair> conflictPairs,
+	private List<String> writeUsText(String usPair, ArrayList<String> arrayMax, List<ConflictPair> conflictPairs,
 			ConflictingItems conflictingItems, FileWriter fileWriter) throws IOException, EmptyOrNotExistJsonFile {
-		List<String> highlightedUss = new ArrayList<>();
+		List<String> highlightedElements = new ArrayList<>();
 		JSONArray json = null;
 		String usNr = null;
-		String us1 = jsonPath.replaceAll("(.*)_AND.*", "$1");
-		String us2 = jsonPath.replaceAll(".*_AND_(.*)", "$1");
-		
+		String us1 = getUsName1(usPair);
+		String us2 = getUsName2(usPair);
+
 		// add conflict pairs with maximal overlapping and save it
 		// in order to filling table
 		ConflictPair conflictPair = new ConflictPair();
@@ -474,20 +499,20 @@ public class CdaConvertorV2 {
 			for (int i = 0; i < json.length(); i++) {
 				JSONObject jsonObject = json.getJSONObject(i);
 
-				// check if two related object are exist in json file
+				// check if two related object are exist in JSON file
 				// if so
 				if (jsonObject.has("US_Nr") && jsonObject.has("Text")) {
 					usNr = jsonObject.getString("US_Nr");
 					if (usNr.equals(us1)) {
 						String highlightedUs1 = highlightConflict(jsonObject.getString("Text").toLowerCase(),
-								conflictingItems, us1);
+								conflictingItems, us1,usPair);
 						fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-						highlightedUss.add(highlightedUs1);
+						highlightedElements.add(highlightedUs1);
 					} else if (usNr.equals(us2)) {
 						String highlightedUs2 = highlightConflict(jsonObject.getString("Text").toLowerCase(),
-								conflictingItems, us2);
-						fileWriter.write("\n\n " + us2 + ": " + highlightedUs2);
-						highlightedUss.add(highlightedUs2);
+								conflictingItems, us2,usPair);
+						fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
+						highlightedElements.add(highlightedUs2);
 					}
 				} else {
 					fileWriter.write("US_Nr or Text Element not found in JSON-Data!");
@@ -501,28 +526,33 @@ public class CdaConvertorV2 {
 
 		}
 
-		return highlightedUss;
+		return highlightedElements;
 	}
 
-	// Separate user story "Text" with comma and then find in each area related element. 
-	// For example if we are in second region (which means it need to looking for primary
-	// action/entity) after finding it check if the element contains in Targets, if so,
-	// add hash symbol(#) at the beginning and ending of the words. 
-	// For secondary action entity we looking ad the third region of sentence. 
-	private String highlightConflict(String usText, ConflictingItems conflictingItems, String usNr)
+	// Separate user story "Text" with comma and then find in each area related
+	// element.
+	// For example if we are in second region (which means it need to looking for
+	// primary
+	// action/entity) after finding it check if the element contains in Targets, if
+	// so,
+	// add hash symbol(#) at the beginning and ending of the words.
+	// For secondary action entity we looking ad the third region of sentence.
+	private String highlightConflict(String usText, ConflictingItems conflictingItems, String usNr, String usPair)
 			throws IOException, EmptyOrNotExistJsonFile {
-		JSONArray jsonArray = getTargetsJsonArray(usNr);
+		List<TargetPair> targetPairs = getCommonTargets(usPair);
 		for (PrimaryAction primaryAction : conflictingItems.getPrimaryActions()) {
-			// check if related conflicting item is already build triple with Entity/Targets/Action
-			if (conflictingItems.isInTargets(primaryAction.getName(), primaryAction.getType(), jsonArray)) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetPairs)) {
 				usText = usText.replaceFirst("\\b" + primaryAction.getName() + "\\b",
 						"#" + primaryAction.getName() + "#");
 			}
 
 		}
 		for (PrimaryEntity primaryEntity : conflictingItems.getPrimaryEntity()) {
-			// check if related conflicting item is already build triple with Entity/Targets/Action
-			if (conflictingItems.isInTargets(primaryEntity.getName(), primaryEntity.getType(), jsonArray)) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), targetPairs)) {
 				usText = usText.replaceFirst("\\b" + primaryEntity.getName() + "\\b",
 						"#" + primaryEntity.getName() + "#");
 			}
@@ -532,16 +562,18 @@ public class CdaConvertorV2 {
 		int secondComma = usText.indexOf(',', firstComma + 1);
 		String subString = usText.substring(secondComma + 1);
 		for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
-			// check if related conflicting item is already build triple with Entity/Targets/Action
-			if (conflictingItems.isInTargets(secondaryAction.getName(), secondaryAction.getType(), jsonArray)) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), targetPairs)) {
 				subString = subString.replaceFirst("\\b" + secondaryAction.getName() + "\\b",
 						"#" + secondaryAction.getName() + "#");
 			}
 		}
 		usText = usText.substring(0, secondComma + 1) + subString;
 		for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
-			// check if related conflicting item is already build triple with Entity/Targets/Action
-			if (conflictingItems.isInTargets(secondaryEntity.getName(), secondaryEntity.getType(), jsonArray)) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), targetPairs)) {
 				subString = subString.replaceFirst("\\b" + secondaryEntity.getName() + "\\b",
 						"#" + secondaryEntity.getName() + "#");
 

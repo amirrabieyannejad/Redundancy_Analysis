@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VOC04NcdEe6D36Q-j819ng" name="user_story_13">
+  <lhs xmi:id="_VOC04dcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VOC04tcdEe6D36Q-j819ng" name="|0|" outgoing="_VOC09NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VOC049cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC05NcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VOC05dcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to view user documentation for the website, so that i know how to use the web app.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC05tcdEe6D36Q-j819ng" name="|2|" incoming="_VOC09NcdEe6D36Q-j819ng" outgoing="_VOC09dcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VOC059cdEe6D36Q-j819ng" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC06NcdEe6D36Q-j819ng" name="|3|" outgoing="_VOC09tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VOC06dcdEe6D36Q-j819ng" value="&quot;know&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC06tcdEe6D36Q-j819ng" name="|4|" outgoing="_VOC099cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VOC069cdEe6D36Q-j819ng" value="&quot;use&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC07NcdEe6D36Q-j819ng" name="|5|" incoming="_VOC09dcdEe6D36Q-j819ng _VOC0-NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VOC07dcdEe6D36Q-j819ng" value="&quot;user documentation&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC07tcdEe6D36Q-j819ng" name="|6|" outgoing="_VOC0-NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VOC079cdEe6D36Q-j819ng" value="&quot;website&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC08NcdEe6D36Q-j819ng" name="|7|" incoming="_VOC099cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VOC08dcdEe6D36Q-j819ng" value="&quot;web app&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC08tcdEe6D36Q-j819ng" name="|8|" incoming="_VOC09tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VOC089cdEe6D36Q-j819ng" value="&quot;how&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VOC09NcdEe6D36Q-j819ng" source="_VOC04tcdEe6D36Q-j819ng" target="_VOC05tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VOC09dcdEe6D36Q-j819ng" source="_VOC05tcdEe6D36Q-j819ng" target="_VOC07NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VOC09tcdEe6D36Q-j819ng" source="_VOC06NcdEe6D36Q-j819ng" target="_VOC08tcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VOC099cdEe6D36Q-j819ng" source="_VOC06tcdEe6D36Q-j819ng" target="_VOC08NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VOC0-NcdEe6D36Q-j819ng" source="_VOC07tcdEe6D36Q-j819ng" target="_VOC07NcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VOC0-dcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VOC0-tcdEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VOC0-9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC0_NcdEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VOC0_dcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to view user documentation for the website, so that i know how to use the web app.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC0_tcdEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VOC0_9cdEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VOC1ANcdEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VOC1AdcdEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VOC1AtcdEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VOC1A9cdEe6D36Q-j819ng" value="&quot;website&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VOC1BNcdEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VOC1BdcdEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VOC1BtcdEe6D36Q-j819ng" origin="_VOC04tcdEe6D36Q-j819ng" image="_VOC0-tcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1B9cdEe6D36Q-j819ng" origin="_VOC05NcdEe6D36Q-j819ng" image="_VOC0_NcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1CNcdEe6D36Q-j819ng" origin="_VOC05tcdEe6D36Q-j819ng" image="_VOC0_tcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1CdcdEe6D36Q-j819ng" origin="_VOC06NcdEe6D36Q-j819ng" image="_VOC0_9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1CtcdEe6D36Q-j819ng" origin="_VOC06tcdEe6D36Q-j819ng" image="_VOC1ANcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1C9cdEe6D36Q-j819ng" origin="_VOC07NcdEe6D36Q-j819ng" image="_VOC1AdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1DNcdEe6D36Q-j819ng" origin="_VOC07tcdEe6D36Q-j819ng" image="_VOC1AtcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1DdcdEe6D36Q-j819ng" origin="_VOC08NcdEe6D36Q-j819ng" image="_VOC1BNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VOC1DtcdEe6D36Q-j819ng" origin="_VOC08tcdEe6D36Q-j819ng" image="_VOC1BdcdEe6D36Q-j819ng"/>
+</henshin:Rule>

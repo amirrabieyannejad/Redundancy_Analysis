@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_NDnM4NbXEe6D36Q-j819ng" name="user_story_34">
+  <lhs xmi:id="_NDnM4dbXEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_NDnM4tbXEe6D36Q-j819ng" name="|0|" outgoing="_NDnM9NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NDnM49bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM5NbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NDnM5dbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to process the appeals, so that i can track the outcome and record the impact on the relevant records.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM5tbXEe6D36Q-j819ng" name="|2|" incoming="_NDnM9NbXEe6D36Q-j819ng" outgoing="_NDnM9dbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_NDnM59bXEe6D36Q-j819ng" value="&quot;process&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM6NbXEe6D36Q-j819ng" name="|3|" outgoing="_NDnM9tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NDnM6dbXEe6D36Q-j819ng" value="&quot;track&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM6tbXEe6D36Q-j819ng" name="|4|" outgoing="_NDnM99bXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_NDnM69bXEe6D36Q-j819ng" value="&quot;record&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM7NbXEe6D36Q-j819ng" name="|5|" incoming="_NDnM9dbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_NDnM7dbXEe6D36Q-j819ng" value="&quot;appeals&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM7tbXEe6D36Q-j819ng" name="|6|" incoming="_NDnM9tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NDnM79bXEe6D36Q-j819ng" value="&quot;outcome&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM8NbXEe6D36Q-j819ng" name="|7|" incoming="_NDnM99bXEe6D36Q-j819ng _NDnM-NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NDnM8dbXEe6D36Q-j819ng" value="&quot;impact&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM8tbXEe6D36Q-j819ng" name="|8|" outgoing="_NDnM-NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NDnM89bXEe6D36Q-j819ng" value="&quot;relevant records&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_NDnM9NbXEe6D36Q-j819ng" source="_NDnM4tbXEe6D36Q-j819ng" target="_NDnM5tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_NDnM9dbXEe6D36Q-j819ng" source="_NDnM5tbXEe6D36Q-j819ng" target="_NDnM7NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NDnM9tbXEe6D36Q-j819ng" source="_NDnM6NbXEe6D36Q-j819ng" target="_NDnM7tbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NDnM99bXEe6D36Q-j819ng" source="_NDnM6tbXEe6D36Q-j819ng" target="_NDnM8NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_NDnM-NbXEe6D36Q-j819ng" source="_NDnM8tbXEe6D36Q-j819ng" target="_NDnM8NbXEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_NDnM-dbXEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_NDnM-tbXEe6D36Q-j819ng" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_NDnM-9bXEe6D36Q-j819ng" value="&quot;staff member&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM_NbXEe6D36Q-j819ng" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_NDnM_dbXEe6D36Q-j819ng" value="&quot;#g03# as a staff member, i want to process the appeals, so that i can track the outcome and record the impact on the relevant records.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_NDnM_tbXEe6D36Q-j819ng" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NDnM_9bXEe6D36Q-j819ng" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NDnNANbXEe6D36Q-j819ng" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_NDnNAdbXEe6D36Q-j819ng" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NDnNAtbXEe6D36Q-j819ng" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NDnNA9bXEe6D36Q-j819ng" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_NDnNBNbXEe6D36Q-j819ng" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_NDnNBdbXEe6D36Q-j819ng" value="&quot;relevant records&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_NDnNBtbXEe6D36Q-j819ng" origin="_NDnM4tbXEe6D36Q-j819ng" image="_NDnM-tbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNB9bXEe6D36Q-j819ng" origin="_NDnM5NbXEe6D36Q-j819ng" image="_NDnM_NbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNCNbXEe6D36Q-j819ng" origin="_NDnM5tbXEe6D36Q-j819ng" image="_NDnM_tbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNCdbXEe6D36Q-j819ng" origin="_NDnM6NbXEe6D36Q-j819ng" image="_NDnM_9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNCtbXEe6D36Q-j819ng" origin="_NDnM6tbXEe6D36Q-j819ng" image="_NDnNANbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNC9bXEe6D36Q-j819ng" origin="_NDnM7NbXEe6D36Q-j819ng" image="_NDnNAdbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNDNbXEe6D36Q-j819ng" origin="_NDnM7tbXEe6D36Q-j819ng" image="_NDnNAtbXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNDdbXEe6D36Q-j819ng" origin="_NDnM8NbXEe6D36Q-j819ng" image="_NDnNA9bXEe6D36Q-j819ng"/>
+  <mappings xmi:id="_NDnNDtbXEe6D36Q-j819ng" origin="_NDnM8tbXEe6D36Q-j819ng" image="_NDnNBNbXEe6D36Q-j819ng"/>
+</henshin:Rule>

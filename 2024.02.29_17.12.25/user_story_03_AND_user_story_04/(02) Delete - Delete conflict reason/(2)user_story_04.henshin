@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_VJQbgNcdEe6D36Q-j819ng" name="user_story_04">
+  <lhs xmi:id="_VJQbgdcdEe6D36Q-j819ng" name="Lhs">
+    <nodes xmi:id="_VJQbgtcdEe6D36Q-j819ng" name="|9|" outgoing="_VJQblNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VJQbg9cdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbhNcdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VJQbhdcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to get the hours of each recycling facility, so that i can arrange drop-offs on my off days or during after-work hours.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbhtcdEe6D36Q-j819ng" name="|11|" incoming="_VJQblNcdEe6D36Q-j819ng" outgoing="_VJQbldcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_VJQbh9cdEe6D36Q-j819ng" value="&quot;get&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbiNcdEe6D36Q-j819ng" name="|12|" outgoing="_VJQbltcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_VJQbidcdEe6D36Q-j819ng" value="&quot;arrange&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbitcdEe6D36Q-j819ng" name="|13|" incoming="_VJQbldcdEe6D36Q-j819ng _VJQbl9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_VJQbi9cdEe6D36Q-j819ng" value="&quot;hours&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbjNcdEe6D36Q-j819ng" name="|14|" incoming="_VJQbltcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbjdcdEe6D36Q-j819ng" value="&quot;drop-offs&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbjtcdEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbj9cdEe6D36Q-j819ng" value="&quot;off days&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbkNcdEe6D36Q-j819ng" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbkdcdEe6D36Q-j819ng" value="&quot;after-work hours&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbktcdEe6D36Q-j819ng" name="|17|" outgoing="_VJQbl9cdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbk9cdEe6D36Q-j819ng" value="&quot;each recycling facility&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_VJQblNcdEe6D36Q-j819ng" source="_VJQbgtcdEe6D36Q-j819ng" target="_VJQbhtcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_VJQbldcdEe6D36Q-j819ng" source="_VJQbhtcdEe6D36Q-j819ng" target="_VJQbitcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VJQbltcdEe6D36Q-j819ng" source="_VJQbiNcdEe6D36Q-j819ng" target="_VJQbjNcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_VJQbl9cdEe6D36Q-j819ng" source="_VJQbktcdEe6D36Q-j819ng" target="_VJQbitcdEe6D36Q-j819ng">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_VJQbmNcdEe6D36Q-j819ng" name="Rhs">
+    <nodes xmi:id="_VJQbmdcdEe6D36Q-j819ng" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_VJQbmtcdEe6D36Q-j819ng" value="&quot;user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbm9cdEe6D36Q-j819ng" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_VJQbnNcdEe6D36Q-j819ng" value="&quot;#g04# as a user, i want to be able to get the hours of each recycling facility, so that i can arrange drop-offs on my off days or during after-work hours.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbndcdEe6D36Q-j819ng" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VJQbntcdEe6D36Q-j819ng" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_VJQbn9cdEe6D36Q-j819ng" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VJQboNcdEe6D36Q-j819ng" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_VJQbodcdEe6D36Q-j819ng" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbotcdEe6D36Q-j819ng" value="&quot;off days&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbo9cdEe6D36Q-j819ng" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbpNcdEe6D36Q-j819ng" value="&quot;after-work hours&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_VJQbpdcdEe6D36Q-j819ng" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_VJQbptcdEe6D36Q-j819ng" value="&quot;each recycling facility&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_VJQbp9cdEe6D36Q-j819ng" origin="_VJQbgtcdEe6D36Q-j819ng" image="_VJQbmdcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbqNcdEe6D36Q-j819ng" origin="_VJQbhNcdEe6D36Q-j819ng" image="_VJQbm9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbqdcdEe6D36Q-j819ng" origin="_VJQbhtcdEe6D36Q-j819ng" image="_VJQbndcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbqtcdEe6D36Q-j819ng" origin="_VJQbiNcdEe6D36Q-j819ng" image="_VJQbntcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbq9cdEe6D36Q-j819ng" origin="_VJQbitcdEe6D36Q-j819ng" image="_VJQbn9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbrNcdEe6D36Q-j819ng" origin="_VJQbjNcdEe6D36Q-j819ng" image="_VJQboNcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbrdcdEe6D36Q-j819ng" origin="_VJQbjtcdEe6D36Q-j819ng" image="_VJQbodcdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbrtcdEe6D36Q-j819ng" origin="_VJQbkNcdEe6D36Q-j819ng" image="_VJQbo9cdEe6D36Q-j819ng"/>
+  <mappings xmi:id="_VJQbr9cdEe6D36Q-j819ng" origin="_VJQbktcdEe6D36Q-j819ng" image="_VJQbpdcdEe6D36Q-j819ng"/>
+</henshin:Rule>
