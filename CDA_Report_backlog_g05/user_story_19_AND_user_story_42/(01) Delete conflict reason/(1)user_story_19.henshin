@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_szj7kNdHEe6qZc36oahGOg" name="user_story_19">
+  <lhs xmi:id="_szj7kddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_szj7ktdHEe6qZc36oahGOg" name="|0|" outgoing="_szj7pNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_szj7k9dHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7lNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_szj7lddHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to share a view state as a url to social networks, so that i can share data that i have found with others.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7ltdHEe6qZc36oahGOg" name="|2|" incoming="_szj7pNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_szj7l9dHEe6qZc36oahGOg" value="&quot;share&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7mNdHEe6qZc36oahGOg" name="|3|" outgoing="_szj7pddHEe6qZc36oahGOg _szj7ptdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_szj7mddHEe6qZc36oahGOg" value="&quot;share&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7mtdHEe6qZc36oahGOg" name="|4|" incoming="_szj7pddHEe6qZc36oahGOg _szj7qNdHEe6qZc36oahGOg" outgoing="_szj7p9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_szj7m9dHEe6qZc36oahGOg" value="&quot;view state&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7nNdHEe6qZc36oahGOg" name="|5|" incoming="_szj7p9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7nddHEe6qZc36oahGOg" value="&quot;url&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7ntdHEe6qZc36oahGOg" name="|6|" outgoing="_szj7qNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7n9dHEe6qZc36oahGOg" value="&quot;social networks&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7oNdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7oddHEe6qZc36oahGOg" value="&quot;others&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7otdHEe6qZc36oahGOg" name="|8|" incoming="_szj7ptdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7o9dHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_szj7pNdHEe6qZc36oahGOg" source="_szj7ktdHEe6qZc36oahGOg" target="_szj7ltdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_szj7pddHEe6qZc36oahGOg" source="_szj7mNdHEe6qZc36oahGOg" target="_szj7mtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_szj7ptdHEe6qZc36oahGOg" source="_szj7mNdHEe6qZc36oahGOg" target="_szj7otdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_szj7p9dHEe6qZc36oahGOg" source="_szj7mtdHEe6qZc36oahGOg" target="_szj7nNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_szj7qNdHEe6qZc36oahGOg" source="_szj7ntdHEe6qZc36oahGOg" target="_szj7mtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_szj7qddHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_szj7qtdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_szj7q9dHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7rNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_szj7rddHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to share a view state as a url to social networks, so that i can share data that i have found with others.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7rtdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_szj7r9dHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_szj7sNdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_szj7sddHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7stdHEe6qZc36oahGOg" value="&quot;url&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7s9dHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7tNdHEe6qZc36oahGOg" value="&quot;social networks&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7tddHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_szj7ttdHEe6qZc36oahGOg" value="&quot;others&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_szj7t9dHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_szj7uNdHEe6qZc36oahGOg" origin="_szj7ktdHEe6qZc36oahGOg" image="_szj7qtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7uddHEe6qZc36oahGOg" origin="_szj7lNdHEe6qZc36oahGOg" image="_szj7rNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7utdHEe6qZc36oahGOg" origin="_szj7ltdHEe6qZc36oahGOg" image="_szj7rtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7u9dHEe6qZc36oahGOg" origin="_szj7mNdHEe6qZc36oahGOg" image="_szj7r9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7vNdHEe6qZc36oahGOg" origin="_szj7mtdHEe6qZc36oahGOg" image="_szj7sNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7vddHEe6qZc36oahGOg" origin="_szj7nNdHEe6qZc36oahGOg" image="_szj7sddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7vtdHEe6qZc36oahGOg" origin="_szj7ntdHEe6qZc36oahGOg" image="_szj7s9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7v9dHEe6qZc36oahGOg" origin="_szj7oNdHEe6qZc36oahGOg" image="_szj7tddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_szj7wNdHEe6qZc36oahGOg" origin="_szj7otdHEe6qZc36oahGOg" image="_szj7t9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

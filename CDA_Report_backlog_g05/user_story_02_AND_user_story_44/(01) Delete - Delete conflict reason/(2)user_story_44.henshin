@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_YnJFkNdHEe6qZc36oahGOg" name="user_story_44">
+  <lhs xmi:id="_YnJFkddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_YnJFktdHEe6qZc36oahGOg" name="|11|" outgoing="_YnJFotdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_YnJFk9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFlNdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_YnJFlddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to hide a dataset that i have already added as public, so that i can fix my mistakes or have a dataset primarily for my own use.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFltdHEe6qZc36oahGOg" name="|13|" incoming="_YnJFotdHEe6qZc36oahGOg" outgoing="_YnJFo9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_YnJFl9dHEe6qZc36oahGOg" value="&quot;hide&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFmNdHEe6qZc36oahGOg" name="|14|" outgoing="_YnJFpNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_YnJFmddHEe6qZc36oahGOg" value="&quot;fix&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFmtdHEe6qZc36oahGOg" name="|15|" outgoing="_YnJFpddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_YnJFm9dHEe6qZc36oahGOg" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFnNdHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_YnJFnddHEe6qZc36oahGOg" value="&quot;dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFntdHEe6qZc36oahGOg" name="|17|" incoming="_YnJFpNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_YnJFn9dHEe6qZc36oahGOg" value="&quot;mistakes&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFoNdHEe6qZc36oahGOg" name="|18|" incoming="_YnJFo9dHEe6qZc36oahGOg _YnJFpddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_YnJFoddHEe6qZc36oahGOg" value="&quot;dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_YnJFotdHEe6qZc36oahGOg" source="_YnJFktdHEe6qZc36oahGOg" target="_YnJFltdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_YnJFo9dHEe6qZc36oahGOg" source="_YnJFltdHEe6qZc36oahGOg" target="_YnJFoNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_YnJFpNdHEe6qZc36oahGOg" source="_YnJFmNdHEe6qZc36oahGOg" target="_YnJFntdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_YnJFpddHEe6qZc36oahGOg" source="_YnJFmtdHEe6qZc36oahGOg" target="_YnJFoNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_YnJFptdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_YnJFp9dHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_YnJFqNdHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFqddHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_YnJFqtdHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to hide a dataset that i have already added as public, so that i can fix my mistakes or have a dataset primarily for my own use.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnJFq9dHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnJFrNdHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnJFrddHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnJFrtdHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_YnJFr9dHEe6qZc36oahGOg" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_YnJFsNdHEe6qZc36oahGOg" name="|18|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_YnJFsddHEe6qZc36oahGOg" origin="_YnJFktdHEe6qZc36oahGOg" image="_YnJFp9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFstdHEe6qZc36oahGOg" origin="_YnJFlNdHEe6qZc36oahGOg" image="_YnJFqddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFs9dHEe6qZc36oahGOg" origin="_YnJFltdHEe6qZc36oahGOg" image="_YnJFq9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFtNdHEe6qZc36oahGOg" origin="_YnJFmNdHEe6qZc36oahGOg" image="_YnJFrNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFtddHEe6qZc36oahGOg" origin="_YnJFmtdHEe6qZc36oahGOg" image="_YnJFrddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFttdHEe6qZc36oahGOg" origin="_YnJFnNdHEe6qZc36oahGOg" image="_YnJFrtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFt9dHEe6qZc36oahGOg" origin="_YnJFntdHEe6qZc36oahGOg" image="_YnJFr9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnJFuNdHEe6qZc36oahGOg" origin="_YnJFoNdHEe6qZc36oahGOg" image="_YnJFsNdHEe6qZc36oahGOg"/>
+</henshin:Rule>

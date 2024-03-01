@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_mHtHkNdHEe6qZc36oahGOg" name="user_story_49">
+  <lhs xmi:id="_mHtHkddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_mHtHktdHEe6qZc36oahGOg" name="|0|" outgoing="_mHtHotdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_mHtHk9dHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHlNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_mHtHlddHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to search any dataset published and publicly accessible by their title and metadata, so that i can find the datasets i'm interested in.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHltdHEe6qZc36oahGOg" name="|2|" incoming="_mHtHotdHEe6qZc36oahGOg" outgoing="_mHtHpNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_mHtHl9dHEe6qZc36oahGOg" value="&quot;search&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHmNdHEe6qZc36oahGOg" name="|3|" outgoing="_mHtHo9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_mHtHmddHEe6qZc36oahGOg" value="&quot;find&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHmtdHEe6qZc36oahGOg" name="|4|" incoming="_mHtHpNdHEe6qZc36oahGOg" outgoing="_mHtHpddHEe6qZc36oahGOg _mHtHptdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_mHtHm9dHEe6qZc36oahGOg" value="&quot;any dataset published and publicly accessible&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHnNdHEe6qZc36oahGOg" name="|5|" incoming="_mHtHpddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_mHtHnddHEe6qZc36oahGOg" value="&quot;title&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHntdHEe6qZc36oahGOg" name="|6|" incoming="_mHtHptdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_mHtHn9dHEe6qZc36oahGOg" value="&quot;metadata&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHoNdHEe6qZc36oahGOg" name="|7|" incoming="_mHtHo9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_mHtHoddHEe6qZc36oahGOg" value="&quot;datasets&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_mHtHotdHEe6qZc36oahGOg" source="_mHtHktdHEe6qZc36oahGOg" target="_mHtHltdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_mHtHo9dHEe6qZc36oahGOg" source="_mHtHmNdHEe6qZc36oahGOg" target="_mHtHoNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_mHtHpNdHEe6qZc36oahGOg" source="_mHtHltdHEe6qZc36oahGOg" target="_mHtHmtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_mHtHpddHEe6qZc36oahGOg" source="_mHtHmtdHEe6qZc36oahGOg" target="_mHtHnNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_mHtHptdHEe6qZc36oahGOg" source="_mHtHmtdHEe6qZc36oahGOg" target="_mHtHntdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_mHtHp9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_mHtHqNdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_mHtHqddHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHqtdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_mHtHq9dHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to search any dataset published and publicly accessible by their title and metadata, so that i can find the datasets i'm interested in.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHrNdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_mHtHrddHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_mHtHrtdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_mHtHr9dHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_mHtHsNdHEe6qZc36oahGOg" value="&quot;title&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHsddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_mHtHstdHEe6qZc36oahGOg" value="&quot;metadata&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_mHtHs9dHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_mHtHtNdHEe6qZc36oahGOg" origin="_mHtHktdHEe6qZc36oahGOg" image="_mHtHqNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHtddHEe6qZc36oahGOg" origin="_mHtHlNdHEe6qZc36oahGOg" image="_mHtHqtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHttdHEe6qZc36oahGOg" origin="_mHtHltdHEe6qZc36oahGOg" image="_mHtHrNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHt9dHEe6qZc36oahGOg" origin="_mHtHmNdHEe6qZc36oahGOg" image="_mHtHrddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHuNdHEe6qZc36oahGOg" origin="_mHtHmtdHEe6qZc36oahGOg" image="_mHtHrtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHuddHEe6qZc36oahGOg" origin="_mHtHnNdHEe6qZc36oahGOg" image="_mHtHr9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHutdHEe6qZc36oahGOg" origin="_mHtHntdHEe6qZc36oahGOg" image="_mHtHsddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_mHtHu9dHEe6qZc36oahGOg" origin="_mHtHoNdHEe6qZc36oahGOg" image="_mHtHs9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

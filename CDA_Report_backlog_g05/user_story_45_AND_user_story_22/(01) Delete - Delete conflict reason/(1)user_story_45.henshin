@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_RHxxANdHEe6qZc36oahGOg" name="user_story_45">
+  <lhs xmi:id="_RHxxAddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_RHxxAtdHEe6qZc36oahGOg" name="|0|" outgoing="_RHxxEtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_RHxxA9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxBNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_RHxxBddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have a view on all the datasets i have published, so that i can perform management actions on my own datasets.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxBtdHEe6qZc36oahGOg" name="|2|" incoming="_RHxxEtdHEe6qZc36oahGOg" outgoing="_RHxxFNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_RHxxB9dHEe6qZc36oahGOg" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxCNdHEe6qZc36oahGOg" name="|3|" outgoing="_RHxxE9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_RHxxCddHEe6qZc36oahGOg" value="&quot;perform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxCtdHEe6qZc36oahGOg" name="|4|" incoming="_RHxxFNdHEe6qZc36oahGOg _RHxxFtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_RHxxC9dHEe6qZc36oahGOg" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxDNdHEe6qZc36oahGOg" name="|5|" incoming="_RHxxE9dHEe6qZc36oahGOg _RHxxFddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_RHxxDddHEe6qZc36oahGOg" value="&quot;management actions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxDtdHEe6qZc36oahGOg" name="|6|" outgoing="_RHxxFddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_RHxxD9dHEe6qZc36oahGOg" value="&quot;own datasets&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxENdHEe6qZc36oahGOg" name="|7|" outgoing="_RHxxFtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_RHxxEddHEe6qZc36oahGOg" value="&quot;datasets i have published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_RHxxEtdHEe6qZc36oahGOg" source="_RHxxAtdHEe6qZc36oahGOg" target="_RHxxBtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_RHxxE9dHEe6qZc36oahGOg" source="_RHxxCNdHEe6qZc36oahGOg" target="_RHxxDNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_RHxxFNdHEe6qZc36oahGOg" source="_RHxxBtdHEe6qZc36oahGOg" target="_RHxxCtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_RHxxFddHEe6qZc36oahGOg" source="_RHxxDtdHEe6qZc36oahGOg" target="_RHxxDNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_RHxxFtdHEe6qZc36oahGOg" source="_RHxxENdHEe6qZc36oahGOg" target="_RHxxCtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_RHxxF9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_RHxxGNdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_RHxxGddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxGtdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_RHxxG9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have a view on all the datasets i have published, so that i can perform management actions on my own datasets.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxHNdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_RHxxHddHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_RHxxHtdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_RHxxH9dHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_RHxxINdHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_RHxxIddHEe6qZc36oahGOg" value="&quot;own datasets&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_RHxxItdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_RHxxI9dHEe6qZc36oahGOg" value="&quot;datasets i have published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_RHxxJNdHEe6qZc36oahGOg" origin="_RHxxAtdHEe6qZc36oahGOg" image="_RHxxGNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxJddHEe6qZc36oahGOg" origin="_RHxxBNdHEe6qZc36oahGOg" image="_RHxxGtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxJtdHEe6qZc36oahGOg" origin="_RHxxBtdHEe6qZc36oahGOg" image="_RHxxHNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxJ9dHEe6qZc36oahGOg" origin="_RHxxCNdHEe6qZc36oahGOg" image="_RHxxHddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxKNdHEe6qZc36oahGOg" origin="_RHxxCtdHEe6qZc36oahGOg" image="_RHxxHtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxKddHEe6qZc36oahGOg" origin="_RHxxDNdHEe6qZc36oahGOg" image="_RHxxH9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxKtdHEe6qZc36oahGOg" origin="_RHxxDtdHEe6qZc36oahGOg" image="_RHxxINdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_RHxxK9dHEe6qZc36oahGOg" origin="_RHxxENdHEe6qZc36oahGOg" image="_RHxxItdHEe6qZc36oahGOg"/>
+</henshin:Rule>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_PhWlwNdHEe6qZc36oahGOg" name="user_story_52">
+  <lhs xmi:id="_PhWlwddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_PhWlwtdHEe6qZc36oahGOg" name="|0|" outgoing="_PhWl0tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_PhWlw9dHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlxNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_PhWlxddHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to change some of the styling of the embedded viewer in my own platform, so that i can brand it to my own organisation's color scheme.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlxtdHEe6qZc36oahGOg" name="|2|" incoming="_PhWl0tdHEe6qZc36oahGOg" outgoing="_PhWl1NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_PhWlx9dHEe6qZc36oahGOg" value="&quot;change&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlyNdHEe6qZc36oahGOg" name="|3|" outgoing="_PhWl09dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_PhWlyddHEe6qZc36oahGOg" value="&quot;brand&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlytdHEe6qZc36oahGOg" name="|4|" incoming="_PhWl1NdHEe6qZc36oahGOg _PhWl19dHEe6qZc36oahGOg" outgoing="_PhWl1ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_PhWly9dHEe6qZc36oahGOg" value="&quot;styling&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlzNdHEe6qZc36oahGOg" name="|5|" incoming="_PhWl1tdHEe6qZc36oahGOg" outgoing="_PhWl19dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_PhWlzddHEe6qZc36oahGOg" value="&quot;embedded viewer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWlztdHEe6qZc36oahGOg" name="|6|" outgoing="_PhWl1tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_PhWlz9dHEe6qZc36oahGOg" value="&quot;own platform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWl0NdHEe6qZc36oahGOg" name="|7|" incoming="_PhWl09dHEe6qZc36oahGOg _PhWl1ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_PhWl0ddHEe6qZc36oahGOg" value="&quot;own organisation's color scheme&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_PhWl0tdHEe6qZc36oahGOg" source="_PhWlwtdHEe6qZc36oahGOg" target="_PhWlxtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_PhWl09dHEe6qZc36oahGOg" source="_PhWlyNdHEe6qZc36oahGOg" target="_PhWl0NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_PhWl1NdHEe6qZc36oahGOg" source="_PhWlxtdHEe6qZc36oahGOg" target="_PhWlytdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_PhWl1ddHEe6qZc36oahGOg" source="_PhWlytdHEe6qZc36oahGOg" target="_PhWl0NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_PhWl1tdHEe6qZc36oahGOg" source="_PhWlztdHEe6qZc36oahGOg" target="_PhWlzNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_PhWl19dHEe6qZc36oahGOg" source="_PhWlzNdHEe6qZc36oahGOg" target="_PhWlytdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_PhWl2NdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_PhWl2ddHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_PhWl2tdHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWl29dHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_PhWl3NdHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to change some of the styling of the embedded viewer in my own platform, so that i can brand it to my own organisation's color scheme.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWl3ddHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_PhWl3tdHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_PhWl39dHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_PhWl4NdHEe6qZc36oahGOg" name="|5|" incoming="_PhWl5ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_PhWl4ddHEe6qZc36oahGOg" value="&quot;embedded viewer&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWl4tdHEe6qZc36oahGOg" name="|6|" outgoing="_PhWl5ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_PhWl49dHEe6qZc36oahGOg" value="&quot;own platform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_PhWl5NdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <edges xmi:id="_PhWl5ddHEe6qZc36oahGOg" source="_PhWl4tdHEe6qZc36oahGOg" target="_PhWl4NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_PhWl5tdHEe6qZc36oahGOg" origin="_PhWlwtdHEe6qZc36oahGOg" image="_PhWl2ddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl59dHEe6qZc36oahGOg" origin="_PhWlxNdHEe6qZc36oahGOg" image="_PhWl29dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl6NdHEe6qZc36oahGOg" origin="_PhWlxtdHEe6qZc36oahGOg" image="_PhWl3ddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl6ddHEe6qZc36oahGOg" origin="_PhWlyNdHEe6qZc36oahGOg" image="_PhWl3tdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl6tdHEe6qZc36oahGOg" origin="_PhWlytdHEe6qZc36oahGOg" image="_PhWl39dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl69dHEe6qZc36oahGOg" origin="_PhWlzNdHEe6qZc36oahGOg" image="_PhWl4NdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl7NdHEe6qZc36oahGOg" origin="_PhWlztdHEe6qZc36oahGOg" image="_PhWl4tdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_PhWl7ddHEe6qZc36oahGOg" origin="_PhWl0NdHEe6qZc36oahGOg" image="_PhWl5NdHEe6qZc36oahGOg"/>
+</henshin:Rule>

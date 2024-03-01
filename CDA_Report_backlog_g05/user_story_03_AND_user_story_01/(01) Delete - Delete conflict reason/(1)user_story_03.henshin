@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bKFjcNdHEe6qZc36oahGOg" name="user_story_03">
+  <lhs xmi:id="_bKFjcddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_bKFjctdHEe6qZc36oahGOg" name="|0|" outgoing="_bKFjgNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKFjc9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjdNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKFjdddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to delete a dataset i have published, so that i can remove unwanted data from openspending.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjdtdHEe6qZc36oahGOg" name="|2|" incoming="_bKFjgNdHEe6qZc36oahGOg" outgoing="_bKFjgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_bKFjd9dHEe6qZc36oahGOg" value="&quot;delete&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjeNdHEe6qZc36oahGOg" name="|3|" outgoing="_bKFjgddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_bKFjeddHEe6qZc36oahGOg" value="&quot;remove&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjetdHEe6qZc36oahGOg" name="|4|" incoming="_bKFjgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_bKFje9dHEe6qZc36oahGOg" value="&quot;dataset i have published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjfNdHEe6qZc36oahGOg" name="|5|" incoming="_bKFjgddHEe6qZc36oahGOg _bKFjg9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKFjfddHEe6qZc36oahGOg" value="&quot;unwanted data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjftdHEe6qZc36oahGOg" name="|6|" outgoing="_bKFjg9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKFjf9dHEe6qZc36oahGOg" value="&quot;openspending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_bKFjgNdHEe6qZc36oahGOg" source="_bKFjctdHEe6qZc36oahGOg" target="_bKFjdtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_bKFjgddHEe6qZc36oahGOg" source="_bKFjeNdHEe6qZc36oahGOg" target="_bKFjfNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKFjgtdHEe6qZc36oahGOg" source="_bKFjdtdHEe6qZc36oahGOg" target="_bKFjetdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKFjg9dHEe6qZc36oahGOg" source="_bKFjftdHEe6qZc36oahGOg" target="_bKFjfNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_bKFjhNdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_bKFjhddHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKFjhtdHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjh9dHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKFjiNdHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to delete a dataset i have published, so that i can remove unwanted data from openspending.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKFjiddHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKFjitdHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKFji9dHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKFjjNdHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKFjjddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKFjjtdHEe6qZc36oahGOg" value="&quot;openspending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_bKFjj9dHEe6qZc36oahGOg" origin="_bKFjctdHEe6qZc36oahGOg" image="_bKFjhddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjkNdHEe6qZc36oahGOg" origin="_bKFjdNdHEe6qZc36oahGOg" image="_bKFjh9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjkddHEe6qZc36oahGOg" origin="_bKFjdtdHEe6qZc36oahGOg" image="_bKFjiddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjktdHEe6qZc36oahGOg" origin="_bKFjeNdHEe6qZc36oahGOg" image="_bKFjitdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjk9dHEe6qZc36oahGOg" origin="_bKFjetdHEe6qZc36oahGOg" image="_bKFji9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjlNdHEe6qZc36oahGOg" origin="_bKFjfNdHEe6qZc36oahGOg" image="_bKFjjNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKFjlddHEe6qZc36oahGOg" origin="_bKFjftdHEe6qZc36oahGOg" image="_bKFjjddHEe6qZc36oahGOg"/>
+</henshin:Rule>

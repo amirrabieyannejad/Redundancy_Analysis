@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_jnKdcNdHEe6qZc36oahGOg" name="user_story_12">
+  <lhs xmi:id="_jnKdcddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_jnKdctdHEe6qZc36oahGOg" name="|8|" outgoing="_jnKdgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_jnKdc9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKddNdHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_jnKddddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data from a google spreadsheet, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKddtdHEe6qZc36oahGOg" name="|10|" incoming="_jnKdgtdHEe6qZc36oahGOg" outgoing="_jnKdg9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_jnKdd9dHEe6qZc36oahGOg" value="&quot;import&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdeNdHEe6qZc36oahGOg" name="|11|" outgoing="_jnKdhNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_jnKdeddHEe6qZc36oahGOg" value="&quot;use&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdetdHEe6qZc36oahGOg" name="|12|" incoming="_jnKdg9dHEe6qZc36oahGOg _jnKdhddHEe6qZc36oahGOg" outgoing="_jnKdhtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_jnKde9dHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdfNdHEe6qZc36oahGOg" name="|13|" outgoing="_jnKdhddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jnKdfddHEe6qZc36oahGOg" value="&quot;google spreadsheet&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdftdHEe6qZc36oahGOg" name="|14|" incoming="_jnKdhtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jnKdf9dHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdgNdHEe6qZc36oahGOg" name="|15|" incoming="_jnKdhNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jnKdgddHEe6qZc36oahGOg" value="&quot;data packager&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_jnKdgtdHEe6qZc36oahGOg" source="_jnKdctdHEe6qZc36oahGOg" target="_jnKddtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_jnKdg9dHEe6qZc36oahGOg" source="_jnKddtdHEe6qZc36oahGOg" target="_jnKdetdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_jnKdhNdHEe6qZc36oahGOg" source="_jnKdeNdHEe6qZc36oahGOg" target="_jnKdgNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_jnKdhddHEe6qZc36oahGOg" source="_jnKdfNdHEe6qZc36oahGOg" target="_jnKdetdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_jnKdhtdHEe6qZc36oahGOg" source="_jnKdetdHEe6qZc36oahGOg" target="_jnKdftdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_jnKdh9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_jnKdiNdHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_jnKdiddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKditdHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_jnKdi9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data from a google spreadsheet, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdjNdHEe6qZc36oahGOg" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_jnKdjddHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_jnKdjtdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_jnKdj9dHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jnKdkNdHEe6qZc36oahGOg" value="&quot;google spreadsheet&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdkddHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jnKdktdHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jnKdk9dHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_jnKdlNdHEe6qZc36oahGOg" origin="_jnKdctdHEe6qZc36oahGOg" image="_jnKdiNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdlddHEe6qZc36oahGOg" origin="_jnKddNdHEe6qZc36oahGOg" image="_jnKditdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdltdHEe6qZc36oahGOg" origin="_jnKddtdHEe6qZc36oahGOg" image="_jnKdjNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdl9dHEe6qZc36oahGOg" origin="_jnKdeNdHEe6qZc36oahGOg" image="_jnKdjddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdmNdHEe6qZc36oahGOg" origin="_jnKdetdHEe6qZc36oahGOg" image="_jnKdjtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdmddHEe6qZc36oahGOg" origin="_jnKdfNdHEe6qZc36oahGOg" image="_jnKdj9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdmtdHEe6qZc36oahGOg" origin="_jnKdftdHEe6qZc36oahGOg" image="_jnKdkddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jnKdm9dHEe6qZc36oahGOg" origin="_jnKdgNdHEe6qZc36oahGOg" image="_jnKdk9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

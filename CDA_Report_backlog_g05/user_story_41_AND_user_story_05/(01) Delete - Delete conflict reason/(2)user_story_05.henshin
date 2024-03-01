@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Ph6mcNdHEe6qZc36oahGOg" name="user_story_05">
+  <lhs xmi:id="_Ph6mcddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_Ph6mctdHEe6qZc36oahGOg" name="|11|" outgoing="_Ph6mhNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Ph6mc9dHEe6qZc36oahGOg" value="&quot;platform administrator&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mdNdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Ph6mdddHEe6qZc36oahGOg" value="&quot;#g05# as a platform administrator, i want to have a view on all datasets published by all users, so that i can perform management actions on any dataset.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mdtdHEe6qZc36oahGOg" name="|13|" incoming="_Ph6mhNdHEe6qZc36oahGOg" outgoing="_Ph6mhddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Ph6md9dHEe6qZc36oahGOg" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6meNdHEe6qZc36oahGOg" name="|14|" outgoing="_Ph6mhtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Ph6meddHEe6qZc36oahGOg" value="&quot;perform&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6metdHEe6qZc36oahGOg" name="|15|" incoming="_Ph6mhddHEe6qZc36oahGOg" outgoing="_Ph6miNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Ph6me9dHEe6qZc36oahGOg" value="&quot;view&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mfNdHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mfddHEe6qZc36oahGOg" value="&quot;all users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mftdHEe6qZc36oahGOg" name="|17|" outgoing="_Ph6mh9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mf9dHEe6qZc36oahGOg" value="&quot;any dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mgNdHEe6qZc36oahGOg" name="|18|" incoming="_Ph6miNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mgddHEe6qZc36oahGOg" value="&quot;datasets published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mgtdHEe6qZc36oahGOg" name="|19|" incoming="_Ph6mhtdHEe6qZc36oahGOg _Ph6mh9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mg9dHEe6qZc36oahGOg" value="&quot;management actions&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Ph6mhNdHEe6qZc36oahGOg" source="_Ph6mctdHEe6qZc36oahGOg" target="_Ph6mdtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Ph6mhddHEe6qZc36oahGOg" source="_Ph6mdtdHEe6qZc36oahGOg" target="_Ph6metdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Ph6mhtdHEe6qZc36oahGOg" source="_Ph6meNdHEe6qZc36oahGOg" target="_Ph6mgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Ph6mh9dHEe6qZc36oahGOg" source="_Ph6mftdHEe6qZc36oahGOg" target="_Ph6mgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_Ph6miNdHEe6qZc36oahGOg" source="_Ph6metdHEe6qZc36oahGOg" target="_Ph6mgNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Ph6middHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_Ph6mitdHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Ph6mi9dHEe6qZc36oahGOg" value="&quot;platform administrator&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mjNdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Ph6mjddHEe6qZc36oahGOg" value="&quot;#g05# as a platform administrator, i want to have a view on all datasets published by all users, so that i can perform management actions on any dataset.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mjtdHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Ph6mj9dHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Ph6mkNdHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Ph6mkddHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mktdHEe6qZc36oahGOg" value="&quot;all users&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mk9dHEe6qZc36oahGOg" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mlNdHEe6qZc36oahGOg" value="&quot;any dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6mlddHEe6qZc36oahGOg" name="|18|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Ph6mltdHEe6qZc36oahGOg" value="&quot;datasets published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Ph6ml9dHEe6qZc36oahGOg" name="|19|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Ph6mmNdHEe6qZc36oahGOg" origin="_Ph6mctdHEe6qZc36oahGOg" image="_Ph6mitdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mmddHEe6qZc36oahGOg" origin="_Ph6mdNdHEe6qZc36oahGOg" image="_Ph6mjNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mmtdHEe6qZc36oahGOg" origin="_Ph6mdtdHEe6qZc36oahGOg" image="_Ph6mjtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mm9dHEe6qZc36oahGOg" origin="_Ph6meNdHEe6qZc36oahGOg" image="_Ph6mj9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mnNdHEe6qZc36oahGOg" origin="_Ph6metdHEe6qZc36oahGOg" image="_Ph6mkNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mnddHEe6qZc36oahGOg" origin="_Ph6mfNdHEe6qZc36oahGOg" image="_Ph6mkddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mntdHEe6qZc36oahGOg" origin="_Ph6mftdHEe6qZc36oahGOg" image="_Ph6mk9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6mn9dHEe6qZc36oahGOg" origin="_Ph6mgNdHEe6qZc36oahGOg" image="_Ph6mlddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Ph6moNdHEe6qZc36oahGOg" origin="_Ph6mgtdHEe6qZc36oahGOg" image="_Ph6ml9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

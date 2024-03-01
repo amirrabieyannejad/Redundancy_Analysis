@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_e9xQcNdHEe6qZc36oahGOg" name="user_story_06">
+  <lhs xmi:id="_e9xQcddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_e9xQctdHEe6qZc36oahGOg" name="|7|" outgoing="_e9xQgtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_e9xQc9dHEe6qZc36oahGOg" value="&quot;platform administrator&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQdNdHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_e9xQdddHEe6qZc36oahGOg" value="&quot;#g05# as a platform administrator, i want to be able to delete any dataset published, so that i can deal with takedown requests, or clean up test datasets.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQdtdHEe6qZc36oahGOg" name="|9|" incoming="_e9xQgtdHEe6qZc36oahGOg" outgoing="_e9xQg9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_e9xQd9dHEe6qZc36oahGOg" value="&quot;delete&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQeNdHEe6qZc36oahGOg" name="|10|" outgoing="_e9xQhNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_e9xQeddHEe6qZc36oahGOg" value="&quot;deal&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQetdHEe6qZc36oahGOg" name="|11|" outgoing="_e9xQhddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_e9xQe9dHEe6qZc36oahGOg" value="&quot;clean up&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQfNdHEe6qZc36oahGOg" name="|12|" incoming="_e9xQg9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_e9xQfddHEe6qZc36oahGOg" value="&quot;any dataset published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQftdHEe6qZc36oahGOg" name="|13|" incoming="_e9xQhNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_e9xQf9dHEe6qZc36oahGOg" value="&quot;takedown requests&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQgNdHEe6qZc36oahGOg" name="|14|" incoming="_e9xQhddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_e9xQgddHEe6qZc36oahGOg" value="&quot;test datasets&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_e9xQgtdHEe6qZc36oahGOg" source="_e9xQctdHEe6qZc36oahGOg" target="_e9xQdtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_e9xQg9dHEe6qZc36oahGOg" source="_e9xQdtdHEe6qZc36oahGOg" target="_e9xQfNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_e9xQhNdHEe6qZc36oahGOg" source="_e9xQeNdHEe6qZc36oahGOg" target="_e9xQftdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_e9xQhddHEe6qZc36oahGOg" source="_e9xQetdHEe6qZc36oahGOg" target="_e9xQgNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_e9xQhtdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_e9xQh9dHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_e9xQiNdHEe6qZc36oahGOg" value="&quot;platform administrator&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQiddHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_e9xQitdHEe6qZc36oahGOg" value="&quot;#g05# as a platform administrator, i want to be able to delete any dataset published, so that i can deal with takedown requests, or clean up test datasets.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_e9xQi9dHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_e9xQjNdHEe6qZc36oahGOg" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_e9xQjddHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_e9xQjtdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_e9xQj9dHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_e9xQkNdHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_e9xQkddHEe6qZc36oahGOg" origin="_e9xQctdHEe6qZc36oahGOg" image="_e9xQh9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQktdHEe6qZc36oahGOg" origin="_e9xQdNdHEe6qZc36oahGOg" image="_e9xQiddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQk9dHEe6qZc36oahGOg" origin="_e9xQdtdHEe6qZc36oahGOg" image="_e9xQi9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQlNdHEe6qZc36oahGOg" origin="_e9xQeNdHEe6qZc36oahGOg" image="_e9xQjNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQlddHEe6qZc36oahGOg" origin="_e9xQetdHEe6qZc36oahGOg" image="_e9xQjddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQltdHEe6qZc36oahGOg" origin="_e9xQfNdHEe6qZc36oahGOg" image="_e9xQjtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQl9dHEe6qZc36oahGOg" origin="_e9xQftdHEe6qZc36oahGOg" image="_e9xQj9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_e9xQmNdHEe6qZc36oahGOg" origin="_e9xQgNdHEe6qZc36oahGOg" image="_e9xQkNdHEe6qZc36oahGOg"/>
+</henshin:Rule>

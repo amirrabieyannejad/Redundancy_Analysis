@@ -1,0 +1,400 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_02  us_07  us_05  us_45  us_09  us_11  us_12  us_13  us_25  us_26  us_32  us_33  us_34  us_35  us_36  us_37  
+us_02  0      7      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_07  7      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_05  0      0      0      6      0      0      0      0      0      0      0      0      0      0      0      0      
+us_45  0      0      6      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_09  0      0      0      0      0      8      8      8      0      0      0      0      0      0      0      0      
+us_11  0      0      0      0      8      0      8      8      0      0      0      0      0      0      0      0      
+us_12  0      0      0      0      8      8      0      8      0      0      0      0      0      0      0      0      
+us_13  0      0      0      0      8      8      8      0      0      0      0      0      0      0      0      0      
+us_25  0      0      0      0      0      0      0      0      0      7      0      0      0      0      0      0      
+us_26  0      0      0      0      0      0      0      0      7      0      0      0      0      0      0      0      
+us_32  0      0      0      0      0      0      0      0      0      0      0      7      0      0      0      0      
+us_33  0      0      0      0      0      0      0      0      0      0      7      0      0      0      0      0      
+us_34  0      0      0      0      0      0      0      0      0      0      0      0      0      9      9      9      
+us_35  0      0      0      0      0      0      0      0      0      0      0      0      9      0      9      9      
+us_36  0      0      0      0      0      0      0      0      0      0      0      0      9      9      0      9      
+us_37  0      0      0      0      0      0      0      0      0      0      0      0      9      9      9      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_02_AND_user_story_07}
+  
+Redundants elements are: 
+* Secondary Entity: enhancements
+* Secondary Entity: bugs
+* Secondary Action: fix
+* Secondary Action: make
+* targets: Link from "fix" to "enhancements" is found.
+* targets: Link from "make" to "bugs" is found.
+* contains: Link between "enhancements" to "api" is found.
+
+ user_story_02: #g05# as a data publishing user, i want to be able to edit the model of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the api built for my data.
+
+ user_story_07: #g05# as a data publishing user, i want to be able to edit the data source of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the api built for my data.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_02:  so that i can #fix# #bugs# or #make# #enhancements# in the api built for my data.
+user_story_07:  so that i can #fix# #bugs# or #make# #enhancements# in the api built for my data.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_05_AND_user_story_45}
+  
+Redundants elements are: 
+* Secondary Entity: management actions
+* Secondary Action: perform
+* Primary Entity: view
+* Primary Action: have
+* targets: Link from "have" to "view" is found.
+* targets: Link from "perform" to "management actions" is found.
+
+ user_story_05: #g05# as a platform administrator, i want to #have# a #view# on all datasets published by all users, so that i can #perform# #management actions# on any dataset.
+
+ user_story_45: #g05# as a data publishing user, i want to #have# a #view# on all the datasets i have published, so that i can #perform# #management actions# on my own datasets.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_05:  i want to #have# a #view# on all datasets published by all users
+user_story_05:  so that i can #perform# #management actions# on any dataset.
+user_story_45:  i want to #have# a #view# on all the datasets i have published
+user_story_45:  so that i can #perform# #management actions# on my own datasets.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_09_AND_user_story_11}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_09: #g05# as a data publishing user, i want to be able to #import# #data# in excel, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_11: #g05# as a data publishing user, i want to be able to #import# #data# in json, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_09:  i want to be able to #import# #data# in excel
+user_story_09:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_11:  i want to be able to #import# #data# in json
+user_story_11:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_09_AND_user_story_12}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_09: #g05# as a data publishing user, i want to be able to #import# #data# in excel, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_12: #g05# as a data publishing user, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_09:  i want to be able to #import# #data# in excel
+user_story_09:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_12:  i want to be able to #import# #data# from a google spreadsheet
+user_story_12:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_09_AND_user_story_13}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_09: #g05# as a data publishing user, i want to be able to #import# #data# in excel, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_13: #g05# as a data publishing user, i want to be able to #import# #data# from fiscal data package descriptor file, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_09:  i want to be able to #import# #data# in excel
+user_story_09:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_13:  i want to be able to #import# #data# from fiscal data package descriptor file
+user_story_13:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_11_AND_user_story_12}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_11: #g05# as a data publishing user, i want to be able to #import# #data# in json, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_12: #g05# as a data publishing user, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_11:  i want to be able to #import# #data# in json
+user_story_11:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_12:  i want to be able to #import# #data# from a google spreadsheet
+user_story_12:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_11_AND_user_story_13}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_11: #g05# as a data publishing user, i want to be able to #import# #data# in json, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_13: #g05# as a data publishing user, i want to be able to #import# #data# from fiscal data package descriptor file, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_11:  i want to be able to #import# #data# in json
+user_story_11:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_13:  i want to be able to #import# #data# from fiscal data package descriptor file
+user_story_13:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_12_AND_user_story_13}
+  
+Redundants elements are: 
+* Secondary Entity: data packager
+* Secondary Action: use
+* Primary Entity: data
+* Primary Action: import
+* targets: Link from "import" to "data" is found.
+* targets: Link from "use" to "data packager" is found.
+* triggers: : Link from Persona to "import" is found.
+* contains: Link between "data" to "data packager" is found.
+
+ user_story_12: #g05# as a data publishing user, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+ user_story_13: #g05# as a data publishing user, i want to be able to #import# #data# from fiscal data package descriptor file, so that i do not have to convert data formats in order to #use# the #data packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_12:  i want to be able to #import# #data# from a google spreadsheet
+user_story_12:  so that i do not have to convert data formats in order to #use# the #data packager#.
+user_story_13:  i want to be able to #import# #data# from fiscal data package descriptor file
+user_story_13:  so that i do not have to convert data formats in order to #use# the #data packager#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_25_AND_user_story_26}
+  
+Redundants elements are: 
+* Secondary Entity: functionality
+* Secondary Action: offer
+* Primary Entity: user
+* Primary Action: understand
+* targets: Link from "understand" to "user" is found.
+* targets: Link from "offer" to "functionality" is found.
+* triggers: : Link from Persona to "understand" is found.
+
+ user_story_25: #g05# as an api user, i want to be able to #understand# if a #user# is a publisher, so that i can #offer# #functionality# based on dataset publisher privileges.
+
+ user_story_26: #g05# as an api user, i want to be able to #understand# if a #user# is an administrator, so that i can #offer# #functionality# based on platform administration privileges.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_25:  i want to be able to #understand# if a #user# is a publisher
+user_story_25:  so that i can #offer# #functionality# based on dataset publisher privileges.
+user_story_26:  i want to be able to #understand# if a #user# is an administrator
+user_story_26:  so that i can #offer# #functionality# based on platform administration privileges.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_32_AND_user_story_33}
+  
+Redundants elements are: 
+* Secondary Entity: user experiences
+* Secondary Entity: results
+* Secondary Action: build
+* Secondary Action: get
+* targets: Link from "build" to "user experiences" is found.
+* targets: Link from "get" to "results" is found.
+* contains: Link between "results" to "multiple datasets" is found.
+
+ user_story_32: #g05# as an api user, i want to be able to use metadata to get results from multiple datasets, so that i can #build# #user experiences# based on more than one dataset more easily.
+
+ user_story_33: #g05# as an api user, i want to be able to use data to get results from multiple datasets, so that i can #build# #user experiences# based on more than one dataset more easily.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_32:  so that i can #build# #user experiences# based on more than one dataset more easily.
+user_story_33:  so that i can #build# #user experiences# based on more than one dataset more easily.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_34_AND_user_story_35}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_34: #g05# as an api user, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_35: #g05# as an api user, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_34:  i want to be able to #normalise# #measures# by population
+user_story_34:  so that i #work# with #datasets# in reference to their contextual constraints.
+user_story_35:  i want to be able to #normalise# #measures# by geographical area
+user_story_35:  so that i #work# with #datasets# in reference to their contextual constraints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_34_AND_user_story_36}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_34: #g05# as an api user, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_36: #g05# as an api user, i want to be able to #normalise# #measures# by gdp, so i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_34:  i want to be able to #normalise# #measures# by population
+user_story_34:  so that i #work# with #datasets# in reference to their contextual constraints.
+user_story_36:  i want to be able to #normalise# #measures# by gdp
+user_story_36:  so i #work# with #datasets# in reference to their contextual constraints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_34_AND_user_story_37}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_34: #g05# as an api user, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_37: #g05# as an api user, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_34:  i want to be able to #normalise# #measures# by population
+user_story_34:  so that i #work# with #datasets# in reference to their contextual constraints.
+user_story_37:  i want to be able to #normalise# #measures# by gini and related socioeconomic indexes
+user_story_37:  so that i #work# with #datasets# in reference to their contextual constraints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_35_AND_user_story_36}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_35: #g05# as an api user, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_36: #g05# as an api user, i want to be able to #normalise# #measures# by gdp, so i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_35:  i want to be able to #normalise# #measures# by geographical area
+user_story_35:  so that i #work# with #datasets# in reference to their contextual constraints.
+user_story_36:  i want to be able to #normalise# #measures# by gdp
+user_story_36:  so i #work# with #datasets# in reference to their contextual constraints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_35_AND_user_story_37}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_35: #g05# as an api user, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_37: #g05# as an api user, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_35:  i want to be able to #normalise# #measures# by geographical area
+user_story_35:  so that i #work# with #datasets# in reference to their contextual constraints.
+user_story_37:  i want to be able to #normalise# #measures# by gini and related socioeconomic indexes
+user_story_37:  so that i #work# with #datasets# in reference to their contextual constraints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_36_AND_user_story_37}
+  
+Redundants elements are: 
+* Secondary Entity: datasets
+* Secondary Action: work
+* Primary Entity: measures
+* Primary Action: normalise
+* targets: Link from "normalise" to "measures" is found.
+* targets: Link from "work" to "datasets" is found.
+* triggers: : Link from Persona to "normalise" is found.
+* contains: Link between "measures" to "datasets" is found.
+* contains: Link between "datasets" to "contextual constraints" is found.
+
+ user_story_36: #g05# as an api user, i want to be able to #normalise# #measures# by gdp, so i #work# with #datasets# in reference to their contextual constraints.
+
+ user_story_37: #g05# as an api user, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their contextual constraints.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_36:  i want to be able to #normalise# #measures# by gdp
+user_story_36:  so i #work# with #datasets# in reference to their contextual constraints.
+user_story_37:  i want to be able to #normalise# #measures# by gini and related socioeconomic indexes
+user_story_37:  so that i #work# with #datasets# in reference to their contextual constraints.

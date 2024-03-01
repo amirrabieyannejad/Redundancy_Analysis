@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bKkroNdHEe6qZc36oahGOg" name="user_story_38">
+  <lhs xmi:id="_bKkroddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_bKkrotdHEe6qZc36oahGOg" name="|10|" outgoing="_bKkrtNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKkro9dHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrpNdHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKkrpddHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to get a relative percentage of a measure to the total of the dataset it comes from, so that i can build alternative displays of the data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrptdHEe6qZc36oahGOg" name="|12|" incoming="_bKkrtNdHEe6qZc36oahGOg" outgoing="_bKkrttdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_bKkrp9dHEe6qZc36oahGOg" value="&quot;get&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrqNdHEe6qZc36oahGOg" name="|13|" outgoing="_bKkrtddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_bKkrqddHEe6qZc36oahGOg" value="&quot;build&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrqtdHEe6qZc36oahGOg" name="|14|" incoming="_bKkrttdHEe6qZc36oahGOg _bKkruNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_bKkrq9dHEe6qZc36oahGOg" value="&quot;relative percentage&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrrNdHEe6qZc36oahGOg" name="|15|" outgoing="_bKkruddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrrddHEe6qZc36oahGOg" value="&quot;total of the dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrrtdHEe6qZc36oahGOg" name="|16|" incoming="_bKkrtddHEe6qZc36oahGOg _bKkrt9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrr9dHEe6qZc36oahGOg" value="&quot;alternative displays&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrsNdHEe6qZc36oahGOg" name="|17|" outgoing="_bKkrt9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrsddHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrstdHEe6qZc36oahGOg" name="|18|" incoming="_bKkruddHEe6qZc36oahGOg" outgoing="_bKkruNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrs9dHEe6qZc36oahGOg" value="&quot;measure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_bKkrtNdHEe6qZc36oahGOg" source="_bKkrotdHEe6qZc36oahGOg" target="_bKkrptdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_bKkrtddHEe6qZc36oahGOg" source="_bKkrqNdHEe6qZc36oahGOg" target="_bKkrrtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKkrttdHEe6qZc36oahGOg" source="_bKkrptdHEe6qZc36oahGOg" target="_bKkrqtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKkrt9dHEe6qZc36oahGOg" source="_bKkrsNdHEe6qZc36oahGOg" target="_bKkrrtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_bKkruNdHEe6qZc36oahGOg" source="_bKkrstdHEe6qZc36oahGOg" target="_bKkrqtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_bKkruddHEe6qZc36oahGOg" source="_bKkrrNdHEe6qZc36oahGOg" target="_bKkrstdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_bKkrutdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_bKkru9dHEe6qZc36oahGOg" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKkrvNdHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrvddHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKkrvtdHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to get a relative percentage of a measure to the total of the dataset it comes from, so that i can build alternative displays of the data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrv9dHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKkrwNdHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKkrwddHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKkrwtdHEe6qZc36oahGOg" name="|15|" outgoing="_bKkryddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrw9dHEe6qZc36oahGOg" value="&quot;total of the dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrxNdHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKkrxddHEe6qZc36oahGOg" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkrxtdHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKkrx9dHEe6qZc36oahGOg" name="|18|" incoming="_bKkryddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKkryNdHEe6qZc36oahGOg" value="&quot;measure&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_bKkryddHEe6qZc36oahGOg" source="_bKkrwtdHEe6qZc36oahGOg" target="_bKkrx9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </rhs>
+  <mappings xmi:id="_bKkrytdHEe6qZc36oahGOg" origin="_bKkrotdHEe6qZc36oahGOg" image="_bKkru9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkry9dHEe6qZc36oahGOg" origin="_bKkrpNdHEe6qZc36oahGOg" image="_bKkrvddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkrzNdHEe6qZc36oahGOg" origin="_bKkrptdHEe6qZc36oahGOg" image="_bKkrv9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkrzddHEe6qZc36oahGOg" origin="_bKkrqNdHEe6qZc36oahGOg" image="_bKkrwNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkrztdHEe6qZc36oahGOg" origin="_bKkrqtdHEe6qZc36oahGOg" image="_bKkrwddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkrz9dHEe6qZc36oahGOg" origin="_bKkrrNdHEe6qZc36oahGOg" image="_bKkrwtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkr0NdHEe6qZc36oahGOg" origin="_bKkrrtdHEe6qZc36oahGOg" image="_bKkrxNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkr0ddHEe6qZc36oahGOg" origin="_bKkrsNdHEe6qZc36oahGOg" image="_bKkrxddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKkr0tdHEe6qZc36oahGOg" origin="_bKkrstdHEe6qZc36oahGOg" image="_bKkrx9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

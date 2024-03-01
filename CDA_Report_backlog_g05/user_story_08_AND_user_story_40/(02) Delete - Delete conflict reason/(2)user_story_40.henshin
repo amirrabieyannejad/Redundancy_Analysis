@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Pg0aQNdHEe6qZc36oahGOg" name="user_story_40">
+  <lhs xmi:id="_Pg0aQddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_Pg0aQtdHEe6qZc36oahGOg" name="|7|" outgoing="_Pg0aVNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Pg0aQ9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aRNdHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Pg0aRddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have my dataset update automatically as the source file/files changes, so that openspending always shows current data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aRtdHEe6qZc36oahGOg" name="|9|" incoming="_Pg0aVNdHEe6qZc36oahGOg" outgoing="_Pg0aV9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Pg0aR9dHEe6qZc36oahGOg" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aSNdHEe6qZc36oahGOg" name="|10|" outgoing="_Pg0aVtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Pg0aSddHEe6qZc36oahGOg" value="&quot;update automatically&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aStdHEe6qZc36oahGOg" name="|11|" outgoing="_Pg0aVddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Pg0aS9dHEe6qZc36oahGOg" value="&quot;always shows&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aTNdHEe6qZc36oahGOg" name="|12|" incoming="_Pg0aVtdHEe6qZc36oahGOg _Pg0aV9dHEe6qZc36oahGOg _Pg0aWNdHEe6qZc36oahGOg" outgoing="_Pg0aWddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Pg0aTddHEe6qZc36oahGOg" value="&quot;dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aTtdHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Pg0aT9dHEe6qZc36oahGOg" value="&quot;source file/files&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aUNdHEe6qZc36oahGOg" name="|14|" outgoing="_Pg0aWNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Pg0aUddHEe6qZc36oahGOg" value="&quot;openspending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aUtdHEe6qZc36oahGOg" name="|15|" incoming="_Pg0aVddHEe6qZc36oahGOg _Pg0aWddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Pg0aU9dHEe6qZc36oahGOg" value="&quot;current data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Pg0aVNdHEe6qZc36oahGOg" source="_Pg0aQtdHEe6qZc36oahGOg" target="_Pg0aRtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Pg0aVddHEe6qZc36oahGOg" source="_Pg0aStdHEe6qZc36oahGOg" target="_Pg0aUtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Pg0aVtdHEe6qZc36oahGOg" source="_Pg0aSNdHEe6qZc36oahGOg" target="_Pg0aTNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Pg0aV9dHEe6qZc36oahGOg" source="_Pg0aRtdHEe6qZc36oahGOg" target="_Pg0aTNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Pg0aWNdHEe6qZc36oahGOg" source="_Pg0aUNdHEe6qZc36oahGOg" target="_Pg0aTNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_Pg0aWddHEe6qZc36oahGOg" source="_Pg0aTNdHEe6qZc36oahGOg" target="_Pg0aUtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Pg0aWtdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_Pg0aW9dHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Pg0aXNdHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aXddHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Pg0aXtdHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have my dataset update automatically as the source file/files changes, so that openspending always shows current data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aX9dHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Pg0aYNdHEe6qZc36oahGOg" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Pg0aYddHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Pg0aYtdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Pg0aY9dHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Pg0aZNdHEe6qZc36oahGOg" value="&quot;source file/files&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aZddHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Pg0aZtdHEe6qZc36oahGOg" value="&quot;openspending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Pg0aZ9dHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Pg0aaNdHEe6qZc36oahGOg" origin="_Pg0aQtdHEe6qZc36oahGOg" image="_Pg0aW9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0aaddHEe6qZc36oahGOg" origin="_Pg0aRNdHEe6qZc36oahGOg" image="_Pg0aXddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0aatdHEe6qZc36oahGOg" origin="_Pg0aRtdHEe6qZc36oahGOg" image="_Pg0aX9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0aa9dHEe6qZc36oahGOg" origin="_Pg0aSNdHEe6qZc36oahGOg" image="_Pg0aYNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0abNdHEe6qZc36oahGOg" origin="_Pg0aStdHEe6qZc36oahGOg" image="_Pg0aYddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0abddHEe6qZc36oahGOg" origin="_Pg0aTNdHEe6qZc36oahGOg" image="_Pg0aYtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0abtdHEe6qZc36oahGOg" origin="_Pg0aTtdHEe6qZc36oahGOg" image="_Pg0aY9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0ab9dHEe6qZc36oahGOg" origin="_Pg0aUNdHEe6qZc36oahGOg" image="_Pg0aZddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Pg0acNdHEe6qZc36oahGOg" origin="_Pg0aUtdHEe6qZc36oahGOg" image="_Pg0aZ9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

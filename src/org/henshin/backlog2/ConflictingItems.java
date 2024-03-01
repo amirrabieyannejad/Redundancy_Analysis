@@ -3,12 +3,10 @@ package org.henshin.backlog2;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
-
-import org.json.JSONArray;
 
 public class ConflictingItems {
 	private List<SecondaryEntity> secondaryEntity;
@@ -17,6 +15,7 @@ public class ConflictingItems {
 	private List<PrimaryAction> primaryAction;
 	private List<Triggers> triggers;
 	private List<Targets> targets;
+	private List<Contains> contains;
 	private int maxConflictCount;
 
 	public ConflictingItems() {
@@ -26,6 +25,7 @@ public class ConflictingItems {
 		this.primaryAction = new ArrayList<>();
 		this.triggers = new ArrayList<>();
 		this.targets = new ArrayList<>();
+		this.contains = new ArrayList<>();
 	}
 
 	public void addSecondaryEntity(SecondaryEntity entity) {
@@ -55,6 +55,10 @@ public class ConflictingItems {
 		targets.add(target);
 	}
 
+	public void addContains(Contains contain) {
+		contains.add(contain);
+	}
+
 	public List<SecondaryEntity> getSecondaryEntity() {
 		return secondaryEntity;
 
@@ -80,12 +84,17 @@ public class ConflictingItems {
 		return targets;
 	}
 
+	public List<Contains> getContains() {
+		return contains;
+	}
+
 	public int getMaxConflictCount() {
 		return maxConflictCount;
 	}
 
 	// Method to printout all Conflicting Items
-	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs) throws IOException {
+	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs,
+			List<ContainsPair> containsPairs) throws IOException {
 
 		List<SecondaryEntity> secondaryEntities = getSecondaryEntity();
 		List<SecondaryAction> secondaryActions = getSecondaryAction();
@@ -93,6 +102,7 @@ public class ConflictingItems {
 		List<PrimaryAction> primaryActions = getPrimaryActions();
 		List<Targets> targets = getTargets();
 		List<Triggers> triggers = getTriggers();
+		List<Contains> contains = getContains();
 		maxConflictCount = 0;
 
 		if (!secondaryEntities.isEmpty()) {
@@ -132,6 +142,7 @@ public class ConflictingItems {
 			}
 
 		}
+
 		if (!targets.isEmpty()) {
 			for (Targets target : targets) {
 				if (!primaryActions.isEmpty() && !primaryEntities.isEmpty()) {
@@ -143,18 +154,20 @@ public class ConflictingItems {
 							if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetsPairs)
 									&& isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(),
 											targetsPairs)) {
-								if(!writtenPrimaryActions.contains(primaryAction.getName())
+								if (!writtenPrimaryActions.contains(primaryAction.getName())
 										&& !writtenPrimaryEntities.contains(primaryEntity.getName())) {
-								cdaWriter.write("\n* " + target.getName() + ": Link from \"" + primaryAction.getName()
-										+ "\" to \"" + primaryEntity.getName() + "\" is found.");
-								maxConflictCount++;
-								writtenPrimaryActions.add(primaryAction.getName());
-								writtenPrimaryEntities.add(primaryAction.getName());
-							}
+									cdaWriter.write(
+											"\n* " + target.getName() + ": Link from \"" + primaryAction.getName()
+													+ "\" to \"" + primaryEntity.getName() + "\" is found.");
+									maxConflictCount++;
+									writtenPrimaryActions.add(primaryAction.getName());
+									writtenPrimaryEntities.add(primaryAction.getName());
+								}
 							}
 						}
 					}
 				}
+
 				if (!secondaryActions.isEmpty() && !secondaryEntities.isEmpty()) {
 					Set<String> writtenSecondaryActions = new HashSet<>();
 					Set<String> writtenSecondaryEntities = new HashSet<>();
@@ -204,8 +217,55 @@ public class ConflictingItems {
 			}
 
 		}
+		// Check if there is conflict element listed in "Contains" if yes, show their
+		// link
+		if (!contains.isEmpty()) {
+			for (Contains contain : contains) {
+				if (!secondaryEntities.isEmpty() && !primaryEntities.isEmpty()) {
+					Set<String> writtenPrimaryEntities = new HashSet<>();
+					Set<String> writtenSecondaryEntities = new HashSet<>();
 
-	}
+					for (SecondaryEntity secondaryEntity : secondaryEntities) {
+						for (PrimaryEntity primaryEntity : primaryEntities) {
+							if (isInCommonContains(secondaryEntity.getName(),containsPairs) !=null
+									|| isInCommonContains( primaryEntity.getName(),containsPairs) !=null) {
+								if (!writtenSecondaryEntities.contains(secondaryEntity.getName())
+										&& !writtenPrimaryEntities.contains(primaryEntity.getName())) {
+									cdaWriter.write(
+											"\n* " + contain.getName() + ": Link between \"" + primaryEntity.getName()
+													+ "\" to \"" + secondaryEntity.getName() + "\" is found.");
+									maxConflictCount++;
+									writtenPrimaryEntities.add(primaryEntity.getName());
+									writtenSecondaryEntities.add(secondaryEntity.getName());
+								}
+							}
+						}
+					}
+				}
+				if (!secondaryEntities.isEmpty()) {
+					Set<String> processedPairs = new HashSet<>();
+					for (SecondaryEntity secondaryEntity : secondaryEntities) {
+						
+							String pair = secondaryEntity.getName();
+							String secondPair = isInCommonContains(secondaryEntity.getName(),
+									 containsPairs);
+							if (secondPair!=null) {
+								if (!processedPairs.contains(pair)) {
+									cdaWriter.write(
+											"\n* " + contain.getName() + ": Link between \"" + secondaryEntity.getName()
+													+ "\" to \"" + secondPair + "\" is found.");
+									maxConflictCount++;
+									processedPairs.add(pair);
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	
 
 	// Iterate through Targets Array of related user stories in json file
 	// return true if name of elements which contains in conflicting items
@@ -233,6 +293,26 @@ public class ConflictingItems {
 
 		}
 		return false;
+	}
+
+	// Iterate through Contains Array of related user stories in json file
+	// return true if name of elements which contains in conflicting items
+	// whether exist or not
+	public String isInCommonContains(String name,  List<ContainsPair> containsPairs) {
+		// Iterate through list of common Contains
+		for (ContainsPair containsPair : containsPairs) {
+			String parentEntity = containsPair.getParentEntity().toLowerCase();
+			String childEntity = containsPair.getChildEntity().toLowerCase();
+			
+			if(parentEntity.equalsIgnoreCase(name)) {
+				return childEntity;
+			}else if(childEntity.equalsIgnoreCase(name)){
+				return parentEntity;
+			}
+			
+		}
+
+		return null;
 	}
 
 }

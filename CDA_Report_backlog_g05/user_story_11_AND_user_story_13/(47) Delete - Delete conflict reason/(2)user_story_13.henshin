@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_rFDLUNdHEe6qZc36oahGOg" name="user_story_13">
+  <lhs xmi:id="_rFDLUddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_rFDLUtdHEe6qZc36oahGOg" name="|8|" outgoing="_rFDLYtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_rFDLU9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLVNdHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_rFDLVddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data from fiscal data package descriptor file, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLVtdHEe6qZc36oahGOg" name="|10|" incoming="_rFDLYtdHEe6qZc36oahGOg" outgoing="_rFDLY9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_rFDLV9dHEe6qZc36oahGOg" value="&quot;import&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLWNdHEe6qZc36oahGOg" name="|11|" outgoing="_rFDLZNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_rFDLWddHEe6qZc36oahGOg" value="&quot;use&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLWtdHEe6qZc36oahGOg" name="|12|" incoming="_rFDLY9dHEe6qZc36oahGOg _rFDLZddHEe6qZc36oahGOg" outgoing="_rFDLZtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_rFDLW9dHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLXNdHEe6qZc36oahGOg" name="|13|" outgoing="_rFDLZddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rFDLXddHEe6qZc36oahGOg" value="&quot;fiscal data package descriptor file&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLXtdHEe6qZc36oahGOg" name="|14|" incoming="_rFDLZtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rFDLX9dHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLYNdHEe6qZc36oahGOg" name="|15|" incoming="_rFDLZNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rFDLYddHEe6qZc36oahGOg" value="&quot;data packager&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_rFDLYtdHEe6qZc36oahGOg" source="_rFDLUtdHEe6qZc36oahGOg" target="_rFDLVtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_rFDLY9dHEe6qZc36oahGOg" source="_rFDLVtdHEe6qZc36oahGOg" target="_rFDLWtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_rFDLZNdHEe6qZc36oahGOg" source="_rFDLWNdHEe6qZc36oahGOg" target="_rFDLYNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_rFDLZddHEe6qZc36oahGOg" source="_rFDLXNdHEe6qZc36oahGOg" target="_rFDLWtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_rFDLZtdHEe6qZc36oahGOg" source="_rFDLWtdHEe6qZc36oahGOg" target="_rFDLXtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_rFDLZ9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_rFDLaNdHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_rFDLaddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLatdHEe6qZc36oahGOg" name="|9|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_rFDLa9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data from fiscal data package descriptor file, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLbNdHEe6qZc36oahGOg" name="|10|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_rFDLbddHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_rFDLbtdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_rFDLb9dHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rFDLcNdHEe6qZc36oahGOg" value="&quot;fiscal data package descriptor file&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLcddHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_rFDLctdHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_rFDLc9dHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_rFDLdNdHEe6qZc36oahGOg" origin="_rFDLUtdHEe6qZc36oahGOg" image="_rFDLaNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLdddHEe6qZc36oahGOg" origin="_rFDLVNdHEe6qZc36oahGOg" image="_rFDLatdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLdtdHEe6qZc36oahGOg" origin="_rFDLVtdHEe6qZc36oahGOg" image="_rFDLbNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLd9dHEe6qZc36oahGOg" origin="_rFDLWNdHEe6qZc36oahGOg" image="_rFDLbddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLeNdHEe6qZc36oahGOg" origin="_rFDLWtdHEe6qZc36oahGOg" image="_rFDLbtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLeddHEe6qZc36oahGOg" origin="_rFDLXNdHEe6qZc36oahGOg" image="_rFDLb9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLetdHEe6qZc36oahGOg" origin="_rFDLXtdHEe6qZc36oahGOg" image="_rFDLcddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_rFDLe9dHEe6qZc36oahGOg" origin="_rFDLYNdHEe6qZc36oahGOg" image="_rFDLc9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

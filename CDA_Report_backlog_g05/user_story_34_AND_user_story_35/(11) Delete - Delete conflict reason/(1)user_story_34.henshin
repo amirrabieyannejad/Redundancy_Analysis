@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_jrwCgNdHEe6qZc36oahGOg" name="user_story_34">
+  <lhs xmi:id="_jrwCgddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_jrwCgtdHEe6qZc36oahGOg" name="|0|" outgoing="_jrwCktdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_jrwCg9dHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwChNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_jrwChddHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to normalise measures by population, so that i work with datasets in reference to their contextual constraints.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwChtdHEe6qZc36oahGOg" name="|2|" incoming="_jrwCktdHEe6qZc36oahGOg" outgoing="_jrwCk9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_jrwCh9dHEe6qZc36oahGOg" value="&quot;normalise&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCiNdHEe6qZc36oahGOg" name="|3|" outgoing="_jrwClNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_jrwCiddHEe6qZc36oahGOg" value="&quot;work&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCitdHEe6qZc36oahGOg" name="|4|" incoming="_jrwCk9dHEe6qZc36oahGOg" outgoing="_jrwCltdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_jrwCi9dHEe6qZc36oahGOg" value="&quot;measures&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCjNdHEe6qZc36oahGOg" name="|5|" incoming="_jrwCltdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jrwCjddHEe6qZc36oahGOg" value="&quot;population&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCjtdHEe6qZc36oahGOg" name="|6|" incoming="_jrwClNdHEe6qZc36oahGOg" outgoing="_jrwClddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jrwCj9dHEe6qZc36oahGOg" value="&quot;datasets&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCkNdHEe6qZc36oahGOg" name="|7|" incoming="_jrwClddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jrwCkddHEe6qZc36oahGOg" value="&quot;contextual constraints&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_jrwCktdHEe6qZc36oahGOg" source="_jrwCgtdHEe6qZc36oahGOg" target="_jrwChtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_jrwCk9dHEe6qZc36oahGOg" source="_jrwChtdHEe6qZc36oahGOg" target="_jrwCitdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_jrwClNdHEe6qZc36oahGOg" source="_jrwCiNdHEe6qZc36oahGOg" target="_jrwCjtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_jrwClddHEe6qZc36oahGOg" source="_jrwCjtdHEe6qZc36oahGOg" target="_jrwCkNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_jrwCltdHEe6qZc36oahGOg" source="_jrwCitdHEe6qZc36oahGOg" target="_jrwCjNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_jrwCl9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_jrwCmNdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_jrwCmddHEe6qZc36oahGOg" value="&quot;api user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCmtdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_jrwCm9dHEe6qZc36oahGOg" value="&quot;#g05# as an api user, i want to be able to normalise measures by population, so that i work with datasets in reference to their contextual constraints.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCnNdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_jrwCnddHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_jrwCntdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_jrwCn9dHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jrwCoNdHEe6qZc36oahGOg" value="&quot;population&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_jrwCoddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_jrwCotdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_jrwCo9dHEe6qZc36oahGOg" value="&quot;contextual constraints&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_jrwCpNdHEe6qZc36oahGOg" origin="_jrwCgtdHEe6qZc36oahGOg" image="_jrwCmNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCpddHEe6qZc36oahGOg" origin="_jrwChNdHEe6qZc36oahGOg" image="_jrwCmtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCptdHEe6qZc36oahGOg" origin="_jrwChtdHEe6qZc36oahGOg" image="_jrwCnNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCp9dHEe6qZc36oahGOg" origin="_jrwCiNdHEe6qZc36oahGOg" image="_jrwCnddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCqNdHEe6qZc36oahGOg" origin="_jrwCitdHEe6qZc36oahGOg" image="_jrwCntdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCqddHEe6qZc36oahGOg" origin="_jrwCjNdHEe6qZc36oahGOg" image="_jrwCn9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCqtdHEe6qZc36oahGOg" origin="_jrwCjtdHEe6qZc36oahGOg" image="_jrwCoddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_jrwCq9dHEe6qZc36oahGOg" origin="_jrwCkNdHEe6qZc36oahGOg" image="_jrwCotdHEe6qZc36oahGOg"/>
+</henshin:Rule>

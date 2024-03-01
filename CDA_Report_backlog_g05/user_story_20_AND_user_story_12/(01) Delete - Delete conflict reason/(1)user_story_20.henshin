@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_TTgowNdHEe6qZc36oahGOg" name="user_story_20">
+  <lhs xmi:id="_TTgowddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_TTgowtdHEe6qZc36oahGOg" name="|0|" outgoing="_TTgoztdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_TTgow9dHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgoxNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_TTgoxddHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to download an image ofa particular view state, so that i can use it offline.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgoxtdHEe6qZc36oahGOg" name="|2|" incoming="_TTgoztdHEe6qZc36oahGOg" outgoing="_TTgoz9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_TTgox9dHEe6qZc36oahGOg" value="&quot;download&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgoyNdHEe6qZc36oahGOg" name="|3|" outgoing="_TTgo0NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_TTgoyddHEe6qZc36oahGOg" value="&quot;use&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgoytdHEe6qZc36oahGOg" name="|4|" incoming="_TTgoz9dHEe6qZc36oahGOg _TTgo0NdHEe6qZc36oahGOg" outgoing="_TTgo0ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_TTgoy9dHEe6qZc36oahGOg" value="&quot;image&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgozNdHEe6qZc36oahGOg" name="|5|" incoming="_TTgo0ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_TTgozddHEe6qZc36oahGOg" value="&quot;particular view state&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_TTgoztdHEe6qZc36oahGOg" source="_TTgowtdHEe6qZc36oahGOg" target="_TTgoxtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_TTgoz9dHEe6qZc36oahGOg" source="_TTgoxtdHEe6qZc36oahGOg" target="_TTgoytdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_TTgo0NdHEe6qZc36oahGOg" source="_TTgoyNdHEe6qZc36oahGOg" target="_TTgoytdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_TTgo0ddHEe6qZc36oahGOg" source="_TTgoytdHEe6qZc36oahGOg" target="_TTgozNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_TTgo0tdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_TTgo09dHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_TTgo1NdHEe6qZc36oahGOg" value="&quot;data consuming user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgo1ddHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_TTgo1tdHEe6qZc36oahGOg" value="&quot;#g05# as a data consuming user, i want to be able to download an image ofa particular view state, so that i can use it offline.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_TTgo19dHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_TTgo2NdHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_TTgo2ddHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_TTgo2tdHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_TTgo29dHEe6qZc36oahGOg" value="&quot;particular view state&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_TTgo3NdHEe6qZc36oahGOg" origin="_TTgowtdHEe6qZc36oahGOg" image="_TTgo09dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_TTgo3ddHEe6qZc36oahGOg" origin="_TTgoxNdHEe6qZc36oahGOg" image="_TTgo1ddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_TTgo3tdHEe6qZc36oahGOg" origin="_TTgoxtdHEe6qZc36oahGOg" image="_TTgo19dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_TTgo39dHEe6qZc36oahGOg" origin="_TTgoyNdHEe6qZc36oahGOg" image="_TTgo2NdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_TTgo4NdHEe6qZc36oahGOg" origin="_TTgoytdHEe6qZc36oahGOg" image="_TTgo2ddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_TTgo4ddHEe6qZc36oahGOg" origin="_TTgozNdHEe6qZc36oahGOg" image="_TTgo2tdHEe6qZc36oahGOg"/>
+</henshin:Rule>

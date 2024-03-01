@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_bKLDANdHEe6qZc36oahGOg" name="user_story_43">
+  <lhs xmi:id="_bKLDAddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_bKLDAtdHEe6qZc36oahGOg" name="|0|" outgoing="_bKLDEtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKLDA9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDBNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKLDBddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to add a dataset in a hidden state, so that i can work on a dataset before having it discoverable via openspending user interfaces.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDBtdHEe6qZc36oahGOg" name="|2|" incoming="_bKLDEtdHEe6qZc36oahGOg" outgoing="_bKLDFNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_bKLDB9dHEe6qZc36oahGOg" value="&quot;add&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDCNdHEe6qZc36oahGOg" name="|3|" outgoing="_bKLDE9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_bKLDCddHEe6qZc36oahGOg" value="&quot;work&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDCtdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_bKLDC9dHEe6qZc36oahGOg" value="&quot;dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDDNdHEe6qZc36oahGOg" name="|5|" incoming="_bKLDFddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKLDDddHEe6qZc36oahGOg" value="&quot;hidden state&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDDtdHEe6qZc36oahGOg" name="|6|" incoming="_bKLDE9dHEe6qZc36oahGOg _bKLDFNdHEe6qZc36oahGOg _bKLDFtdHEe6qZc36oahGOg" outgoing="_bKLDFddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKLDD9dHEe6qZc36oahGOg" value="&quot;dataset&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDENdHEe6qZc36oahGOg" name="|7|" outgoing="_bKLDFtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKLDEddHEe6qZc36oahGOg" value="&quot;openspending user interfaces&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_bKLDEtdHEe6qZc36oahGOg" source="_bKLDAtdHEe6qZc36oahGOg" target="_bKLDBtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_bKLDE9dHEe6qZc36oahGOg" source="_bKLDCNdHEe6qZc36oahGOg" target="_bKLDDtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKLDFNdHEe6qZc36oahGOg" source="_bKLDBtdHEe6qZc36oahGOg" target="_bKLDDtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_bKLDFddHEe6qZc36oahGOg" source="_bKLDDtdHEe6qZc36oahGOg" target="_bKLDDNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_bKLDFtdHEe6qZc36oahGOg" source="_bKLDENdHEe6qZc36oahGOg" target="_bKLDDtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_bKLDF9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_bKLDGNdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_bKLDGddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDGtdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_bKLDG9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to add a dataset in a hidden state, so that i can work on a dataset before having it discoverable via openspending user interfaces.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDHNdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKLDHddHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_bKLDHtdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKLDH9dHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKLDINdHEe6qZc36oahGOg" value="&quot;hidden state&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_bKLDIddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_bKLDItdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_bKLDI9dHEe6qZc36oahGOg" value="&quot;openspending user interfaces&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_bKLDJNdHEe6qZc36oahGOg" origin="_bKLDAtdHEe6qZc36oahGOg" image="_bKLDGNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDJddHEe6qZc36oahGOg" origin="_bKLDBNdHEe6qZc36oahGOg" image="_bKLDGtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDJtdHEe6qZc36oahGOg" origin="_bKLDBtdHEe6qZc36oahGOg" image="_bKLDHNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDJ9dHEe6qZc36oahGOg" origin="_bKLDCNdHEe6qZc36oahGOg" image="_bKLDHddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDKNdHEe6qZc36oahGOg" origin="_bKLDCtdHEe6qZc36oahGOg" image="_bKLDHtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDKddHEe6qZc36oahGOg" origin="_bKLDDNdHEe6qZc36oahGOg" image="_bKLDH9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDKtdHEe6qZc36oahGOg" origin="_bKLDDtdHEe6qZc36oahGOg" image="_bKLDIddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_bKLDK9dHEe6qZc36oahGOg" origin="_bKLDENdHEe6qZc36oahGOg" image="_bKLDItdHEe6qZc36oahGOg"/>
+</henshin:Rule>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QOFI4NdHEe6qZc36oahGOg" name="user_story_11">
+  <lhs xmi:id="_QOFI4ddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_QOFI4tdHEe6qZc36oahGOg" name="|0|" outgoing="_QOFI8tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_QOFI49dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI5NdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_QOFI5ddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data in json, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI5tdHEe6qZc36oahGOg" name="|2|" incoming="_QOFI8tdHEe6qZc36oahGOg" outgoing="_QOFI89dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_QOFI59dHEe6qZc36oahGOg" value="&quot;import&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI6NdHEe6qZc36oahGOg" name="|3|" outgoing="_QOFI9NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_QOFI6ddHEe6qZc36oahGOg" value="&quot;use&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI6tdHEe6qZc36oahGOg" name="|4|" incoming="_QOFI89dHEe6qZc36oahGOg _QOFI9tdHEe6qZc36oahGOg" outgoing="_QOFI9ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_QOFI69dHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI7NdHEe6qZc36oahGOg" name="|5|" outgoing="_QOFI9tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QOFI7ddHEe6qZc36oahGOg" value="&quot;json&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI7tdHEe6qZc36oahGOg" name="|6|" incoming="_QOFI9ddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QOFI79dHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI8NdHEe6qZc36oahGOg" name="|7|" incoming="_QOFI9NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QOFI8ddHEe6qZc36oahGOg" value="&quot;data packager&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_QOFI8tdHEe6qZc36oahGOg" source="_QOFI4tdHEe6qZc36oahGOg" target="_QOFI5tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_QOFI89dHEe6qZc36oahGOg" source="_QOFI5tdHEe6qZc36oahGOg" target="_QOFI6tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_QOFI9NdHEe6qZc36oahGOg" source="_QOFI6NdHEe6qZc36oahGOg" target="_QOFI8NdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_QOFI9ddHEe6qZc36oahGOg" source="_QOFI6tdHEe6qZc36oahGOg" target="_QOFI7tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+    <edges xmi:id="_QOFI9tdHEe6qZc36oahGOg" source="_QOFI7NdHEe6qZc36oahGOg" target="_QOFI6tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_QOFI99dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_QOFI-NdHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_QOFI-ddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI-tdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_QOFI-9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to import data in json, so that i do not have to convert data formats in order to use the data packager.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFI_NdHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_QOFI_ddHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_QOFI_tdHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_QOFI_9dHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QOFJANdHEe6qZc36oahGOg" value="&quot;json&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFJAddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QOFJAtdHEe6qZc36oahGOg" value="&quot;data formats&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QOFJA9dHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_QOFJBNdHEe6qZc36oahGOg" origin="_QOFI4tdHEe6qZc36oahGOg" image="_QOFI-NdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJBddHEe6qZc36oahGOg" origin="_QOFI5NdHEe6qZc36oahGOg" image="_QOFI-tdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJBtdHEe6qZc36oahGOg" origin="_QOFI5tdHEe6qZc36oahGOg" image="_QOFI_NdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJB9dHEe6qZc36oahGOg" origin="_QOFI6NdHEe6qZc36oahGOg" image="_QOFI_ddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJCNdHEe6qZc36oahGOg" origin="_QOFI6tdHEe6qZc36oahGOg" image="_QOFI_tdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJCddHEe6qZc36oahGOg" origin="_QOFI7NdHEe6qZc36oahGOg" image="_QOFI_9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJCtdHEe6qZc36oahGOg" origin="_QOFI7tdHEe6qZc36oahGOg" image="_QOFJAddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QOFJC9dHEe6qZc36oahGOg" origin="_QOFI8NdHEe6qZc36oahGOg" image="_QOFJA9dHEe6qZc36oahGOg"/>
+</henshin:Rule>

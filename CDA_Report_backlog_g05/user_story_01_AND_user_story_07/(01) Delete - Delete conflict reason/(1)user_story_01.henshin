@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_QbLJsNdHEe6qZc36oahGOg" name="user_story_01">
+  <lhs xmi:id="_QbLJsddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_QbLJstdHEe6qZc36oahGOg" name="|0|" outgoing="_QbLJwNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_QbLJs9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJtNdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_QbLJtddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to edit a dataset i have published, so that i can correct or enhance existing data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJttdHEe6qZc36oahGOg" name="|2|" incoming="_QbLJwNdHEe6qZc36oahGOg" outgoing="_QbLJw9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_QbLJt9dHEe6qZc36oahGOg" value="&quot;edit&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJuNdHEe6qZc36oahGOg" name="|3|" outgoing="_QbLJwddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_QbLJuddHEe6qZc36oahGOg" value="&quot;correct&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJutdHEe6qZc36oahGOg" name="|4|" outgoing="_QbLJwtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_QbLJu9dHEe6qZc36oahGOg" value="&quot;enhance&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJvNdHEe6qZc36oahGOg" name="|5|" incoming="_QbLJw9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_QbLJvddHEe6qZc36oahGOg" value="&quot;dataset i have published&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJvtdHEe6qZc36oahGOg" name="|6|" incoming="_QbLJwddHEe6qZc36oahGOg _QbLJwtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_QbLJv9dHEe6qZc36oahGOg" value="&quot;existing data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_QbLJwNdHEe6qZc36oahGOg" source="_QbLJstdHEe6qZc36oahGOg" target="_QbLJttdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_QbLJwddHEe6qZc36oahGOg" source="_QbLJuNdHEe6qZc36oahGOg" target="_QbLJvtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_QbLJwtdHEe6qZc36oahGOg" source="_QbLJutdHEe6qZc36oahGOg" target="_QbLJvtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_QbLJw9dHEe6qZc36oahGOg" source="_QbLJttdHEe6qZc36oahGOg" target="_QbLJvNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_QbLJxNdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_QbLJxddHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_QbLJxtdHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJx9dHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_QbLJyNdHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to be able to edit a dataset i have published, so that i can correct or enhance existing data.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_QbLJyddHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_QbLJytdHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_QbLJy9dHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_QbLJzNdHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_QbLJzddHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_QbLJztdHEe6qZc36oahGOg" origin="_QbLJstdHEe6qZc36oahGOg" image="_QbLJxddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJz9dHEe6qZc36oahGOg" origin="_QbLJtNdHEe6qZc36oahGOg" image="_QbLJx9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJ0NdHEe6qZc36oahGOg" origin="_QbLJttdHEe6qZc36oahGOg" image="_QbLJyddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJ0ddHEe6qZc36oahGOg" origin="_QbLJuNdHEe6qZc36oahGOg" image="_QbLJytdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJ0tdHEe6qZc36oahGOg" origin="_QbLJutdHEe6qZc36oahGOg" image="_QbLJy9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJ09dHEe6qZc36oahGOg" origin="_QbLJvNdHEe6qZc36oahGOg" image="_QbLJzNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_QbLJ1NdHEe6qZc36oahGOg" origin="_QbLJvtdHEe6qZc36oahGOg" image="_QbLJzddHEe6qZc36oahGOg"/>
+</henshin:Rule>

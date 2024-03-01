@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_Mo5x8NdHEe6qZc36oahGOg" name="user_story_46">
+  <lhs xmi:id="_Mo5x8ddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_Mo5x8tdHEe6qZc36oahGOg" name="|0|" outgoing="_Mo5yBNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Mo5x89dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x9NdHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Mo5x9ddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have a functioning python client, so that i can add data to the datastore in bulk from the command line or my own programs.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x9tdHEe6qZc36oahGOg" name="|2|" incoming="_Mo5yBNdHEe6qZc36oahGOg" outgoing="_Mo5yBddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_Mo5x99dHEe6qZc36oahGOg" value="&quot;have&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x-NdHEe6qZc36oahGOg" name="|3|" outgoing="_Mo5yBtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_Mo5x-ddHEe6qZc36oahGOg" value="&quot;add&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x-tdHEe6qZc36oahGOg" name="|4|" incoming="_Mo5yBddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_Mo5x-9dHEe6qZc36oahGOg" value="&quot;functioning python client&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x_NdHEe6qZc36oahGOg" name="|5|" outgoing="_Mo5yB9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5x_ddHEe6qZc36oahGOg" value="&quot;datastore&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5x_tdHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5x_9dHEe6qZc36oahGOg" value="&quot;command line&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yANdHEe6qZc36oahGOg" name="|7|" incoming="_Mo5yBtdHEe6qZc36oahGOg _Mo5yB9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5yAddHEe6qZc36oahGOg" value="&quot;data&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yAtdHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5yA9dHEe6qZc36oahGOg" value="&quot;own programs&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_Mo5yBNdHEe6qZc36oahGOg" source="_Mo5x8tdHEe6qZc36oahGOg" target="_Mo5x9tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_Mo5yBddHEe6qZc36oahGOg" source="_Mo5x9tdHEe6qZc36oahGOg" target="_Mo5x-tdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Mo5yBtdHEe6qZc36oahGOg" source="_Mo5x-NdHEe6qZc36oahGOg" target="_Mo5yANdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_Mo5yB9dHEe6qZc36oahGOg" source="_Mo5x_NdHEe6qZc36oahGOg" target="_Mo5yANdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_Mo5yCNdHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_Mo5yCddHEe6qZc36oahGOg" name="|0|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_Mo5yCtdHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yC9dHEe6qZc36oahGOg" name="|1|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_Mo5yDNdHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to have a functioning python client, so that i can add data to the datastore in bulk from the command line or my own programs.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yDddHEe6qZc36oahGOg" name="|2|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Mo5yDtdHEe6qZc36oahGOg" name="|3|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_Mo5yD9dHEe6qZc36oahGOg" name="|4|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Mo5yENdHEe6qZc36oahGOg" name="|5|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5yEddHEe6qZc36oahGOg" value="&quot;datastore&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yEtdHEe6qZc36oahGOg" name="|6|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5yE9dHEe6qZc36oahGOg" value="&quot;command line&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_Mo5yFNdHEe6qZc36oahGOg" name="|7|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_Mo5yFddHEe6qZc36oahGOg" name="|8|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_Mo5yFtdHEe6qZc36oahGOg" value="&quot;own programs&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_Mo5yF9dHEe6qZc36oahGOg" origin="_Mo5x8tdHEe6qZc36oahGOg" image="_Mo5yCddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yGNdHEe6qZc36oahGOg" origin="_Mo5x9NdHEe6qZc36oahGOg" image="_Mo5yC9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yGddHEe6qZc36oahGOg" origin="_Mo5x9tdHEe6qZc36oahGOg" image="_Mo5yDddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yGtdHEe6qZc36oahGOg" origin="_Mo5x-NdHEe6qZc36oahGOg" image="_Mo5yDtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yG9dHEe6qZc36oahGOg" origin="_Mo5x-tdHEe6qZc36oahGOg" image="_Mo5yD9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yHNdHEe6qZc36oahGOg" origin="_Mo5x_NdHEe6qZc36oahGOg" image="_Mo5yENdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yHddHEe6qZc36oahGOg" origin="_Mo5x_tdHEe6qZc36oahGOg" image="_Mo5yEtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yHtdHEe6qZc36oahGOg" origin="_Mo5yANdHEe6qZc36oahGOg" image="_Mo5yFNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_Mo5yH9dHEe6qZc36oahGOg" origin="_Mo5yAtdHEe6qZc36oahGOg" image="_Mo5yFddHEe6qZc36oahGOg"/>
+</henshin:Rule>

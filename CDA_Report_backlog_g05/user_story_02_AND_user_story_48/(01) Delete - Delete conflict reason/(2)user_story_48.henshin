@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Rule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_YnN-ENdHEe6qZc36oahGOg" name="user_story_48">
+  <lhs xmi:id="_YnN-EddHEe6qZc36oahGOg" name="Lhs">
+    <nodes xmi:id="_YnN-EtdHEe6qZc36oahGOg" name="|11|" outgoing="_YnN-ItdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_YnN-E9dHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-FNdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_YnN-FddHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to know if my csv file is valid, so that i can fix possible data issues before publishing it on open spending.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-FtdHEe6qZc36oahGOg" name="|13|" incoming="_YnN-ItdHEe6qZc36oahGOg" outgoing="_YnN-JNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+      <attributes xmi:id="_YnN-F9dHEe6qZc36oahGOg" value="&quot;know&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-GNdHEe6qZc36oahGOg" name="|14|" outgoing="_YnN-JddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_YnN-GddHEe6qZc36oahGOg" value="&quot;fix&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-GtdHEe6qZc36oahGOg" name="|15|" outgoing="_YnN-I9dHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+      <attributes xmi:id="_YnN-G9dHEe6qZc36oahGOg" value="&quot;publishing&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-HNdHEe6qZc36oahGOg" name="|16|" incoming="_YnN-I9dHEe6qZc36oahGOg _YnN-JNdHEe6qZc36oahGOg _YnN-JtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+      <attributes xmi:id="_YnN-HddHEe6qZc36oahGOg" value="&quot;csv file&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-HtdHEe6qZc36oahGOg" name="|17|" incoming="_YnN-JddHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_YnN-H9dHEe6qZc36oahGOg" value="&quot;possible data issues&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-INdHEe6qZc36oahGOg" name="|18|" outgoing="_YnN-JtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_YnN-IddHEe6qZc36oahGOg" value="&quot;open spending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <edges xmi:id="_YnN-ItdHEe6qZc36oahGOg" source="_YnN-EtdHEe6qZc36oahGOg" target="_YnN-FtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Persona/triggers"/>
+    </edges>
+    <edges xmi:id="_YnN-I9dHEe6qZc36oahGOg" source="_YnN-GtdHEe6qZc36oahGOg" target="_YnN-HNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_YnN-JNdHEe6qZc36oahGOg" source="_YnN-FtdHEe6qZc36oahGOg" target="_YnN-HNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_YnN-JddHEe6qZc36oahGOg" source="_YnN-GNdHEe6qZc36oahGOg" target="_YnN-HtdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Action/targets"/>
+    </edges>
+    <edges xmi:id="_YnN-JtdHEe6qZc36oahGOg" source="_YnN-INdHEe6qZc36oahGOg" target="_YnN-HNdHEe6qZc36oahGOg">
+      <type href="../../../Backlog_v2.3.ecore#//Entity/contains"/>
+    </edges>
+  </lhs>
+  <rhs xmi:id="_YnN-J9dHEe6qZc36oahGOg" name="Rhs">
+    <nodes xmi:id="_YnN-KNdHEe6qZc36oahGOg" name="|11|">
+      <type href="../../../Backlog_v2.3.ecore#//Persona"/>
+      <attributes xmi:id="_YnN-KddHEe6qZc36oahGOg" value="&quot;data publishing user&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-KtdHEe6qZc36oahGOg" name="|12|">
+      <type href="../../../Backlog_v2.3.ecore#//Story"/>
+      <attributes xmi:id="_YnN-K9dHEe6qZc36oahGOg" value="&quot;#g05# as a data publishing user, i want to know if my csv file is valid, so that i can fix possible data issues before publishing it on open spending.&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//Story/text"/>
+      </attributes>
+    </nodes>
+    <nodes xmi:id="_YnN-LNdHEe6qZc36oahGOg" name="|13|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnN-LddHEe6qZc36oahGOg" name="|14|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnN-LtdHEe6qZc36oahGOg" name="|15|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Action"/>
+    </nodes>
+    <nodes xmi:id="_YnN-L9dHEe6qZc36oahGOg" name="|16|">
+      <type href="../../../Backlog_v2.3.ecore#//Primary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_YnN-MNdHEe6qZc36oahGOg" name="|17|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+    </nodes>
+    <nodes xmi:id="_YnN-MddHEe6qZc36oahGOg" name="|18|">
+      <type href="../../../Backlog_v2.3.ecore#//Secondary%20Entity"/>
+      <attributes xmi:id="_YnN-MtdHEe6qZc36oahGOg" value="&quot;open spending&quot;">
+        <type href="../../../Backlog_v2.3.ecore#//NamedElement/name"/>
+      </attributes>
+    </nodes>
+  </rhs>
+  <mappings xmi:id="_YnN-M9dHEe6qZc36oahGOg" origin="_YnN-EtdHEe6qZc36oahGOg" image="_YnN-KNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-NNdHEe6qZc36oahGOg" origin="_YnN-FNdHEe6qZc36oahGOg" image="_YnN-KtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-NddHEe6qZc36oahGOg" origin="_YnN-FtdHEe6qZc36oahGOg" image="_YnN-LNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-NtdHEe6qZc36oahGOg" origin="_YnN-GNdHEe6qZc36oahGOg" image="_YnN-LddHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-N9dHEe6qZc36oahGOg" origin="_YnN-GtdHEe6qZc36oahGOg" image="_YnN-LtdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-ONdHEe6qZc36oahGOg" origin="_YnN-HNdHEe6qZc36oahGOg" image="_YnN-L9dHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-OddHEe6qZc36oahGOg" origin="_YnN-HtdHEe6qZc36oahGOg" image="_YnN-MNdHEe6qZc36oahGOg"/>
+  <mappings xmi:id="_YnN-OtdHEe6qZc36oahGOg" origin="_YnN-INdHEe6qZc36oahGOg" image="_YnN-MddHEe6qZc36oahGOg"/>
+</henshin:Rule>

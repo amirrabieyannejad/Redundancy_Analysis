@@ -71,7 +71,7 @@ public class RuleCreator_v4 {
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
-		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Datasets\\g04_baseline_pos.json", "backlog_g04",
+		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Datasets\\g05_baseline_pos.json", "Henshin_backlog_g05",
 				"Backlog_v2.3.ecore");
 		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();
 		CModule cModule = ruleCreator.processJsonFile(jsonArray);
@@ -182,8 +182,8 @@ public class RuleCreator_v4 {
 				processText(jsonObject, userStoryM, textM);
 				processActions(jsonObject, userStoryM, actionM, personaNode, actionMap, usNrM);
 				processEntities(jsonObject, userStoryM, entityM, targetsArrayM, entityMap, usNrM);
-				processTargetsEdges(jsonObject, targetsArrayM, entityMap, actionMap);
-				processContainsEdges(jsonObject, containsArrayM, targetsArrayM, entityMap);
+				processTargetsEdges(jsonObject, targetsArrayM, entityMap, actionMap, usNrM);
+				processContainsEdges(jsonObject, containsArrayM, targetsArrayM, entityMap, usNrM);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
@@ -345,7 +345,8 @@ public class RuleCreator_v4 {
 	}
 
 	private void processTargetsEdges(JSONObject jsonObject, JSONArray targetsArray, Map<String, CNode> entityMap,
-			Map<String, CNode> actionMap) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
+			Map<String, CNode> actionMap, String usNrM)
+			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
 
 		for (int i = 0; i < targetsArray.length(); i++) {
 			JSONArray currentArray = targetsArray.getJSONArray(i);
@@ -357,7 +358,7 @@ public class RuleCreator_v4 {
 			if ((actionMap.get(action) != null)) {
 				nodeAction = actionMap.get(action);
 			} else {
-				throw new ActionInJsonFileNotFound("Action: \"" + action.toString() + "\" is not found!" );
+				throw new ActionInJsonFileNotFound("In \"Targets\" of " + usNrM +", Action: \"" + action.toString() + "\" is not found!");
 			}
 
 			if ((entityMap.get(entity) != null)) {
@@ -365,7 +366,8 @@ public class RuleCreator_v4 {
 				nodeEntity = entityMap.get(entity);
 			} else {
 
-				throw new EntityInJsonFileNotFound("Entity: \"" + entity.toString() + "\" is not found!");
+				throw new EntityInJsonFileNotFound(
+						"In \"Targets\" of " + usNrM + ", Entity: \"" + entity.toString() + "\" is not found!");
 			}
 
 			// throw exception if Failed to create Edge
@@ -373,17 +375,15 @@ public class RuleCreator_v4 {
 				nodeAction.createEdge(nodeEntity, "targets", "delete");
 			} catch (RuntimeException e) {
 
-				throw new EdgeWithSameSourceAndTarget("Edge with Action: \"" + action.toString()
+				throw new EdgeWithSameSourceAndTarget("In \"Targets\" of " + usNrM + ", Edge with Action: \"" + action.toString()
 						+ "\" and with Entity: \"" + entity.toString() + "\" is already created!");
 			}
 
 		}
 	}
 
-	
-
 	private void processContainsEdges(JSONObject jsonObject, JSONArray containsArray, JSONArray targetsArray,
-			Map<String, CNode> entityMap) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
+			Map<String, CNode> entityMap, String usNrM) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 
 		// iterate through contains JSONArray
 		for (int i = 0; i < containsArray.length(); i++) {
@@ -410,8 +410,8 @@ public class RuleCreator_v4 {
 					} catch (RuntimeException e) {
 
 						throw new EdgeWithSameSourceAndTarget(
-								"Edge with Entity: \"" + firstEntity.toLowerCase().toString() + "\" and Entity"
-										+ secondEntity.toString() + " is already created!");
+								"In \"Contains\" of " + usNrM + ", Edge with Entity: \"" + firstEntity.toLowerCase().toString()
+										+ "\" and Entity \"" + secondEntity.toString() + "\" is already created!");
 					}
 
 				} else {
@@ -421,13 +421,15 @@ public class RuleCreator_v4 {
 					} catch (RuntimeException e) {
 
 						throw new EdgeWithSameSourceAndTarget(
-								"Edge with Entity: \"" + firstEntity.toLowerCase().toString() + "\" and Entity"
-										+ secondEntity.toString() + " is already created!");
+								"In \"Contains\" of " + usNrM + ", Edge with Entity: \"" + firstEntity.toLowerCase().toString()
+										+ "\" and Entity" + secondEntity.toString() + " is already created!");
 					}
 
 				}
 			} else {
-				throw new EntityInJsonFileNotFound();
+				throw new EntityInJsonFileNotFound("In " + usNrM +", following entties are missing:" +
+						firstEntity.toString() +" and " + secondEntity.toString()
+						);
 			}
 		}
 
