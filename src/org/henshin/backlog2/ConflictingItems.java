@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.HashSet;
 
 public class ConflictingItems {
@@ -94,31 +98,53 @@ public class ConflictingItems {
 
 	// Method to printout all Conflicting Items
 	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs,
-			List<ContainsPair> containsPairs) throws IOException {
+			List<ContainsPair> containsPairs, List<TriggerPair> triggersPairs, JSONObject jsonConflictPair)
+			throws IOException {
 
 		List<SecondaryEntity> secondaryEntities = getSecondaryEntity();
 		List<SecondaryAction> secondaryActions = getSecondaryAction();
 		List<PrimaryEntity> primaryEntities = getPrimaryEntity();
 		List<PrimaryAction> primaryActions = getPrimaryActions();
-		List<Targets> targets = getTargets();
-		List<Triggers> triggers = getTriggers();
-		List<Contains> contains = getContains();
+
 		maxConflictCount = 0;
+
+		// Add main Action which contains Primary and secondary Action
+		JSONObject action = new JSONObject();
+
+		// Add main Entity which contains Primary and secondary Entity
+		JSONObject entity = new JSONObject();
+
+		
+
+		if (!secondaryActions.isEmpty()) {
+			for (SecondaryAction secondaryAction : secondaryActions) {
+				if (isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + secondaryAction.getType() + ": " + secondaryAction.getName());
+					// put each secondary Actions into JSON data as an array
+					action.put(secondaryAction.getType(), new JSONArray().put(secondaryAction.getName()));
+					maxConflictCount++;
+				}
+			}
+		}
 
 		if (!secondaryEntities.isEmpty()) {
 			for (SecondaryEntity secondaryEntity : secondaryEntities) {
-				if (isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), targetsPairs)) {
+				if (isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), "", "", targetsPairs)) {
 					cdaWriter.write("\n* " + secondaryEntity.getType() + ": " + secondaryEntity.getName());
+					// put each primary entity into JSON data as an array
+					entity.put(secondaryEntity.getType(), new JSONArray().put(secondaryEntity.getName()));
 					maxConflictCount++;
 				}
 
 			}
 
 		}
-		if (!secondaryActions.isEmpty()) {
-			for (SecondaryAction secondaryAction : secondaryActions) {
-				if (isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), targetsPairs)) {
-					cdaWriter.write("\n* " + secondaryAction.getType() + ": " + secondaryAction.getName());
+		if (!primaryActions.isEmpty()) {
+			for (PrimaryAction primaryAction : primaryActions) {
+				if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + primaryAction.getType() + ": " + primaryAction.getName());
+					// put each primary action into JSON data as an array
+					action.put(primaryAction.getType(), new JSONArray().put(primaryAction.getName()));
 					maxConflictCount++;
 				}
 			}
@@ -126,171 +152,108 @@ public class ConflictingItems {
 		}
 		if (!primaryEntities.isEmpty()) {
 			for (PrimaryEntity primaryEntity : primaryEntities) {
-				if (isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), targetsPairs)) {
+				if (isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), "", "", targetsPairs)) {
 					cdaWriter.write("\n* " + primaryEntity.getType() + ": " + primaryEntity.getName());
+					// put each primary action into JSON data as an array
+					entity.put(primaryEntity.getType(), new JSONArray().put(primaryEntity.getName()));
 					maxConflictCount++;
 				}
 			}
 
 		}
-		if (!primaryActions.isEmpty()) {
-			for (PrimaryAction primaryAction : primaryActions) {
-				if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetsPairs)) {
-					cdaWriter.write("\n* " + primaryAction.getType() + ": " + primaryAction.getName());
-					maxConflictCount++;
-				}
-			}
+		// add all primary/secondary Action/Entity into JSON object
+		jsonConflictPair.put("Entity", entity);
+		jsonConflictPair.put("Action", action);
 
+		if (!targetsPairs.isEmpty()) {
+			// Add Common Targets of both user stories
+			JSONArray jsonTargets = new JSONArray();
+			for (TargetPair targetPair : targetsPairs) {
+				// Write it also in JSON Array Targets
+				JSONArray jsonTargetsPair = new JSONArray().put(targetPair.action).put(targetPair.entity);
+				jsonTargets.put(jsonTargetsPair);
+
+				// Write it on Report if any
+				cdaWriter.write("\n* Targets: Link from \"" + targetPair.getAction() + "\" to \""
+						+ targetPair.getEntity() + "\" is found.");
+				maxConflictCount++;
+			}
+			jsonConflictPair.put("Targets", jsonTargets);
 		}
 
-		if (!targets.isEmpty()) {
-			for (Targets target : targets) {
-				if (!primaryActions.isEmpty() && !primaryEntities.isEmpty()) {
-					Set<String> writtenPrimaryActions = new HashSet<>();
-					Set<String> writtenPrimaryEntities = new HashSet<>();
-
-					for (PrimaryAction primaryAction : primaryActions) {
-						for (PrimaryEntity primaryEntity : primaryEntities) {
-							if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetsPairs)
-									&& isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(),
-											targetsPairs)) {
-								if (!writtenPrimaryActions.contains(primaryAction.getName())
-										&& !writtenPrimaryEntities.contains(primaryEntity.getName())) {
-									cdaWriter.write(
-											"\n* " + target.getName() + ": Link from \"" + primaryAction.getName()
-													+ "\" to \"" + primaryEntity.getName() + "\" is found.");
-									maxConflictCount++;
-									writtenPrimaryActions.add(primaryAction.getName());
-									writtenPrimaryEntities.add(primaryAction.getName());
-								}
-							}
-						}
-					}
-				}
-
-				if (!secondaryActions.isEmpty() && !secondaryEntities.isEmpty()) {
-					Set<String> writtenSecondaryActions = new HashSet<>();
-					Set<String> writtenSecondaryEntities = new HashSet<>();
-					for (SecondaryAction secondaryAction : secondaryActions) {
-						for (SecondaryEntity secondaryEntity : secondaryEntities) {
-							if (isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), targetsPairs)
-									&& isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(),
-											targetsPairs)) {
-								if (!writtenSecondaryActions.contains(secondaryAction.getName())
-										&& !writtenSecondaryEntities.contains(secondaryEntity.getName())) {
-									cdaWriter.write(
-											"\n* " + target.getName() + ": Link from \"" + secondaryAction.getName()
-													+ "\" to \"" + secondaryEntity.getName() + "\" is found.");
-									maxConflictCount++;
-									writtenSecondaryActions.add(secondaryAction.getName());
-									writtenSecondaryEntities.add(secondaryEntity.getName());
-								}
-							}
-						}
-					}
-				}
-			}
-		}
 		// In this scenario I assume that the relationship between
 		// Primary Action and Secondary Entity as Targets node is
 		// not allowed. According to https://github.com/ace-design/nlp-stories
-		if (!triggers.isEmpty()) {
-			Set<String> writtenPrimaryActions = new HashSet<>();
-			// Attention: it can be more than one triggers
-			if (!primaryActions.isEmpty() && !primaryEntities.isEmpty()) {
-				for (Triggers trigger : triggers) {
-					for (PrimaryAction primaryAction : primaryActions) {
-						for (PrimaryEntity primaryEntity : primaryEntities) {
-							if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetsPairs)
-									&& isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(),
-											targetsPairs)) {
-								if (!writtenPrimaryActions.contains(primaryAction.getName())) {
-									cdaWriter.write("\n* " + trigger.getName() + ": " + ": Link from Persona to \""
-											+ primaryAction.getName() + "\" is found.");
-									maxConflictCount++;
-									writtenPrimaryActions.add(primaryAction.getName());
-								}
-							}
-						}
-					}
-				}
+		if (!triggersPairs.isEmpty()) {
+			// Add Common Triggers of both user stories
+			JSONArray jsonTriggers = new JSONArray();
+			for (TriggerPair triggerPair : triggersPairs) {
+				// Write it also in JSON Array Targets
+				JSONArray jsonTriggersPair = new JSONArray().put(triggerPair.persona).put(triggerPair.entity);
+				jsonTriggers.put(jsonTriggersPair);
+
+				// Write it on Report if any
+				cdaWriter.write("\n* Triggers: Link from \"" + triggerPair.getPersona() + "\" to \""
+						+ triggerPair.getEntity() + "\" is found.");
+				maxConflictCount++;
 			}
+			jsonConflictPair.put("Triggers", jsonTriggers);
 
 		}
-		// Check if there is conflict element listed in "Contains" if yes, show their
+		// Check if there is conflict element listed in "Contains" and if the containing
+		// element
+		// is in Targets if yes, write the contains edge as well
 		// link
-		if (!contains.isEmpty()) {
-			for (Contains contain : contains) {
-				if (!secondaryEntities.isEmpty() && !primaryEntities.isEmpty()) {
-					Set<String> writtenPrimaryEntities = new HashSet<>();
-					Set<String> writtenSecondaryEntities = new HashSet<>();
+		if (!containsPairs.isEmpty()) {
+			JSONArray jsonContains = new JSONArray();
+			for (ContainsPair contain : containsPairs) {
+				JSONArray jsonTriggersPair = new JSONArray().put(contain.getParentEntity())
+						.put(contain.getChildEntity());
+				jsonContains.put(jsonTriggersPair);
+				cdaWriter.write("\n* Contains: Link between \"" + contain.getParentEntity() + "\" to \""
+						+ contain.getChildEntity() + "\" is found.");
+				maxConflictCount++;
 
-					for (SecondaryEntity secondaryEntity : secondaryEntities) {
-						for (PrimaryEntity primaryEntity : primaryEntities) {
-							if (isInCommonContains(secondaryEntity.getName(),containsPairs) !=null
-									|| isInCommonContains( primaryEntity.getName(),containsPairs) !=null) {
-								if (!writtenSecondaryEntities.contains(secondaryEntity.getName())
-										&& !writtenPrimaryEntities.contains(primaryEntity.getName())) {
-									cdaWriter.write(
-											"\n* " + contain.getName() + ": Link between \"" + primaryEntity.getName()
-													+ "\" to \"" + secondaryEntity.getName() + "\" is found.");
-									maxConflictCount++;
-									writtenPrimaryEntities.add(primaryEntity.getName());
-									writtenSecondaryEntities.add(secondaryEntity.getName());
-								}
-							}
-						}
-					}
-				}
-				if (!secondaryEntities.isEmpty()) {
-					Set<String> processedPairs = new HashSet<>();
-					for (SecondaryEntity secondaryEntity : secondaryEntities) {
-						
-							String pair = secondaryEntity.getName();
-							String secondPair = isInCommonContains(secondaryEntity.getName(),
-									 containsPairs);
-							if (secondPair!=null) {
-								if (!processedPairs.contains(pair)) {
-									cdaWriter.write(
-											"\n* " + contain.getName() + ": Link between \"" + secondaryEntity.getName()
-													+ "\" to \"" + secondPair + "\" is found.");
-									maxConflictCount++;
-									processedPairs.add(pair);
-
-								}
-							}
-						}
-					}
-				}
 			}
+			jsonConflictPair.put("Contains", jsonContains);
 		}
-
-	
+	}
 
 	// Iterate through Targets Array of related user stories in json file
 	// return true if name of elements which contains in conflicting items
 	// whether exist or not
-	public boolean isInCommonTargets(String name, String type, List<TargetPair> targetsPairs) {
+	public boolean isInCommonTargets(String name1, String type1, String name2, String type2,
+			List<TargetPair> targetsPairs) {
 
 		// Iterate through list of common Targets
 		for (TargetPair targetsPair : targetsPairs) {
 
-			// check whether type of class in action or entity
-			if (type.toLowerCase().contains("action")) {
-				String action = targetsPair.getAction().toLowerCase();
+			if (name2.isEmpty()) {
+				// check whether type of class in action or entity
+				if (type1.toLowerCase().contains("action")) {
+					String action = targetsPair.getAction().toLowerCase();
 
-				// check if name of action(the first element) is exist in Targets Array
-				if (action.equals(name.toLowerCase())) {
+					// check if name of action(the first element) is exist in Targets Array
+					if (action.equals(name1.toLowerCase())) {
+						return true;
+					}
+				} else if (type1.toLowerCase().contains("entity")) {
+					String entity = targetsPair.getEntity().toLowerCase();
+					// check if name of entity(the second element) is exist in Targets Array
+					if (entity.equals(name1.toLowerCase())) {
+						return true;
+					}
+
+				}
+
+			} else {
+				String action = targetsPair.getAction();
+				String entity = targetsPair.getEntity();
+				if (name1.equalsIgnoreCase(action) && name2.equalsIgnoreCase(entity)) {
 					return true;
 				}
-			} else if (type.toLowerCase().contains("entity")) {
-				String entity = targetsPair.getEntity().toLowerCase();
-				// check if name of entity(the second element) is exist in Targets Array
-				if (entity.equals(name.toLowerCase())) {
-					return true;
-				}
+
 			}
-
 		}
 		return false;
 	}
@@ -298,20 +261,19 @@ public class ConflictingItems {
 	// Iterate through Contains Array of related user stories in json file
 	// return true if name of elements which contains in conflicting items
 	// whether exist or not
-	public String isInCommonContains(String name,  List<ContainsPair> containsPairs) {
+	public String isInCommonContains(String name, List<ContainsPair> containsPairs) {
 		// Iterate through list of common Contains
 		for (ContainsPair containsPair : containsPairs) {
 			String parentEntity = containsPair.getParentEntity().toLowerCase();
 			String childEntity = containsPair.getChildEntity().toLowerCase();
-			
-			if(parentEntity.equalsIgnoreCase(name)) {
+			if (parentEntity.equalsIgnoreCase(name)) {
+
 				return childEntity;
-			}else if(childEntity.equalsIgnoreCase(name)){
+			} else if (childEntity.equalsIgnoreCase(name)) {
+
 				return parentEntity;
 			}
-			
 		}
-
 		return null;
 	}
 

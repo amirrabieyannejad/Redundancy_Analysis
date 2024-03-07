@@ -71,7 +71,10 @@ public class RuleCreator_v4 {
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
-		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Datasets\\g05_baseline_pos.json", "Henshin_backlog_g05",
+		String version= "28";
+		RuleCreator_v4 ruleCreator = new 
+				RuleCreator_v4("Datasets\\g"+version+"_baseline_pos.json",
+						"Henshin_backlog_g"+version,
 				"Backlog_v2.3.ecore");
 		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();
 		CModule cModule = ruleCreator.processJsonFile(jsonArray);
@@ -211,7 +214,8 @@ public class RuleCreator_v4 {
 	private void processText(JSONObject jsonObject, CRule userStory, String text) {
 		try {
 			CNode nodeText = userStory.createNode("Story");
-			nodeText.createAttribute("text", "\"" + text.toLowerCase() + "\"");
+			text = text.replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
+			nodeText.createAttribute("text", "\"" + text + "\"");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -221,10 +225,9 @@ public class RuleCreator_v4 {
 	private CNode processPersona(JSONObject jsonObject, JSONArray persona, CRule userStory, String usNr) {
 		try {
 
-			// LOGGER.info("Persona is: " + persona.getString(0) + " length is: " +
-			// persona.length());
 			CNode nodePersona = userStory.createNode("Persona");
-			nodePersona.createAttribute("name", "\"" + persona.getString(0).toLowerCase() + "\"");
+			String person = persona.getString(0).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
+			nodePersona.createAttribute("name", "\"" + person + "\"");
 			return nodePersona;
 
 		} catch (JSONException e) {
@@ -242,10 +245,11 @@ public class RuleCreator_v4 {
 				JSONArray primaryAction = action.getJSONArray("Primary Action");
 				// Creating Nodes for Primary Action/s
 				for (int i = 0; i < primaryAction.length(); i++) {
-
+					String priAction = primaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ",
+							"").toLowerCase();
 					CNode cNode = userStory.createNode("Primary Action");
 
-					cNode.createAttribute("name", "\"" + primaryAction.getString(i).toLowerCase() + "\"", "delete");
+					cNode.createAttribute("name", "\"" + priAction + "\"", "delete");
 
 					// Create Edges from Action to Primary Action names
 					// primary actions
@@ -258,7 +262,7 @@ public class RuleCreator_v4 {
 								"Edge with Action: \"" + primaryAction.getString(i).toLowerCase()
 										+ "\" and with Persona" + " is already created!");
 					}
-					actionMap.put(primaryAction.getString(i), cNode);
+					actionMap.put(priAction, cNode);
 
 				}
 			} else {
@@ -268,11 +272,12 @@ public class RuleCreator_v4 {
 				// Creating Nodes for Secondary Action/s
 				JSONArray secondaryAction = action.getJSONArray("Secondary Action");
 				for (int i = 0; i < secondaryAction.length(); i++) {
-
+					String secAction = secondaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ",
+							"").toLowerCase();
 					CNode cNode = userStory.createNode("Secondary Action");
-					cNode.createAttribute("name", "\"" + secondaryAction.getString(i).toLowerCase() + "\"", "delete");
+					cNode.createAttribute("name", "\"" + secAction + "\"", "delete");
 
-					actionMap.put(secondaryAction.getString(i), cNode);
+					actionMap.put(secAction, cNode);
 				}
 			} else {
 				System.out.println("Secondary Action not found!");
@@ -293,15 +298,17 @@ public class RuleCreator_v4 {
 				// Creating Nodes for Primary Entity/s
 				for (int i = 0; i < primaryEntity.length(); i++) {
 					CNode cNode = null;
-					// check if entity exist in Hashmap
+					String priEntity = primaryEntity.getString(i).replaceAll(" $", "").replaceAll("^ ",
+							"").toLowerCase();
+					// check if entity exist in entityMap
 					if (checkEntityIsTarget(primaryEntity.getString(i), targetsArray)) {
 						cNode = userStory.createNode("Primary Entity");
-						cNode.createAttribute("name", "\"" + primaryEntity.getString(i).toLowerCase() + "\"", "delete");
-						entityMap.put(primaryEntity.getString(i), cNode);
+						cNode.createAttribute("name", "\"" + priEntity + "\"", "delete");
+						entityMap.put(priEntity, cNode);
 					} else {
 						cNode = userStory.createNode("Primary Entity");
-						cNode.createAttribute("name", "\"" + primaryEntity.getString(i).toLowerCase() + "\"");
-						entityMap.put(primaryEntity.getString(i), cNode);
+						cNode.createAttribute("name", "\"" + priEntity + "\"");
+						entityMap.put(priEntity, cNode);
 					}
 				}
 			} else {
@@ -312,24 +319,21 @@ public class RuleCreator_v4 {
 				JSONArray secondaryEntity = entity.getJSONArray("Secondary Entity");
 				// Creating Nodes for Primary Entity/s
 				for (int i = 0; i < secondaryEntity.length(); i++) {
-					// LOGGER.info("Primary Entity is: " + secondaryEntity.getString(i) + " length
-					// is: "
-					// + secondaryEntity.length());
+					String secEntity = secondaryEntity.getString(i).toLowerCase().replaceAll(" $", "").replaceAll("^ ",
+							"");
 					CNode cNode = null;
-					// check if entity exist in Hashmap
-					if (checkEntityIsTarget(secondaryEntity.getString(i), targetsArray)) {
-						// LOGGER.info("[CreateDeleteAttribute] SecondaryEntity is: " +
-						// secondaryEntity.getString(i));
+					// check if entity exist in enttiyMap
+					if (checkEntityIsTarget(secEntity, targetsArray)) {
+
 						cNode = userStory.createNode("Secondary Entity");
-						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i).toLowerCase() + "\"",
-								"delete");
-						entityMap.put(secondaryEntity.getString(i), cNode);
+						cNode.createAttribute("name", "\"" + secEntity + "\"", "delete");
+						entityMap.put(secEntity, cNode);
 					} else {
-						// LOGGER.info("[CreatePreserveAttribute] " + "SecondaryEntity *NOT* "
-						// + "exist in entityMap which is: " + secondaryEntity.getString(i));
+
 						cNode = userStory.createNode("Secondary Entity");
-						cNode.createAttribute("name", "\"" + secondaryEntity.getString(i).toLowerCase() + "\"");
-						entityMap.put(secondaryEntity.getString(i), cNode);
+
+						cNode.createAttribute("name", "\"" + secEntity + "\"");
+						entityMap.put(secEntity, cNode);
 
 					}
 
@@ -350,15 +354,17 @@ public class RuleCreator_v4 {
 
 		for (int i = 0; i < targetsArray.length(); i++) {
 			JSONArray currentArray = targetsArray.getJSONArray(i);
-			String action = currentArray.getString(0);
-			String entity = currentArray.getString(1);
+			// replace space at the end of text if any
+			String action = currentArray.getString(0).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
+			String entity = currentArray.getString(1).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
 			CNode nodeEntity = null;
 			CNode nodeAction = null;
 			// check if action and entity are exist in corresponding JSON Object in file
 			if ((actionMap.get(action) != null)) {
 				nodeAction = actionMap.get(action);
 			} else {
-				throw new ActionInJsonFileNotFound("In \"Targets\" of " + usNrM +", Action: \"" + action.toString() + "\" is not found!");
+				throw new ActionInJsonFileNotFound(
+						"In \"Targets\" of " + usNrM + ", Action: \"" + action.toString() + "\" is not found!");
 			}
 
 			if ((entityMap.get(entity) != null)) {
@@ -375,8 +381,8 @@ public class RuleCreator_v4 {
 				nodeAction.createEdge(nodeEntity, "targets", "delete");
 			} catch (RuntimeException e) {
 
-				throw new EdgeWithSameSourceAndTarget("In \"Targets\" of " + usNrM + ", Edge with Action: \"" + action.toString()
-						+ "\" and with Entity: \"" + entity.toString() + "\" is already created!");
+				throw new EdgeWithSameSourceAndTarget("In \"Targets\" of " + usNrM + ", Edge with Action: \""
+						+ action.toString() + "\" and with Entity: \"" + entity.toString() + "\" is already created!");
 			}
 
 		}
@@ -390,9 +396,11 @@ public class RuleCreator_v4 {
 			JSONArray currentArray = containsArray.getJSONArray(i);
 
 			// consider the first element of array as firstEnttiy
-			String firstEntity = currentArray.getString(0);
+			// replace space at the end of text if any
+			String firstEntity = currentArray.getString(0).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
 			// consider the first element of array as secondEnttiy
-			String secondEntity = currentArray.getString(1);
+			// replace space at the end of text if any
+			String secondEntity = currentArray.getString(1).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
 
 			// make sure that both entity is already listed in entityMap
 			if ((entityMap.get(firstEntity) != null) && (entityMap.get(secondEntity) != null)) {
@@ -409,9 +417,9 @@ public class RuleCreator_v4 {
 						nodefirstEntity.createEdge(nodeSecondEntity, "contains", "delete");
 					} catch (RuntimeException e) {
 
-						throw new EdgeWithSameSourceAndTarget(
-								"In \"Contains\" of " + usNrM + ", Edge with Entity: \"" + firstEntity.toLowerCase().toString()
-										+ "\" and Entity \"" + secondEntity.toString() + "\" is already created!");
+						throw new EdgeWithSameSourceAndTarget("In \"Contains\" of " + usNrM + ", Edge with Entity: \""
+								+ firstEntity.toLowerCase().toString() + "\" and Entity \"" + secondEntity.toString()
+								+ "\" is already created!");
 					}
 
 				} else {
@@ -420,16 +428,15 @@ public class RuleCreator_v4 {
 						nodefirstEntity.createEdge(nodeSecondEntity, "contains");
 					} catch (RuntimeException e) {
 
-						throw new EdgeWithSameSourceAndTarget(
-								"In \"Contains\" of " + usNrM + ", Edge with Entity: \"" + firstEntity.toLowerCase().toString()
-										+ "\" and Entity" + secondEntity.toString() + " is already created!");
+						throw new EdgeWithSameSourceAndTarget("In \"Contains\" of " + usNrM + ", Edge with Entity: \""
+								+ firstEntity.toLowerCase().toString() + "\" and Entity" + secondEntity.toString()
+								+ " is already created!");
 					}
 
 				}
 			} else {
-				throw new EntityInJsonFileNotFound("In " + usNrM +", following entties are missing:" +
-						firstEntity.toString() +" and " + secondEntity.toString()
-						);
+				throw new EntityInJsonFileNotFound("In " + usNrM + ", following entties are missing: "
+						+ firstEntity.toString() + " and " + secondEntity.toString());
 			}
 		}
 

@@ -1,0 +1,240 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+        us_04  us_77  us_08  us_66  us_103  us_111  us_113  us_114  us_64  us_13  us_69  us_22  us_88  us_24  us_53  us_49  us_50  us_59  us_72  us_96  us_97  
+us_04   0      4      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_77   4      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_08   0      0      0      3      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_66   0      0      3      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_103  0      0      0      0      0       4       3       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_111  0      0      0      0      4       0       3       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_113  0      0      0      0      3       3       0       0       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_114  0      0      0      0      0       0       0       0       3      0      0      0      0      0      0      0      0      0      0      0      0      
+us_64   0      0      0      0      0       0       0       3       0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_13   0      0      0      0      0       0       0       0       0      0      3      0      0      0      0      0      0      0      0      0      0      
+us_69   0      0      0      0      0       0       0       0       0      3      0      0      0      0      0      0      0      0      0      0      0      
+us_22   0      0      0      0      0       0       0       0       0      0      0      0      4      0      0      0      0      0      0      0      0      
+us_88   0      0      0      0      0       0       0       0       0      0      0      4      0      0      0      0      0      0      0      0      0      
+us_24   0      0      0      0      0       0       0       0       0      0      0      0      0      0      5      0      0      0      0      0      0      
+us_53   0      0      0      0      0       0       0       0       0      0      0      0      0      5      0      0      0      0      0      0      0      
+us_49   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      10     0      0      0      0      
+us_50   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      10     0      0      0      0      0      
+us_59   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      3      0      0      
+us_72   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      3      0      0      0      
+us_96   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      0      3      
+us_97   0      0      0      0      0       0       0       0       0      0      0      0      0      0      0      0      0      0      0      3      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_04_AND_user_story_77}
+  
+Redundants elements are: 
+* Primary Action: know
+* Primary Entity: datasets
+* Targets: Link from "know" to "datasets" is found.
+* Triggers: Link from "patron" to "know" is found.
+
+ user_story_04: #g27# as a patron, i want to #know# which reports/#datasets# are coming out when, so that i can access latest report/dataset.
+
+ user_story_77: #g27# as a patron, i want to #know# other reports/#datasets# that are related (e.g. see also) to report/dataset being viewed for the purpose finding other related information.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_04:  i want to #know# other reports/#datasets# that are related (e.g. see also) to report/dataset being viewed for the purpose finding other related information.
+user_story_04:  i want to #know# which reports/#datasets# are coming out when
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_08_AND_user_story_66}
+  
+Redundants elements are: 
+* Secondary Action: know
+* Secondary Entity: how
+* Targets: Link from "know" to "how" is found.
+
+ user_story_08: #g27# as a cornell faculty member, i want to see clearly what reuse rights i have to files discovered in the repository, so that i #know# #how# i can reuse them.
+
+ user_story_66: #g27# as a cornell faculty member, i want to easily assign a cc license to the files i are depositing, so that users #know# #how# the materials can be used.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_08:  so that users #know# #how# the materials can be used.
+user_story_08:  so that i #know# #how# i can reuse them.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_103_AND_user_story_111}
+  
+Redundants elements are: 
+* Primary Action: have
+* Primary Entity: mechanism
+* Targets: Link from "have" to "mechanism" is found.
+* Triggers: Link from "asset manager" to "have" is found.
+
+ user_story_103: #g27# as an asset manager, i want to #have# a #mechanism# to obtain a listing or understanding of all the assets that have been deposited, and their current status.
+
+ user_story_111: #g27# as an asset manager, i want to #have# #mechanism# to pass ownership/management of the assets to a successor.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_103:  i want to #have# #mechanism# to pass ownership/management of the assets to a successor.
+user_story_103:  i want to #have# a #mechanism# to obtain a listing or understanding of all the assets that have been deposited
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_103_AND_user_story_113}
+  
+Redundants elements are: 
+* Primary Action: have
+* Primary Entity: mechanism
+* Targets: Link from "have" to "mechanism" is found.
+
+ user_story_103: #g27# as an asset manager, i want to #have# a #mechanism# to obtain a listing or understanding of all the assets that have been deposited, and their current status.
+
+ user_story_113: #g27# as a data curator, i want to #have# a #mechanism# to allow for records scheduling for items that do not need to be stored indefinitely.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_103:  i want to #have# a #mechanism# to allow for records scheduling for items that do not need to be stored indefinitely.
+user_story_103:  i want to #have# a #mechanism# to obtain a listing or understanding of all the assets that have been deposited
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_111_AND_user_story_113}
+  
+Redundants elements are: 
+* Primary Action: have
+* Primary Entity: mechanism
+* Targets: Link from "have" to "mechanism" is found.
+
+ user_story_111: #g27# as an asset manager, i want to #have# #mechanism# to pass ownership/management of the assets to a successor.
+
+ user_story_113: #g27# as a data curator, i want to #have# a #mechanism# to allow for records scheduling for items that do not need to be stored indefinitely.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_111:  i want to #have# a #mechanism# to allow for records scheduling for items that do not need to be stored indefinitely.
+user_story_111:  i want to #have# #mechanism# to pass ownership/management of the assets to a successor.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_114_AND_user_story_64}
+  
+Redundants elements are: 
+* Primary Action: upload
+* Primary Entity: new version
+* Targets: Link from "upload" to "new version" is found.
+
+ user_story_64: #g27# as a db/ir administrator, i want to #upload# #new version# of report/dataset while retaining previous versions for patron use.
+
+ user_story_114: #g27# as a data curator, i want to #upload# a #new version# of an item that has changed, while still allowing old versions to be accessed.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_114:  i want to #upload# a #new version# of an item that has changed
+user_story_114:  i want to #upload# #new version# of report/dataset while retaining previous versions for patron use.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_13_AND_user_story_69}
+  
+Redundants elements are: 
+* Primary Action: upload
+* Primary Entity: data
+* Targets: Link from "upload" to "data" is found.
+
+ user_story_13: #g27# as a cornell faculty member, i want to #upload# #data# and provide a cut and paste formatted citation for people who use it, so that i receive proper attribution for my work.
+
+ user_story_69: #g27# as a student, i want to #upload# to the repository the #data# that is associated with my embargoed dissertation to meet requirements of a dmp i submitted with my nsf ddig.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_13:  i want to #upload# to the repository the #data# that is associated with my embargoed dissertation to meet requirements of a dmp i submitted with my nsf ddig.
+user_story_13:  i want to #upload# #data# and provide a cut and paste formatted citation for people who use it
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_88}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "DB/IR administrator" to "see" is found.
+
+ user_story_22: #g27# as a db/ir administrator, i want to #see# #list# of subscribers for specified report in order research missing report complaints.
+
+ user_story_88: #g27# as a db/ir administrator, i want to #see# a #list# of all administrators for ease of administering accounts.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22:  i want to #see# a #list# of all administrators for ease of administering accounts.
+user_story_22:  i want to #see# #list# of subscribers for specified report in order research missing report complaints.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_24_AND_user_story_53}
+  
+Redundants elements are: 
+* Primary Action: upload
+* Primary Entity: scholarly work
+* Targets: Link from "upload" to "scholarly work" is found.
+* Triggers: Link from "faculty member" to "upload" is found.
+* Contains: Link between "repository" to "scholarly work" is found.
+
+ user_story_24: #g27# as a faculty member, i want to #upload# my #scholarly work# to the #repository#, so that i can have a persistent url that can be used for my personal web page and cv.
+
+ user_story_53: #g27# as a faculty member, i want to #upload# my #scholarly work# to the #repository#, so that i can reach a non-academic audience, expand my influence within my academic community, and use it for teaching.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_24:  i want to #upload# my #scholarly work# to the #repository#
+user_story_24:  i want to #upload# my #scholarly work# to the #repository#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_49_AND_user_story_50}
+  
+Redundants elements are: 
+* Secondary Action: engaged
+* Secondary Entity: research
+* Primary Action: learn
+* Primary Entity: who
+* Targets: Link from "learn" to "who" is found.
+* Targets: Link from "engaged" to "research" is found.
+* Triggers: Link from "student" to "learn" is found.
+* Contains: Link between "Cornell" to "who" is found.
+* Contains: Link between "who" to "research" is found.
+* Contains: Link between "research" to "particular topic" is found.
+
+ user_story_49: #g27# as a student, i want to #learn# #who# at #cornell# has or is #engaged# in #research# related to a particular topic, so that i can decide if i would like to pursue studies/#research# at cornell.
+
+ user_story_50: #g27# as a student, i want to #learn# #who# at #cornell# has or is #engaged# in #research# related to a particular topic, so that i can find an appropriate advisor, choose which courses to enroll in, and identify work/internship opportunities.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_49:  i want to #learn# #who# at #cornell# has or is #engaged# in #research# related to a particular topic
+user_story_49:  i want to #learn# #who# at #cornell# has or is #engaged# in #research# related to a particular topic
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_59_AND_user_story_72}
+  
+Redundants elements are: 
+* Secondary Action: deliver
+* Secondary Entity: content
+* Targets: Link from "deliver" to "content" is found.
+
+ user_story_59: #g27# as a library staff member, i want to #deliver# streaming media from within the repository, so that i can #deliver# such #content# in the manner expected and ensure continued access to said content.
+
+ user_story_72: #g27# as a library staff member, i want to use #content# and metadata from the repository in other systems and/or web pages easily, so that i can #deliver# such #content# in the manner best fit to the audience or occasion.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_59:  so that i can #deliver# such #content# in the manner best fit to the audience or occasion.
+user_story_59:  so that i can #deliver# such #content# in the manner expected and ensure continued access to said content.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_96_AND_user_story_97}
+  
+Redundants elements are: 
+* Secondary Action: fulfill
+* Secondary Entity: collection owner's request
+* Targets: Link from "fulfill" to "collection owner's request" is found.
+
+ user_story_96: #g27# as a repository support team member, i want to move a collection, so that i can #fulfill# the #collection owner's request#.
+
+ user_story_97: #g27# as a repository support team member, i want to rename a collection, so that i can #fulfill# the #collection owner's request#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_96:  so that i can #fulfill# the #collection owner's request#.
+user_story_96:  so that i can #fulfill# the #collection owner's request#.

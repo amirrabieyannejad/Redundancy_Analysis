@@ -50,12 +50,21 @@ public class CdaConvertorV2 {
 
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
 
-		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("CDA_Report_backlog_g05", "Datasets\\g05_baseline_pos.json");
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_g05.txt");
-		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		List<ConflictPair> conflictPairs = cdaConvertor.extractReports(fileWrite);
+		// Version of data set
+		String version = "16";
+		CdaConvertorV2 cdaConvertor = new CdaConvertorV2("CDA_Report_backlog_g" + version,
+				"Datasets\\g" + version + "_baseline_pos.json");
+		// Create text file in order to report to user a readable format
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_g" + version + ".txt");
+		FileWriter fileWriter = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 
-		cdaConvertor.writeTable(cdaReport, conflictPairs);
+		// Create JSON File in order to have systematic overview of result
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_g" + version + ".json");
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+		List<ConflictPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
+
+		cdaConvertor.writeTable(cdaReport, listConflictPairs);
+
 	}
 
 	public String getDirName() {
@@ -67,7 +76,7 @@ public class CdaConvertorV2 {
 	}
 
 	public String getAbsoluteDirPath() {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getDirName());
+		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_2023_12\\CDA_Reports\\" + getDirName());
 		if (Files.exists(path)) {
 
 			return path.toString();
@@ -92,7 +101,7 @@ public class CdaConvertorV2 {
 		FileWriter cdaWriter = null;
 		try {
 			if (totalCda.createNewFile()) {
-				System.out.println("CDA file created succesfully: " + totalCda.getName());
+				System.out.println("File created succesfully: " + totalCda.getName());
 				cdaWriter = new FileWriter(totalCda);
 				return cdaWriter;
 
@@ -108,8 +117,12 @@ public class CdaConvertorV2 {
 		return null;
 	}
 
-	public List<ConflictPair> extractReports(FileWriter fileWriter)
+	public List<ConflictPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
 			throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
+
+		// create JSON array in order to contains all conflict pairs and their
+		JSONArray jsonArray = new JSONArray();
+
 		ConflictingItems conflictingItems;
 		List<ConflictPair> conflictPairs;
 		ArrayList<String> arrayMaximalElements;
@@ -124,6 +137,7 @@ public class CdaConvertorV2 {
 				if (!checkIfReportExist(confPair, pairList) && containsAnd(confPair)) {
 					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + confPair);
 					if (!conflictReasonDir.isFile()) {
+						JSONObject jsonConflictPair = new JSONObject();
 						arrayMaximalElementsNames = new ArrayList<>();
 						arrayMaximalElements = new ArrayList<>();
 						conflictingItems = new ConflictingItems();
@@ -131,6 +145,7 @@ public class CdaConvertorV2 {
 						// Iterate through conflict reasons if there is more than one conflict_reason.
 						if (conflictReasonListing.length > 1) {
 							for (String conflictReason : conflictReasonListing) {
+								// Check if minimal ECore exist
 								if (minimalEcoreExist(confPair, conflictReason)) {
 									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + confPair + "\\"
 											+ conflictReason + "\\minimal-model.ecore");
@@ -150,19 +165,33 @@ public class CdaConvertorV2 {
 								&& hasTargets(arrayMaximalElementsNames, conflictingItems)) {
 							fileWriter.write("\n------------------[Potentially redundant user"
 									+ " stories found]--------------------------\n{" + confPair + "}\n  ");
+							jsonConflictPair.put("Conflict Pair", confPair);
 
 							fileWriter.write("\nRedundants elements are: ");
 							conflictingItems.printConflictingItems(fileWriter, getCommonTargets(confPair),
-									getCommonContains(confPair));
+									getCommonContains(confPair), getCommonTriggers(confPair), jsonConflictPair);
+
+							// add JSON Object into main JSON array
+							jsonConflictPair.put("Conflicted Elements", conflictingItems.getMaxConflictCount());
 
 							// receive text of user stories which are highlighted
 							List<String> highlightedUssTexts = writeUsText(confPair, arrayMaximalElementsNames,
 									conflictPairs, conflictingItems, fileWriter);
+							// Add JSONObject Texts of two user story and store them into Text JSONObject
+							JSONObject jsonText = new JSONObject();
+							jsonText.put("First UserStory", highlightedUssTexts.get(0));
+							jsonText.put("Second UserStory", highlightedUssTexts.get(1));
+							jsonConflictPair.put("Text", jsonText);
+							
 							if (highlightedUssTexts.size() != 0) {
 								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
 										+ " redundancies between user stories:\n\n");
-								writeUsSentencePart(confPair, highlightedUssTexts, fileWriter);
+								writeUsSentencePart(confPair, highlightedUssTexts, fileWriter, jsonConflictPair);
 							}
+
+							// add JSON Object into main JSON array
+							jsonArray.put(jsonConflictPair);
+
 						}
 
 					}
@@ -173,7 +202,10 @@ public class CdaConvertorV2 {
 				fileWriter.write("No redundancy found between user stories!");
 
 			}
+			jsonWriter.write(jsonArray.toString(4));
+			jsonWriter.close();
 			fileWriter.close();
+
 		}
 
 		return conflictPairs;
@@ -221,48 +253,91 @@ public class CdaConvertorV2 {
 		}
 		return targetPairs;
 	}
-	// receive a conflict Pair and a String which corresponds to "Targets" array
-		// Object in JSON file
-		private List<ContainsPair> getCommonContains(String confPair) throws EmptyOrNotExistJsonFile {
-			String us1 = getUsName1(confPair);
-			String us2 = getUsName2(confPair);
-			List<ContainsPair> containsPairs = new ArrayList<>();
-			JSONArray us1ContainsArray = null;
-			JSONArray us2ContainsArray = null;
-			JSONArray jsonArray = readJsonArrayFromFile();
 
-			for (int i = 0; i < jsonArray.length(); i++) {
-				JSONObject jsonObject = jsonArray.getJSONObject(i);
-				if (jsonObject.has("US_Nr") && jsonObject.has("Contains")) {
-					String usNr = jsonObject.getString("US_Nr");
-					if (usNr.equals(us1)) {
-						us1ContainsArray = jsonObject.getJSONArray("Contains");
+	// receive a conflict Pair and a String which corresponds to "Triggers" array
+	// Object in JSON file
+	private List<TriggerPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile {
+		String us1 = getUsName1(confPair);
+		String us2 = getUsName2(confPair);
+		List<TriggerPair> triggersPairs = new ArrayList<>();
+		JSONArray us1TriggersArray = null;
+		JSONArray us2TriggersArray = null;
+		JSONArray jsonArray = readJsonArrayFromFile();
 
-					} else if (usNr.equals(us2)) {
-						us2ContainsArray = jsonObject.getJSONArray("Contains");
+		for (int i = 0; i < jsonArray.length(); i++) {
+			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			if (jsonObject.has("US_Nr") && jsonObject.has("Triggers")) {
+				String usNr = jsonObject.getString("US_Nr");
+				if (usNr.equals(us1)) {
+					us1TriggersArray = jsonObject.getJSONArray("Triggers");
 
-					}
+				} else if (usNr.equals(us2)) {
+					us2TriggersArray = jsonObject.getJSONArray("Triggers");
+
 				}
 			}
-			if (us2ContainsArray != null && us1ContainsArray != null) {
-				for (int i = 0; i < us1ContainsArray.length(); i++) {
-					JSONArray jsonArrayUs1 = us1ContainsArray.getJSONArray(i);
-					String actionUs1 = jsonArrayUs1.getString(0);
-					String enttiyUs1 = jsonArrayUs1.getString(1);
-					for (int j = 0; j < us2ContainsArray.length(); j++) {
-						JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
-						String actionUs2 = jsonArrayUs2.getString(0);
-						String enttiyUs2 = jsonArrayUs2.getString(1);
-						if (enttiyUs2.equalsIgnoreCase(enttiyUs1) 
-								&& actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
-							containsPairs.add(new ContainsPair(actionUs1, enttiyUs1));
-							break;
-						}
-					}
-				}
-			}
-			return containsPairs;
 		}
+		if (us2TriggersArray != null && us1TriggersArray != null) {
+			for (int i = 0; i < us1TriggersArray.length(); i++) {
+				JSONArray jsonArrayUs1 = us1TriggersArray.getJSONArray(i);
+				String personaUs1 = jsonArrayUs1.getString(0);
+				String enttiyUs1 = jsonArrayUs1.getString(1);
+				for (int j = 0; j < us2TriggersArray.length(); j++) {
+					JSONArray jsonArrayUs2 = us2TriggersArray.getJSONArray(j);
+					String personaUs2 = jsonArrayUs2.getString(0);
+					String enttiyUs2 = jsonArrayUs2.getString(1);
+					if (enttiyUs2.equalsIgnoreCase(enttiyUs1)
+							&& personaUs2.equalsIgnoreCase(personaUs1.toLowerCase())) {
+						triggersPairs.add(new TriggerPair(personaUs1, enttiyUs1));
+						break;
+					}
+				}
+			}
+		}
+		return triggersPairs;
+	}
+
+	// receive a conflict Pair and a String which corresponds to "Contains" array
+	// Object in JSON file
+	private List<ContainsPair> getCommonContains(String confPair) throws EmptyOrNotExistJsonFile {
+		String us1 = getUsName1(confPair);
+		String us2 = getUsName2(confPair);
+		List<ContainsPair> containsPairs = new ArrayList<>();
+		JSONArray us1ContainsArray = null;
+		JSONArray us2ContainsArray = null;
+		JSONArray jsonArray = readJsonArrayFromFile();
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			if (jsonObject.has("US_Nr") && jsonObject.has("Contains")) {
+				String usNr = jsonObject.getString("US_Nr");
+				if (usNr.equals(us1)) {
+					us1ContainsArray = jsonObject.getJSONArray("Contains");
+
+				} else if (usNr.equals(us2)) {
+					us2ContainsArray = jsonObject.getJSONArray("Contains");
+
+				}
+			}
+		}
+		if (us2ContainsArray != null && us1ContainsArray != null) {
+			for (int i = 0; i < us1ContainsArray.length(); i++) {
+				JSONArray jsonArrayUs1 = us1ContainsArray.getJSONArray(i);
+				String actionUs1 = jsonArrayUs1.getString(0);
+				String enttiyUs1 = jsonArrayUs1.getString(1);
+				for (int j = 0; j < us2ContainsArray.length(); j++) {
+					JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
+					String actionUs2 = jsonArrayUs2.getString(0);
+					String enttiyUs2 = jsonArrayUs2.getString(1);
+					if (enttiyUs2.equalsIgnoreCase(enttiyUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
+						containsPairs.add(new ContainsPair(actionUs1, enttiyUs1));
+						break;
+					}
+				}
+			}
+		}
+		return containsPairs;
+	}
 
 	private boolean minimalEcoreExist(String confPair, String conflictReason) {
 		Path path = Paths.get(getAbsoluteDirPath() + "\\" + confPair + "\\" + conflictReason + "\\minimal-model.ecore");
@@ -285,7 +360,7 @@ public class CdaConvertorV2 {
 	private void processMinimalModels(File minimalModelEcoreFile, FileWriter cdaWriter,
 			ArrayList<String> arrayMaximalElements, ArrayList<String> arrayMaximalElementsNames,
 			ConflictingItems conflictingItems) throws IOException {
-		if (minimalModelEcoreFile.exists()) {
+		if (minimalModelEcoreFile.exists() && minimalModelEcoreFile.length() > 0) {
 			Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;
 			resourceFactoryRegistry.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
 			ResourceSet resourceSet = new ResourceSetImpl();
@@ -296,19 +371,15 @@ public class CdaConvertorV2 {
 				for (EObject eObject : resource.getContents()) {
 					EPackage minimalPackage = (EPackage) eObject;
 
-					// check whether the conflict is del-use or del-del conflict
-					// conflictReason = element2;
-					// conflictReason = conflictReason.replaceAll("\\S\\d+\\S\\s(.*)", "$1");
-
 					iteratePackages(minimalPackage, arrayMaximalElements, arrayMaximalElementsNames, conflictingItems);
 
 				}
 			} else {
-				cdaWriter.write("minimal-model.ecore not found!");
+				System.out.println("minimal-model.ecore not found!");
 			}
 		} else {
 
-			cdaWriter.write("No registered resource factory founded: " + minimalModelEcoreFile.getAbsolutePath());
+			System.out.println("No registered resource factory founded: " + minimalModelEcoreFile.getAbsolutePath());
 		}
 	}
 
@@ -323,33 +394,58 @@ public class CdaConvertorV2 {
 	// Receive user stories texts with highlighted elements and
 	// return only the part/region of sentences which highlighted elements is
 	// appears
-	private void writeUsSentencePart(String string, List<String> usTexts, FileWriter fileWriter) throws IOException {
+	private void writeUsSentencePart(String string, List<String> usTexts, FileWriter fileWriter, JSONObject jsonObject)
+			throws IOException {
 		String usNum1 = getUsName1(string);
 		String usNum2 = getUsName2(string);
 		String usText1 = usTexts.get(0);
 		String usText2 = usTexts.get(1);
-		splitUsText(usText1, usNum1, fileWriter);
-		splitUsText(usText2, usNum2, fileWriter);
+		splitUsText(usText1, usNum1, usText2, usNum2, fileWriter, jsonObject);
 
 	}
 
-	private void splitUsText(String us, String usNr, FileWriter fileWriter) throws IOException {
-		String[] parts = us.split(",", 3);
+	private void splitUsText(String usText1, String usNum1, String usText2, String usNum2, FileWriter fileWriter,
+			JSONObject jsonObject) throws IOException {
+		String[] parts1 = usText1.split(",", 3);
+		String[] parts2 = usText2.split(",", 3);
+		// show only part of sentences which include more that two hash symbol pairs
 		String regex = "#[^#]+#";
-		Set<String> writtenUserStoryPart = new HashSet<>();
+		Set<String> writtenUserStoryPart1 = new HashSet<>();
+		Set<String> writtenUserStoryPart2 = new HashSet<>();
 		Pattern pattern = Pattern.compile(regex);
-		for (String part : parts) {
+		// Initialize JOSN Object as Parts of Sentence
+		JSONObject jsonPartOfSentence = new JSONObject();
+
+		// Create separate user story section part
+		for (String part : parts2) {
 			Matcher matcher = pattern.matcher(part);
 			int count = 0;
 			while (matcher.find()) {
 				count++;
-				if (count >= 2 && !writtenUserStoryPart.contains(part)) {
-					fileWriter.write(usNr + ": " + part + "\n");
-					writtenUserStoryPart.add(part);
+				if (count >= 2 && !writtenUserStoryPart2.contains(part)) {
+					fileWriter.write(usNum1 + ": " + part + "\n");
+					// Write sentence Part first user story on sentence part A
+					jsonPartOfSentence.put("Second UserStory", new JSONArray().put(part));
+					writtenUserStoryPart2.add(part);
 				}
 			}
-
 		}
+		// Create separate user story section part
+		for (String part : parts1) {
+			Matcher matcher = pattern.matcher(part);
+			int count = 0;
+			while (matcher.find()) {
+				count++;
+				if (count >= 2 && !writtenUserStoryPart1.contains(part)) {
+					fileWriter.write(usNum1 + ": " + part + "\n");
+					// Write sentence Part first user story on sentence part A
+					jsonPartOfSentence.put("First UserStory", new JSONArray().put(part));
+					writtenUserStoryPart1.add(part);
+				}
+			}
+		}
+
+		jsonObject.put("Part of Sentence", jsonPartOfSentence);
 
 	}
 
@@ -587,32 +683,81 @@ public class CdaConvertorV2 {
 	// For secondary action entity we looking ad the third region of sentence.
 	private String highlightConflict(String usText, ConflictingItems conflictingItems, String usNr, String usPair)
 			throws IOException, EmptyOrNotExistJsonFile {
+		if (usText.length() <= 0) {
+			return null;
+		}
 		List<TargetPair> targetsPairs = getCommonTargets(usPair);
-		//TODO should I highlight contains elements? 
+
+		// TODO should I highlight contains elements?
 		List<ContainsPair> containsPairs = getCommonContains(usPair);
+
 		// find the index of first comma
 		int firstComma = usText.indexOf(',');
+		if (firstComma == -1) {
+			return usText;
+		}
 		// Substring from the first comma until the end of the usText
 		String subStringSecond = usText.substring(firstComma);
 		for (PrimaryAction primaryAction : conflictingItems.getPrimaryActions()) {
 			// check if related conflicting item is already build triple with
 			// Entity/Targets/Action
-			if (conflictingItems.isInCommonTargets(primaryAction.getName(), primaryAction.getType(), targetsPairs)) {
+			if (conflictingItems.isInCommonTargets(primaryAction.getName(), primaryAction.getType(), "", "",
+					targetsPairs) && !primaryAction.getName().contains("#")) {
 				subStringSecond = subStringSecond.replaceFirst("\\b" + primaryAction.getName() + "\\b",
 						"#" + primaryAction.getName() + "#");
 			}
 
 		}
 		for (PrimaryEntity primaryEntity : conflictingItems.getPrimaryEntity()) {
+
 			// check if related conflicting item is already build triple with
 			// Entity/Targets/Action
-			if (conflictingItems.isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), targetsPairs)) {
+			if (conflictingItems.isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), "", "",
+					targetsPairs)) {
 				subStringSecond = subStringSecond.replaceFirst("\\b" + primaryEntity.getName() + "\\b",
 						"#" + primaryEntity.getName() + "#");
+				String contains = conflictingItems.isInCommonContains(primaryEntity.getName(), containsPairs);
+				// check if primary entity exist in contains list
+				if (contains != null) {
+					subStringSecond = subStringSecond.replaceFirst("\\b" + contains + "\\b", "#" + contains + "#");
+				}
+			}
+
+		}
+		for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), "", "",
+					targetsPairs)) {
+				subStringSecond = subStringSecond.replaceFirst("\\b" + secondaryAction.getName() + "\\b",
+						"#" + secondaryAction.getName() + "#");
+			}
+		}
+
+		for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
+			// check if related conflicting item is already build triple with
+			// Entity/Targets/Action
+			if (conflictingItems.isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), "", "",
+					targetsPairs)) {
+				subStringSecond = subStringSecond.replaceFirst("\\b" + secondaryEntity.getName() + "\\b",
+						"#" + secondaryEntity.getName() + "#");
+				String contains = conflictingItems.isInCommonContains(secondaryEntity.getName(), containsPairs);
+
+				// check if primary entity exist in contains list
+				if (contains != null) {
+					subStringSecond = subStringSecond.replaceFirst("\\b" + contains + "\\b", "#" + contains + "#");
+				}
 			}
 		}
 		// receive the index of second comma
 		int secondComma = subStringSecond.indexOf(',', 1);
+
+		// if indexOf return -1 which means user story doesn't have Benefit
+		if (secondComma == -1) {
+			usText = usText.substring(0, firstComma) + subStringSecond;
+			usText = usText.replaceAll("#+", "#");
+			return usText;
+		}
 		usText = usText.substring(0, firstComma) + subStringSecond.substring(0, secondComma + 1);
 
 		// starting the search from the index right after the third comma.
@@ -620,7 +765,7 @@ public class CdaConvertorV2 {
 		for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
 			// check if related conflicting item is already build triple with
 			// Entity/Targets/Action
-			if (conflictingItems.isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(),
+			if (conflictingItems.isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), "", "",
 					targetsPairs)) {
 				subStringThird = subStringThird.replaceFirst("\\b" + secondaryAction.getName() + "\\b",
 						"#" + secondaryAction.getName() + "#");
@@ -630,14 +775,20 @@ public class CdaConvertorV2 {
 		for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
 			// check if related conflicting item is already build triple with
 			// Entity/Targets/Action
-			if (conflictingItems.isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(),
+			if (conflictingItems.isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), "", "",
 					targetsPairs)) {
 				subStringThird = subStringThird.replaceFirst("\\b" + secondaryEntity.getName() + "\\b",
 						"#" + secondaryEntity.getName() + "#");
-
+				String contains = conflictingItems.isInCommonContains(secondaryEntity.getName(), containsPairs);
+				// check if primary entity exist in contains list
+				if (contains != null) {
+					subStringThird = subStringThird.replaceFirst("\\b" + contains + "\\b", "#" + contains + "#");
+				}
 			}
+
 		}
 		usText = usText.substring(0, firstComma + secondComma) + subStringThird;
+		usText = usText.replaceAll("#+", "#");
 		return usText;
 	}
 
@@ -702,6 +853,7 @@ public class CdaConvertorV2 {
 
 						} else if (refName.equals("contains")) {
 							conflictingItems.addContains(new Contains(refName, className));
+
 						}
 
 					}

@@ -1,0 +1,317 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_02  us_04  us_08  us_09  us_21  us_22  us_23  us_73  us_24  us_25  us_26  us_36  us_63  us_39  us_62  us_68  us_69  us_70  us_71  us_89  us_90  
+us_02  0      4      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_04  4      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_08  0      0      0      5      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_09  0      0      5      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_21  0      0      0      0      0      7      4      4      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_22  0      0      0      0      7      0      4      4      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_23  0      0      0      0      4      4      0      4      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_73  0      0      0      0      4      4      4      0      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_24  0      0      0      0      0      0      0      0      0      4      3      0      0      0      0      0      0      0      0      0      0      
+us_25  0      0      0      0      0      0      0      0      4      0      5      0      0      0      0      0      0      0      0      0      0      
+us_26  0      0      0      0      0      0      0      0      3      5      0      0      0      0      0      0      0      0      0      0      0      
+us_36  0      0      0      0      0      0      0      0      0      0      0      0      4      0      0      0      0      0      0      0      0      
+us_63  0      0      0      0      0      0      0      0      0      0      0      4      0      0      0      0      0      0      0      0      0      
+us_39  0      0      0      0      0      0      0      0      0      0      0      0      0      0      4      0      0      0      0      0      0      
+us_62  0      0      0      0      0      0      0      0      0      0      0      0      0      4      0      0      0      0      0      0      0      
+us_68  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      3      0      0      0      0      
+us_69  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      3      0      0      0      0      0      
+us_70  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      4      0      0      
+us_71  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      4      0      0      0      
+us_89  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      4      
+us_90  0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      4      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_02_AND_user_story_04}
+  
+Redundants elements are: 
+* Primary Action: fill out
+* Primary Entity: application
+* Targets: Link from "fill out" to "application" is found.
+* Triggers: Link from "site member" to "fill out" is found.
+
+ user_story_02: #g10# as a site member, i want to #fill out# an #application# to become a certified scrum practitioner, so that i can earn that designation.
+
+ user_story_04: #g10# as a site member, i want to #fill out# an #application# to become a certified scrum trainer, so that i can teach csm and cspo courses and certify others.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_02:  i want to #fill out# an #application# to become a certified scrum trainer
+user_story_02:  i want to #fill out# an #application# to become a certified scrum practitioner
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_08_AND_user_story_09}
+  
+Redundants elements are: 
+* Secondary Action: connect
+* Secondary Action: find
+* Secondary Entity: others
+* Targets: Link from "find" to "others" is found.
+* Targets: Link from "connect" to "others" is found.
+
+ user_story_08: #g10# as a site member, i want to view the profiles of other members, so that i can #find# #others# i might want to #connect# with.
+
+ user_story_09: #g10# as a site member, i want to search for profiles based on a few fields, so that i can #find# #others# i might want to #connect# with.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_08:  so that i can #find# #others# i might want to #connect# with.
+user_story_08:  so that i can #find# #others# i might want to #connect# with.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_21_AND_user_story_22}
+  
+Redundants elements are: 
+* Secondary Action: choose
+* Secondary Entity: best course
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Targets: Link from "choose" to "best course" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_21: #g10# as a site visitor, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can #choose# the #best course# for me.
+
+ user_story_22: #g10# as a site visitor, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can #choose# the #best course# for me.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_21:  i want to #see# a #list# of all upcoming other courses and can page through them if necessary
+user_story_21:  so that i can #choose# the #best course# for me.
+user_story_21:  i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot
+user_story_21:  so that i can #choose# the #best course# for me.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_21_AND_user_story_23}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_21: #g10# as a site visitor, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can choose the best course for me.
+
+ user_story_23: #g10# as a site visitor, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_21:  i want to #see# a #list# of all upcoming events
+user_story_21:  i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_21_AND_user_story_73}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_21: #g10# as a site visitor, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can choose the best course for me.
+
+ user_story_73: #g10# as a site visitor, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_21:  i want to #see# a #list# of the most popular items on the site
+user_story_21:  i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_23}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_22: #g10# as a site visitor, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can choose the best course for me.
+
+ user_story_23: #g10# as a site visitor, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22:  i want to #see# a #list# of all upcoming events
+user_story_22:  i want to #see# a #list# of all upcoming other courses and can page through them if necessary
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_73}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_22: #g10# as a site visitor, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can choose the best course for me.
+
+ user_story_73: #g10# as a site visitor, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22:  i want to #see# a #list# of the most popular items on the site
+user_story_22:  i want to #see# a #list# of all upcoming other courses and can page through them if necessary
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_23_AND_user_story_73}
+  
+Redundants elements are: 
+* Primary Action: see
+* Primary Entity: list
+* Targets: Link from "see" to "list" is found.
+* Triggers: Link from "site visitor" to "see" is found.
+
+ user_story_23: #g10# as a site visitor, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any.
+
+ user_story_73: #g10# as a site visitor, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_23:  i want to #see# a #list# of the most popular items on the site
+user_story_23:  i want to #see# a #list# of all upcoming events
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_24_AND_user_story_25}
+  
+Redundants elements are: 
+* Primary Action: create
+* Primary Entity: event
+* Targets: Link from "create" to "event" is found.
+* Triggers: Link from "trainer" to "create" is found.
+
+ user_story_24: #g10# as a trainer, i want to #create# a new course or #event#, so that site visitors can see it.
+
+ user_story_25: #g10# as a trainer, i want to #create# an other course or #event# i am charged a listing fee for that activity, so that i don't list events i don't really intend to hold.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_24:  i want to #create# an other course or #event# i am charged a listing fee for that activity
+user_story_24:  i want to #create# a new course or #event#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_24_AND_user_story_26}
+  
+Redundants elements are: 
+* Primary Action: create
+* Primary Entity: event
+* Targets: Link from "create" to "event" is found.
+
+ user_story_24: #g10# as a trainer, i want to #create# a new course or #event#, so that site visitors can see it.
+
+ user_story_26: #g10# as a site administrator, i want to #create# an other course or #event# that is not charged a listing fee, so that the scrum alliance doesn't charge itself for scrum gatherings that it puts on.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_24:  i want to #create# an other course or #event# that is not charged a listing fee
+user_story_24:  i want to #create# a new course or #event#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_25_AND_user_story_26}
+  
+Redundants elements are: 
+* Primary Action: create
+* Primary Entity: other course
+* Primary Entity: event
+* Targets: Link from "create" to "Other Course" is found.
+* Targets: Link from "create" to "Event" is found.
+
+ user_story_25: #g10# as a trainer, i want to #create# an #other course# or #event# i am charged a listing fee for that activity, so that i don't list events i don't really intend to hold.
+
+ user_story_26: #g10# as a site administrator, i want to #create# an #other course# or #event# that is not charged a listing fee, so that the scrum alliance doesn't charge itself for scrum gatherings that it puts on.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_25:  i want to #create# an #other course# or #event# that is not charged a listing fee
+user_story_25:  i want to #create# an #other course# or #event# i am charged a listing fee for that activity
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_36_AND_user_story_63}
+  
+Redundants elements are: 
+* Primary Action: subscribe
+* Primary Entity: rss feed
+* Targets: Link from "subscribe" to "RSS feed" is found.
+* Triggers: Link from "site visitor" to "subscribe" is found.
+
+ user_story_36: #g10# as a site visitor, i want to #subscribe# to an #rss feed# of upcoming courses and events, so that i am up to day without having to visit the site.
+
+ user_story_63: #g10# as a site visitor, i want to #subscribe# to an #rss feed# of articles, so that i can read them without visiting the site.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_36:  i want to #subscribe# to an #rss feed# of articles
+user_story_36:  i want to #subscribe# to an #rss feed# of upcoming courses and events
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_39_AND_user_story_62}
+  
+Redundants elements are: 
+* Primary Action: do
+* Primary Entity: full-text search
+* Targets: Link from "do" to "full-text search" is found.
+* Triggers: Link from "site visitor" to "do" is found.
+
+ user_story_39: #g10# as a site visitor, i want to #do# a #full-text search# of the faqs, so that i can find an answer quickly.
+
+ user_story_62: #g10# as a site visitor, i want to #do# a #full-text search# of article body, title, and author name, so that i can find what i want.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_39:  i want to #do# a #full-text search# of article body
+user_story_39:  i want to #do# a #full-text search# of the faqs
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_68_AND_user_story_69}
+  
+Redundants elements are: 
+* Secondary Action: come
+* Secondary Entity: site
+* Targets: Link from "come" to "site" is found.
+
+ user_story_68: #g10# as a site visitor, i want to see new content when i #come# to the #site#, so that i #come# back more often.
+
+ user_story_69: #g10# as a site visitor, i want to have articles that interest me and are easy to get to, so that i #come# to the #site# for my agile news and learning.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_68:  so that i #come# to the #site# for my agile news and learning.
+user_story_68:  i want to see new content when i #come# to the #site#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_70_AND_user_story_71}
+  
+Redundants elements are: 
+* Primary Action: know
+* Primary Entity: why
+* Targets: Link from "know" to "why" is found.
+* Triggers: Link from "site visitor" to "know" is found.
+
+ user_story_70: #g10# as a site visitor, i want to #know# as soon as i visit what on earth scrum is and #why# it needs an alliance, so that i don't bounce immediately oï¬€ the page.
+
+ user_story_71: #g10# as a site visitor, i want to #know# as i glance around the home page what on earth a csm is and #why# i'd want to be one, so that i read more.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_70:  i want to #know# as i glance around the home page what on earth a csm is and #why# i'd want to be one
+user_story_70:  i want to #know# as soon as i visit what on earth scrum is and #why# it needs an alliance
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_89_AND_user_story_90}
+  
+Redundants elements are: 
+* Secondary Action: see
+* Secondary Entity: company's support
+* Targets: Link from "see" to "company's support" is found.
+* Contains: Link between "Scrum" to "company's support" is found.
+
+ user_story_89: #g10# as a corporatesponsor, i want to display my logo on a corporate sponsors page, so that others #see# the #company's support# of #scrum#.
+
+ user_story_90: #g10# as a corporatesponsor, i want to make my logo randomly appear on the home page, so that others #see# the #company's support# of #scrum#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_89:  so that others #see# the #company's support# of #scrum#.
+user_story_89:  so that others #see# the #company's support# of #scrum#.

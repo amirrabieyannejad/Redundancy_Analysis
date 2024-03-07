@@ -1,0 +1,194 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_01  us_45  us_09  us_10  us_56  us_61  us_59  us_60  us_83  us_84  us_85  us_86  
+us_01  0      3      0      0      0      0      0      0      0      0      0      0      
+us_45  3      0      0      0      0      0      0      0      0      0      0      0      
+us_09  0      0      0      4      0      0      0      0      0      0      0      0      
+us_10  0      0      4      0      0      0      0      0      0      0      0      0      
+us_56  0      0      0      0      0      4      0      0      0      0      0      0      
+us_61  0      0      0      0      4      0      0      0      0      0      0      0      
+us_59  0      0      0      0      0      0      0      4      0      0      0      0      
+us_60  0      0      0      0      0      0      4      0      0      0      0      0      
+us_83  0      0      0      0      0      0      0      0      0      4      4      4      
+us_84  0      0      0      0      0      0      0      0      4      0      4      4      
+us_85  0      0      0      0      0      0      0      0      4      4      0      4      
+us_86  0      0      0      0      0      0      0      0      4      4      4      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_01_AND_user_story_45}
+  
+Redundants elements are: 
+* Secondary Action: know
+* Secondary Entity: what
+* Targets: Link from "know" to "what" is found.
+
+ user_story_01: #g26# as an archivist, i want to apply a license or rights statement, so that i #know# #what# i can do with a file.
+
+ user_story_45: #g26# as an archivist, i want to make information about rights available to researchers and donors, so that they #know# #what# they can do with images.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_01:  so that they #know# #what# they can do with images.
+user_story_01:  so that i #know# #what# i can do with a file.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_09_AND_user_story_10}
+  
+Redundants elements are: 
+* Primary Action: restrict
+* Primary Entity: access
+* Targets: Link from "restrict" to "access" is found.
+* Triggers: Link from "archivist" to "restrict" is found.
+
+ user_story_09: #g26# as an archivist, i want to #restrict# #access# to some files by ip address, so that i can give reading room access only to certain digital files.
+
+ user_story_10: #g26# as an archivist, i want to #restrict# #access# to certain files by user, so that i can allow donor representatives to see certain files.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_09:  i want to #restrict# #access# to certain files by user
+user_story_09:  i want to #restrict# #access# to some files by ip address
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_56_AND_user_story_61}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: all files
+* Targets: Link from "search" to "all files" is found.
+* Contains: Link between "all files" to "keyword" is found.
+
+ user_story_56: #g26# as a researcher, i want to #search# #all files# by #keyword#.
+
+ user_story_61: #g26# as an archivist, i want to #search# #all files# by #keyword#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_56:  i want to #search# #all files# by #keyword#.
+user_story_56:  i want to #search# #all files# by #keyword#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_59_AND_user_story_60}
+  
+Redundants elements are: 
+* Primary Action: browse through
+* Primary Entity: files
+* Targets: Link from "browse through" to "files" is found.
+* Contains: Link between "collection" to "files" is found.
+
+ user_story_59: #g26# as a researcher, i want to #browse through# #files# in a #collection#.
+
+ user_story_60: #g26# as an archivist, i want to #browse through# #files# in a #collection#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_59:  i want to #browse through# #files# in a #collection#.
+user_story_59:  i want to #browse through# #files# in a #collection#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_83_AND_user_story_84}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_83: #g26# as an archivist, i want to #search# #images# by photographer.
+
+ user_story_84: #g26# as an archivist, i want to #search# #images# by people represented in them.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_83:  i want to #search# #images# by people represented in them.
+user_story_83:  i want to #search# #images# by photographer.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_83_AND_user_story_85}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_83: #g26# as an archivist, i want to #search# #images# by photographer.
+
+ user_story_85: #g26# as an archivist, i want to #search# #images# by place the photo was taken.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_83:  i want to #search# #images# by place the photo was taken.
+user_story_83:  i want to #search# #images# by photographer.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_83_AND_user_story_86}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_83: #g26# as an archivist, i want to #search# #images# by photographer.
+
+ user_story_86: #g26# as an archivist, i want to #search# #images# by rights.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_83:  i want to #search# #images# by rights.
+user_story_83:  i want to #search# #images# by photographer.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_84_AND_user_story_85}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_84: #g26# as an archivist, i want to #search# #images# by people represented in them.
+
+ user_story_85: #g26# as an archivist, i want to #search# #images# by place the photo was taken.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_84:  i want to #search# #images# by place the photo was taken.
+user_story_84:  i want to #search# #images# by people represented in them.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_84_AND_user_story_86}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_84: #g26# as an archivist, i want to #search# #images# by people represented in them.
+
+ user_story_86: #g26# as an archivist, i want to #search# #images# by rights.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_84:  i want to #search# #images# by rights.
+user_story_84:  i want to #search# #images# by people represented in them.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_85_AND_user_story_86}
+  
+Redundants elements are: 
+* Primary Action: search
+* Primary Entity: images
+* Targets: Link from "search" to "images" is found.
+* Triggers: Link from "archivist" to "search" is found.
+
+ user_story_85: #g26# as an archivist, i want to #search# #images# by place the photo was taken.
+
+ user_story_86: #g26# as an archivist, i want to #search# #images# by rights.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_85:  i want to #search# #images# by rights.
+user_story_85:  i want to #search# #images# by place the photo was taken.
