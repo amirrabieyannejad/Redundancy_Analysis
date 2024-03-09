@@ -1,8 +1,8 @@
 package org.henshin.backlog2;
 
 public class TargetPair extends ConflictingItems{
-	String action;
-	String entity;
+	private String action;
+	private String entity;
 
 	public TargetPair(String action, String entity) {
 		this.action = action;

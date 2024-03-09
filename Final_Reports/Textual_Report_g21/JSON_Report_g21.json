@@ -1,0 +1,417 @@
+[
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["view"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #view# a #list# of user profiles"],
+            "First UserStory": [" i want to #view# a #list# of sponsors"]
+        },
+        "Targets": [[
+            "view",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "view"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #view# a #list# of user profiles, so that i know who is attending the conference.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #view# a #list# of sponsors, so that i can thank all the awesome sponsors."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_01_AND_user_story_02"
+    },
+    {
+        "Entity": {"Secondary Entity": ["who"]},
+        "Action": {"Secondary Action": ["know"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #know# #who# from this sponsor organization is attending."],
+            "First UserStory": [" so that i #know# #who# is attending the conference."]
+        },
+        "Targets": [[
+            "know",
+            "who"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to see a list of attendees associated with this company, so that i #know# #who# from this sponsor organization is attending.",
+            "First UserStory": "#g21# as a anonymoususer, i want to view a list of user profiles, so that i #know# #who# is attending the conference."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_02_AND_user_story_22"
+    },
+    {
+        "Entity": {"Primary Entity": ["admin view"]},
+        "Action": {"Primary Action": ["have"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# an #admin view# where all trainee information is shown and can be filtered to show a single training session"],
+            "First UserStory": [" i want to #have# an #admin view# that helps track registration status for each attendee so that"]
+        },
+        "Targets": [[
+            "have",
+            "admin view"
+        ]],
+        "Triggers": [[
+            "trainingcoordinator",
+            "have"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a trainingcoordinator, i want to #have# an #admin view# where all trainee information is shown and can be filtered to show a single training session, so that i can see wtf is happening.",
+            "First UserStory": "#g21# as a trainingcoordinator, i want to #have# an #admin view# that helps track registration status for each attendee so that, so that we can see if attendend, refunded, no show."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_07_AND_user_story_14"
+    },
+    {
+        "Entity": {"Secondary Entity": ["event experience"]},
+        "Action": {"Secondary Action": ["schedule"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that they can #schedule# their #event experience#."],
+            "First UserStory": [" so that they can #schedule# their #event experience#."]
+        },
+        "Targets": [[
+            "schedule",
+            "event experience"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a trainee, i want to see which trainings i have signed up for, so that they can #schedule# their #event experience#.",
+            "First UserStory": "#g21# as a trainee, i want to add to \"my #schedule#\" if there is a schedule feature on the site, so that they can #schedule# their #event experience#."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_11_AND_user_story_12"
+    },
+    {
+        "Entity": {"Secondary Entity": ["training"]},
+        "Action": {"Secondary Action": ["shop"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #shop# for #training# all with #one page# and we can have a call for trainings for selection."],
+            "First UserStory": [" title, short summary, trainers, level, number of registrations, remaining registrations, location of #training#, link to full details of the training, register now link, so that i can #shop# for training all with #one page# and find their class on on one page."]
+        },
+        "Contains": [[
+            "one page",
+            "training"
+        ]],
+        "Targets": [[
+            "shop",
+            "training"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "have"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to have a #training# landing page with an intro section and a list of all training offerings and promote call for trainings, so that i can #shop# for #training# all with #one page# and we can have a call for trainings for selection.",
+            "First UserStory": "#g21# as a anonymoususer, i want to have the #training# options clearly marked for the following information: day and time of training, title, short summary, trainers, level, number of registrations, remaining registrations, location of #training#, link to full details of the training, register now link, so that i can #shop# for training all with #one page# and find their class on on one page."
+        },
+        "Conflicted Elements": 5,
+        "Conflict Pair": "user_story_16_AND_user_story_17"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of the sessions associated with sponsor attendees"],
+            "First UserStory": [" i want to #see# a #list# of attendees associated with this company"]
+        },
+        "Targets": [[
+            "See",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "See"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of the sessions associated with sponsor attendees, so that i know where i can engage with this sponsor and where they are thought leaders.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of attendees associated with this company, so that i know who from this sponsor organization is attending."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_22_AND_user_story_26"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of attendees signed up for my summit"],
+            "First UserStory": [" i want to #see# a #list# of attendees associated with this company"]
+        },
+        "Targets": [[
+            "See",
+            "list"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a summit coordinator, i want to #see# a #list# of attendees signed up for my summit, so that i can communicate with my attendees by email prior to the event.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of attendees associated with this company, so that i know who from this sponsor organization is attending."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_22_AND_user_story_41"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits"],
+            "First UserStory": [" i want to #see# a #list# of attendees associated with this company"]
+        },
+        "Targets": [[
+            "See",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "See"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits, so that i can determine which summit i might be interested and able to attend.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of attendees associated with this company, so that i know who from this sponsor organization is attending."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_22_AND_user_story_47"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits that include when they are"],
+            "First UserStory": [" i want to #see# a #list# of attendees associated with this company"]
+        },
+        "Targets": [[
+            "See",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "See"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits that include when they are, so that i can determine which summit i want to attend.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of attendees associated with this company, so that i know who from this sponsor organization is attending."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_22_AND_user_story_65"
+    },
+    {
+        "Entity": {"Secondary Entity": ["sponsor"]},
+        "Action": {"Secondary Action": ["engage"]},
+        "Part of Sentence": {
+            "Second UserStory": [" trainings and summits that a #sponsor# is sponsoring so that i #know# #where# i can #engage# with this sponsor and where they are thought leaders."],
+            "First UserStory": [" so that i #know# #where# i can #engage# with this #sponsor# and where they are thought leaders."]
+        },
+        "Targets": [
+            [
+                "engage",
+                "sponsor"
+            ],
+            [
+                "know",
+                "where"
+            ]
+        ],
+        "Triggers": [[
+            "anonymoususer",
+            "see"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to see all events, trainings and summits that a #sponsor# is sponsoring so that i #know# #where# i can #engage# with this sponsor and where they are thought leaders.",
+            "First UserStory": "#g21# as a anonymoususer, i want to see a list of the sessions associated with #sponsor# attendees, so that i #know# #where# i can #engage# with this #sponsor# and where they are thought leaders."
+        },
+        "Conflicted Elements": 7,
+        "Conflict Pair": "user_story_26_AND_user_story_29"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of attendees signed up for my summit"],
+            "First UserStory": [" i want to #see# a #list# of the sessions associated with sponsor attendees"]
+        },
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a summit coordinator, i want to #see# a #list# of attendees signed up for my summit, so that i can communicate with my attendees by email prior to the event.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of the sessions associated with sponsor attendees, so that i know where i can engage with this sponsor and where they are thought leaders."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_26_AND_user_story_41"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits"],
+            "First UserStory": [" i want to #see# a #list# of the sessions associated with sponsor attendees"]
+        },
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "see"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits, so that i can determine which summit i might be interested and able to attend.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of the sessions associated with sponsor attendees, so that i know where i can engage with this sponsor and where they are thought leaders."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_26_AND_user_story_47"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits that include when they are"],
+            "First UserStory": [" i want to #see# a #list# of the sessions associated with sponsor attendees"]
+        },
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "see"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits that include when they are, so that i can determine which summit i want to attend.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of the sessions associated with sponsor attendees, so that i know where i can engage with this sponsor and where they are thought leaders."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_26_AND_user_story_65"
+    },
+    {
+        "Entity": {"Primary Entity": ["summits"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {"Second UserStory": [" i want to #see# what #summits# i'm signed up for"]},
+        "Targets": [[
+            "see",
+            "summits"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a attendee, i want to #see# what #summits# i'm signed up for, so that i can confirm my attendence and prevent myself from accidentally double-booking with a training or another summit.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# all events, trainings and #summits# that a sponsor is sponsoring so that i know where i can engage with this sponsor and where they are thought leaders."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_29_AND_user_story_40"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits"],
+            "First UserStory": [" i want to #see# a #list# of attendees signed up for my summit"]
+        },
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits, so that i can determine which summit i might be interested and able to attend.",
+            "First UserStory": "#g21# as a summit coordinator, i want to #see# a #list# of attendees signed up for my summit, so that i can communicate with my attendees by email prior to the event."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_41_AND_user_story_47"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the summits that include when they are"],
+            "First UserStory": [" i want to #see# a #list# of attendees signed up for my summit"]
+        },
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the summits that include when they are, so that i can determine which summit i want to attend.",
+            "First UserStory": "#g21# as a summit coordinator, i want to #see# a #list# of attendees signed up for my summit, so that i can communicate with my attendees by email prior to the event."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_41_AND_user_story_65"
+    },
+    {
+        "Entity": {"Primary Entity": ["list"]},
+        "Action": {"Primary Action": ["see"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all the #summits# that include when they are"],
+            "First UserStory": [" i want to #see# a #list# of all the #summits#"]
+        },
+        "Contains": [[
+            "list",
+            "summits"
+        ]],
+        "Targets": [[
+            "see",
+            "list"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "see"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the #summits# that include when they are, so that i can determine which summit i want to attend.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #see# a #list# of all the #summits#, so that i can determine which summit i might be interested and able to attend."
+        },
+        "Conflicted Elements": 5,
+        "Conflict Pair": "user_story_47_AND_user_story_65"
+    },
+    {
+        "Entity": {"Secondary Entity": ["schedule"]},
+        "Action": {"Secondary Action": ["populate"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #populate# the #schedule# ."],
+            "First UserStory": [" so that i can #populate# the #schedule# ."]
+        },
+        "Targets": [[
+            "populate",
+            "schedule"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a administrator, i want to mark a session as accepted, so that i can #populate# the #schedule# .",
+            "First UserStory": "#g21# as a administrator, i want to assign a room to a time slot and a location, so that i can #populate# the #schedule# ."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_54_AND_user_story_58"
+    },
+    {
+        "Entity": {"Primary Entity": ["notification"]},
+        "Action": {"Primary Action": ["receive"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #receive# a #notification# when i submit a session"],
+            "First UserStory": [" i want to #receive# a #notification# when sessions have been evaluated"]
+        },
+        "Targets": [[
+            "receive",
+            "notification"
+        ]],
+        "Triggers": [[
+            "anonymoususer",
+            "receive"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to #receive# a #notification# when i submit a session, so that know that my session went through ok.",
+            "First UserStory": "#g21# as a anonymoususer, i want to #receive# a #notification# when sessions have been evaluated, so that i know whether i've been accepted or rejected."
+        },
+        "Conflicted Elements": 4,
+        "Conflict Pair": "user_story_59_AND_user_story_60"
+    },
+    {
+        "Entity": {"Secondary Entity": ["session"]},
+        "Action": {"Secondary Action": ["submit"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #submit# a #session#."],
+            "First UserStory": [" i want to receive a notification when i #submit# a #session#"]
+        },
+        "Targets": [[
+            "submit",
+            "session"
+        ]],
+        "Text": {
+            "Second UserStory": "#g21# as a anonymoususer, i want to register to speak at badcamp, so that i #submit# a #session#.",
+            "First UserStory": "#g21# as a anonymoususer, i want to receive a notification when i #submit# a #session#, so that know that my #session# went through ok."
+        },
+        "Conflicted Elements": 3,
+        "Conflict Pair": "user_story_60_AND_user_story_62"
+    }
+]

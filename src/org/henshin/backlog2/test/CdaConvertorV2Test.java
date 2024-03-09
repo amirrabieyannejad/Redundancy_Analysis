@@ -167,7 +167,7 @@ public class CdaConvertorV2Test {
 		String directoryNamed = "Tests\\ExactMatch_testEmptyJSONFile";
 		String jsonFileNameds = "Tests\\empty_json_file.json";
 		CdaConvertorV2 cdaConv = new CdaConvertorV2(directoryNamed, jsonFileNameds);
-		System.out.println("[testEmptyJSONFile] json path is: " + cdaConv.getAbsoluteJsonFileDir());
+		System.out.println("[testEmptyJSONFile] json path is: " + cdaConv.getAbsoluteFinalReportDir());
 
 		File cdaReport = new File(cdaConv.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConv.createOrOverwriteReportFile(cdaReport);

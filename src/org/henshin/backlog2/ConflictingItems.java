@@ -21,6 +21,28 @@ public class ConflictingItems {
 	private List<Targets> targets;
 	private List<Contains> contains;
 	private int maxConflictCount;
+	private String textUs1;
+	private String textUs2;
+	private String UsNr1;
+	private String UsNr2;
+
+	
+
+	public String getUsNr1() {
+		return UsNr1;
+	}
+
+	public void setUsNr1(String usNr1) {
+		UsNr1 = usNr1;
+	}
+
+	public String getUsNr2() {
+		return UsNr2;
+	}
+
+	public void setUsNr2(String usNr2) {
+		UsNr2 = usNr2;
+	}
 
 	public ConflictingItems() {
 		this.secondaryEntity = new ArrayList<>();
@@ -95,7 +117,22 @@ public class ConflictingItems {
 	public int getMaxConflictCount() {
 		return maxConflictCount;
 	}
+	
+	public String getTextUs1() {
+		return textUs1;
+	}
 
+	public void setTextUs1(String textUs1) {
+		this.textUs1 = textUs1;
+	}
+
+	public String getTextUs2() {
+		return textUs2;
+	}
+
+	public void setTextUs2(String textUs2) {
+		this.textUs2 = textUs2;
+	}
 	// Method to printout all Conflicting Items
 	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs,
 			List<ContainsPair> containsPairs, List<TriggerPair> triggersPairs, JSONObject jsonConflictPair)
@@ -122,7 +159,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + secondaryAction.getType() + ": " + secondaryAction.getName());
 					// put each secondary Actions into JSON data as an array
 					action.put(secondaryAction.getType(), new JSONArray().put(secondaryAction.getName()));
-					maxConflictCount++;
+					
 				}
 			}
 		}
@@ -133,7 +170,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + secondaryEntity.getType() + ": " + secondaryEntity.getName());
 					// put each primary entity into JSON data as an array
 					entity.put(secondaryEntity.getType(), new JSONArray().put(secondaryEntity.getName()));
-					maxConflictCount++;
+					
 				}
 
 			}
@@ -145,7 +182,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + primaryAction.getType() + ": " + primaryAction.getName());
 					// put each primary action into JSON data as an array
 					action.put(primaryAction.getType(), new JSONArray().put(primaryAction.getName()));
-					maxConflictCount++;
+					
 				}
 			}
 
@@ -156,7 +193,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + primaryEntity.getType() + ": " + primaryEntity.getName());
 					// put each primary action into JSON data as an array
 					entity.put(primaryEntity.getType(), new JSONArray().put(primaryEntity.getName()));
-					maxConflictCount++;
+					
 				}
 			}
 
@@ -170,7 +207,7 @@ public class ConflictingItems {
 			JSONArray jsonTargets = new JSONArray();
 			for (TargetPair targetPair : targetsPairs) {
 				// Write it also in JSON Array Targets
-				JSONArray jsonTargetsPair = new JSONArray().put(targetPair.action).put(targetPair.entity);
+				JSONArray jsonTargetsPair = new JSONArray().put(targetPair.getAction()).put(targetPair.getEntity());
 				jsonTargets.put(jsonTargetsPair);
 
 				// Write it on Report if any
