@@ -26,7 +26,26 @@ public class ConflictingItems {
 	private String UsNr1;
 	private String UsNr2;
 
-	
+	// this values are used to find out how many conflict pairs
+	// are found in which sentence part(main vs benefit)
+	private int mainConflictCount;
+	private int benefitConflictCount;
+
+	public int getMainConflictCount() {
+		return mainConflictCount;
+	}
+
+	public void setMainConflictCount(int mainConflictCount) {
+		this.mainConflictCount = mainConflictCount;
+	}
+
+	public int getBenefitConflictCount() {
+		return benefitConflictCount;
+	}
+
+	public void setBenefitConflictCount(int benefitConflictCount) {
+		this.benefitConflictCount = benefitConflictCount;
+	}
 
 	public String getUsNr1() {
 		return UsNr1;
@@ -106,6 +125,10 @@ public class ConflictingItems {
 		return triggers;
 	}
 
+	public void setMaxConflictCount(int maxConflictCount) {
+		this.maxConflictCount = maxConflictCount;
+	}
+
 	public List<Targets> getTargets() {
 		return targets;
 	}
@@ -117,7 +140,7 @@ public class ConflictingItems {
 	public int getMaxConflictCount() {
 		return maxConflictCount;
 	}
-	
+
 	public String getTextUs1() {
 		return textUs1;
 	}
@@ -133,6 +156,7 @@ public class ConflictingItems {
 	public void setTextUs2(String textUs2) {
 		this.textUs2 = textUs2;
 	}
+
 	// Method to printout all Conflicting Items
 	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs,
 			List<ContainsPair> containsPairs, List<TriggerPair> triggersPairs, JSONObject jsonConflictPair)
@@ -143,7 +167,9 @@ public class ConflictingItems {
 		List<PrimaryEntity> primaryEntities = getPrimaryEntity();
 		List<PrimaryAction> primaryActions = getPrimaryActions();
 
-		maxConflictCount = 0;
+		
+		
+		
 
 		// Add main Action which contains Primary and secondary Action
 		JSONObject action = new JSONObject();
@@ -151,15 +177,13 @@ public class ConflictingItems {
 		// Add main Entity which contains Primary and secondary Entity
 		JSONObject entity = new JSONObject();
 
-		
-
 		if (!secondaryActions.isEmpty()) {
 			for (SecondaryAction secondaryAction : secondaryActions) {
 				if (isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), "", "", targetsPairs)) {
 					cdaWriter.write("\n* " + secondaryAction.getType() + ": " + secondaryAction.getName());
 					// put each secondary Actions into JSON data as an array
 					action.put(secondaryAction.getType(), new JSONArray().put(secondaryAction.getName()));
-					
+
 				}
 			}
 		}
@@ -170,7 +194,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + secondaryEntity.getType() + ": " + secondaryEntity.getName());
 					// put each primary entity into JSON data as an array
 					entity.put(secondaryEntity.getType(), new JSONArray().put(secondaryEntity.getName()));
-					
+
 				}
 
 			}
@@ -182,7 +206,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + primaryAction.getType() + ": " + primaryAction.getName());
 					// put each primary action into JSON data as an array
 					action.put(primaryAction.getType(), new JSONArray().put(primaryAction.getName()));
-					
+
 				}
 			}
 
@@ -193,7 +217,7 @@ public class ConflictingItems {
 					cdaWriter.write("\n* " + primaryEntity.getType() + ": " + primaryEntity.getName());
 					// put each primary action into JSON data as an array
 					entity.put(primaryEntity.getType(), new JSONArray().put(primaryEntity.getName()));
-					
+
 				}
 			}
 
@@ -213,7 +237,7 @@ public class ConflictingItems {
 				// Write it on Report if any
 				cdaWriter.write("\n* Targets: Link from \"" + targetPair.getAction() + "\" to \""
 						+ targetPair.getEntity() + "\" is found.");
-				maxConflictCount++;
+				
 			}
 			jsonConflictPair.put("Targets", jsonTargets);
 		}
@@ -232,7 +256,8 @@ public class ConflictingItems {
 				// Write it on Report if any
 				cdaWriter.write("\n* Triggers: Link from \"" + triggerPair.getPersona() + "\" to \""
 						+ triggerPair.getEntity() + "\" is found.");
-				maxConflictCount++;
+
+
 			}
 			jsonConflictPair.put("Triggers", jsonTriggers);
 
@@ -247,13 +272,15 @@ public class ConflictingItems {
 				JSONArray jsonTriggersPair = new JSONArray().put(contain.getParentEntity())
 						.put(contain.getChildEntity());
 				jsonContains.put(jsonTriggersPair);
-				cdaWriter.write("\n* Contains: Link between \"" + contain.getParentEntity() + "\" to \""
+				cdaWriter.write("\n* Contains: Link between \"" + contain.getParentEntity() + "\" and \""
 						+ contain.getChildEntity() + "\" is found.");
-				maxConflictCount++;
+				
 
 			}
 			jsonConflictPair.put("Contains", jsonContains);
+			
 		}
+		
 	}
 
 	// Iterate through Targets Array of related user stories in json file

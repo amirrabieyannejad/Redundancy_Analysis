@@ -31,6 +31,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.HashMap;
 
 /** Report maximal overlap if and only if in Minimal Models
  * at least Entity, Action and Triggers exist. With Table summary
@@ -50,10 +51,9 @@ public class CdaConvertorV2 {
 
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
 
-		// String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-		// "18", "19", "21", "22", "23", "24",
-		// "25", "26", "27", "28" };
-		String[] datasets = { "03", "04", "05" };
+		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
+				"25", "26", "27", "28" };
+//		String[] datasets = { "05" };
 		// Version of data set
 		for (int i = 0; i < datasets.length; i++) {
 			CdaConvertorV2 cdaConvertor = new CdaConvertorV2("CDA_Report_backlog_g" + datasets[i],
@@ -190,11 +190,27 @@ public class CdaConvertorV2 {
 									getCommonContains(confPair), getCommonTriggers(confPair), jsonConflictPair);
 
 							// add JSON Object into main JSON array
-							jsonConflictPair.put("Conflicted Elements", conflictingItems.getMaxConflictCount());
+							JSONObject jsonConflictStatus = new JSONObject();
 
 							// receive text of user stories which are highlighted
 							writeUsText(confPair, arrayMaximalElementsNames, conflictPairs, conflictingItems,
 									fileWriter);
+
+							// add observed conflicted pairs in Main part sentence
+							jsonConflictStatus.put("Main Part Conflicted Elements",
+									conflictingItems.getMainConflictCount());
+
+							// add observed conflicted pairs in Benefit part sentence
+							jsonConflictStatus.put("Benefit Part Conflicted Elements",
+									conflictingItems.getBenefitConflictCount());
+
+							int total = conflictingItems.getBenefitConflictCount()
+									+ conflictingItems.getMainConflictCount();
+							conflictingItems.setMaxConflictCount(total);
+							// add observed total conflicted pairs
+							jsonConflictStatus.put("Total Conflicted Elements", conflictingItems.getMaxConflictCount());
+							// put all in Status as subPart of "Status"
+							jsonConflictPair.put("Status", jsonConflictStatus);
 
 							if (conflictingItems.getTextUs1() != null && conflictingItems.getTextUs2() != null) {
 								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
@@ -208,6 +224,10 @@ public class CdaConvertorV2 {
 								jsonText.put("Second UserStory",
 										getUsName2(confPair) + ": " + conflictingItems.getTextUs2());
 								jsonConflictPair.put("Text", jsonText);
+
+								// select project Number and save it to JSONFile
+								String projectNr = conflictingItems.getTextUs1().replaceAll(".*#(g\\d\\d)#.*", "$1");
+								jsonConflictPair.put("Project Number", projectNr);
 							}
 
 							// add JSON Object into main JSON array
@@ -243,6 +263,8 @@ public class CdaConvertorV2 {
 		JSONArray us2TargetArray = null;
 		JSONArray jsonArray = readJsonArrayFromFile();
 
+		// Check if there US_Nr and Targets Objects exists in JOSN file
+		// if so return the ArrayObjects of Targets
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 			if (jsonObject.has("US_Nr") && jsonObject.has("Targets")) {
@@ -256,15 +278,17 @@ public class CdaConvertorV2 {
 				}
 			}
 		}
+		// check if TargetArrays of both USs not null then find the Common
+		// Targets Pairs and add it to TargetPairs List
 		if (us2TargetArray != null && us1TargetArray != null) {
 			for (int i = 0; i < us1TargetArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1TargetArray.getJSONArray(i);
-				String actionUs1 = jsonArrayUs1.getString(0);
-				String enttiyUs1 = jsonArrayUs1.getString(1);
+				String actionUs1 = jsonArrayUs1.getString(0).toLowerCase();
+				String enttiyUs1 = jsonArrayUs1.getString(1).toLowerCase();
 				for (int j = 0; j < us2TargetArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2TargetArray.getJSONArray(j);
-					String actionUs2 = jsonArrayUs2.getString(0);
-					String enttiyUs2 = jsonArrayUs2.getString(1);
+					String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
+					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
 					if (enttiyUs2.equalsIgnoreCase(enttiyUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
 						targetPairs.add(new TargetPair(actionUs1, enttiyUs1));
 						break;
@@ -301,12 +325,12 @@ public class CdaConvertorV2 {
 		if (us2TriggersArray != null && us1TriggersArray != null) {
 			for (int i = 0; i < us1TriggersArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1TriggersArray.getJSONArray(i);
-				String personaUs1 = jsonArrayUs1.getString(0);
-				String enttiyUs1 = jsonArrayUs1.getString(1);
+				String personaUs1 = jsonArrayUs1.getString(0).toLowerCase();
+				String enttiyUs1 = jsonArrayUs1.getString(1).toLowerCase();
 				for (int j = 0; j < us2TriggersArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2TriggersArray.getJSONArray(j);
-					String personaUs2 = jsonArrayUs2.getString(0);
-					String enttiyUs2 = jsonArrayUs2.getString(1);
+					String personaUs2 = jsonArrayUs2.getString(0).toLowerCase();
+					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
 					if (enttiyUs2.equalsIgnoreCase(enttiyUs1)
 							&& personaUs2.equalsIgnoreCase(personaUs1.toLowerCase())) {
 						triggersPairs.add(new TriggerPair(personaUs1, enttiyUs1));
@@ -344,12 +368,12 @@ public class CdaConvertorV2 {
 		if (us2ContainsArray != null && us1ContainsArray != null) {
 			for (int i = 0; i < us1ContainsArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1ContainsArray.getJSONArray(i);
-				String actionUs1 = jsonArrayUs1.getString(0);
-				String enttiyUs1 = jsonArrayUs1.getString(1);
+				String actionUs1 = jsonArrayUs1.getString(0).toLowerCase();
+				String enttiyUs1 = jsonArrayUs1.getString(1).toLowerCase();
 				for (int j = 0; j < us2ContainsArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
-					String actionUs2 = jsonArrayUs2.getString(0);
-					String enttiyUs2 = jsonArrayUs2.getString(1);
+					String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
+					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
 					if (enttiyUs2.equalsIgnoreCase(enttiyUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
 						containsPairs.add(new ContainsPair(actionUs1, enttiyUs1));
 						break;
@@ -658,7 +682,8 @@ public class CdaConvertorV2 {
 				if (jsonObject.has("US_Nr")) {
 					if (jsonObject.has("Text")) {
 						String usNr = jsonObject.getString("US_Nr");
-						String usText = jsonObject.getString("Text");
+						// all words should be lower case to avoid mismatching
+						String usText = jsonObject.getString("Text").toLowerCase();
 						if (usNr.equals(us1)) {
 							conflictingItems.setTextUs1(usText);
 
@@ -740,20 +765,33 @@ public class CdaConvertorV2 {
 	// so,
 	// add hash symbol(#) at the beginning and ending of the words.
 	// For secondary action entity we looking ad the third region of sentence.
+	// I want to check both user stories and separate their parts of sentence
+	// through comma and first try to find the match is in secondPartOfSentence of
+	// both user
+	// stories. I should check US1_Part_1 vs US2_part_1, then if US1_Part_2 &&
+	// US2_Part_2
+	// are exist then try to file the match is in thirdPartOfSentence of both USs
+	// then try
+	// to replace
 	private ConflictingItems highlightConflicts(ConflictingItems conflictingItems, String usPair)
 			throws IOException, EmptyOrNotExistJsonFile {
 
 		String textUs1 = conflictingItems.getTextUs1();
 		String textUs2 = conflictingItems.getTextUs2();
+		int mainConflict = conflictingItems.getMainConflictCount();
+		int benefitConflict = conflictingItems.getBenefitConflictCount();
 		if (textUs1.length() <= 0 && textUs2.length() <= 0) {
 			return null;
 		}
 		List<TargetPair> targetsPairs = getCommonTargets(usPair);
 		List<ContainsPair> containsPairs = getCommonContains(usPair);
+		List<TriggerPair> triggers = getCommonTriggers(usPair);
 
 		// find the index of first comma
 		int firstCommaUs1 = textUs1.indexOf(',');
 		int firstCommaUs2 = textUs2.indexOf(',');
+		// if there is no main part in the sentence
+		// which include triggers and targets
 		if (firstCommaUs1 == -1 || firstCommaUs2 == -1) {
 			return conflictingItems;
 		}
@@ -761,121 +799,284 @@ public class CdaConvertorV2 {
 		// subString will be like this: I want to be able to ....
 		String subStringFirstUs1 = textUs1.substring(0, firstCommaUs1);
 		String subStringFirstUs2 = textUs2.substring(0, firstCommaUs2);
-		System.out.println("subStringFirstUs1: " + subStringFirstUs1);
-		System.out.println("subStringFirstUs2: " + subStringFirstUs2);
 
 		// receive the index of second comma
-		int secondCommaUs1 = textUs1.indexOf(',', firstCommaUs1 + 1);
-		int secondCommaUs2 = textUs2.indexOf(',', firstCommaUs2 + 1);
-		System.out.println("second Comma Index: " + secondCommaUs1);
-		System.out.println("second Comma Index: " + secondCommaUs1);
+		int benefitPlaceHolderUs1 = textUs1.indexOf("so that", firstCommaUs1 + 1);
+		int benefitPlaceHolderUs2 = textUs2.indexOf("so that", firstCommaUs2 + 1);
 
-		// if indexOf return -1 which means user story doesn't have Benefit
-		if (secondCommaUs1 == -1 || secondCommaUs2 == -1) {
-			// add only from first comma until the appearance of second comma(until benefit)
-			String subStringSecondUs1 = textUs1.substring(firstCommaUs1);
-			String subStringSecondUs2 = textUs2.substring(firstCommaUs2);
-			System.out.println("subStringSecondUs1: " + subStringSecondUs1);
-			System.out.println("subStringSecondUs2: " + subStringSecondUs2);
+		// if one of USs does't have benefit, then there is no conflicted
+		// element at benefit at all just return benefit as it is
+		// if US_1 does't have benefit
+		if (benefitPlaceHolderUs1 == -1 && benefitPlaceHolderUs2 != -1) {
+			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);
+			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			String[] usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+					subStringSecondUs2);
+			textUs1 = subStringFirstUs1 + "," + usText[0];
+			textUs2 = subStringFirstUs2 + "," + usText[1];
+			// add the number of conflict pairs from main sentence
+			mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			// subString from second comma until the end of story ;)
+			String subStringBenefitUs2 = conflictingItems.getTextUs2().substring(benefitPlaceHolderUs2);
 
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+			if (hasMoreThanSixHashMarks(textUs1)) {
+				usText = highlightPersona(triggers, conflictingItems, textUs1, textUs2);
+				textUs1 = usText[0];
+				textUs2 = usText[1];
+				// add the number of conflict pairs from main sentence
+				mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			}
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			textUs2 = textUs2 + subStringBenefitUs2;
+
+		}
+		// if US_2 does't have benefit
+		if (benefitPlaceHolderUs1 != -1 && benefitPlaceHolderUs2 == -1) {
+			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);
+			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			String[] usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+					subStringSecondUs2);
+			textUs1 = subStringFirstUs1 + "," + usText[0];
+			textUs2 = subStringFirstUs2 + "," + usText[1];
+			// add the number of conflict pairs from main sentence
+			mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			// subString from second comma until the end of story ;)
+			String subStringBenefitUs1 = conflictingItems.getTextUs1().substring(benefitPlaceHolderUs1);
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+			if (hasMoreThanSixHashMarks(textUs1)) {
+				usText = highlightPersona(triggers, conflictingItems, textUs1, textUs2);
+				textUs1 = usText[0];
+				textUs2 = usText[1];
+				// add the number of conflict pairs from main sentence
+				mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			}
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			textUs1 = textUs1 + subStringBenefitUs1;
+
+		}
+		// if both does't have benefit
+		if (benefitPlaceHolderUs1 == -1 && benefitPlaceHolderUs2 == -1) {
+			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);
+			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			String[] usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+					subStringSecondUs2);
+			textUs1 = subStringFirstUs1 + "," + usText[0];
+			textUs2 = subStringFirstUs2 + "," + usText[1];
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+			if (hasMoreThanSixHashMarks(textUs1)) {
+				usText = highlightPersona(triggers, conflictingItems, textUs1, textUs2);
+				textUs1 = usText[0];
+				textUs2 = usText[1];
+				// add the number of conflict pairs from main sentence
+				mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			}
+			// add the number of conflict pairs from main sentence
+			mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			// subString from second comma until the end of story ;)
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+
+		}
+		// if both USs have benefit
+		if (benefitPlaceHolderUs1 != -1 && benefitPlaceHolderUs2 != -1) {
+			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);
+			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			// first try to find conflict pairs at the main sentence
 			String[] usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
 					subStringSecondUs2);
 
-			// try to assign return values from applyHashSymbol into the textUs1/2
-			textUs1 = textUs1.substring(0, firstCommaUs1) + usText[0];
-			textUs2 = textUs2.substring(0, firstCommaUs2) + usText[1];
+			textUs1 = subStringFirstUs1 + "," + usText[0];
+			textUs2 = subStringFirstUs2 + "," + usText[1];
+			// add the number of conflict pairs from main sentence
+			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
-			System.out.println("textUs1 " + textUs1);
-			System.out.println("textUs2 " + textUs2);
-			// textUs1 = textUs1.substring(0, firstCommaUs1) + subStringFirstUs1;
-			// textUs1 = textUs1.replaceAll("#+", "#");
-			// textUs2 = textUs2.substring(0, firstCommaUs2) + subStringFirstUs2;
-			// textUs2 = textUs2.replaceAll("#+", "#");
-			return conflictingItems;
-		}
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+			if (hasMoreThanSixHashMarks(textUs1)) {
+				usText = highlightPersona(triggers, conflictingItems, textUs1, textUs2);
+				textUs1 = usText[0];
+				textUs2 = usText[1];
+				// add the number of conflict pairs from main sentence
+				mainConflict = mainConflict + Integer.parseInt(usText[2]);
+			}
 
-		// I want to check both user stories and separate their parts of sentence
-		// through comma and first try to find the match is in secondPartOfSentence of
-		// both user
-		// stories. I should check US1_Part_1 vs US2_part_1, then if US1_Part_2 &&
-		// US2_Part_2
-		// are exist then try to file the match is in thirdPartOfSentence of both USs
-		// then try
-		// to replace
-		String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, secondCommaUs1);
-		String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, secondCommaUs2);
-		System.out.println("subStringSecondUs1AfterFirstCondition: " + subStringSecondUs1);
-		System.out.println("subStringSecondUs2AfterFirstCondition: " + subStringSecondUs2);
-		// I want to check if targetsPair.aciton/entity are already exist
-		// in this sentence part, if so then add hash symbol
-		String[] usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
-				subStringSecondUs2);
-
-		textUs1 = subStringFirstUs1 + "," + usText[0];
-		textUs2 = subStringFirstUs2 + "," + usText[1];
-		System.out.println("Combine US1: " + textUs1);
-		System.out.println("Combine US2: " + textUs2);
-		// subString from second comma until the end of story ;)
-		String subStringBenefitUs1 = conflictingItems.getTextUs1().substring(secondCommaUs1);
-		String subStringBenefitUs2 = conflictingItems.getTextUs2().substring(secondCommaUs2);
-		System.out.println("subStringBenefitUs1: " + subStringBenefitUs1 + 1);
-		System.out.println("subStringBenefitUs2: " + subStringBenefitUs2 + 1);
-		if (subStringBenefitUs1 != null && subStringBenefitUs2 != null) {
+			// subString from second comma until the end of story ;)
+			String subStringBenefitUs1 = conflictingItems.getTextUs1().substring(benefitPlaceHolderUs1);
+			String subStringBenefitUs2 = conflictingItems.getTextUs2().substring(benefitPlaceHolderUs2);
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
+			// first try to find conflict pairs at the benefit sentence
 			usText = applyHashSymbol(targetsPairs, containsPairs, conflictingItems, subStringBenefitUs1,
 					subStringBenefitUs2);
 			textUs1 = textUs1 + usText[0];
 			textUs2 = textUs2 + usText[1];
-			System.out.println("textUS1 with benefit: " + textUs1);
-			System.out.println("textUS2 with benefit: " + textUs2);
+			// add the number of conflict pairs from benefit sentence
+			benefitConflict = Integer.parseInt(usText[2]);
+
 		}
+
+		// add amount of founded conflict pairs from main/benefit sentence
+		// into Benefit/MainConflict Count
+		conflictingItems.setBenefitConflictCount(benefitConflict);
+		conflictingItems.setMainConflictCount(mainConflict);
 		conflictingItems.setTextUs1(textUs1);
 		conflictingItems.setTextUs2(textUs2);
 		return conflictingItems;
 
 	}
 
-	private String[] applyHashSymbol(List<TargetPair> targetsPairs, List<ContainsPair> containsPairs,
-			ConflictingItems conflictingItems, String subStringUs1, String subStringUs2) {
-		String[] usTexts = new String[2];
+	private String[] highlightPersona(List<TriggerPair> triggers, ConflictingItems conflictingItems,
+			String subStringFirstUs1, String subStringFirstUs2) {
+		String[] usTexts = new String[4];
+		int conflictCount = 0;
+
 		// I want to check if targetsPair.aciton/entity are already exist
 		// in this sentence part, if so then add hash symbol
-		for (TargetPair targetspair : targetsPairs) {
+		for (TriggerPair triggerPair : triggers) {
+
 			// replace all pairs in this part of sentence if it
 			// exist in both sentence parts
-			if ((subStringUs1.contains(targetspair.getAction()) && subStringUs1.contains(targetspair.getEntity()))
-					&& (subStringUs2.contains(targetspair.getAction())
-							&& subStringUs2.contains(targetspair.getEntity()))) {
-				// US_1 add hash symbol at the beginning and ending of each word
-				subStringUs1 = subStringUs1.replaceFirst("\\b" + targetspair.getAction() + "\\b",
-						"#" + targetspair.getAction() + "#");
-				subStringUs1 = subStringUs1.replaceFirst("\\b" + targetspair.getEntity() + "\\b",
-						"#" + targetspair.getEntity() + "#");
+			String persona = triggerPair.getPersona();
+			if (subStringFirstUs1.contains(persona) && subStringFirstUs2.contains(persona)) {
 
-				// US_2 add hash symbol at the beginning and ending of each word
-				subStringUs2 = subStringUs2.replaceFirst("\\b" + targetspair.getAction() + "\\b",
-						"#" + targetspair.getAction() + "#");
-				subStringUs2 = subStringUs2.replaceFirst("\\b" + targetspair.getEntity() + "\\b",
-						"#" + targetspair.getEntity() + "#");
+				// US_1/US_2 add hash symbol at the beginning and ending of each word
+				subStringFirstUs1 = addHashSymbol(subStringFirstUs1, persona);
+				subStringFirstUs2 = addHashSymbol(subStringFirstUs2, persona);
 
-				// check if entity exist in contains list
-				String contains = conflictingItems.isInCommonContains(targetspair.getEntity(), containsPairs);
-				if (contains != null && subStringUs1.contains(contains)) {
-					subStringUs1 = subStringUs1.replaceFirst("\\b" + contains + "\\b", "#" + contains + "#");
-				}
-				// check if entity exist in contains list
-				if (contains != null && subStringUs2.contains(contains)) {
-					subStringUs2 = subStringUs2.replaceFirst("\\b" + contains + "\\b", "#" + contains + "#");
-				}
+				// count conflicts in this sentence part in order to know which sentence
+				// part how many conflict pairs exist
+				conflictCount++;
+
 			}
-
 		}
-		usTexts[0] = subStringUs1;
-		usTexts[1] = subStringUs2;
+		usTexts[0] = subStringFirstUs1.replaceAll("#+", "#");
+		usTexts[1] = subStringFirstUs2.replaceAll("#+", "#");
+		usTexts[2] = String.valueOf(conflictCount);
 		return usTexts;
 	}
 
+	// replace hash symbol at beginning and ending of founded element
+	private String addHashSymbol(String subString, String match) {
+		subString = subString.replaceFirst("\\b" + match + "\\b", "#" + match + "#");
+		return subString;
+	}
+
+	// Check in the main part of sentence if there is any redundancy
+	// more than 6 hash mark exist
+	private boolean hasMoreThanSixHashMarks(String textUs1) {
+		long count = textUs1.chars().filter(ch -> ch == '#').count();
+		return count >= 6;
+
+	}
+
+	private String[] applyHashSymbol(List<TargetPair> targetsPairs, List<ContainsPair> containsPairs,
+			ConflictingItems conflictingItems, String subStringUs1, String subStringUs2) {
+		String[] usTexts = new String[4];
+		int conflictCount = 0;
+
+		// I want to check if targetsPair.aciton/entity are already exist
+		// in this sentence part, if so then add hash symbol
+		for (TargetPair targetsPair : targetsPairs) {
+			// replace all pairs in this part of sentence if it
+			// exist in both sentence parts
+			String action = targetsPair.getAction();
+			String entity = targetsPair.getEntity();
+			if ((subStringUs1.contains(action) && subStringUs1.contains(entity))
+					&& (subStringUs2.contains(action) && subStringUs2.contains(entity))) {
+				// US_1 add hash symbol at the beginning and ending of each word
+				subStringUs1 = addHashSymbol(subStringUs1, action);
+				subStringUs1 = addHashSymbol(subStringUs1, entity);
+
+				// US_2 add hash symbol at the beginning and ending of each word
+				subStringUs2 = addHashSymbol(subStringUs2, action);
+				subStringUs2 = addHashSymbol(subStringUs2, entity);
+
+				// count conflicts in this sentence part in order to know which sentence
+				// part how many conflict pairs exist
+				conflictCount++;
+				// check if entity exist in contains list
+
+
+				
+
+			}
+
+		}
+
+		usTexts[0] = subStringUs1.replaceAll("#+", "#");
+		usTexts[1] = subStringUs2.replaceAll("#+", "#");
+		usTexts[2] = String.valueOf(conflictCount);
+		return usTexts;
+	}
+	private ConflictingItems applyHashSymbolContaians(List<ContainsPair> containsPairs,
+			ConflictingItems conflictingItems, String subStringUs1, String subStringUs2) {
+		String contains = conflictingItems.isInCommonContains(entity, containsPairs);
+		// check of contains is not null and also check if founded contains entity
+		// exists in part of sentence
+		if (contains != null && subStringUs1.contains(contains) && subStringUs2.contains(contains)) {
+			subStringUs1 = addHashSymbol(subStringUs1, contains);
+			subStringUs2 = addHashSymbol(subStringUs2, contains);
+			conflictCount++;
+		}
+		// find out whether other pair is also have pair which is exist in
+		// commonContains
+		String containsPair = conflictingItems.isInCommonContains(contains, containsPairs);
+		if (containsPair != null) {
+			// iterate through commonContains and check other element of pair related to
+			// the containsPair if any exist but filter: [containsPair,contain] case
+			// which is the same pair in which is already parsed
+			for (ContainsPair containsPair2 : containsPairs) {
+				String child = containsPair2.getChildEntity();
+				String parent = containsPair2.getParentEntity();
+				// filter containsPair,contain pair
+				if (!containsPair.equals(parent) && !containsPair.equals(child)) {
+					if (contains.equals(child)) {
+						System.out
+								.println("done*****************Pair is: " + contains + "  " + parent);
+						subStringUs1 = addHashSymbol(subStringUs1, parent);
+						subStringUs2 = addHashSymbol(subStringUs2, parent);
+						conflictCount++;
+						// break in order to avoid of counting redundant items
+						break;
+
+						// count conflicts in this sentence part in order to know which sentence
+						// part how many conflict pairs exist
+					} else if (contains.equals(parent)) {
+						System.out
+								.println("done***************** Pair is: " + contains + "  and  " + child);
+						subStringUs1 = addHashSymbol(subStringUs1, child);
+						subStringUs2 = addHashSymbol(subStringUs2, child);
+						// count conflicts in this sentence part in order to know which sentence
+						// part how many conflict pairs exist
+						conflictCount++;
+						// break in order to avoid of counting redundant items
+						break;
+
+					}
+				}
+
+			}
+		}
+		
+	}
 	private void iteratePackages(EPackage minimalPackage, ArrayList<String> arrayMaximalElements,
 			ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) throws IOException {
 
@@ -919,7 +1120,8 @@ public class CdaConvertorV2 {
 
 					}
 				}
-
+				// add all EReferences from EClass into corresponding
+				// type(Contains, Targets, Triggers)
 				for (EReference eReference : eClass.getEReferences()) {
 					if (eReference.getName().contains("#") && !arrayMaximalElements.contains(eReference.getName())) {
 
