@@ -1,12 +1,12 @@
 package org.henshin.backlog2;
 
 public class TriggerPair extends ConflictingItems{
-	String persona;
-	String entity;
+	private String persona;
+	private String action;
 
 	public TriggerPair(String persona, String entity) {
 		this.persona = persona;
-		this.entity = entity;
+		this.action = entity;
 	}
 
 	public String getPersona() {
@@ -17,12 +17,12 @@ public class TriggerPair extends ConflictingItems{
 		this.persona = persona;
 	}
 
-	public String getEntity() {
-		return entity;
+	public String getAction() {
+		return action;
 	}
 
-	public void setEntity(String entity) {
-		this.entity = entity;
+	public void setAction(String action) {
+		this.action = action;
 	}
 
 }

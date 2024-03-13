@@ -167,10 +167,6 @@ public class ConflictingItems {
 		List<PrimaryEntity> primaryEntities = getPrimaryEntity();
 		List<PrimaryAction> primaryActions = getPrimaryActions();
 
-		
-		
-		
-
 		// Add main Action which contains Primary and secondary Action
 		JSONObject action = new JSONObject();
 
@@ -237,7 +233,7 @@ public class ConflictingItems {
 				// Write it on Report if any
 				cdaWriter.write("\n* Targets: Link from \"" + targetPair.getAction() + "\" to \""
 						+ targetPair.getEntity() + "\" is found.");
-				
+
 			}
 			jsonConflictPair.put("Targets", jsonTargets);
 		}
@@ -249,19 +245,32 @@ public class ConflictingItems {
 			// Add Common Triggers of both user stories
 			JSONArray jsonTriggers = new JSONArray();
 			for (TriggerPair triggerPair : triggersPairs) {
-				// Write it also in JSON Array Targets
-				JSONArray jsonTriggersPair = new JSONArray().put(triggerPair.persona).put(triggerPair.entity);
-				jsonTriggers.put(jsonTriggersPair);
+				String triggerPersona= triggerPair.getPersona();
+				String triggerAction = triggerPair.getAction();
+				
+				// make sure that action is
+				// also belongs to common targets if any
+				//for (TargetPair targetPair : targetsPairs) {
+				//	String targetsAction = targetPair.getAction();
+					//if(targetsAction.equalsIgnoreCase(triggerAction)) {
+					
+					// Write it also in JSON Array Targets
+					JSONArray jsonTriggersPair = new JSONArray().put(triggerPersona).put(triggerAction);
+					jsonTriggers.put(jsonTriggersPair);
 
-				// Write it on Report if any
-				cdaWriter.write("\n* Triggers: Link from \"" + triggerPair.getPersona() + "\" to \""
-						+ triggerPair.getEntity() + "\" is found.");
+					// Write it on Report if any
+					cdaWriter.write("\n* Triggers: Link from \"" + triggerPersona + "\" to \""
+							+ triggerAction + "\" is found.");
+				//	}
 
-
+				//}
+					
 			}
 			jsonConflictPair.put("Triggers", jsonTriggers);
-
+		}else {
+			jsonConflictPair.put("Triggers", "");
 		}
+		
 		// Check if there is conflict element listed in "Contains" and if the containing
 		// element
 		// is in Targets if yes, write the contains edge as well
@@ -274,13 +283,12 @@ public class ConflictingItems {
 				jsonContains.put(jsonTriggersPair);
 				cdaWriter.write("\n* Contains: Link between \"" + contain.getParentEntity() + "\" and \""
 						+ contain.getChildEntity() + "\" is found.");
-				
 
 			}
 			jsonConflictPair.put("Contains", jsonContains);
-			
+
 		}
-		
+
 	}
 
 	// Iterate through Targets Array of related user stories in json file
