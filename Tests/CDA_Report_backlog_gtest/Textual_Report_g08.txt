@@ -1,0 +1,34 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_01  us_14  
+us_01  0      13     
+us_14  13     0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_01_AND_user_story_14}
+  
+Redundants elements are: 
+* Secondary Entity: visualizations
+* Secondary Entity: data
+* Secondary Entity: analysis
+* Secondary Action: doing
+* Secondary Action: start using
+* Primary Entity: data package
+* Primary Action: get
+* targets: Link from "get" to "data package" is found.
+* targets: Link from "doing" to "visualizations" is found.
+* targets: Link from "doing" to "analysis" is found.
+* targets: Link from "start using" to "data" is found.
+* triggers: : Link from Persona to "get" is found.
+* contains: Link between "data package" to "data" is found.
+
+ user_story_01: #g08# as a developer, i want to #get# a #data# package# into node, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.
+
+ user_story_14: #g08# as a developer, i want to #get# a #data# package# into python in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_01:  i want to #get# a #data# package# into node
+user_story_01:  so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.
+user_story_14:  i want to #get# a #data# package# into python in seconds
+user_story_14:  so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.

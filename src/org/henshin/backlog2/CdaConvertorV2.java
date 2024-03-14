@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,16 +52,17 @@ public class CdaConvertorV2 {
 		jsonDatasetFile = jsonFileName;
 	}
 
-	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
+	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
+			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-//		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-//		 "18", "19", "21", "22", "23", "24",
-//		 "25", "26", "27", "28" };
-		String[] datasets = { "25" };
+		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
+				"25", "26", "27", "28" };
+		// String[] datasets = { "05" };
 		// Version of data set
 		for (int i = 0; i < datasets.length; i++) {
-			CdaConvertorV2 cdaConvertor = new CdaConvertorV2("CDA_Report_backlog_g" + datasets[i],
-					"Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
+			CdaConvertorV2 cdaConvertor = new CdaConvertorV2(
+					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
+					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
 
 			// Create text file in order to report to user a readable format
 			File cdaReport = new File(cdaConvertor.getFinalReportDir() + "\\Textual_Report_g" + datasets[i]
@@ -85,25 +87,46 @@ public class CdaConvertorV2 {
 		return jsonDatasetFile;
 	}
 
-	public String getAbsoluteDirPath() {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_2023_12\\CDA_Reports\\" + getDirName());
-		if (Files.exists(path)) {
-
-			return path.toString();
-		} else {
-			return null;
-		}
-
+	public String getAbsoluteDirPath() throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+	    Path path = Paths.get("C:\\Users\\amirr\\" + getDirName());
+	    if (Files.exists(path)) {
+	        if (Files.isDirectory(path)) { // Check if it's a directory
+	            try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path)) {
+	                boolean isEmpty = true;
+	                boolean hasSubDirectories = false;
+	                
+	                for (Path entry : directoryStream) {
+	                    if (Files.isDirectory(entry)) {
+	                        hasSubDirectories = true;
+	                    }
+	                    isEmpty = false;
+	                }
+	                
+	                if (isEmpty) {
+	                    throw new CdaReportDirIsEmpty("CDA Report Directory is empty!");
+	                } else if (!hasSubDirectories) {
+	                    throw new CdaReportDirIsEmpty("CDA Report Directory found but doesn't have any subdirectories!");
+	                } else {
+	                    return path.toString();
+	                }
+	            } catch (IOException e) {
+	                throw new CdaReportDirNotFound("Error checking directory content: " + e.getMessage());
+	            }
+	        } else {
+	            throw new CdaReportDirIsNotADirectory();
+	        }
+	    } else {
+	        throw new CdaReportDirNotFound();
+	    }
 	}
 
-	public String getAbsoluteFinalReportDir() {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\"
-				+ getJsonDatasetFile());
+	public String getAbsoluteFinalReportDir() throws JsonFileNotFound {
+		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getJsonDatasetFile());
 		if (Files.exists(path)) {
 
 			return path.toString();
 		} else {
-			return null;
+			throw new JsonFileNotFound();
 		}
 	}
 
@@ -139,7 +162,8 @@ public class CdaConvertorV2 {
 	}
 
 	public List<ConflictPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
-			throws IOException, NullPointerException, EmptyOrNotExistJsonFile {
+			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
+			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
 		// create JSON array in order to contains all conflict pairs and their
 		JSONArray jsonArray = new JSONArray();
@@ -192,28 +216,13 @@ public class CdaConvertorV2 {
 							conflictingItems.printConflictingItems(fileWriter, getCommonTargets(confPair),
 									getCommonContains(confPair), getCommonTriggers(confPair), jsonConflictPair);
 
-							// add JSON Object into main JSON array
-							JSONObject jsonConflictStatus = new JSONObject();
-
-							// receive text of user stories which are highlighted
+							// receive text of user stories as input
+							// in order to highlight the redundancy clauses in each text
 							writeUsText(confPair, arrayMaximalElementsNames, conflictPairs, conflictingItems,
 									fileWriter);
 
-							// add observed conflicted pairs in Main part sentence
-							jsonConflictStatus.put("Main Part Conflicted Elements",
-									conflictingItems.getMainConflictCount());
-
-							// add observed conflicted pairs in Benefit part sentence
-							jsonConflictStatus.put("Benefit Part Conflicted Elements",
-									conflictingItems.getBenefitConflictCount());
-
-							int total = conflictingItems.getBenefitConflictCount()
-									+ conflictingItems.getMainConflictCount();
-
-							conflictingItems.setMaxConflictCount(total);
-
-							// add observed total conflicted pairs
-							jsonConflictStatus.put("Total Conflicted Elements", conflictingItems.getMaxConflictCount());
+							// add JSON Object into main JSON array
+							JSONObject jsonConflictStatus = getConflictStatus(conflictingItems);
 
 							// put all in Status as subPart of "Status"
 							jsonConflictPair.put("Status", jsonConflictStatus);
@@ -261,9 +270,30 @@ public class CdaConvertorV2 {
 
 	}
 
+	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
+	// data
+	private JSONObject getConflictStatus(ConflictingItems conflictingItems) {
+		JSONObject jsonConflictStatus = new JSONObject();
+
+		// add observed conflicted pairs in Main part sentence
+		jsonConflictStatus.put("Main Part Conflicted Elements", conflictingItems.getMainConflictCount());
+
+		// add observed conflicted pairs in Benefit part sentence
+		jsonConflictStatus.put("Benefit Part Conflicted Elements", conflictingItems.getBenefitConflictCount());
+
+		// int total = conflictingItems.getBenefitConflictCount()
+		// + conflictingItems.getMainConflictCount();
+
+		// conflictingItems.setMaxConflictCount(total);
+
+		// add observed total conflicted pairs
+		jsonConflictStatus.put("Total Conflicted Elements", conflictingItems.getMaxConflictCount());
+		return jsonConflictStatus;
+	}
+
 	// receive a conflict Pair and a String which corresponds to "Targets" array
 	// Object in JSON file
-	private List<TargetPair> getCommonTargets(String confPair) throws EmptyOrNotExistJsonFile {
+	private List<TargetPair> getCommonTargets(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(confPair);
 		String us2 = getUsName2(confPair);
 		List<TargetPair> targetPairs = new ArrayList<>();
@@ -309,7 +339,7 @@ public class CdaConvertorV2 {
 
 	// receive a conflict Pair and a String which corresponds to "Triggers" array
 	// Object in JSON file
-	private List<TriggerPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile {
+	private List<TriggerPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(confPair);
 		String us2 = getUsName2(confPair);
 		List<TriggerPair> triggersPairs = new ArrayList<>();
@@ -359,7 +389,7 @@ public class CdaConvertorV2 {
 
 	// receive a conflict Pair and a String which corresponds to "Contains" array
 	// Object in JSON file
-	private List<ContainsPair> getCommonContains(String confPair) throws EmptyOrNotExistJsonFile {
+	private List<ContainsPair> getCommonContains(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(confPair);
 		String us2 = getUsName2(confPair);
 		List<ContainsPair> containsPairs = new ArrayList<>();
@@ -399,7 +429,8 @@ public class CdaConvertorV2 {
 		return containsPairs;
 	}
 
-	private boolean minimalEcoreExist(String confPair, String conflictReason) {
+	private boolean minimalEcoreExist(String confPair, String conflictReason)
+			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 		Path path = Paths.get(getAbsoluteDirPath() + "\\" + confPair + "\\" + conflictReason + "\\minimal-model.ecore");
 		if (Files.exists(path)) {
 			return true;
@@ -509,7 +540,7 @@ public class CdaConvertorV2 {
 
 	}
 
-	public JSONArray readJsonArrayFromFile() throws EmptyOrNotExistJsonFile {
+	public JSONArray readJsonArrayFromFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		JSONArray jsonArray;
 		try (FileReader reader = new FileReader(getAbsoluteFinalReportDir())) {
 			JSONTokener tokener = new JSONTokener(reader);
@@ -606,11 +637,12 @@ public class CdaConvertorV2 {
 		return table;
 	}
 
-	private int findMaximal(List<ConflictPair> cPs, String pair1, String pair2) {
-		for (ConflictPair cp : cPs) {
-			if ((cp.getConflictPair1().equals(pair1) && cp.getConflictPair2().equals(pair2))
-					|| (cp.getConflictPair1().equals(pair2) && cp.getConflictPair2().equals(pair1))) {
-				return cp.getMaximal();
+	private int findMaximal(List<ConflictPair> conflictPairs, String pair1, String pair2) {
+		for (ConflictPair conflictPair : conflictPairs) {
+			if ((conflictPair.getConflictPair1().equals(pair1) && conflictPair.getConflictPair2().equals(pair2))
+					|| (conflictPair.getConflictPair1().equals(pair2)
+							&& conflictPair.getConflictPair2().equals(pair1))) {
+				return conflictPair.getMaximal();
 			}
 		}
 
@@ -634,7 +666,6 @@ public class CdaConvertorV2 {
 
 			return true;
 		}
-
 	}
 
 	private boolean hasTargets(ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) {
@@ -682,7 +713,7 @@ public class CdaConvertorV2 {
 	}
 
 	// get USs Text from JSON File and add them into conflictingItems
-	private void getUssTexts(String usPair, ConflictingItems conflictingItems) {
+	private void getUssTexts(String usPair, ConflictingItems conflictingItems) throws JsonFileNotFound {
 		JSONArray json = null;
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
@@ -734,7 +765,8 @@ public class CdaConvertorV2 {
 	}
 
 	private void writeUsText(String usPair, ArrayList<String> arrayMax, List<ConflictPair> conflictPairs,
-			ConflictingItems conflictingItems, FileWriter fileWriter) throws IOException, EmptyOrNotExistJsonFile {
+			ConflictingItems conflictingItems, FileWriter fileWriter)
+			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
 
@@ -742,10 +774,6 @@ public class CdaConvertorV2 {
 		// add conflict pairs with maximal overlapping and save it
 		// in order to filling table
 		ConflictPair conflictPair = new ConflictPair();
-		conflictPair.setConflictPair1(us1);
-		conflictPair.setConflictPair2(us2);
-		conflictPair.setMaximal(conflictingItems.getMaxConflictCount());
-		conflictPairs.add(conflictPair);
 
 		// TODO here i try to add US_Nr from USs into the highlightConflicts
 		conflictingItems.setUsNr1(us1);
@@ -755,13 +783,17 @@ public class CdaConvertorV2 {
 		getUssTexts(usPair, conflictingItems);
 		try {
 			// here I want to send both USs as parameter for highlightingConflicts
-			highlightConflicts(conflictingItems, usPair);
+			conflictingItems = highlightConflicts(conflictingItems, usPair);
 
 			String highlightedUs2 = conflictingItems.getTextUs2();
 			fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
 
 			String highlightedUs1 = conflictingItems.getTextUs1();
 			fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
+			conflictPair.setConflictPair1(us1);
+			conflictPair.setConflictPair2(us2);
+			conflictPair.setMaximal(conflictingItems.getMaxConflictCount());
+			conflictPairs.add(conflictPair);
 
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -789,7 +821,7 @@ public class CdaConvertorV2 {
 	// then try
 	// to replace
 	private ConflictingItems highlightConflicts(ConflictingItems conflictingItems, String usPair)
-			throws IOException, EmptyOrNotExistJsonFile {
+			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
 
 		String textUs1 = conflictingItems.getTextUs1();
 		String textUs2 = conflictingItems.getTextUs2();
@@ -1010,6 +1042,7 @@ public class CdaConvertorV2 {
 		// into Benefit/MainConflict Count
 		conflictingItems.setBenefitConflictCount(benefitConflict);
 		conflictingItems.setMainConflictCount(mainConflict);
+		conflictingItems.setMaxConflictCount(mainConflict + benefitConflict);
 		conflictingItems.setTextUs1(textUs1);
 		conflictingItems.setTextUs2(textUs2);
 
@@ -1063,7 +1096,7 @@ public class CdaConvertorV2 {
 	private String addHashSymbols(String subString, String[] matches) {
 		Arrays.sort(matches, Comparator.comparing(String::length).reversed());
 		for (String match : matches) {
-			subString = subString.replaceAll("\\b" +  match + "\\b", "#" + match + "#");
+			subString = subString.replaceAll("\\b" + match + "\\b", "#" + match + "#");
 		}
 		return subString;
 	}
@@ -1093,7 +1126,7 @@ public class CdaConvertorV2 {
 				String[] entityMatches = { entity };
 				subStringUs1 = addHashSymbols(subStringUs1, actionMatches);
 				subStringUs1 = addHashSymbols(subStringUs1, entityMatches);
-				
+
 				// US_2 add hash symbol at the beginning and ending of each word
 				subStringUs2 = addHashSymbols(subStringUs2, actionMatches);
 				subStringUs2 = addHashSymbols(subStringUs2, entityMatches);
