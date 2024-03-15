@@ -1,0 +1,26 @@
+
+------------------[Potential Redundant User Stories found]--------------------------
+{user_story_09_AND_user_story_11}
+  
+Redundant clauses within user stories are: 
+* Secondary Action: use
+* Secondary Entity: data packager
+* Primary Action: import
+* Primary Entity: data
+* Targets: Link from "import" to "data" is found.
+* Targets: Link from "use" to "data packager" is found.
+* Triggers: Link from "data publishing user" to "import" is found.
+* Contains: Link between "data" and "data formats" is found.
+
+ user_story_11: #g05# as a #data publishing user#, i want to be able to #import# #data# in json, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.
+
+ user_story_09: #g05# as a #data publishing user#, i want to be able to #import# #data# in excel, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_09: #g05# as a #data publishing user#
+user_story_09:  i want to be able to #import# #data# in excel
+user_story_09:  so that i do not have to convert #data# formats# in order to #use# the #data# packager#.
+user_story_11: #g05# as a #data publishing user#
+user_story_11:  i want to be able to #import# #data# in json
+user_story_11:  so that i do not have to convert #data# formats# in order to #use# the #data# packager#.
