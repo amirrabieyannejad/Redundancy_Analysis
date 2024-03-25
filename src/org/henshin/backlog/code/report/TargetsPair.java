@@ -1,10 +1,13 @@
 package org.henshin.backlog.code.report;
 
-public class TargetPair extends ConflictingItems{
+//Stores effective value of \textit{Primary/Secondary Action}
+//and \textit{Primary/Secondary Entity} in action and entity 
+//fields accordingly.
+public class TargetsPair extends RedundancyItems{
 	private String action;
 	private String entity;
 
-	public TargetPair(String action, String entity) {
+	public TargetsPair(String action, String entity) {
 		this.action = action;
 		this.entity = entity;
 	}

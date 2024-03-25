@@ -1,6 +1,8 @@
 package org.henshin.backlog.code.report;
-
-public class ContainsPair extends ConflictingItems{
+//ConflictPair: Stores the identifier of the two created 
+//user stories as a conflict pair. It also saves the total
+//number of redundancy clauses within the US-pair.
+public class ContainsPair extends RedundancyItems{
 	String parentEntity;
 	String childEntity;
 

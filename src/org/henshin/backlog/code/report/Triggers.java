@@ -1,6 +1,7 @@
 package org.henshin.backlog.code.report;
-
-public class Triggers extends ConflictingItems {
+// Stores effective value of \textit{Persona} as a 
+// persona and \textit{Primary Action} as an action.
+public class Triggers extends RedundancyItems {
 	private String name;
 	private String classType;
 

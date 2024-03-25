@@ -1,0 +1,256 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_01  us_02  us_06  us_57  us_15  us_17  us_22  us_24  us_28  us_52  us_31  us_34  us_48  us_58  
+us_01  0      2      0      0      0      0      0      0      0      0      0      0      0      0      
+us_02  2      0      0      0      0      0      0      0      0      0      0      0      0      0      
+us_06  0      0      0      1      0      0      0      0      0      0      0      0      0      0      
+us_57  0      0      1      0      0      0      0      0      0      0      0      0      0      1      
+us_15  0      0      0      0      0      2      0      0      0      0      0      0      0      0      
+us_17  0      0      0      0      2      0      0      0      0      0      0      0      0      0      
+us_22  0      0      0      0      0      0      0      3      1      1      0      0      0      0      
+us_24  0      0      0      0      0      0      3      0      1      1      0      0      0      0      
+us_28  0      0      0      0      0      0      1      1      0      1      0      0      0      0      
+us_52  0      0      0      0      0      0      1      1      1      0      0      0      0      0      
+us_31  0      0      0      0      0      0      0      0      0      0      0      1      2      0      
+us_34  0      0      0      0      0      0      0      0      0      0      1      0      1      0      
+us_48  0      0      0      0      0      0      0      0      0      0      2      1      0      0      
+us_58  0      0      0      1      0      0      0      0      0      0      0      0      0      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_01_AND_user_story_02}
+  
+Redundants elements are: 
+* Secondary Entity: dataset
+* Primary Action: publish
+* Targets: Link from "publish" to "dataset" is found.
+* Triggers: Link from "publisher" to "publish" is found.
+
+ user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can share the dataset publicly with everyone.
+
+ user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can view just the dataset with a few people.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_01: #g14# as a #publisher#
+user_story_01:  i want to #publish# a #dataset#
+user_story_02: #g14# as a #publisher#
+user_story_02:  i want to #publish# a #dataset#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_06_AND_user_story_57}
+  
+Redundants elements are: 
+* Primary Action: invite
+* Primary Entity: someone
+* Targets: Link from "invite" to "someone" is found.
+
+ user_story_57: #g14# as an owner, i want to #invite# #someone# using their email to sign up and become a member of my publisher, so that that they are authorized to publish data packages under my publisher.
+
+ user_story_06: #g14# as an admin, i want to #invite# #someone# to join the platform, so that that they can start contributing or using data.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_06:  i want to #invite# #someone# to join the platform
+user_story_57:  i want to #invite# #someone# using their email to sign up and become a member of my publisher
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_15_AND_user_story_17}
+  
+Redundants elements are: 
+* Primary Action: publish
+* Primary Entity: data package
+* Targets: Link from "publish" to "data package" is found.
+* Triggers: Link from "publisher" to "publish" is found.
+
+ user_story_17: #g14# as a #publisher#, i want to #publish# a #data package# in the ui, so that that it is available and published.
+
+ user_story_15: #g14# as a #publisher#, i want to #publish# a #data package# where its resource data is stored on my servers but the registry caches a copy of that data, so that that if my data is lost or gets broken i still have a copy people can use.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_15: #g14# as a #publisher#
+user_story_15:  i want to #publish# a #data package# where its resource data is stored on my servers but the registry caches a copy of that data
+user_story_17: #g14# as a #publisher#
+user_story_17:  i want to #publish# a #data package# in the ui
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_24}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Primary Action: view
+* Primary Entity: data package
+* Targets: Link from "view" to "data package" is found.
+* Targets: Link from "get" to "sense" is found.
+* Triggers: Link from "consumer" to "view" is found.
+
+ user_story_24: #g14# as a #consumer#, i want to #view# the #data package#, so that that i can #get# a #sense# of whether i want this dataset or not.
+
+ user_story_22: #g14# as a #consumer#, i want to #view# a #data package# online, so that i can #get# a #sense# of whether this is the dataset i want.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22: #g14# as a #consumer#
+user_story_22:  i want to #view# a #data package# online
+user_story_22:  so that i can #get# a #sense# of whether this is the dataset i want.
+user_story_24: #g14# as a #consumer#
+user_story_24:  i want to #view# the #data package#
+user_story_24:  so that that i can #get# a #sense# of whether i want this dataset or not.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_28}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Targets: Link from "get" to "sense" is found.
+
+ user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further.
+
+ user_story_22: #g14# as a consumer, i want to view a data package online, so that i can #get# a #sense# of whether this is the dataset i want.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22:  so that i can #get# a #sense# of whether this is the dataset i want.
+user_story_28:  so that i #get# a #sense# of what is on this site and if it is useful to look further.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_22_AND_user_story_52}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Targets: Link from "get" to "sense" is found.
+
+ user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+ user_story_22: #g14# as a consumer, i want to view a data package online, so that i can #get# a #sense# of whether this is the dataset i want.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_22:  so that i can #get# a #sense# of whether this is the dataset i want.
+user_story_52:  so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_24_AND_user_story_28}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Targets: Link from "get" to "sense" is found.
+
+ user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further.
+
+ user_story_24: #g14# as a consumer, i want to view the data package, so that that i can #get# a #sense# of whether i want this dataset or not.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_24:  so that that i can #get# a #sense# of whether i want this dataset or not.
+user_story_28:  so that i #get# a #sense# of what is on this site and if it is useful to look further.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_24_AND_user_story_52}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Targets: Link from "get" to "sense" is found.
+
+ user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+ user_story_24: #g14# as a consumer, i want to view the data package, so that that i can #get# a #sense# of whether i want this dataset or not.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_24:  so that that i can #get# a #sense# of whether i want this dataset or not.
+user_story_52:  so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_28_AND_user_story_52}
+  
+Redundants elements are: 
+* Secondary Action: get
+* Secondary Entity: sense
+* Targets: Link from "get" to "sense" is found.
+* Triggers: Link from "consumer" to "see" is found.
+
+ user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+ user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_28:  so that i #get# a #sense# of what is on this site and if it is useful to look further.
+user_story_52:  so that that i can discover their packages and #get# a #sense# of how active and good they are.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_31_AND_user_story_34}
+  
+Redundants elements are: 
+* Primary Action: download
+* Primary Entity: data package
+* Targets: Link from "download" to "data package" is found.
+
+ user_story_34: #g14# as a data analyst, i want to #download# a #data package#, so that that i can study it and wrangle with it to infer new data or generate new insights.
+
+ user_story_31: #g14# as a consumer, i want to #download# the #data package# in one file, so that that i don't have to download descriptor and each resource by hand.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_31:  i want to #download# the #data package# in one file
+user_story_34:  i want to #download# a #data package#
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_31_AND_user_story_48}
+  
+Redundants elements are: 
+* Primary Action: download
+* Primary Entity: data package
+* Targets: Link from "download" to "data package" is found.
+* Triggers: Link from "consumer" to "download" is found.
+
+ user_story_48: #g14# as a #consumer#, i want to #download# a #data package# at a particular version, so that that i know it is compatible with my scripts and system.
+
+ user_story_31: #g14# as a #consumer#, i want to #download# the #data package# in one file, so that that i don't have to download descriptor and each resource by hand.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_31: #g14# as a #consumer#
+user_story_31:  i want to #download# the #data package# in one file
+user_story_48: #g14# as a #consumer#
+user_story_48:  i want to #download# a #data package# at a particular version
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_34_AND_user_story_48}
+  
+Redundants elements are: 
+* Primary Action: download
+* Primary Entity: data package
+* Targets: Link from "download" to "data package" is found.
+
+ user_story_48: #g14# as a consumer, i want to #download# a #data package# at a particular version, so that that i know it is compatible with my scripts and system.
+
+ user_story_34: #g14# as a data analyst, i want to #download# a #data package#, so that that i can study it and wrangle with it to infer new data or generate new insights.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_34:  i want to #download# a #data package#
+user_story_48:  i want to #download# a #data package# at a particular version
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_57_AND_user_story_58}
+  
+Redundants elements are: 
+* Secondary Action: publish
+* Secondary Entity: data packages
+* Targets: Link from "publish" to "data packages" is found.
+
+ user_story_58: #g14# as an owner, i want to remove someone from membership in my publisher, so that they no longer have ability to #publish# or modify my #data packages#.
+
+ user_story_57: #g14# as an owner, i want to invite someone using their email to sign up and become a member of my publisher, so that that they are authorized to #publish# #data packages# under my publisher.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_57:  so that that they are authorized to #publish# #data packages# under my publisher.
+user_story_58:  so that they no longer have ability to #publish# or modify my #data packages#.

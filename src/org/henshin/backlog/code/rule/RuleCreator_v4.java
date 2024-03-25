@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 import org.eclipse.emf.henshin.model.compact.CModule;
 import org.eclipse.emf.henshin.model.compact.CNode;
 import org.eclipse.emf.henshin.model.compact.CRule;
@@ -18,7 +17,7 @@ import org.json.JSONTokener;
 
 /*  Delete Annotation for Attributes actions and entities
  *  plus their edges which have target edges or triggers edge
- *  This version is include US "Text"
+ *  This version is include US's Text
  */
 public class RuleCreator_v4 {
 	private String jsonFile;
@@ -71,19 +70,21 @@ public class RuleCreator_v4 {
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
-		String version= "28";
-		RuleCreator_v4 ruleCreator = new 
-				RuleCreator_v4("Datasets\\g"+version+"_baseline_pos.json",
-						"Henshin_backlog_g"+version,
-				"Backlog_v2.3.ecore");
+		String version = "03";
+		RuleCreator_v4 ruleCreator = new RuleCreator_v4("Final_Reports\\Textual_Report_g" + version+"\\g"+version+ "_baseline_pos.json",
+				"Henshin_backlog_g" + version, "Backlog_v2.3.ecore");
 		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();
 		CModule cModule = ruleCreator.processJsonFile(jsonArray);
 		cModule.save();
 
 	}
 
+	// This method receives a JSON file as input and reads the JSON file,
+	// tokenises the JSON content and parses the JSON content into a JSON
+	// array and returns the parsed JSON array.
 	public JSONArray readJsonArrayFromFile() throws EmptyOrNotExistJsonFile {
 		JSONArray jsonArray;
+		//System.out.println("getJsonFileAbsolutePath(): " + getJsonFileAbsolutePath());
 		try (FileReader reader = new FileReader(getJsonFileAbsolutePath())) {
 			JSONTokener tokener = new JSONTokener(reader);
 			if (!tokener.more()) {
@@ -101,6 +102,9 @@ public class RuleCreator_v4 {
 		return null;
 	}
 
+//	This method assign a CModule to a Ecore meta-model. 
+//	It creates a new CModule object with the provided Henshin-file name,
+//	adds imports from the Ecore file, and returns the module. 
 	public CModule assignCmodule() throws EcoreFileNotFound {
 		CModule module = new CModule(getHenshinFile());
 		if (getEcoreFileAbsolutePath() == null) {
@@ -111,6 +115,10 @@ public class RuleCreator_v4 {
 
 	}
 
+//	It takes parsed JSON array as input and processes their attributes,
+//	such as persona, actions/entities, entities, text and their edges, such
+//	as targets, triggers. Corresponding elements are created as output in a 
+//	the Henshin transformation module (CModule).
 	public CModule processJsonFile(JSONArray json)
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
@@ -195,7 +203,9 @@ public class RuleCreator_v4 {
 		return cModule;
 	}
 
-	// Make rules which as name have Us_Nr Object in JSON file
+//	It takes the \enquote{US\_Nr} JSON-object as input 
+//	and creates a new CRule with the name of unique US 
+//	identifier in the CModule.
 	private CRule processRule(JSONObject jsonObject, String usNr, CModule module) {
 		try {
 
@@ -203,14 +213,17 @@ public class RuleCreator_v4 {
 			return userStory;
 
 		} catch (NullPointerException e) {
+			
 			e.printStackTrace();
 			return null;
 		}
 	}
 
-	// Create node as a story with an attribute called "text" that contains the
-	// "Text"
-	// JSONObject of the JSON file
+//	It receives as input US text extracted from JSON data and 
+//	the associated CRule to create a new CNode representing the 
+//	text within the provided CRule and adds the attribute 
+//	\enquote{text} with US text as value. Finally, the created 
+//	CNode representing the US text is returned.
 	private void processText(JSONObject jsonObject, CRule userStory, String text) {
 		try {
 			CNode nodeText = userStory.createNode("Story");
@@ -240,13 +253,14 @@ public class RuleCreator_v4 {
 	private void processActions(JSONObject jsonObject, CRule userStory, JSONObject action, CNode nodePersona,
 			Map<String, CNode> actionMap, String usNrM) throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 		try {
-			// CNode abstractAction = userStory.createNode("Action");
+
 			if (action.has("Primary Action")) {
+				
 				JSONArray primaryAction = action.getJSONArray("Primary Action");
 				// Creating Nodes for Primary Action/s
 				for (int i = 0; i < primaryAction.length(); i++) {
-					String priAction = primaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ",
-							"").toLowerCase();
+					String priAction = primaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ", "")
+							.toLowerCase();
 					CNode cNode = userStory.createNode("Primary Action");
 
 					cNode.createAttribute("name", "\"" + priAction + "\"", "delete");
@@ -272,8 +286,8 @@ public class RuleCreator_v4 {
 				// Creating Nodes for Secondary Action/s
 				JSONArray secondaryAction = action.getJSONArray("Secondary Action");
 				for (int i = 0; i < secondaryAction.length(); i++) {
-					String secAction = secondaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ",
-							"").toLowerCase();
+					String secAction = secondaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ", "")
+							.toLowerCase();
 					CNode cNode = userStory.createNode("Secondary Action");
 					cNode.createAttribute("name", "\"" + secAction + "\"", "delete");
 
@@ -288,6 +302,13 @@ public class RuleCreator_v4 {
 		}
 	}
 
+//	It receives as parameters the JSON-object with information about the entities,
+//	the CRule object representing the US to which the entities belong and the
+//	JSON-array with information about the targets associated with the entities. 
+//	The method checks whether primary/secondary entities are present, then creates 
+//	a CNode for each primary/secondary entity and checks whether the entity is
+//	present in the target array. If this is the case, its attribute \enquote{name} 
+//	is annotated for deletion.
 	private void processEntities(JSONObject jsonObject, CRule userStory, JSONObject entity, JSONArray targetsArray,
 			Map<String, CNode> entityMap, String usNrM) throws EntityInJsonFileNotFound {
 		try {
@@ -298,8 +319,8 @@ public class RuleCreator_v4 {
 				// Creating Nodes for Primary Entity/s
 				for (int i = 0; i < primaryEntity.length(); i++) {
 					CNode cNode = null;
-					String priEntity = primaryEntity.getString(i).replaceAll(" $", "").replaceAll("^ ",
-							"").toLowerCase();
+					String priEntity = primaryEntity.getString(i).replaceAll(" $", "").replaceAll("^ ", "")
+							.toLowerCase();
 					// check if entity exist in entityMap
 					if (checkEntityIsTarget(primaryEntity.getString(i), targetsArray)) {
 						cNode = userStory.createNode("Primary Entity");
@@ -348,6 +369,11 @@ public class RuleCreator_v4 {
 
 	}
 
+//	It receives the JSON object to be processed, the JSON array with information 
+//	about the target edges and the US identifier as parameters. The method checks
+//	whether the action and entity in the target array exists in the JSON file.
+//	If the action and the entity exist, an edge with the name \enquote{targets} 
+//	is created between them in the Henshin files and annotated for deletion.
 	private void processTargetsEdges(JSONObject jsonObject, JSONArray targetsArray, Map<String, CNode> entityMap,
 			Map<String, CNode> actionMap, String usNrM)
 			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
@@ -388,6 +414,14 @@ public class RuleCreator_v4 {
 		}
 	}
 
+//	It receives the JSON-object to be processed, the JSON array 
+//	with information about contains/target edges and the US identifier
+//	as parameters. It first checks whether both entities belong to 
+//	contains edges. If both entities exist, an edge is created between 
+//	them in CRule with the name \enquote{contains}. If one of the entities 
+//	is a target of another entity (as specified in the targets array), the
+//	edge is annotated for deletion. If none of the entities is a target,
+//	the edge is annotated as \enquote{preserve}.
 	private void processContainsEdges(JSONObject jsonObject, JSONArray containsArray, JSONArray targetsArray,
 			Map<String, CNode> entityMap, String usNrM) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 
@@ -442,7 +476,13 @@ public class RuleCreator_v4 {
 
 	}
 
-// check if Entity is 
+
+//	It receives the name of the entity and the JSON-array with 
+//	information about target edges. The method iterates through
+//	the JSON-array targets, which contains arrays that represent
+//	targets edges between actions and entities. It compares the 
+//	targets entity with the specified entity. If there is a match,
+//	it returns true to indicate that the entity is a target.
 	private static boolean checkEntityIsTarget(String entity, JSONArray targets) {
 		for (int j = 0; j < targets.length(); j++) {
 			// iterate through each element in array

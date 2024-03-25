@@ -1,6 +1,6 @@
 package org.henshin.backlog.code.report;
 
-public class SecondaryAction extends ConflictingItems{
+public class SecondaryAction extends RedundancyItems{
 	private String name;
 	final private String classType = "Secondary Action";
 

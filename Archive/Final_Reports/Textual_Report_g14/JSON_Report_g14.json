@@ -1,0 +1,341 @@
+[
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 2,
+            "Total Conflicted Elements": 2,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Secondary Entity": ["dataset"]},
+        "Action": {"Primary Action": ["publish"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #publish# a #dataset#"],
+            "First UserStory": [" i want to #publish# a #dataset#"]
+        },
+        "Targets": [[
+            "publish",
+            "dataset"
+        ]],
+        "Triggers": [[
+            "publisher",
+            "publish"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can share the dataset publicly with everyone.",
+            "First UserStory": "user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can view just the dataset with a few people."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_01_AND_user_story_02"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 1,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Primary Entity": ["someone"]},
+        "Action": {"Primary Action": ["invite"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #invite# #someone# using their email to sign up and become a member of my publisher"],
+            "First UserStory": [" i want to #invite# #someone# to join the platform"]
+        },
+        "Targets": [[
+            "invite",
+            "someone"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_57: #g14# as an owner, i want to #invite# #someone# using their email to sign up and become a member of my publisher, so that that they are authorized to publish data packages under my publisher.",
+            "First UserStory": "user_story_06: #g14# as an admin, i want to #invite# #someone# to join the platform, so that that they can start contributing or using data."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_06_AND_user_story_57"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 2,
+            "Total Conflicted Elements": 2,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Primary Entity": ["data package"]},
+        "Action": {"Primary Action": ["publish"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #publish# a #data package# in the ui"],
+            "First UserStory": [" i want to #publish# a #data package# where its resource data is stored on my servers but the registry caches a copy of that data"]
+        },
+        "Targets": [[
+            "publish",
+            "data package"
+        ]],
+        "Triggers": [[
+            "publisher",
+            "publish"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_17: #g14# as a #publisher#, i want to #publish# a #data package# in the ui, so that that it is available and published.",
+            "First UserStory": "user_story_15: #g14# as a #publisher#, i want to #publish# a #data package# where its resource data is stored on my servers but the registry caches a copy of that data, so that that if my data is lost or gets broken i still have a copy people can use."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_15_AND_user_story_17"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 2,
+            "Total Conflicted Elements": 3,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["sense"]
+        },
+        "Action": {
+            "Secondary Action": ["get"],
+            "Primary Action": ["view"]
+        },
+        "Part of Sentence": {
+            "Second UserStory": [" so that that i can #get# a #sense# of whether i want this dataset or not."],
+            "First UserStory": [" so that i can #get# a #sense# of whether this is the dataset i want."]
+        },
+        "Targets": [
+            [
+                "view",
+                "data package"
+            ],
+            [
+                "get",
+                "sense"
+            ]
+        ],
+        "Triggers": [[
+            "consumer",
+            "view"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_24: #g14# as a #consumer#, i want to #view# the #data package#, so that that i can #get# a #sense# of whether i want this dataset or not.",
+            "First UserStory": "user_story_22: #g14# as a #consumer#, i want to #view# a #data package# online, so that i can #get# a #sense# of whether this is the dataset i want."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_22_AND_user_story_24"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["sense"]},
+        "Action": {"Secondary Action": ["get"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #get# a #sense# of what is on this site and if it is useful to look further."],
+            "First UserStory": [" so that i can #get# a #sense# of whether this is the dataset i want."]
+        },
+        "Targets": [[
+            "get",
+            "sense"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further.",
+            "First UserStory": "user_story_22: #g14# as a consumer, i want to view a data package online, so that i can #get# a #sense# of whether this is the dataset i want."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_22_AND_user_story_28"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["sense"]},
+        "Action": {"Secondary Action": ["get"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that that i can discover their packages and #get# a #sense# of how active and good they are."],
+            "First UserStory": [" so that i can #get# a #sense# of whether this is the dataset i want."]
+        },
+        "Targets": [[
+            "get",
+            "sense"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.",
+            "First UserStory": "user_story_22: #g14# as a consumer, i want to view a data package online, so that i can #get# a #sense# of whether this is the dataset i want."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_22_AND_user_story_52"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["sense"]},
+        "Action": {"Secondary Action": ["get"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #get# a #sense# of what is on this site and if it is useful to look further."],
+            "First UserStory": [" so that that i can #get# a #sense# of whether i want this dataset or not."]
+        },
+        "Targets": [[
+            "get",
+            "sense"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further.",
+            "First UserStory": "user_story_24: #g14# as a consumer, i want to view the data package, so that that i can #get# a #sense# of whether i want this dataset or not."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_24_AND_user_story_28"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["sense"]},
+        "Action": {"Secondary Action": ["get"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that that i can discover their packages and #get# a #sense# of how active and good they are."],
+            "First UserStory": [" so that that i can #get# a #sense# of whether i want this dataset or not."]
+        },
+        "Targets": [[
+            "get",
+            "sense"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.",
+            "First UserStory": "user_story_24: #g14# as a consumer, i want to view the data package, so that that i can #get# a #sense# of whether i want this dataset or not."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_24_AND_user_story_52"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["sense"]},
+        "Action": {"Secondary Action": ["get"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that that i can discover their packages and #get# a #sense# of how active and good they are."],
+            "First UserStory": [" so that i #get# a #sense# of what is on this site and if it is useful to look further."]
+        },
+        "Targets": [[
+            "get",
+            "sense"
+        ]],
+        "Triggers": [[
+            "consumer",
+            "see"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_52: #g14# as a consumer, i want to see a publisher's profile, so that that i can discover their packages and #get# a #sense# of how active and good they are.",
+            "First UserStory": "user_story_28: #g14# as a consumer, i want to see some example data packages quickly, so that i #get# a #sense# of what is on this site and if it is useful to look further."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_28_AND_user_story_52"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 1,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Primary Entity": ["data package"]},
+        "Action": {"Primary Action": ["download"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #download# a #data package#"],
+            "First UserStory": [" i want to #download# the #data package# in one file"]
+        },
+        "Targets": [[
+            "download",
+            "data package"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_34: #g14# as a data analyst, i want to #download# a #data package#, so that that i can study it and wrangle with it to infer new data or generate new insights.",
+            "First UserStory": "user_story_31: #g14# as a consumer, i want to #download# the #data package# in one file, so that that i don't have to download descriptor and each resource by hand."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_31_AND_user_story_34"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 2,
+            "Total Conflicted Elements": 2,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Primary Entity": ["data package"]},
+        "Action": {"Primary Action": ["download"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #download# a #data package# at a particular version"],
+            "First UserStory": [" i want to #download# the #data package# in one file"]
+        },
+        "Targets": [[
+            "download",
+            "data package"
+        ]],
+        "Triggers": [[
+            "consumer",
+            "download"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_48: #g14# as a #consumer#, i want to #download# a #data package# at a particular version, so that that i know it is compatible with my scripts and system.",
+            "First UserStory": "user_story_31: #g14# as a #consumer#, i want to #download# the #data package# in one file, so that that i don't have to download descriptor and each resource by hand."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_31_AND_user_story_48"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 1,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 0
+        },
+        "Entity": {"Primary Entity": ["data package"]},
+        "Action": {"Primary Action": ["download"]},
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #download# a #data package# at a particular version"],
+            "First UserStory": [" i want to #download# a #data package#"]
+        },
+        "Targets": [[
+            "download",
+            "data package"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_48: #g14# as a consumer, i want to #download# a #data package# at a particular version, so that that i know it is compatible with my scripts and system.",
+            "First UserStory": "user_story_34: #g14# as a data analyst, i want to #download# a #data package#, so that that i can study it and wrangle with it to infer new data or generate new insights."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_34_AND_user_story_48"
+    },
+    {
+        "Status": {
+            "Main Part Conflicted Elements": 0,
+            "Total Conflicted Elements": 1,
+            "Benefit Part Conflicted Elements": 1
+        },
+        "Entity": {"Secondary Entity": ["data packages"]},
+        "Action": {"Secondary Action": ["publish"]},
+        "Part of Sentence": {
+            "Second UserStory": [" so that they no longer have ability to #publish# or modify my #data packages#."],
+            "First UserStory": [" so that that they are authorized to #publish# #data packages# under my publisher."]
+        },
+        "Targets": [[
+            "publish",
+            "data packages"
+        ]],
+        "Triggers": "",
+        "Text": {
+            "Second UserStory": "user_story_58: #g14# as an owner, i want to remove someone from membership in my publisher, so that they no longer have ability to #publish# or modify my #data packages#.",
+            "First UserStory": "user_story_57: #g14# as an owner, i want to invite someone using their email to sign up and become a member of my publisher, so that that they are authorized to #publish# #data packages# under my publisher."
+        },
+        "Project Number": "g14",
+        "Conflict Pair": "user_story_57_AND_user_story_58"
+    }
+]

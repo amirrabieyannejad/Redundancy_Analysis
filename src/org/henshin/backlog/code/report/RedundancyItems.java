@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import java.util.HashSet;
 
-public class ConflictingItems {
+public class RedundancyItems {
 	private List<SecondaryEntity> secondaryEntity;
 	private List<PrimaryEntity> primaryEntity;
 	private List<SecondaryAction> secondaryAction;
@@ -31,7 +31,7 @@ public class ConflictingItems {
 	private int mainConflictCount;
 	private int benefitConflictCount;
 
-	public int getMainConflictCount() {
+	public int getMainRedundancyCount() {
 		return mainConflictCount;
 	}
 
@@ -39,7 +39,7 @@ public class ConflictingItems {
 		this.mainConflictCount = mainConflictCount;
 	}
 
-	public int getBenefitConflictCount() {
+	public int getBenefitRedundancyCount() {
 		return benefitConflictCount;
 	}
 
@@ -63,7 +63,7 @@ public class ConflictingItems {
 		UsNr2 = usNr2;
 	}
 
-	public ConflictingItems() {
+	public RedundancyItems() {
 		this.secondaryEntity = new ArrayList<>();
 		this.primaryEntity = new ArrayList<>();
 		this.secondaryAction = new ArrayList<>();
@@ -137,7 +137,7 @@ public class ConflictingItems {
 		return contains;
 	}
 
-	public int getMaxConflictCount() {
+	public int getTotalRedundancyCount() {
 		return maxConflictCount;
 	}
 
@@ -158,8 +158,8 @@ public class ConflictingItems {
 	}
 
 	// Method to printout all Conflicting Items
-	public void printConflictingItems(FileWriter cdaWriter, List<TargetPair> targetsPairs,
-			List<ContainsPair> containsPairs, List<TriggerPair> triggersPairs, JSONObject jsonConflictPair)
+	public void printRedundantItems(FileWriter cdaWriter, List<TargetsPair> targetsPairs,
+			List<ContainsPair> containsPairs, List<TriggersPair> triggersPairs, JSONObject jsonConflictPair)
 			throws IOException {
 
 		List<SecondaryEntity> secondaryEntities = getSecondaryEntity();
@@ -225,7 +225,7 @@ public class ConflictingItems {
 		if (!targetsPairs.isEmpty()) {
 			// Add Common Targets of both user stories
 			JSONArray jsonTargets = new JSONArray();
-			for (TargetPair targetPair : targetsPairs) {
+			for (TargetsPair targetPair : targetsPairs) {
 				// Write it also in JSON Array Targets
 				JSONArray jsonTargetsPair = new JSONArray().put(targetPair.getAction()).put(targetPair.getEntity());
 				jsonTargets.put(jsonTargetsPair);
@@ -244,7 +244,7 @@ public class ConflictingItems {
 		if (!triggersPairs.isEmpty()) {
 			// Add Common Triggers of both user stories
 			JSONArray jsonTriggers = new JSONArray();
-			for (TriggerPair triggerPair : triggersPairs) {
+			for (TriggersPair triggerPair : triggersPairs) {
 				String triggerPersona= triggerPair.getPersona();
 				String triggerAction = triggerPair.getAction();
 				
@@ -292,13 +292,13 @@ public class ConflictingItems {
 	}
 
 	// Iterate through Targets Array of related user stories in json file
-	// return true if name of elements which contains in conflicting items
+	// return true if name of elements which contains is in conflicting items
 	// whether exist or not
 	public boolean isInCommonTargets(String name1, String type1, String name2, String type2,
-			List<TargetPair> targetsPairs) {
+			List<TargetsPair> targetsPairs) {
 
 		// Iterate through list of common Targets
-		for (TargetPair targetsPair : targetsPairs) {
+		for (TargetsPair targetsPair : targetsPairs) {
 
 			if (name2.isEmpty()) {
 				// check whether type of class in action or entity

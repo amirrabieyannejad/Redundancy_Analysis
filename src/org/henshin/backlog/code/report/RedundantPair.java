@@ -1,18 +1,18 @@
 package org.henshin.backlog.code.report;
 
-public class ConflictPair {
+public class RedundantPair {
 	private String conflictPair1;
 	private String conflictPair2;
 	private int maximal;
 
-	public ConflictPair() {
+	public RedundantPair() {
 
 	}
 
 
 
 
-	public String getConflictPair1() {
+	public String getRedundantPair1() {
 		return conflictPair1;
 	}
 
@@ -26,7 +26,7 @@ public class ConflictPair {
 
 
 
-	public String getConflictPair2() {
+	public String getRedundantPair2() {
 		return conflictPair2;
 	}
 

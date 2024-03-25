@@ -39,7 +39,7 @@ import org.json.JSONTokener;
 
 import java.util.Set;
 import java.util.HashSet;
-import java.util.HashMap;
+
 
 /** Report maximal overlap if and only if in Minimal Models
  * at least Entity, Action and Triggers exist. With Table summary
@@ -60,10 +60,10 @@ public class ReportExtractor {
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-		//String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
-		//		"25", "26", "27", "28" };
-		 String[] datasets = { "05" };
-		// Version of data set
+		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
+				"25", "26", "27", "28" };
+//		 String[] datasets = { "05" };
+//		 Version of data set
 		for (int i = 0; i < datasets.length; i++) {
 			ReportExtractor cdaConvertor = new ReportExtractor(
 					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
@@ -78,7 +78,7 @@ public class ReportExtractor {
 			File jsonReport = new File(cdaConvertor.getFinalReportDir() + "\\Textual_Report_g" + datasets[i]
 					+ "\\JSON_Report_g" + datasets[i] + ".json");
 			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
-			List<ConflictPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
+			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
 
 			cdaConvertor.writeTable(cdaReport, listConflictPairs);
 		}
@@ -167,21 +167,21 @@ public class ReportExtractor {
 		return null;
 	}
 
-	public List<ConflictPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
+	public List<RedundantPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
 			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
 			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-		// create JSON array in order to contains all conflict pairs and their
+		// create JSON array in order to contains all redundant pairs and their
 		JSONArray jsonArray = new JSONArray();
 
-		ConflictingItems conflictingItems;
-		List<ConflictPair> conflictPairs;
-		ArrayList<String> arrayMaximalElements;
-		ArrayList<String> arrayMaximalElementsNames;
+		RedundancyItems redundancyItems;
+		List<RedundantPair> redundantPairs;
+		ArrayList<String> arrayTotalElements;
+		ArrayList<String> arrayTotalElementsNames;
 		List<String> pairList = new ArrayList<>();
 		File main = new File(getAbsoluteDirPath());
-		// Instantiate conflictPairs
-		conflictPairs = new ArrayList<>();
+		// Instantiate redundantPairs
+		redundantPairs = new ArrayList<>();
 		// Iterate through critical pairs
 		if (main.exists() && main.list().length != 0) {
 			for (String confPair : main.list()) {
@@ -189,9 +189,9 @@ public class ReportExtractor {
 					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + confPair);
 					if (!conflictReasonDir.isFile()) {
 						JSONObject jsonConflictPair = new JSONObject();
-						arrayMaximalElementsNames = new ArrayList<>();
-						arrayMaximalElements = new ArrayList<>();
-						conflictingItems = new ConflictingItems();
+						arrayTotalElementsNames = new ArrayList<>();
+						arrayTotalElements = new ArrayList<>();
+						redundancyItems = new RedundancyItems();
 						String[] conflictReasonListing = conflictReasonDir.list();
 						// Iterate through conflict reasons if there is more than one conflict_reason.
 						if (conflictReasonListing.length > 1) {
@@ -201,8 +201,8 @@ public class ReportExtractor {
 									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + confPair + "\\"
 											+ conflictReason + "\\minimal-model.ecore");
 									try {
-										processMinimalModels(minimalModelEcoreFile, fileWriter, arrayMaximalElements,
-												arrayMaximalElementsNames, conflictingItems);
+										processMinimalModels(minimalModelEcoreFile,  arrayTotalElements,
+												arrayTotalElementsNames, redundancyItems);
 									} catch (Exception e) {
 										e.printStackTrace();
 									}
@@ -211,45 +211,45 @@ public class ReportExtractor {
 						}
 						// Write only the Elements which contains Primary/Secondary Action and
 						// Primary/Secondary Entity
-						if (hasEntitys(arrayMaximalElementsNames, conflictingItems)
-								&& hasActions(arrayMaximalElementsNames, conflictingItems)
-								&& hasTargets(arrayMaximalElementsNames, conflictingItems)) {
+						if (hasEntitys(arrayTotalElementsNames, redundancyItems)
+								&& hasActions(arrayTotalElementsNames, redundancyItems)
+								&& hasTargets(arrayTotalElementsNames, redundancyItems)) {
 							fileWriter.write("\n------------------[Potential Redundant User"
 									+ " Stories found]--------------------------\n{" + confPair + "}\n  ");
 							jsonConflictPair.put("Potential Redundant User Stories", confPair);
 
 							fileWriter.write("\nRedundant clauses within user stories are: ");
-							conflictingItems.printConflictingItems(fileWriter, getCommonTargets(confPair),
+							redundancyItems.printRedundantItems(fileWriter, getCommonTargets(confPair),
 									getCommonContains(confPair), getCommonTriggers(confPair), jsonConflictPair);
 
 							// receive text of user stories as input
 							// in order to highlight the redundancy clauses in each text
-							writeUsText(confPair, arrayMaximalElementsNames, conflictPairs, conflictingItems,
+							writeUsText(confPair, arrayTotalElementsNames, redundantPairs, redundancyItems,
 									fileWriter);
 
 							// add JSON Object into main JSON array
-							JSONObject jsonConflictStatus = getConflictStatus(conflictingItems);
+							JSONObject jsonConflictStatus = getRedundancyStatus(redundancyItems);
 
 							// put all in Status as subPart of "Status"
 							jsonConflictPair.put("Status", jsonConflictStatus);
 
-							if (conflictingItems.getTextUs1() != null && conflictingItems.getTextUs2() != null) {
+							if (redundancyItems.getTextUs1() != null && redundancyItems.getTextUs2() != null) {
 								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
 										+ " redundancies between user stories:\n\n");
 
 								// here we should write USsSentenceParts
-								writeUsSentencePart(confPair, conflictingItems, fileWriter, jsonConflictPair);
+								writeUsSentencePart(confPair, redundancyItems, fileWriter, jsonConflictPair);
 
 								// Add JSONObject Texts of two user story and store them into Text JSONObject
 								JSONObject jsonText = new JSONObject();
 								jsonText.put("First UserStory",
-										getUsName1(confPair) + ": " + conflictingItems.getTextUs1());
+										getUsName1(confPair) + ": " + redundancyItems.getTextUs1());
 								jsonText.put("Second UserStory",
-										getUsName2(confPair) + ": " + conflictingItems.getTextUs2());
+										getUsName2(confPair) + ": " + redundancyItems.getTextUs2());
 								jsonConflictPair.put("Text", jsonText);
 
 								// select project Number and save it to JSONFile
-								String projectNr = conflictingItems.getTextUs1().replaceAll(".*#(g\\d\\d)#.*", "$1");
+								String projectNr = redundancyItems.getTextUs1().replaceAll(".*#(g\\d\\d)#.*", "$1");
 								jsonConflictPair.put("Project Number", projectNr);
 							}
 
@@ -262,7 +262,7 @@ public class ReportExtractor {
 				}
 			}
 
-			if (conflictPairs.size() == 0) {
+			if (redundantPairs.size() == 0) {
 				fileWriter.write("No redundancy found between user stories!");
 
 			}
@@ -272,32 +272,32 @@ public class ReportExtractor {
 
 		}
 
-		return conflictPairs;
+		return redundantPairs;
 
 	}
 
 	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
 	// data
-	private JSONObject getConflictStatus(ConflictingItems conflictingItems) {
-		JSONObject jsonConflictStatus = new JSONObject();
+	private JSONObject getRedundancyStatus(RedundancyItems redundancyItems) {
+		JSONObject jsonRedundancyStatus = new JSONObject();
 
 		// add observed conflicted pairs in Main part sentence
-		jsonConflictStatus.put("Main Part Redundancy Clauses", conflictingItems.getMainConflictCount());
+		jsonRedundancyStatus.put("Main Part Redundancy Clauses", redundancyItems.getMainRedundancyCount());
 
 		// add observed conflicted pairs in Benefit part sentence
-		jsonConflictStatus.put("Benefit Part Redundancy Clause", conflictingItems.getBenefitConflictCount());
+		jsonRedundancyStatus.put("Benefit Part Redundancy Clause", redundancyItems.getBenefitRedundancyCount());
 		
 		// add observed total conflicted pairs
-		jsonConflictStatus.put("Total Redundancy Clauses", conflictingItems.getMaxConflictCount());
-		return jsonConflictStatus;
+		jsonRedundancyStatus.put("Total Redundancy Clauses", redundancyItems.getTotalRedundancyCount());
+		return jsonRedundancyStatus;
 	}
 
 	// receive a conflict Pair and a String which corresponds to "Targets" array
 	// Object in JSON file
-	private List<TargetPair> getCommonTargets(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+	private List<TargetsPair> getCommonTargets(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(confPair);
 		String us2 = getUsName2(confPair);
-		List<TargetPair> targetPairs = new ArrayList<>();
+		List<TargetsPair> targetPairs = new ArrayList<>();
 		JSONArray us1TargetArray = null;
 		JSONArray us2TargetArray = null;
 		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());
@@ -329,7 +329,7 @@ public class ReportExtractor {
 					String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
 					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
 					if (enttiyUs2.equalsIgnoreCase(enttiyUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
-						targetPairs.add(new TargetPair(actionUs1, enttiyUs1));
+						targetPairs.add(new TargetsPair(actionUs1, enttiyUs1));
 						break;
 					}
 				}
@@ -340,10 +340,10 @@ public class ReportExtractor {
 
 	// receive a conflict Pair and a String which corresponds to "Triggers" array
 	// Object in JSON file
-	private List<TriggerPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+	private List<TriggersPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(confPair);
 		String us2 = getUsName2(confPair);
-		List<TriggerPair> triggersPairs = new ArrayList<>();
+		List<TriggersPair> triggersPairs = new ArrayList<>();
 
 		JSONArray us1TriggersArray = null;
 		JSONArray us2TriggersArray = null;
@@ -376,7 +376,7 @@ public class ReportExtractor {
 					// check if both action and persona in triggers from USs
 					// are the same
 					if (actionUs2.equalsIgnoreCase(actionUs1) && personaUs2.equalsIgnoreCase(personaUs1)) {
-						triggersPairs.add(new TriggerPair(personaUs1, actionUs1));
+						triggersPairs.add(new TriggersPair(personaUs1, actionUs1));
 						break;
 						// }
 //						}
@@ -441,6 +441,10 @@ public class ReportExtractor {
 
 	}
 
+//	This method make sure that folder name is identified
+//	with \textit{\_AND\_} due to the fact that through CDA 
+//	generated report is formatted like \enquote{user\_story\_\textless 
+//		digit \textgreater\_AND\_user\_story\_\textless
 	private boolean containsAnd(String folder) {
 		if (folder.toLowerCase().contains("and")) {
 			return true;
@@ -449,9 +453,9 @@ public class ReportExtractor {
 		}
 	}
 
-	private void processMinimalModels(File minimalModelEcoreFile, FileWriter cdaWriter,
+	private void processMinimalModels(File minimalModelEcoreFile,
 			ArrayList<String> arrayMaximalElements, ArrayList<String> arrayMaximalElementsNames,
-			ConflictingItems conflictingItems) throws IOException {
+			RedundancyItems redundancyItems) throws IOException {
 		if (minimalModelEcoreFile.exists() && minimalModelEcoreFile.length() > 0) {
 			Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;
 			resourceFactoryRegistry.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
@@ -463,7 +467,7 @@ public class ReportExtractor {
 				for (EObject eObject : resource.getContents()) {
 					EPackage minimalPackage = (EPackage) eObject;
 
-					iteratePackages(minimalPackage, arrayMaximalElements, arrayMaximalElementsNames, conflictingItems);
+					iteratePackages(minimalPackage, arrayMaximalElements, arrayMaximalElementsNames, redundancyItems);
 
 				}
 			} else {
@@ -486,12 +490,12 @@ public class ReportExtractor {
 	// Receive user stories texts with highlighted elements and
 	// return only the part/region of sentences which highlighted elements is
 	// appears
-	private void writeUsSentencePart(String string, ConflictingItems conflictingItems, FileWriter fileWriter,
+	private void writeUsSentencePart(String string, RedundancyItems redundancyItems, FileWriter fileWriter,
 			JSONObject jsonObject) throws IOException {
 		String usNum1 = getUsName1(string);
 		String usNum2 = getUsName2(string);
-		String usText1 = conflictingItems.getTextUs1();
-		String usText2 = conflictingItems.getTextUs2();
+		String usText1 = redundancyItems.getTextUs1();
+		String usText2 = redundancyItems.getTextUs2();
 		splitUsText(usText1, usNum1, usText2, usNum2, fileWriter, jsonObject);
 
 	}
@@ -563,7 +567,7 @@ public class ReportExtractor {
 	// in order to insert the table at the very first place of the file
 	// we need to first store the report at StringBuilder and then make
 	// file again but at this time writing the table first
-	private void writeTable(File totalCda, List<ConflictPair> conflictPairs) throws IOException {
+	private void writeTable(File totalCda, List<RedundantPair> redundantPairs) throws IOException {
 
 		List<String> pairListSeperate = new ArrayList<>();
 		StringBuilder report = new StringBuilder();
@@ -581,15 +585,15 @@ public class ReportExtractor {
 			table.append("* Table of potential redundancies between user stories"
 					+ " and the number of their overlapping elements\n\n");
 			// table.append("\t");
-			for (ConflictPair conflictPair : conflictPairs) {
-				if (!pairListSeperate.contains(conflictPair.getConflictPair1())) {
-					pairListSeperate.add(conflictPair.getConflictPair1());
+			for (RedundantPair redundantPair : redundantPairs) {
+				if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {
+					pairListSeperate.add(redundantPair.getRedundantPair1());
 				}
-				if (!pairListSeperate.contains(conflictPair.getConflictPair2())) {
-					pairListSeperate.add(conflictPair.getConflictPair2());
+				if (!pairListSeperate.contains(redundantPair.getRedundantPair2())) {
+					pairListSeperate.add(redundantPair.getRedundantPair2());
 				}
 			}
-			String[][] stringTable = createTable(pairListSeperate, conflictPairs);
+			String[][] stringTable = createTable(pairListSeperate, redundantPairs);
 			int numCols = stringTable[0].length;
 
 			// find the maximum width for each column
@@ -617,7 +621,7 @@ public class ReportExtractor {
 
 	}
 
-	private String[][] createTable(List<String> pairListSeperate2, List<ConflictPair> conflictPairs2) {
+	private String[][] createTable(List<String> pairListSeperate2, List<RedundantPair> redundantPairs2) {
 		int size = pairListSeperate2.size();
 		String[][] table = new String[size + 1][size + 1];
 
@@ -630,20 +634,20 @@ public class ReportExtractor {
 			for (int j = 0; j < size; j++) {
 				String pair1 = pairListSeperate2.get(i);
 				String pair2 = pairListSeperate2.get(j);
-				int maximal = getMaximalConflictFromPair(conflictPairs2, pair1, pair2);
+				int maximal = getTotalRedundanciesFromPair(redundantPairs2, pair1, pair2);
 				table[i + 1][j + 1] = String.valueOf(maximal);
 			}
 
 		}
 		return table;
 	}
-
-	private int getMaximalConflictFromPair(List<ConflictPair> conflictPairs, String pair1, String pair2) {
-		for (ConflictPair conflictPair : conflictPairs) {
-			if ((conflictPair.getConflictPair1().equals(pair1) && conflictPair.getConflictPair2().equals(pair2))
-					|| (conflictPair.getConflictPair1().equals(pair2)
-							&& conflictPair.getConflictPair2().equals(pair1))) {
-				return conflictPair.getMaximal();
+	
+	private int getTotalRedundanciesFromPair(List<RedundantPair> redundantPairs, String pair1, String pair2) {
+		for (RedundantPair redundantPair : redundantPairs) {
+			if ((redundantPair.getRedundantPair1().equals(pair1) && redundantPair.getRedundantPair2().equals(pair2))
+					|| (redundantPair.getRedundantPair1().equals(pair2)
+							&& redundantPair.getRedundantPair2().equals(pair1))) {
+				return redundantPair.getMaximal();
 			}
 		}
 
@@ -669,9 +673,9 @@ public class ReportExtractor {
 		}
 	}
 
-	private boolean hasTargets(ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) {
+	private boolean hasTargets(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
 		for (String item : arrayMaximalElementsNames) {
-			for (Targets target : conflictingItems.getTargets()) {
+			for (Targets target : redundancyItems.getTargets()) {
 				if (item.equals(target.getName())) {
 					return true;
 				}
@@ -680,14 +684,14 @@ public class ReportExtractor {
 		return false;
 	}
 
-	private boolean hasActions(ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) {
+	private boolean hasActions(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
 		for (String item : arrayMaximalElementsNames) {
-			for (SecondaryAction secondaryAction : conflictingItems.getSecondaryAction()) {
+			for (SecondaryAction secondaryAction : redundancyItems.getSecondaryAction()) {
 				if (item.equals(secondaryAction.getName())) {
 					return true;
 				}
 			}
-			for (PrimaryAction primaryAction : conflictingItems.getPrimaryActions()) {
+			for (PrimaryAction primaryAction : redundancyItems.getPrimaryActions()) {
 				if (item.equals(primaryAction.getName())) {
 					return true;
 				}
@@ -696,14 +700,14 @@ public class ReportExtractor {
 		return false;
 	}
 
-	private boolean hasEntitys(ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) {
+	private boolean hasEntitys(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
 		for (String item : arrayMaximalElementsNames) {
-			for (SecondaryEntity secondaryEntity : conflictingItems.getSecondaryEntity()) {
+			for (SecondaryEntity secondaryEntity : redundancyItems.getSecondaryEntity()) {
 				if (item.equals(secondaryEntity.getName())) {
 					return true;
 				}
 			}
-			for (PrimaryEntity primaryEntity : conflictingItems.getPrimaryEntity()) {
+			for (PrimaryEntity primaryEntity : redundancyItems.getPrimaryEntity()) {
 				if (item.equals(primaryEntity.getName())) {
 					return true;
 				}
@@ -713,8 +717,8 @@ public class ReportExtractor {
 		return false;
 	}
 
-	// get USs Text from JSON File and add them into conflictingItems
-	private void getUssTexts(String usPair, ConflictingItems conflictingItems) throws JsonFileNotFound {
+	// get USs Text from JSON File and add them into redundancyItems
+	private void getUssTexts(String usPair, RedundancyItems redundancyItems) throws JsonFileNotFound {
 		JSONArray json = null;
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
@@ -732,11 +736,11 @@ public class ReportExtractor {
 						// all words should be lower case to avoid mismatching
 						String usText = jsonObject.getString("Text").toLowerCase();
 						if (usNr.equals(us1)) {
-							conflictingItems.setTextUs1(usText);
+							redundancyItems.setTextUs1(usText);
 
 						} else if (usNr.equals(us2)) {
 
-							conflictingItems.setTextUs2(usText);
+							redundancyItems.setTextUs2(usText);
 
 						}
 					} else {
@@ -765,35 +769,35 @@ public class ReportExtractor {
 
 	}
 
-	private void writeUsText(String usPair, ArrayList<String> arrayMax, List<ConflictPair> conflictPairs,
-			ConflictingItems conflictingItems, FileWriter fileWriter)
+	private void writeUsText(String usPair, ArrayList<String> arrayMax, List<RedundantPair> redundantPairs,
+			RedundancyItems redundancyItems, FileWriter fileWriter)
 			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
 
 		// add conflict pairs with maximal overlapping and save it
 		// in order to filling table
-		ConflictPair conflictPair = new ConflictPair();
+		RedundantPair redundantPair = new RedundantPair();
 
 		// here i try to add US_Nr from USs into the highlightConflicts
-		conflictingItems.setUsNr1(us1);
-		conflictingItems.setUsNr2(us2);
+		redundancyItems.setUsNr1(us1);
+		redundancyItems.setUsNr2(us2);
 
-		// get USs Text from JSON File and add them into conflictingItems
-		getUssTexts(usPair, conflictingItems);
+		// get USs Text from JSON File and add them into redundancyItems
+		getUssTexts(usPair, redundancyItems);
 		try {
 			// here I want to send both USs as parameter for highlightingConflicts
-			conflictingItems = highlightConflicts(conflictingItems, usPair);
+			redundancyItems = highlightRedundancies(redundancyItems, usPair);
 
-			String highlightedUs2 = conflictingItems.getTextUs2();
+			String highlightedUs2 = redundancyItems.getTextUs2();
 			fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
 
-			String highlightedUs1 = conflictingItems.getTextUs1();
+			String highlightedUs1 = redundancyItems.getTextUs1();
 			fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-			conflictPair.setConflictPair1(us1);
-			conflictPair.setConflictPair2(us2);
-			conflictPair.setMaximal(conflictingItems.getMaxConflictCount());
-			conflictPairs.add(conflictPair);
+			redundantPair.setConflictPair1(us1);
+			redundantPair.setConflictPair2(us2);
+			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
+			redundantPairs.add(redundantPair);
 
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -820,19 +824,19 @@ public class ReportExtractor {
 	// are exist then try to file the match is in thirdPartOfSentence of both USs
 	// then try
 	// to replace
-	private ConflictingItems highlightConflicts(ConflictingItems conflictingItems, String usPair)
+	private RedundancyItems highlightRedundancies(RedundancyItems redundancyItems, String usPair)
 			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
 
-		String textUs1 = conflictingItems.getTextUs1();
-		String textUs2 = conflictingItems.getTextUs2();
-		int mainConflict = conflictingItems.getMainConflictCount();
-		int benefitConflict = conflictingItems.getBenefitConflictCount();
+		String textUs1 = redundancyItems.getTextUs1();
+		String textUs2 = redundancyItems.getTextUs2();
+		int mainConflict = redundancyItems.getMainRedundancyCount();
+		int benefitConflict = redundancyItems.getBenefitRedundancyCount();
 		if (textUs1.length() <= 0 && textUs2.length() <= 0) {
 			return null;
 		}
-		List<TargetPair> targetsPairs = getCommonTargets(usPair);
+		List<TargetsPair> targetsPairs = getCommonTargets(usPair);
 		List<ContainsPair> containsPairs = getCommonContains(usPair);
-		List<TriggerPair> triggersPairs = getCommonTriggers(usPair);
+		List<TriggersPair> triggersPairs = getCommonTriggers(usPair);
 
 		// find the index of first comma
 		int firstCommaUs1 = textUs1.indexOf(',');
@@ -840,7 +844,7 @@ public class ReportExtractor {
 		// if there is no main part in the sentence
 		// which include triggers and targets
 		if (firstCommaUs1 == -1 || firstCommaUs2 == -1) {
-			return conflictingItems;
+			return redundancyItems;
 		}
 		// receive the index of first comma in both Text in USs
 		// subString will be like this: I want to be able to ....
@@ -861,7 +865,7 @@ public class ReportExtractor {
 
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
-			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, redundancyItems, subStringSecondUs1,
 					subStringSecondUs2);
 			textUs1 = subStringFirstUs1 + "," + usText[0];
 			textUs2 = subStringFirstUs2 + "," + usText[1];
@@ -869,19 +873,19 @@ public class ReportExtractor {
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
 			// subString from second comma until the end of story ;)
-			String subStringBenefitUs2 = conflictingItems.getTextUs2().substring(benefitPlaceHolderUs2);
+			String subStringBenefitUs2 = redundancyItems.getTextUs2().substring(benefitPlaceHolderUs2);
 
 			// check if there are hash symbol more than 3 pair first and main section
 			// if so then highlight the Persona
-			if (hasMoreThanSixHashMarks(textUs1)) {
-				usText = highlightPersona(triggersPairs, targetsPairs, conflictingItems, textUs1, textUs2);
+			if (hasMoreThanSixHashSymbols(textUs1)) {
+				usText = applyHashSymbolPersona(triggersPairs, targetsPairs, redundancyItems, textUs1, textUs2);
 				textUs1 = usText[0];
 				textUs2 = usText[1];
 				// add the number of conflict pairs from main sentence
 				mainConflict = mainConflict + Integer.parseInt(usText[2]);
 			}
 			// Apply hash symbol to common element in the both user stories if any
-			usText = applyHashSymbolContaians(containsPairs, conflictingItems, textUs1, textUs2);
+			usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1, textUs2);
 			textUs1 = usText[0];
 			textUs2 = usText[1];
 			// add the number of conflict pairs from main sentence
@@ -899,7 +903,7 @@ public class ReportExtractor {
 
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
-			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, redundancyItems, subStringSecondUs1,
 					subStringSecondUs2);
 			textUs1 = subStringFirstUs1 + "," + usText[0];
 			textUs2 = subStringFirstUs2 + "," + usText[1];
@@ -907,12 +911,12 @@ public class ReportExtractor {
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
 			// subString from second comma until the end of story ;)
-			String subStringBenefitUs1 = conflictingItems.getTextUs1().substring(benefitPlaceHolderUs1);
+			String subStringBenefitUs1 = redundancyItems.getTextUs1().substring(benefitPlaceHolderUs1);
 
 			// check if there are hash symbol more than 3 pair first and main section
 			// if so then highlight the Persona
-			if (hasMoreThanSixHashMarks(textUs1)) {
-				usText = highlightPersona(triggersPairs, targetsPairs, conflictingItems, textUs1, textUs2);
+			if (hasMoreThanSixHashSymbols(textUs1)) {
+				usText = applyHashSymbolPersona(triggersPairs, targetsPairs, redundancyItems, textUs1, textUs2);
 				textUs1 = usText[0];
 				textUs2 = usText[1];
 				// add the number of conflict pairs from main sentence
@@ -921,7 +925,7 @@ public class ReportExtractor {
 			}
 
 			// Apply hash symbol to common element in the both user stories if any
-			usText = applyHashSymbolContaians(containsPairs, conflictingItems, textUs1, textUs2);
+			usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1, textUs2);
 			textUs1 = usText[0];
 			textUs2 = usText[1];
 			// add the number of conflict pairs from main sentence
@@ -939,7 +943,7 @@ public class ReportExtractor {
 
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
-			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, redundancyItems, subStringSecondUs1,
 					subStringSecondUs2);
 			textUs1 = subStringFirstUs1 + "," + usText[0];
 			textUs2 = subStringFirstUs2 + "," + usText[1];
@@ -948,8 +952,8 @@ public class ReportExtractor {
 
 			// check if there are hash symbol more than 3 pair first and main section
 			// if so then highlight the Persona
-			if (hasMoreThanSixHashMarks(textUs1)) {
-				usText = highlightPersona(triggersPairs, targetsPairs, conflictingItems, textUs1, textUs2);
+			if (hasMoreThanSixHashSymbols(textUs1)) {
+				usText = applyHashSymbolPersona(triggersPairs, targetsPairs, redundancyItems, textUs1, textUs2);
 				textUs1 = usText[0];
 				textUs2 = usText[1];
 				// add the number of conflict pairs from main sentence
@@ -961,7 +965,7 @@ public class ReportExtractor {
 			// in this sentence part, if so then add hash symbol
 
 			// Apply hash symbol to common elements in the both user stories if any
-			usText = applyHashSymbolContaians(containsPairs, conflictingItems, textUs1, textUs2);
+			usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1, textUs2);
 			textUs1 = usText[0];
 			textUs2 = usText[1];
 			// add the number of conflict pairs from main sentence
@@ -975,7 +979,7 @@ public class ReportExtractor {
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
 			// first try to find conflict pairs at the main sentence
-			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, conflictingItems, subStringSecondUs1,
+			String[] usText = applyHashSymbolTargets(targetsPairs, containsPairs, redundancyItems, subStringSecondUs1,
 					subStringSecondUs2);
 
 			textUs1 = usText[0];
@@ -985,8 +989,8 @@ public class ReportExtractor {
 
 			// check if there are hash symbol more than 3 pair first and main section
 			// if so then highlight the Persona
-			if (hasMoreThanFourHashMarks(textUs1)) {
-				usText = highlightPersona(triggersPairs, targetsPairs, conflictingItems, subStringFirstUs1,
+			if (hasMoreThanFourHashSymbols(textUs1)) {
+				usText = applyHashSymbolPersona(triggersPairs, targetsPairs, redundancyItems, subStringFirstUs1,
 						subStringFirstUs2);
 				subStringFirstUs1 = usText[0];
 				subStringFirstUs2 = usText[1];
@@ -995,20 +999,20 @@ public class ReportExtractor {
 			}
 
 			// Apply hash symbol to common elements in Main from the both user stories if any
-			usText = applyHashSymbolContaians(containsPairs, conflictingItems, textUs1, textUs2);
+			usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1, textUs2);
 			textUs1 = usText[0];
 			textUs2 = usText[1];
 			// add the number of conflict pairs from main sentence
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
 			// subString from second comma until the end of story ;)
-			String subStringBenefitUs1 = conflictingItems.getTextUs1().substring(benefitPlaceHolderUs1);
-			String subStringBenefitUs2 = conflictingItems.getTextUs2().substring(benefitPlaceHolderUs2);
+			String subStringBenefitUs1 = redundancyItems.getTextUs1().substring(benefitPlaceHolderUs1);
+			String subStringBenefitUs2 = redundancyItems.getTextUs2().substring(benefitPlaceHolderUs2);
 
 			// I want to check if targetsPair.aciton/entity are already exist
 			// in this sentence part, if so then add hash symbol
 			// first try to find conflict pairs at the benefit sentence
-			usText = applyHashSymbolTargets(targetsPairs, containsPairs, conflictingItems, subStringBenefitUs1,
+			usText = applyHashSymbolTargets(targetsPairs, containsPairs, redundancyItems, subStringBenefitUs1,
 					subStringBenefitUs2);
 			subStringBenefitUs1 = usText[0];
 			subStringBenefitUs2 = usText[1];
@@ -1018,7 +1022,7 @@ public class ReportExtractor {
 			benefitConflict = benefitConflict + Integer.parseInt(usText[2]);
 
 			// Apply hash symbol to common elements in Benefit part of the both user stories if any
-			usText = applyHashSymbolContaians(containsPairs, conflictingItems, subStringBenefitUs1,
+			usText = applyHashSymbolContaians(containsPairs, redundancyItems, subStringBenefitUs1,
 					subStringBenefitUs2);
 			subStringBenefitUs1 = usText[0];
 			subStringBenefitUs2 = usText[1];
@@ -1033,7 +1037,7 @@ public class ReportExtractor {
 			// (one element in main and on in benefit), it the conflict element of main
 			// should be increased not main and benefit
 			// Apply hash symbol to common elements in the both user stories if any
-			//usText = applyHashSymbolContaians(containsPairs, conflictingItems, textUs1, textUs2);
+			//usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1, textUs2);
 			//textUs1 = subStringFirstUs1 + "," + usText[0];
 			//textUs2 = subStringFirstUs2 + "," + usText[1];
 			textUs1 = subStringFirstUs1 + "," + textUs1;
@@ -1045,32 +1049,32 @@ public class ReportExtractor {
 
 		// add amount of founded conflict pairs from main/benefit sentence
 		// into Benefit/MainConflict Count
-		conflictingItems.setBenefitConflictCount(benefitConflict);
-		conflictingItems.setMainConflictCount(mainConflict);
-		conflictingItems.setMaxConflictCount(mainConflict + benefitConflict);
-		conflictingItems.setTextUs1(textUs1);
-		conflictingItems.setTextUs2(textUs2);
+		redundancyItems.setBenefitConflictCount(benefitConflict);
+		redundancyItems.setMainConflictCount(mainConflict);
+		redundancyItems.setMaxConflictCount(mainConflict + benefitConflict);
+		redundancyItems.setTextUs1(textUs1);
+		redundancyItems.setTextUs2(textUs2);
 
-		return conflictingItems;
+		return redundancyItems;
 
 	}
 
-	private boolean hasMoreThanFourHashMarks(String textUs1) {
+	private boolean hasMoreThanFourHashSymbols(String textUs1) {
 		long count = textUs1.chars().filter(ch -> ch == '#').count();
 		return count >= 4;
 
 	}
 
-	private String[] highlightPersona(List<TriggerPair> triggers, List<TargetPair> targetsPairs,
-			ConflictingItems conflictingItems, String subStringFirstUs1, String subStringFirstUs2) {
+	private String[] applyHashSymbolPersona(List<TriggersPair> triggers, List<TargetsPair> targetsPairs,
+			RedundancyItems redundancyItems, String subStringFirstUs1, String subStringFirstUs2) {
 		String[] usTexts = new String[4];
-		int conflictCount = 0;
+		int redundancyCount = 0;
 
 		// I want to check if TriggersPair persona/action are already exist
 		// in this sentence part, if so then add hash symbol
 		// Add if and only if the action in triggers pair are exist in
-		// conflicted targets pairs
-		for (TriggerPair triggerPair : triggers) {
+		//*.redundanted targets pairs
+		for (TriggersPair triggerPair : triggers) {
 			String persona = triggerPair.getPersona();
 			// replace all pairs in this part of sentence if it
 			// exist in both sentence parts
@@ -1078,27 +1082,27 @@ public class ReportExtractor {
 
 				// US_1/US_2 add hash symbol at the beginning and ending of each word
 				String[] matches = { persona };
-				subStringFirstUs1 = addHashSymbols(subStringFirstUs1, matches);
-				subStringFirstUs2 = addHashSymbols(subStringFirstUs2, matches);
+				subStringFirstUs1 = applyHashSymbols(subStringFirstUs1, matches);
+				subStringFirstUs2 = applyHashSymbols(subStringFirstUs2, matches);
 
 				// count conflicts in this sentence part in order to know which sentence
 				// part how many conflict pairs exist
 				// after highlighting persona it should be check if
 				// to pairs of triggers elements exist, then increase the count
 				// of elements if and only if the action is also in targets
-				conflictCount++;
+				redundancyCount++;
 
 			}
 
 		}
 		usTexts[0] = subStringFirstUs1.replaceAll("#+", "#");
 		usTexts[1] = subStringFirstUs2.replaceAll("#+", "#");
-		usTexts[2] = String.valueOf(conflictCount);
+		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
 	// replace hash symbol at beginning and ending of founded element
-	private String addHashSymbols(String subString, String[] matches) {
+	private String applyHashSymbols(String subString, String[] matches) {
 		Arrays.sort(matches, Comparator.comparing(String::length).reversed());
 		for (String match : matches) {
 			subString = subString.replaceAll("\\b" + match + "\\b", "#" + match + "#");
@@ -1108,18 +1112,18 @@ public class ReportExtractor {
 
 	// Check in the main part of sentence if there is any redundancy
 	// more than 6 hash mark exist
-	private boolean hasMoreThanSixHashMarks(String textUs1) {
+	private boolean hasMoreThanSixHashSymbols(String textUs1) {
 		long count = textUs1.chars().filter(ch -> ch == '#').count();
 		return count >= 6;
 	}
 
-	private String[] applyHashSymbolTargets(List<TargetPair> targetsPairs, List<ContainsPair> containsPairs,
-			ConflictingItems conflictingItems, String subStringUs1, String subStringUs2) {
+	private String[] applyHashSymbolTargets(List<TargetsPair> targetsPairs, List<ContainsPair> containsPairs,
+			RedundancyItems redundancyItems, String subStringUs1, String subStringUs2) {
 		String[] usTexts = new String[4];
-		int conflictCount = 0;
+		int redundancyCount = 0;
 		// I want to check if targetsPair.aciton/entity are already exist
 		// in this sentence part, if so then add hash symbol
-		for (TargetPair targetsPair : targetsPairs) {
+		for (TargetsPair targetsPair : targetsPairs) {
 			// replace all pairs in this part of sentence if it
 			// exist in both sentence parts
 			String action = targetsPair.getAction();
@@ -1129,29 +1133,29 @@ public class ReportExtractor {
 				// US_1 add hash symbol at the beginning and ending of each word
 				String[] actionMatches = { action };
 				String[] entityMatches = { entity };
-				subStringUs1 = addHashSymbols(subStringUs1, actionMatches);
-				subStringUs1 = addHashSymbols(subStringUs1, entityMatches);
+				subStringUs1 = applyHashSymbols(subStringUs1, actionMatches);
+				subStringUs1 = applyHashSymbols(subStringUs1, entityMatches);
 
 				// US_2 add hash symbol at the beginning and ending of each word
-				subStringUs2 = addHashSymbols(subStringUs2, actionMatches);
-				subStringUs2 = addHashSymbols(subStringUs2, entityMatches);
+				subStringUs2 = applyHashSymbols(subStringUs2, actionMatches);
+				subStringUs2 = applyHashSymbols(subStringUs2, entityMatches);
 
 				// count conflicts in this sentence part in order to know which sentence
 				// part how many conflict pairs exist
-				conflictCount++;
+				redundancyCount++;
 				// check if entity exist in contains list
 			}
 		}
 		usTexts[0] = subStringUs1.replaceAll("#+", "#");
 		usTexts[1] = subStringUs2.replaceAll("#+", "#");
-		usTexts[2] = String.valueOf(conflictCount);
+		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
-	private String[] applyHashSymbolContaians(List<ContainsPair> containsPairs, ConflictingItems conflictingItems,
+	private String[] applyHashSymbolContaians(List<ContainsPair> containsPairs, RedundancyItems redundancyItems,
 			String subStringUs1, String subStringUs2) {
 		String[] usTexts = new String[4];
-		int conflictCount = 0;
+		int redundancyCount = 0;
 		// iterate through commonContains and check other element of pair related to
 		// the containsPair if any exist but filter: [containsPair,contain] case
 		// which is the same pair in which is already parsed
@@ -1170,22 +1174,22 @@ public class ReportExtractor {
 
 				// add hash symbol to contains pairs
 				String[] matches = { parent, child };
-				subStringUs1 = addHashSymbols(subStringUs1, matches);
-				subStringUs2 = addHashSymbols(subStringUs2, matches);
+				subStringUs1 = applyHashSymbols(subStringUs1, matches);
+				subStringUs2 = applyHashSymbols(subStringUs2, matches);
 
-				conflictCount++;
+				redundancyCount++;
 				// break in order to avoid of counting redundant items
 			}
 		}
 		usTexts[0] = subStringUs1.replaceAll("#+", "#");
 		usTexts[1] = subStringUs2.replaceAll("#+", "#");
-		usTexts[2] = String.valueOf(conflictCount);
+		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 
 	}
 
 	private void iteratePackages(EPackage minimalPackage, ArrayList<String> arrayMaximalElements,
-			ArrayList<String> arrayMaximalElementsNames, ConflictingItems conflictingItems) throws IOException {
+			ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) throws IOException {
 
 		String className = null;
 
@@ -1210,16 +1214,16 @@ public class ReportExtractor {
 						// store conflicted Attributes according to their class
 						switch (className) {
 						case "Primary Action":
-							conflictingItems.addPrimaryAction(new PrimaryAction(attName));
+							redundancyItems.addPrimaryAction(new PrimaryAction(attName));
 							break;
 						case "Secondary Action":
-							conflictingItems.addSecondaryAction(new SecondaryAction(attName));
+							redundancyItems.addSecondaryAction(new SecondaryAction(attName));
 							break;
 						case "Secondary Entity":
-							conflictingItems.addSecondaryEntity(new SecondaryEntity(attName));
+							redundancyItems.addSecondaryEntity(new SecondaryEntity(attName));
 							break;
 						case "Primary Entity":
-							conflictingItems.addPrimaryEntity(new PrimaryEntity(attName));
+							redundancyItems.addPrimaryEntity(new PrimaryEntity(attName));
 							break;
 						default:
 							break;
@@ -1238,14 +1242,14 @@ public class ReportExtractor {
 
 						if (refName.equals("triggers")) {
 
-							conflictingItems.addTriggers(new Triggers(refName, className));
+							redundancyItems.addTriggers(new Triggers(refName, className));
 
 						} else if (refName.equals("targets")) {
 
-							conflictingItems.addTargets(new Targets(refName, className));
+							redundancyItems.addTargets(new Targets(refName, className));
 
 						} else if (refName.equals("contains")) {
-							conflictingItems.addContains(new Contains(refName, className));
+							redundancyItems.addContains(new Contains(refName, className));
 
 						}
 

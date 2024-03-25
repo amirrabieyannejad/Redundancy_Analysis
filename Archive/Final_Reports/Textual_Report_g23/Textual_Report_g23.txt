@@ -1,0 +1,131 @@
+* Table of potential redundancies between user stories and the number of their overlapping elements
+
+       us_03  us_12  us_16  us_17  us_04  us_28  us_38  us_55  
+us_03  0      2      2      2      0      0      0      0      
+us_12  2      0      0      0      0      0      0      0      
+us_16  2      0      0      2      0      0      0      0      
+us_17  2      0      2      0      0      0      0      0      
+us_04  0      0      0      0      0      2      0      0      
+us_28  0      0      0      0      2      0      0      0      
+us_38  0      0      0      0      0      0      0      2      
+us_55  0      0      0      0      0      0      2      0      
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_03_AND_user_story_12}
+  
+Redundants elements are: 
+* Secondary Action: managing
+* Secondary Entity: enum lists
+* Targets: Link from "managing" to "enum lists" is found.
+* Triggers: Link from "user" to "want" is found.
+
+ user_story_12: #g23# as a #user#, i want frontend changes for #managing# #enum lists#.
+
+ user_story_03: #g23# as a #user#, i want backend changes for #managing# #enum lists#.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_03: #g23# as a #user#
+user_story_03:  i want backend changes for #managing# #enum lists#.
+user_story_12: #g23# as a #user#
+user_story_12:  i want frontend changes for #managing# #enum lists#.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_03_AND_user_story_16}
+  
+Redundants elements are: 
+* Primary Action: want
+* Primary Entity: backend changes
+* Targets: Link from "want" to "backend changes" is found.
+* Triggers: Link from "user" to "want" is found.
+
+ user_story_16: #g23# as a #user#, i #want# #backend changes# to support loading enum value lists from the database.
+
+ user_story_03: #g23# as a #user#, i #want# #backend changes# for managing enum lists.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_03: #g23# as a #user#
+user_story_03:  i #want# #backend changes# for managing enum lists.
+user_story_16: #g23# as a #user#
+user_story_16:  i #want# #backend changes# to support loading enum value lists from the database.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_03_AND_user_story_17}
+  
+Redundants elements are: 
+* Primary Action: want
+* Primary Entity: backend changes
+* Targets: Link from "want" to "backend changes" is found.
+* Triggers: Link from "user" to "want" is found.
+
+ user_story_17: #g23# as a #user#, i #want# #backend changes# for bulk updating one enum value to another.
+
+ user_story_03: #g23# as a #user#, i #want# #backend changes# for managing enum lists.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_03: #g23# as a #user#
+user_story_03:  i #want# #backend changes# for managing enum lists.
+user_story_17: #g23# as a #user#
+user_story_17:  i #want# #backend changes# for bulk updating one enum value to another.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_04_AND_user_story_28}
+  
+Redundants elements are: 
+* Primary Action: import
+* Primary Entity: ead files
+* Targets: Link from "import" to "ead files" is found.
+* Triggers: Link from "archivist" to "import" is found.
+
+ user_story_28: #g23# as an #archivist#, i want to #import# #ead files# that were exported by the archivists' toolkit.
+
+ user_story_04: #g23# as an #archivist#, i want to #import# #ead files# that were exported by archon.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_04: #g23# as an #archivist#
+user_story_04:  i want to #import# #ead files# that were exported by archon.
+user_story_28: #g23# as an #archivist#
+user_story_28:  i want to #import# #ead files# that were exported by the archivists' toolkit.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_16_AND_user_story_17}
+  
+Redundants elements are: 
+* Primary Action: want
+* Primary Entity: backend changes
+* Targets: Link from "want" to "backend changes" is found.
+* Triggers: Link from "user" to "want" is found.
+
+ user_story_17: #g23# as a #user#, i #want# #backend changes# for bulk updating one enum value to another.
+
+ user_story_16: #g23# as a #user#, i #want# #backend changes# to support loading enum value lists from the database.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_16: #g23# as a #user#
+user_story_16:  i #want# #backend changes# to support loading enum value lists from the database.
+user_story_17: #g23# as a #user#
+user_story_17:  i #want# #backend changes# for bulk updating one enum value to another.
+
+------------------[Potentially redundant user stories found]--------------------------
+{user_story_38_AND_user_story_55}
+  
+Redundants elements are: 
+* Primary Action: associate
+* Primary Entity: instance
+* Targets: Link from "associate" to "instance" is found.
+* Triggers: Link from "archivist" to "associate" is found.
+
+ user_story_55: #g23# as an #archivist#, i want to #associate# an #instance# with a container.
+
+ user_story_38: #g23# as an #archivist#, i want to #associate# an #instance# with a resource and/or resource component.
+
+The following sentence parts are candidates for possible redundancies between user stories:
+
+user_story_38: #g23# as an #archivist#
+user_story_38:  i want to #associate# an #instance# with a resource and/or resource component.
+user_story_55: #g23# as an #archivist#
+user_story_55:  i want to #associate# an #instance# with a container.

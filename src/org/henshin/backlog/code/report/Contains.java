@@ -1,6 +1,6 @@
 package org.henshin.backlog.code.report;
 
-public class Contains extends ConflictingItems {
+public class Contains extends RedundancyItems {
 	private String name;
 	private String classType;
 

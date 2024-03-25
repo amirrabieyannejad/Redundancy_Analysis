@@ -1,6 +1,6 @@
 package org.henshin.backlog.code.report;
 
-public class PrimaryEntity extends ConflictingItems{
+public class PrimaryEntity extends RedundancyItems{
 	private String name;
 	final private String classType = "Primary Entity";
 
