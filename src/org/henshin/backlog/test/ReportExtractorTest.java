@@ -22,6 +22,7 @@ import java.io.IOException;
 
 public class ReportExtractorTest {
 
+	//	completeMajorElements\_edge \newline(testExtractReports)&Provision of a CDA report for US-pair containing exactly one \enquote{Targets} edge&Inclusion of this US-pair in the text report with the nodes \enquote{Action}, \enquote{Entity} and \enquote{Targets} edge.
 	@Test
 	public void testExtractReports_completeMajorElements_edge() throws EmptyOrNotExistJsonFile, NullPointerException,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
@@ -54,7 +55,7 @@ public class ReportExtractorTest {
 		}
 
 	}
-
+// completeMajorElements\_upperEdge\newline(testExtractReports)&Provide a CDA report for a US-pair that contains at least one \enquote{Targets} edge and other redundancy elements such as \enquote{Triggers} edges&Generated textual report contains information about Secondary Entities, Secondary Actions, Targets, and \enquote{Triggers}&Verifies extractReports method when all major elements are present in the CDA report and the upper edge case is reached\\
 	@Test
 	public void testExtractReports_completeMajorElements_upperEdge()
 			throws EmptyOrNotExistJsonFile, NullPointerException, CdaReportDirNotFound, JsonFileNotFound,
@@ -90,7 +91,7 @@ public class ReportExtractorTest {
 		}
 
 	}
-
+// 	notCompleteMajorElements\newline(testExtractReports)&Provide a CDA report for a US-pair without \enquote{Targets} edge, but with action and entity&The US-pair should not reported&Verifies the behavior of the extractReports methodwhen not all major elements are present in the input data\\
 	@Test
 	public void testExtractReports_notCompleteMajorElements() throws EmptyOrNotExistJsonFile, NullPointerException,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
@@ -151,7 +152,7 @@ public class ReportExtractorTest {
 
 	}
 
-	// Check if CDA Report directory is empty
+	// 			testEmptyDirectroy&Assing a dummy directory&Through an exception: \textit{CdaReportDirIsEmpty.class}&Check if CDA Report directory is empty\\
 	@Test(expected = CdaReportDirIsEmpty.class)
 	public void testEmptyDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
@@ -160,7 +161,7 @@ public class ReportExtractorTest {
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
 		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 	}
-
+	// testEmptyJSONFile&Assing an empty JSON dataset file&Through an exception: \textit{EmptyOrNotExistJsonFile.class}&Check if JSON dataset file is empty\\
 	@Test(expected = EmptyOrNotExistJsonFile.class)
 	public void testEmptyJSONFile() throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException,
 			CdaReportDirNotFound, CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
@@ -181,6 +182,7 @@ public class ReportExtractorTest {
 		cdaConvertor.extractReports(fileWrite, jsonWriter);
 	}
 
+	// highlightPersona\newline(testExtractReports)&Providing a CDA report for a US-pair with redundancy clause in \enquote{Triggers}edge (from Persona to Primary Action)&The persona should only be marked with a hash symbol if there is a redundant clause in the main part&Checks the behaviour of the extractReports method when highlighting redundant personas in USs\\
 	// check if potential redundant user stories has same Persona, if so, check
 	// if persona will be highlighted
 	@Test
@@ -218,9 +220,9 @@ public class ReportExtractorTest {
 			e.printStackTrace();
 		}
 	}
-
+// noBenefitInUs1\newline(testhigHlightRedundancies)&Provision of a CDA report for a US-pair where only the first US do have the \enquote{benefit} part&Search only the main part of USs and mark redundancy clauses with a hash symbol&Verifies the behaviour of the \textit{highlightRedundancies} method when only the first US have benefit\\
 	@Test
-	public void testHighlightConflicts_noBenefitInUs1()
+	public void testHighlightRedundancies_noBenefitInUs1()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit";
@@ -257,8 +259,9 @@ public class ReportExtractorTest {
 		}
 	}
 
+// noBenefitInUs2\newline(testhigHlightRedundancies)&Provision of a CDA report for a US-pair where only the first US have the \enquote{benefit} part&Search only the main part of USs and mark redundancy clauses with a hash symbol&Verifies the behaviour of the \textit{highlightRedundancies} method when only the first US have benefit\\
 	@Test
-	public void testHighlightConflicts_noBenefitInUs2()
+	public void testHighlightRedundancies_noBenefitInUs2()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit";
@@ -294,9 +297,9 @@ public class ReportExtractorTest {
 			e.printStackTrace();
 		}
 	}
-
+// noBenefitInBothUss\newline(testhigHlightRedundancies)&Provision of a CDA report for a US-pair where both USs do not have the \enquote{benefit} part&Search only the main part of USs and mark redundancy clauses with a hash symbol if they occur&Verifies the behaviour of the \textit{highlightRedundancies} method when both USs don't have benefits\\
 	@Test
-	public void testHighlightConflicts_noBenefitInBoth()
+	public void testHighlightRedundancies_noBenefitInBothUss()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit";
@@ -336,8 +339,9 @@ public class ReportExtractorTest {
 		}
 	}
 
+	// BenefitInBothUss (testHighlightConflicts)&Provision of a CDA report for a US-pair where both USs have \enquote{benefit} segment&Generated textual report contains both USs with their respective \enquote{main} parts and \enquote{benefits}&Verifies the behaviour of the \textit{highlightConflicts} method when both USs have benefits\\
 	@Test
-	public void testHighlightConflicts_BenefitInBoth()
+	public void testHighlightRedundancies_BenefitInBothUss()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit";
@@ -380,8 +384,9 @@ public class ReportExtractorTest {
 	// Check if number of maximal redundancy clauses are match to the value stored
 	// in
 	// JSON_Report_Test.json File
+	// getTotalRedundanciesElements\newline(testExtractReports)&Provision of a CDA report for a US-pair that contains redundancy clauses in the \enquote{Main}and \enquote{Benefit} parts&Check whether the count of redundancy clauses in the main and benefit parts of the USs matches the value \enquote{Total Redundancy Clause} specified in the JSON\_Report file&Verifies the behaviour of the extractReports method when there are redundancy elements in the main and benefit parts of USs\\
 	@Test
-	public void testExtractReports_getTotalConflictedElements()
+	public void testExtractReports_getTotalRedundancyElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
@@ -417,8 +422,9 @@ public class ReportExtractorTest {
 	// Check if number of redundancy clauses in Main part of user stories are match
 	// to the value stored in
 	// JSON_Report_Test.json File
+	//getMainPartRedundanciesElements\newline(testExtractReports)&Provision of a CDA report for a US-pair that only contains redundancy clauses in the \enquote{Main} part&Check whether the count of redundancy clauses in the main part of the USs matches the value \enquote{Main Part Redundancy Clause} specified in the JSON\_Report file&Verifies the behaviour of the extractReports method when there are redundancy elements only in the main parts of USs\\
 	@Test
-	public void testExtractReports_getMainPartConflictedElements()
+	public void testExtractReports_getMainPartRedundanciesElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
@@ -451,11 +457,10 @@ public class ReportExtractorTest {
 		}
 	}
 
-	// Check if number of redundancy clauses in Benefit part of user stories are
-	// match to the value stored in
-	// JSON_Report_Test.json File
+	// 	getBenefitPartRedundanciesElements\newline(testExtractReports)&Provision of a CDA report for a US-pair that only contains redundancy clauses in the \enquote{benefit} segment&Check whether the count of redundancy clauses in the benefit part of the USs matches the value \enquote{Benefit Part Redundancy Clause} specified in the
+	// JSON\_Report file&Verifies the behaviour of the extractReports method when there are redundancy elements in the benefit parts of USs\\
 	@Test
-	public void testExtractReports_getBenefitPartConflictedElements()
+	public void testExtractReports_getBenefitPartRedundanciesElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements";
@@ -487,9 +492,9 @@ public class ReportExtractorTest {
 			e.printStackTrace();
 		}
 	}
-
+// ContainInBenefitPart\newline(testHighlightRedundancies)&Provide a CDA report for a US-pair with redundancy clauses of \enquote{Contains} within \enquote{Benefit} part&The entities included in Contains should be marked with hash symbol&Checks the behaviour of the \textit{highlightRedundancies} method when highlighting redundant personas in USs\\
 	@Test
-	public void testHighlightConflicts_ContainInBenefitPart()
+	public void testHighlightRedundancies_ContainInBenefitPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part";
@@ -531,8 +536,9 @@ public class ReportExtractorTest {
 	
 	// Check if contains in included in main part of sentence. If so, then highlighting contains 
 	// should be expected
+	// ContainInMainPart\newline(testHighlightRedundancies)&Provide a CDA report for a US-pair with redundancy clauses of \enquote{Contains} within \enquote{Main} part&The entities included in Contains should be marked with hash symbol&Checks the behaviour of the \textit{highlightRedundancies} method when highlighting redundant entities included in the Contains\\
 	@Test
-	public void testHighlightConflicts_ContainInMainPart()
+	public void testHighlightRedundancies_ContainInMainPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part";
@@ -572,10 +578,9 @@ public class ReportExtractorTest {
 		}
 	}
 
-	// Check if targets in included in main part of sentence. If so, then highlighting contains 
-	// should be expected
+	// Check if more than one targets in main part of sentence will be highlighted as expected
 	@Test
-	public void testHighlightConflicts_TargetsInMainPart()
+	public void testHighlightRedundancies_TargetsInMainPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
 		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part";
@@ -624,23 +629,23 @@ public class ReportExtractorTest {
 			e.printStackTrace();
 		}
 	}
-	// Check if targets in included in main part of sentence. If so, then highlighting contains 
+	// Check if more than one targets is included in benefit part of sentence. If so, then highlighting clauses accordingly 
 		// should be expected
 		@Test
-		public void testHighlightConflicts_TargetsInBenefitPart()
+		public void testHighlightRedundancies_TargetsInBenefitPart()
 				throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 				CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-			String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part";
-			String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part\\g22_baseline_pos.json";
+			String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part";
+			String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part\\g22_baseline_pos.json";
 			
-			String us1 = "#g22# as an it staff member, i want to #know# #how# the #data# is #used#, "
-					+ "so that i can determine what kind of basic services and functionalities are required.";
+			String us1 = "#g22# as a data manager, i want to know which formats are used, so that i #know# what #technology#"
+					+ " or #background information# might be necessary to use the data.";
 			
-			String us2 = "#g22# as a data manager, i want to #know# #how# the #data# is #used#, so that i can develop more"
-					+ " detailed usage and support scenarios with researchers.";
+			String us2 = "#g22# as a data manager, i want to know with which software or technology the data is produced or used, so that i #know# what #technology# "
+					+ "or #background information# might be necessary to (re-)use the data.";
 			
-			String targets1 = "Targets: Link from \"know\" to \"how\" is found.";
-			String targets2 = "Targets: Link from \"used\" to \"data\" is found.";
+			String targets1 = "Targets: Link from \"know\" to \"background information\" is found.";
+			String targets2 = "Targets: Link from \"know\" to \"technology\" is found.";
 			ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
 			// System.out.println("[testEmptyJSONFile] json path is: " +
 			// cdaConvertor.getAbsoluteFinalReportDir());
@@ -668,9 +673,8 @@ public class ReportExtractorTest {
 				assertTrue(result.toString().contains(targets1) 
 						&& result.toString().contains(targets2)
 						&& result.toString().contains("#know#")
-						&& result.toString().contains("#how#")
-						&& result.toString().contains("#data#")
-						&& result.toString().contains("#used#")
+						&& result.toString().contains("#technology#")
+						&& result.toString().contains("#background information#")
 						);
 			} catch (IOException e) {
 				e.printStackTrace();

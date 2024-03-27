@@ -175,6 +175,7 @@ public class RuleCreator_v4 {
 				if (jsonObject.has("Contains")) {
 					containsArrayM = jsonObject.getJSONArray("Contains");
 				} else {
+					// it should be at least an empty array like "Contains":[]
 					throw new ContainsInJsonFileNotFound();
 				}
 				if (jsonObject.has("Text")) {
