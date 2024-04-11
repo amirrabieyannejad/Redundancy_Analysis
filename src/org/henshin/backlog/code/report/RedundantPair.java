@@ -1,44 +1,29 @@
 package org.henshin.backlog.code.report;
 
 public class RedundantPair {
-	private String conflictPair1;
-	private String conflictPair2;
+	private String redundantPair1;
+	private String redundantPair2;
 	private int maximal;
 
 	public RedundantPair() {
 
 	}
 
-
-
-
 	public String getRedundantPair1() {
-		return conflictPair1;
+		return redundantPair1;
 	}
 
-
-
-
-	public void setConflictPair1(String conflictPair1) {
-		this.conflictPair1 = conflictPair1;
+	public void setRedundantPair1(String redundantPair1) {
+		this.redundantPair1 = redundantPair1;
 	}
-
-
-
 
 	public String getRedundantPair2() {
-		return conflictPair2;
+		return redundantPair2;
 	}
 
-
-
-
-	public void setConflictPair2(String conflictPair2) {
-		this.conflictPair2 = conflictPair2;
+	public void setRedundantPair2(String redundantPair2) {
+		this.redundantPair2 = redundantPair2;
 	}
-
-
-
 
 	public int getMaximal() {
 		return maximal;
@@ -47,6 +32,5 @@ public class RedundantPair {
 	public void setMaximal(int maximal) {
 		this.maximal = maximal;
 	}
-
 
 }

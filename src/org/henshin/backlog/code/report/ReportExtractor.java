@@ -60,9 +60,9 @@ public class ReportExtractor {
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
-				"25", "26", "27", "28" };
-//		 String[] datasets = { "05" };
+//		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
+//				"25", "26", "27", "28" };
+ String[] datasets = { "05" };
 //		 Version of data set
 		for (int i = 0; i < datasets.length; i++) {
 			ReportExtractor cdaConvertor = new ReportExtractor(
@@ -794,8 +794,8 @@ public class ReportExtractor {
 
 			String highlightedUs1 = redundancyItems.getTextUs1();
 			fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-			redundantPair.setConflictPair1(us1);
-			redundantPair.setConflictPair2(us2);
+			redundantPair.setRedundantPair1(us1);
+			redundantPair.setRedundantPair2(us2);
 			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
 			redundantPairs.add(redundantPair);
 
@@ -1049,9 +1049,9 @@ public class ReportExtractor {
 
 		// add amount of founded conflict pairs from main/benefit sentence
 		// into Benefit/MainConflict Count
-		redundancyItems.setBenefitConflictCount(benefitConflict);
-		redundancyItems.setMainConflictCount(mainConflict);
-		redundancyItems.setMaxConflictCount(mainConflict + benefitConflict);
+		redundancyItems.setBenefitRedundancyCount(benefitConflict);
+		redundancyItems.setMainRedundancyCount(mainConflict);
+		redundancyItems.setMaxRedundancyCount(mainConflict + benefitConflict);
 		redundancyItems.setTextUs1(textUs1);
 		redundancyItems.setTextUs2(textUs2);
 

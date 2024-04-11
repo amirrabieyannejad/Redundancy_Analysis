@@ -1,20 +1,9 @@
 package org.henshin.backlog.code.report;
 
-public class PrimaryAction extends RedundancyItems{
-	private String name;
-	final private String classType = "Primary Action";
+public class PrimaryAction extends Items{
 
 	public PrimaryAction(String name) {
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getType() {
-		return classType;
-
+		super(name,"Primary Action");
 	}
 
 }

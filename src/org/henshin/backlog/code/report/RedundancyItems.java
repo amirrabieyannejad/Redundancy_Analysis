@@ -20,7 +20,7 @@ public class RedundancyItems {
 	private List<Triggers> triggers;
 	private List<Targets> targets;
 	private List<Contains> contains;
-	private int maxConflictCount;
+	private int maxRedundancyCount;
 	private String textUs1;
 	private String textUs2;
 	private String UsNr1;
@@ -28,23 +28,23 @@ public class RedundancyItems {
 
 	// this values are used to find out how many conflict pairs
 	// are found in which sentence part(main vs benefit)
-	private int mainConflictCount;
-	private int benefitConflictCount;
+	private int mainRedundancyCount;
+	private int benefitRedundancyCount;
 
 	public int getMainRedundancyCount() {
-		return mainConflictCount;
+		return mainRedundancyCount;
 	}
 
-	public void setMainConflictCount(int mainConflictCount) {
-		this.mainConflictCount = mainConflictCount;
+	public void setMainRedundancyCount(int mainRedundancyCount) {
+		this.mainRedundancyCount = mainRedundancyCount;
 	}
 
 	public int getBenefitRedundancyCount() {
-		return benefitConflictCount;
+		return benefitRedundancyCount;
 	}
 
-	public void setBenefitConflictCount(int benefitConflictCount) {
-		this.benefitConflictCount = benefitConflictCount;
+	public void setBenefitRedundancyCount(int benefitRedundancyCount) {
+		this.benefitRedundancyCount = benefitRedundancyCount;
 	}
 
 	public String getUsNr1() {
@@ -125,8 +125,8 @@ public class RedundancyItems {
 		return triggers;
 	}
 
-	public void setMaxConflictCount(int maxConflictCount) {
-		this.maxConflictCount = maxConflictCount;
+	public void setMaxRedundancyCount(int maxRedundancyCount) {
+		this.maxRedundancyCount = maxRedundancyCount;
 	}
 
 	public List<Targets> getTargets() {
@@ -138,7 +138,7 @@ public class RedundancyItems {
 	}
 
 	public int getTotalRedundancyCount() {
-		return maxConflictCount;
+		return maxRedundancyCount;
 	}
 
 	public String getTextUs1() {
@@ -159,7 +159,7 @@ public class RedundancyItems {
 
 	// Method to printout all Conflicting Items
 	public void printRedundantItems(FileWriter cdaWriter, List<TargetsPair> targetsPairs,
-			List<ContainsPair> containsPairs, List<TriggersPair> triggersPairs, JSONObject jsonConflictPair)
+			List<ContainsPair> containsPairs, List<TriggersPair> triggersPairs, JSONObject jsonRedundancyPair)
 			throws IOException {
 
 		List<SecondaryEntity> secondaryEntities = getSecondaryEntity();
@@ -175,10 +175,12 @@ public class RedundancyItems {
 
 		if (!secondaryActions.isEmpty()) {
 			for (SecondaryAction secondaryAction : secondaryActions) {
-				if (isInCommonTargets(secondaryAction.getName(), secondaryAction.getType(), "", "", targetsPairs)) {
-					cdaWriter.write("\n* " + secondaryAction.getType() + ": " + secondaryAction.getName());
+				String secondaryActionName=secondaryAction.getName();
+				String secondaryActionClass=secondaryAction.getClassType();
+				if (isInCommonTargets(secondaryActionName, secondaryActionClass, "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + secondaryAction.getClassType() + ": " + secondaryAction.getName());
 					// put each secondary Actions into JSON data as an array
-					action.put(secondaryAction.getType(), new JSONArray().put(secondaryAction.getName()));
+					action.put(secondaryAction.getClassType(), new JSONArray().put(secondaryAction.getName()));
 
 				}
 			}
@@ -186,10 +188,10 @@ public class RedundancyItems {
 
 		if (!secondaryEntities.isEmpty()) {
 			for (SecondaryEntity secondaryEntity : secondaryEntities) {
-				if (isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getType(), "", "", targetsPairs)) {
-					cdaWriter.write("\n* " + secondaryEntity.getType() + ": " + secondaryEntity.getName());
+				if (isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getClassType(), "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + secondaryEntity.getClassType() + ": " + secondaryEntity.getName());
 					// put each primary entity into JSON data as an array
-					entity.put(secondaryEntity.getType(), new JSONArray().put(secondaryEntity.getName()));
+					entity.put(secondaryEntity.getClassType(), new JSONArray().put(secondaryEntity.getName()));
 
 				}
 
@@ -198,10 +200,10 @@ public class RedundancyItems {
 		}
 		if (!primaryActions.isEmpty()) {
 			for (PrimaryAction primaryAction : primaryActions) {
-				if (isInCommonTargets(primaryAction.getName(), primaryAction.getType(), "", "", targetsPairs)) {
-					cdaWriter.write("\n* " + primaryAction.getType() + ": " + primaryAction.getName());
+				if (isInCommonTargets(primaryAction.getName(), primaryAction.getClassType(), "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + primaryAction.getClassType() + ": " + primaryAction.getName());
 					// put each primary action into JSON data as an array
-					action.put(primaryAction.getType(), new JSONArray().put(primaryAction.getName()));
+					action.put(primaryAction.getClassType(), new JSONArray().put(primaryAction.getName()));
 
 				}
 			}
@@ -209,18 +211,16 @@ public class RedundancyItems {
 		}
 		if (!primaryEntities.isEmpty()) {
 			for (PrimaryEntity primaryEntity : primaryEntities) {
-				if (isInCommonTargets(primaryEntity.getName(), primaryEntity.getType(), "", "", targetsPairs)) {
-					cdaWriter.write("\n* " + primaryEntity.getType() + ": " + primaryEntity.getName());
+				if (isInCommonTargets(primaryEntity.getName(), primaryEntity.getClassType(), "", "", targetsPairs)) {
+					cdaWriter.write("\n* " + primaryEntity.getClassType() + ": " + primaryEntity.getName());
 					// put each primary action into JSON data as an array
-					entity.put(primaryEntity.getType(), new JSONArray().put(primaryEntity.getName()));
-
+					entity.put(primaryEntity.getClassType(), new JSONArray().put(primaryEntity.getName()));
 				}
 			}
-
 		}
 		// add all primary/secondary Action/Entity into JSON object
-		jsonConflictPair.put("Entity", entity);
-		jsonConflictPair.put("Action", action);
+		jsonRedundancyPair.put("Entity", entity);
+		jsonRedundancyPair.put("Action", action);
 
 		if (!targetsPairs.isEmpty()) {
 			// Add Common Targets of both user stories
@@ -235,7 +235,7 @@ public class RedundancyItems {
 						+ targetPair.getEntity() + "\" is found.");
 
 			}
-			jsonConflictPair.put("Targets", jsonTargets);
+			jsonRedundancyPair.put("Targets", jsonTargets);
 		}
 
 		// In this scenario I assume that the relationship between
@@ -266,9 +266,9 @@ public class RedundancyItems {
 				//}
 					
 			}
-			jsonConflictPair.put("Triggers", jsonTriggers);
+			jsonRedundancyPair.put("Triggers", jsonTriggers);
 		}else {
-			jsonConflictPair.put("Triggers", "");
+			jsonRedundancyPair.put("Triggers", "");
 		}
 		
 		// Check if there is conflict element listed in "Contains" and if the containing
@@ -285,7 +285,7 @@ public class RedundancyItems {
 						+ contain.getChildEntity() + "\" is found.");
 
 			}
-			jsonConflictPair.put("Contains", jsonContains);
+			jsonRedundancyPair.put("Contains", jsonContains);
 
 		}
 

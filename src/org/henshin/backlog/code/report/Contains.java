@@ -1,22 +1,9 @@
 package org.henshin.backlog.code.report;
 
-public class Contains extends RedundancyItems {
-	private String name;
-	private String classType;
-
-	public Contains(String name, String type) {
-		this.name = name;
-		this.classType = type;
-
+public class Contains extends Items {
+	public Contains(String name, String classType) {
+		super(name,classType);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getType() {
-		return classType;
-
-	}
 
 }

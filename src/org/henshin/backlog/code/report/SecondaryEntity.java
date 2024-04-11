@@ -1,20 +1,9 @@
 package org.henshin.backlog.code.report;
 
-public class SecondaryEntity  extends RedundancyItems{
-	private String name;
-	final private String classType = "Secondary Entity";
+public class SecondaryEntity  extends Items{
 
 	public SecondaryEntity(String name) {
+		super(name,"Secondary Entity");	
+		}
 
-		this.name = name;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getType() {
-		return classType;
-
-	}
 }
