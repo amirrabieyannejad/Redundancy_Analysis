@@ -250,21 +250,13 @@ public class RedundancyItems {
 				
 				// make sure that action is
 				// also belongs to common targets if any
-				//for (TargetPair targetPair : targetsPairs) {
-				//	String targetsAction = targetPair.getAction();
-					//if(targetsAction.equalsIgnoreCase(triggerAction)) {
-					
-					// Write it also in JSON Array Targets
+					// Write it also in JSON Array Triggers
 					JSONArray jsonTriggersPair = new JSONArray().put(triggerPersona).put(triggerAction);
 					jsonTriggers.put(jsonTriggersPair);
 
 					// Write it on Report if any
 					cdaWriter.write("\n* Triggers: Link from \"" + triggerPersona + "\" to \""
 							+ triggerAction + "\" is found.");
-				//	}
-
-				//}
-					
 			}
 			jsonRedundancyPair.put("Triggers", jsonTriggers);
 		}else {
@@ -278,9 +270,9 @@ public class RedundancyItems {
 		if (!containsPairs.isEmpty()) {
 			JSONArray jsonContains = new JSONArray();
 			for (ContainsPair contain : containsPairs) {
-				JSONArray jsonTriggersPair = new JSONArray().put(contain.getParentEntity())
+				JSONArray jsonContainsPair = new JSONArray().put(contain.getParentEntity())
 						.put(contain.getChildEntity());
-				jsonContains.put(jsonTriggersPair);
+				jsonContains.put(jsonContainsPair);
 				cdaWriter.write("\n* Contains: Link between \"" + contain.getParentEntity() + "\" and \""
 						+ contain.getChildEntity() + "\" is found.");
 
