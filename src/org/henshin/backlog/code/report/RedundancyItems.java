@@ -241,9 +241,10 @@ public class RedundancyItems {
 		// In this scenario I assume that the relationship between
 		// Primary Action and Secondary Entity as Targets node is
 		// not allowed. According to https://github.com/ace-design/nlp-stories
+		JSONArray jsonTriggers = new JSONArray();
 		if (!triggersPairs.isEmpty()) {
 			// Add Common Triggers of both user stories
-			JSONArray jsonTriggers = new JSONArray();
+			
 			for (TriggersPair triggerPair : triggersPairs) {
 				String triggerPersona= triggerPair.getPersona();
 				String triggerAction = triggerPair.getAction();
@@ -260,7 +261,7 @@ public class RedundancyItems {
 			}
 			jsonRedundancyPair.put("Triggers", jsonTriggers);
 		}else {
-			jsonRedundancyPair.put("Triggers", "");
+			jsonRedundancyPair.put("Triggers", jsonTriggers);
 		}
 		
 		// Check if there is conflict element listed in "Contains" and if the containing

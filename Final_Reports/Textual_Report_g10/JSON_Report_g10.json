@@ -3,14 +3,25 @@
         "Potential Redundant User Stories": "user_story_02_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["application"]},
+        "Common Targets": {
+            "Main Part": [[
+                "fill out",
+                "application"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["fill out"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #fill out# an #application# to become a certified scrum trainer"],
-            "First UserStory": [" i want to #fill out# an #application# to become a certified scrum practitioner"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "fill out",
@@ -24,20 +35,89 @@
             "Second UserStory": "user_story_04: #g10# as a #site member#, i want to #fill out# an #application# to become a certified scrum trainer, so that i can teach csm and cspo courses and certify others.",
             "First UserStory": "user_story_02: #g10# as a #site member#, i want to #fill out# an #application# to become a certified scrum practitioner, so that i can earn that designation."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #fill out# an #application# to become a certified scrum trainer"],
+            "First UserStory": [" i want to #fill out# an #application# to become a certified scrum practitioner"]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [[
+                    "certified scrum trainer",
+                    "application"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_02": {
+                "Main Part": [[
+                    "certified scrum practitioner",
+                    "application"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [[
+                    "fill out",
+                    "application"
+                ]],
+                "Benefit Part": [
+                    [
+                        "teach",
+                        "csm"
+                    ],
+                    [
+                        "teach",
+                        "cspo courses"
+                    ],
+                    [
+                        "certify",
+                        "others"
+                    ]
+                ]
+            },
+            "user_story_02": {
+                "Main Part": [[
+                    "fill out",
+                    "application"
+                ]],
+                "Benefit Part": [[
+                    "earn",
+                    "designation"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_08_AND_user_story_09",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["others"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "find",
+                    "others"
+                ],
+                [
+                    "connect",
+                    "others"
+                ]
+            ]
+        },
         "Action": {"Secondary Action": ["find"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #find# #others# i might want to #connect# with."],
-            "First UserStory": [" so that i can #find# #others# i might want to #connect# with."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -49,31 +129,99 @@
                 "others"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_09: #g10# as a site member, i want to search for profiles based on a few fields, so that i can #find# #others# i might want to #connect# with.",
             "First UserStory": "user_story_08: #g10# as a site member, i want to view the profiles of other members, so that i can #find# #others# i might want to #connect# with."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #find# #others# i might want to #connect# with."],
+            "First UserStory": [" so that i can #find# #others# i might want to #connect# with."]
+        },
+        "All Contains": {
+            "user_story_08": {
+                "Main Part": [[
+                    "other members",
+                    "profiles"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_09": {
+                "Main Part": [[
+                    "profiles",
+                    "few fields"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_08": {
+                "Main Part": [[
+                    "view",
+                    "profiles"
+                ]],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "others"
+                    ],
+                    [
+                        "connect",
+                        "others"
+                    ]
+                ]
+            },
+            "user_story_09": {
+                "Main Part": [[
+                    "search",
+                    "profiles"
+                ]],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "others"
+                    ],
+                    [
+                        "connect",
+                        "others"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_21_AND_user_story_22",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["list"],
             "Secondary Entity": ["best course"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": [[
+                "choose",
+                "best course"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["choose"],
             "Primary Action": ["see"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #choose# the #best course# for me."],
-            "First UserStory": [" so that i can #choose# the #best course# for me."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -93,20 +241,85 @@
             "Second UserStory": "user_story_22: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can #choose# the #best course# for me.",
             "First UserStory": "user_story_21: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can #choose# the #best course# for me."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #choose# the #best course# for me."],
+            "First UserStory": [" so that i can #choose# the #best course# for me."]
+        },
+        "All Contains": {
+            "user_story_22": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming other courses"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_21": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming certification courses"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_22": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming other courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            },
+            "user_story_21": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming certification courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_21_AND_user_story_23",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["list"]},
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["see"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #see# a #list# of all upcoming events"],
-            "First UserStory": [" i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "see",
@@ -120,20 +333,76 @@
             "Second UserStory": "user_story_23: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any.",
             "First UserStory": "user_story_21: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can choose the best course for me."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all upcoming events"],
+            "First UserStory": [" i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot"]
+        },
+        "All Contains": {
+            "user_story_23": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming events"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_21": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming certification courses"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_23": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_21": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming certification courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_21_AND_user_story_73",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["list"]},
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["see"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
-            "First UserStory": [" i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "see",
@@ -147,20 +416,85 @@
             "Second UserStory": "user_story_73: #g10# as a #site visitor#, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.",
             "First UserStory": "user_story_21: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot, so that i can choose the best course for me."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
+            "First UserStory": [" i want to #see# a #list# of all upcoming certification courses and can page through them if there are a lot"]
+        },
+        "All Contains": {
+            "user_story_21": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming certification courses"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_73": {
+                "Main Part": [
+                    [
+                        "site",
+                        "most popular items"
+                    ],
+                    [
+                        "list",
+                        "most popular items"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_21": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming certification courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            },
+            "user_story_73": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": [[
+                    "read",
+                    "most important or best content"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_23",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["list"]},
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["see"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #see# a #list# of all upcoming events"],
-            "First UserStory": [" i want to #see# a #list# of all upcoming other courses and can page through them if necessary"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "see",
@@ -174,20 +508,76 @@
             "Second UserStory": "user_story_23: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any.",
             "First UserStory": "user_story_22: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can choose the best course for me."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of all upcoming events"],
+            "First UserStory": [" i want to #see# a #list# of all upcoming other courses and can page through them if necessary"]
+        },
+        "All Contains": {
+            "user_story_22": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming other courses"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_23": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming events"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_22": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming other courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            },
+            "user_story_23": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_73",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["list"]},
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["see"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
-            "First UserStory": [" i want to #see# a #list# of all upcoming other courses and can page through them if necessary"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "see",
@@ -201,20 +591,85 @@
             "Second UserStory": "user_story_73: #g10# as a #site visitor#, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.",
             "First UserStory": "user_story_22: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming other courses and can page through them if necessary, so that i can choose the best course for me."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
+            "First UserStory": [" i want to #see# a #list# of all upcoming other courses and can page through them if necessary"]
+        },
+        "All Contains": {
+            "user_story_22": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming other courses"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_73": {
+                "Main Part": [
+                    [
+                        "site",
+                        "most popular items"
+                    ],
+                    [
+                        "list",
+                        "most popular items"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_22": {
+                "Main Part": [
+                    [
+                        "see",
+                        "list"
+                    ],
+                    [
+                        "page through",
+                        "all upcoming other courses"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "choose",
+                    "best course"
+                ]]
+            },
+            "user_story_73": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": [[
+                    "read",
+                    "most important or best content"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_23_AND_user_story_73",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["list"]},
+        "Common Targets": {
+            "Main Part": [[
+                "see",
+                "list"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["see"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
-            "First UserStory": [" i want to #see# a #list# of all upcoming events"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "see",
@@ -228,20 +683,76 @@
             "Second UserStory": "user_story_73: #g10# as a #site visitor#, i want to #see# a #list# of the most popular items on the site, so that i am most likely to read the most important or best content.",
             "First UserStory": "user_story_23: #g10# as a #site visitor#, i want to #see# a #list# of all upcoming events, so that i can decide if i want to attend any."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #see# a #list# of the most popular items on the site"],
+            "First UserStory": [" i want to #see# a #list# of all upcoming events"]
+        },
+        "All Contains": {
+            "user_story_23": {
+                "Main Part": [[
+                    "list",
+                    "all upcoming events"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_73": {
+                "Main Part": [
+                    [
+                        "site",
+                        "most popular items"
+                    ],
+                    [
+                        "list",
+                        "most popular items"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_23": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_73": {
+                "Main Part": [[
+                    "see",
+                    "list"
+                ]],
+                "Benefit Part": [[
+                    "read",
+                    "most important or best content"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_24_AND_user_story_25",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["event"]},
+        "Common Targets": {
+            "Main Part": [[
+                "create",
+                "event"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["create"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #create# an other course or #event# i am charged a listing fee for that activity"],
-            "First UserStory": [" i want to #create# a new course or #event#"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "create",
@@ -255,44 +766,166 @@
             "Second UserStory": "user_story_25: #g10# as a #trainer#, i want to #create# an other course or #event# i am charged a listing fee for that activity, so that i don't list events i don't really intend to hold.",
             "First UserStory": "user_story_24: #g10# as a #trainer#, i want to #create# a new course or #event#, so that site visitors can see it."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #create# an other course or #event# i am charged a listing fee for that activity"],
+            "First UserStory": [" i want to #create# a new course or #event#"]
+        },
+        "All Contains": {
+            "user_story_24": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_25": {
+                "Main Part": [[
+                    "activity",
+                    "listing fee"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_24": {
+                "Main Part": [
+                    [
+                        "create",
+                        "event"
+                    ],
+                    [
+                        "create",
+                        "new course"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_25": {
+                "Main Part": [
+                    [
+                        "create",
+                        "other course"
+                    ],
+                    [
+                        "create",
+                        "event"
+                    ],
+                    [
+                        "charged",
+                        "listing fee"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_24_AND_user_story_26",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["event"]},
+        "Common Targets": {
+            "Main Part": [[
+                "create",
+                "event"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["create"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #create# an other course or #event# that is not charged a listing fee"],
-            "First UserStory": [" i want to #create# a new course or #event#"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "create",
             "event"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_26: #g10# as a site administrator, i want to #create# an other course or #event# that is not charged a listing fee, so that the scrum alliance doesn't charge itself for scrum gatherings that it puts on.",
             "First UserStory": "user_story_24: #g10# as a trainer, i want to #create# a new course or #event#, so that site visitors can see it."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #create# an other course or #event# that is not charged a listing fee"],
+            "First UserStory": [" i want to #create# a new course or #event#"]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [],
+                "Benefit Part": [[
+                    "scrum alliance",
+                    "scrum gatherings"
+                ]]
+            },
+            "user_story_24": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [
+                    [
+                        "create",
+                        "other course"
+                    ],
+                    [
+                        "create",
+                        "event"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_24": {
+                "Main Part": [
+                    [
+                        "create",
+                        "event"
+                    ],
+                    [
+                        "create",
+                        "new course"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_25_AND_user_story_26",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["event"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "create",
+                    "other course"
+                ],
+                [
+                    "create",
+                    "event"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["create"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #create# an #other course# or #event# that is not charged a listing fee"],
-            "First UserStory": [" i want to #create# an #other course# or #event# i am charged a listing fee for that activity"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -304,25 +937,88 @@
                 "event"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_26: #g10# as a site administrator, i want to #create# an #other course# or #event# that is not charged a listing fee, so that the scrum alliance doesn't charge itself for scrum gatherings that it puts on.",
             "First UserStory": "user_story_25: #g10# as a trainer, i want to #create# an #other course# or #event# i am charged a listing fee for that activity, so that i don't list events i don't really intend to hold."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #create# an #other course# or #event# that is not charged a listing fee"],
+            "First UserStory": [" i want to #create# an #other course# or #event# i am charged a listing fee for that activity"]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [],
+                "Benefit Part": [[
+                    "scrum alliance",
+                    "scrum gatherings"
+                ]]
+            },
+            "user_story_25": {
+                "Main Part": [[
+                    "activity",
+                    "listing fee"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [
+                    [
+                        "create",
+                        "other course"
+                    ],
+                    [
+                        "create",
+                        "event"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_25": {
+                "Main Part": [
+                    [
+                        "create",
+                        "other course"
+                    ],
+                    [
+                        "create",
+                        "event"
+                    ],
+                    [
+                        "charged",
+                        "listing fee"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_36_AND_user_story_63",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["rss feed"]},
+        "Common Targets": {
+            "Main Part": [[
+                "subscribe",
+                "rss feed"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["subscribe"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #subscribe# to an #rss feed# of articles"],
-            "First UserStory": [" i want to #subscribe# to an #rss feed# of upcoming courses and events"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "subscribe",
@@ -336,20 +1032,86 @@
             "Second UserStory": "user_story_63: #g10# as a #site visitor#, i want to #subscribe# to an #rss feed# of articles, so that i can read them without visiting the site.",
             "First UserStory": "user_story_36: #g10# as a #site visitor#, i want to #subscribe# to an #rss feed# of upcoming courses and events, so that i am up to day without having to visit the site."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #subscribe# to an #rss feed# of articles"],
+            "First UserStory": [" i want to #subscribe# to an #rss feed# of upcoming courses and events"]
+        },
+        "All Contains": {
+            "user_story_36": {
+                "Main Part": [
+                    [
+                        "rss feed",
+                        "upcoming courses"
+                    ],
+                    [
+                        "rss feed",
+                        "events"
+                    ],
+                    [
+                        "site",
+                        "rss feed"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_63": {
+                "Main Part": [
+                    [
+                        "articles",
+                        "rss feed"
+                    ],
+                    [
+                        "site",
+                        "articles"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_36": {
+                "Main Part": [[
+                    "subscribe",
+                    "rss feed"
+                ]],
+                "Benefit Part": [[
+                    "without having to visit",
+                    "site"
+                ]]
+            },
+            "user_story_63": {
+                "Main Part": [[
+                    "subscribe",
+                    "rss feed"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_39_AND_user_story_62",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["full-text search"]},
+        "Common Targets": {
+            "Main Part": [[
+                "do",
+                "full-text search"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["do"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #do# a #full-text search# of article body"],
-            "First UserStory": [" i want to #do# a #full-text search# of the faqs"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "do",
@@ -363,41 +1125,163 @@
             "Second UserStory": "user_story_62: #g10# as a #site visitor#, i want to #do# a #full-text search# of article body, title, and author name, so that i can find what i want.",
             "First UserStory": "user_story_39: #g10# as a #site visitor#, i want to #do# a #full-text search# of the faqs, so that i can find an answer quickly."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #do# a #full-text search# of article body"],
+            "First UserStory": [" i want to #do# a #full-text search# of the faqs"]
+        },
+        "All Contains": {
+            "user_story_39": {
+                "Main Part": [[
+                    "faqs",
+                    "full-text search"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_62": {
+                "Main Part": [
+                    [
+                        "full-text search",
+                        "article body"
+                    ],
+                    [
+                        "full-text search",
+                        "title"
+                    ],
+                    [
+                        "full-text search",
+                        "author name"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_39": {
+                "Main Part": [[
+                    "do",
+                    "full-text search"
+                ]],
+                "Benefit Part": [[
+                    "find",
+                    "answer"
+                ]]
+            },
+            "user_story_62": {
+                "Main Part": [[
+                    "do",
+                    "full-text search"
+                ]],
+                "Benefit Part": [[
+                    "find",
+                    "what i want"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_68_AND_user_story_69",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 0,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["site"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": []
+        },
         "Action": {"Secondary Action": ["come"]},
-        "Part of Sentence": {},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
+        },
         "Targets": [[
             "come",
             "site"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_69: #g10# as a site visitor, i want to have articles that interest me and are easy to get to, so that i come to the site for my agile news and learning.",
             "First UserStory": "user_story_68: #g10# as a site visitor, i want to see new content when i come to the site, so that i come back more often."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {},
+        "All Contains": {
+            "user_story_68": {
+                "Main Part": [[
+                    "site",
+                    "new content"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_69": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "site",
+                        "agile news"
+                    ],
+                    [
+                        "site",
+                        "learning"
+                    ]
+                ]
+            }
+        },
+        "All Targets": {
+            "user_story_68": {
+                "Main Part": [
+                    [
+                        "see",
+                        "new content"
+                    ],
+                    [
+                        "come",
+                        "site"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_69": {
+                "Main Part": [[
+                    "have",
+                    "articles that interest me"
+                ]],
+                "Benefit Part": [[
+                    "come",
+                    "site"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_70_AND_user_story_71",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["why"]},
+        "Common Targets": {
+            "Main Part": [[
+                "know",
+                "why"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# as i glance around the home page what on earth a csm is and #why# i'd want to be one"],
-            "First UserStory": [" i want to #know# as soon as i visit what on earth scrum is and #why# it needs an alliance"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "know",
@@ -411,17 +1295,97 @@
             "Second UserStory": "user_story_71: #g10# as a #site visitor#, i want to #know# as i glance around the home page what on earth a csm is and #why# i'd want to be one, so that i read more.",
             "First UserStory": "user_story_70: #g10# as a #site visitor#, i want to #know# as soon as i visit what on earth scrum is and #why# it needs an alliance, so that i don't bounce immediately oÃ¯Â¬â\u201a¬ the page."
         },
-        "Project Number": "g10"
+        "Project Number": "g10",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# as i glance around the home page what on earth a csm is and #why# i'd want to be one"],
+            "First UserStory": [" i want to #know# as soon as i visit what on earth scrum is and #why# it needs an alliance"]
+        },
+        "All Contains": {
+            "user_story_70": {
+                "Main Part": [[
+                    "scrum",
+                    "alliance"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_71": {
+                "Main Part": [[
+                    "home page",
+                    "csm"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_70": {
+                "Main Part": [
+                    [
+                        "know",
+                        "scrum"
+                    ],
+                    [
+                        "know",
+                        "why"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_71": {
+                "Main Part": [
+                    [
+                        "know",
+                        "csm"
+                    ],
+                    [
+                        "glance around",
+                        "home page"
+                    ],
+                    [
+                        "know",
+                        "why"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_89_AND_user_story_90",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["company's support"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "see",
+                "company's support"
+            ]]
+        },
         "Action": {"Secondary Action": ["see"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "scrum",
+                "company's support"
+            ]]
+        },
+        "Targets": [[
+            "see",
+            "company's support"
+        ]],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_90: #g10# as a corporatesponsor, i want to make my logo randomly appear on the home page, so that others #see# the #company's support# of #scrum#.",
+            "First UserStory": "user_story_89: #g10# as a corporatesponsor, i want to display my logo on a corporate sponsors page, so that others #see# the #company's support# of #scrum#."
+        },
+        "Project Number": "g10",
         "Part of Sentence": {
             "Second UserStory": [" so that others #see# the #company's support# of #scrum#."],
             "First UserStory": [" so that others #see# the #company's support# of #scrum#."]
@@ -430,15 +1394,49 @@
             "scrum",
             "company's support"
         ]],
-        "Targets": [[
-            "see",
-            "company's support"
-        ]],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_90: #g10# as a corporatesponsor, i want to make my logo randomly appear on the home page, so that others #see# the #company's support# of #scrum#.",
-            "First UserStory": "user_story_89: #g10# as a corporatesponsor, i want to display my logo on a corporate sponsors page, so that others #see# the #company's support# of #scrum#."
+        "All Contains": {
+            "user_story_90": {
+                "Main Part": [[
+                    "home page",
+                    "logo"
+                ]],
+                "Benefit Part": [[
+                    "scrum",
+                    "company's support"
+                ]]
+            },
+            "user_story_89": {
+                "Main Part": [[
+                    "corporate sponsors page",
+                    "logo"
+                ]],
+                "Benefit Part": [[
+                    "scrum",
+                    "company's support"
+                ]]
+            }
         },
-        "Project Number": "g10"
+        "All Targets": {
+            "user_story_90": {
+                "Main Part": [[
+                    "make",
+                    "logo"
+                ]],
+                "Benefit Part": [[
+                    "see",
+                    "company's support"
+                ]]
+            },
+            "user_story_89": {
+                "Main Part": [[
+                    "display",
+                    "logo"
+                ]],
+                "Benefit Part": [[
+                    "see",
+                    "company's support"
+                ]]
+            }
+        }
     }
 ]

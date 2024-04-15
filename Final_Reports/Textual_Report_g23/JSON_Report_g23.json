@@ -3,15 +3,20 @@
         "Potential Redundant User Stories": "user_story_03_AND_user_story_12",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["enum lists"]},
+        "Common Targets": {"Main Part": [[
+            "managing",
+            "enum lists"
+        ]]},
         "Action": {"Secondary Action": ["managing"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want frontend changes for #managing# #enum lists#."],
-            "First UserStory": [" i want backend changes for #managing# #enum lists#."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "managing",
             "enum lists"
@@ -24,21 +29,68 @@
             "Second UserStory": "user_story_12: #g23# as a #user#, i want frontend changes for #managing# #enum lists#.",
             "First UserStory": "user_story_03: #g23# as a #user#, i want backend changes for #managing# #enum lists#."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i want frontend changes for #managing# #enum lists#."],
+            "First UserStory": [" i want backend changes for #managing# #enum lists#."]
+        },
+        "All Contains": {
+            "user_story_03": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "managing",
+                        "enum lists"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "want",
+                        "frontend changes"
+                    ],
+                    [
+                        "managing",
+                        "enum lists"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_16",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["backend changes"]},
+        "Common Targets": {"Main Part": [[
+            "want",
+            "backend changes"
+        ]]},
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# #backend changes# to support loading enum value lists from the database."],
-            "First UserStory": [" i #want# #backend changes# for managing enum lists."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "want",
             "backend changes"
@@ -51,21 +103,71 @@
             "Second UserStory": "user_story_16: #g23# as a #user#, i #want# #backend changes# to support loading enum value lists from the database.",
             "First UserStory": "user_story_03: #g23# as a #user#, i #want# #backend changes# for managing enum lists."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# #backend changes# to support loading enum value lists from the database."],
+            "First UserStory": [" i #want# #backend changes# for managing enum lists."]
+        },
+        "All Contains": {
+            "user_story_16": {
+                "Main Part": [[
+                    "database",
+                    "enum value lists"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_16": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "loading",
+                        "enum value lists"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "managing",
+                        "enum lists"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_17",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["backend changes"]},
+        "Common Targets": {"Main Part": [[
+            "want",
+            "backend changes"
+        ]]},
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# #backend changes# for bulk updating one enum value to another."],
-            "First UserStory": [" i #want# #backend changes# for managing enum lists."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "want",
             "backend changes"
@@ -78,21 +180,68 @@
             "Second UserStory": "user_story_17: #g23# as a #user#, i #want# #backend changes# for bulk updating one enum value to another.",
             "First UserStory": "user_story_03: #g23# as a #user#, i #want# #backend changes# for managing enum lists."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# #backend changes# for bulk updating one enum value to another."],
+            "First UserStory": [" i #want# #backend changes# for managing enum lists."]
+        },
+        "All Contains": {
+            "user_story_17": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_17": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "bulk updating",
+                        "enum value"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "managing",
+                        "enum lists"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_04_AND_user_story_28",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": true
         },
         "Entity": {"Primary Entity": ["ead files"]},
+        "Common Targets": {"Main Part": [[
+            "import",
+            "ead files"
+        ]]},
         "Action": {"Primary Action": ["import"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #import# #ead files# that were exported by the archivists' toolkit."],
-            "First UserStory": [" i want to #import# #ead files# that were exported by archon."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "import",
             "ead files"
@@ -105,21 +254,56 @@
             "Second UserStory": "user_story_28: #g23# as an #archivist#, i want to #import# #ead files# that were exported by the archivists' toolkit.",
             "First UserStory": "user_story_04: #g23# as an #archivist#, i want to #import# #ead files# that were exported by archon."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #import# #ead files# that were exported by the archivists' toolkit."],
+            "First UserStory": [" i want to #import# #ead files# that were exported by archon."]
+        },
+        "All Contains": {
+            "user_story_28": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_04": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_28": {
+                "Main Part": [[
+                    "import",
+                    "ead files"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_04": {
+                "Main Part": [[
+                    "import",
+                    "ead files"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_16_AND_user_story_17",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["backend changes"]},
+        "Common Targets": {"Main Part": [[
+            "want",
+            "backend changes"
+        ]]},
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# #backend changes# for bulk updating one enum value to another."],
-            "First UserStory": [" i #want# #backend changes# to support loading enum value lists from the database."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "want",
             "backend changes"
@@ -132,21 +316,71 @@
             "Second UserStory": "user_story_17: #g23# as a #user#, i #want# #backend changes# for bulk updating one enum value to another.",
             "First UserStory": "user_story_16: #g23# as a #user#, i #want# #backend changes# to support loading enum value lists from the database."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# #backend changes# for bulk updating one enum value to another."],
+            "First UserStory": [" i #want# #backend changes# to support loading enum value lists from the database."]
+        },
+        "All Contains": {
+            "user_story_17": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_16": {
+                "Main Part": [[
+                    "database",
+                    "enum value lists"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_17": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "bulk updating",
+                        "enum value"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_16": {
+                "Main Part": [
+                    [
+                        "want",
+                        "backend changes"
+                    ],
+                    [
+                        "loading",
+                        "enum value lists"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_38_AND_user_story_55",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["instance"]},
+        "Common Targets": {"Main Part": [[
+            "associate",
+            "instance"
+        ]]},
         "Action": {"Primary Action": ["associate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #associate# an #instance# with a container."],
-            "First UserStory": [" i want to #associate# an #instance# with a resource and/or resource component."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "associate",
             "instance"
@@ -159,6 +393,48 @@
             "Second UserStory": "user_story_55: #g23# as an #archivist#, i want to #associate# an #instance# with a container.",
             "First UserStory": "user_story_38: #g23# as an #archivist#, i want to #associate# an #instance# with a resource and/or resource component."
         },
-        "Project Number": "g23"
+        "Project Number": "g23",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #associate# an #instance# with a container."],
+            "First UserStory": [" i want to #associate# an #instance# with a resource and/or resource component."]
+        },
+        "All Contains": {
+            "user_story_38": {
+                "Main Part": [
+                    [
+                        "resource",
+                        "instance"
+                    ],
+                    [
+                        "resource component",
+                        "instance"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_55": {
+                "Main Part": [[
+                    "container",
+                    "instance"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_38": {
+                "Main Part": [[
+                    "associate",
+                    "instance"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_55": {
+                "Main Part": [[
+                    "associate",
+                    "instance"
+                ]],
+                "Benefit Part": []
+            }
+        }
     }
 ]

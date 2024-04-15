@@ -3,14 +3,25 @@
         "Potential Redundant User Stories": "user_story_06_AND_user_story_27",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": true
         },
         "Entity": {"Primary Entity": ["activities"]},
+        "Common Targets": {
+            "Main Part": [[
+                "schedule",
+                "activities"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["schedule"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to be able to #schedule# tasks/#activities# for a specific camp group"],
-            "First UserStory": [" i want to be able to #schedule# #activities# for campers"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "schedule",
@@ -24,20 +35,79 @@
             "Second UserStory": "user_story_27: #g12# as a #camp administrator#, i want to be able to #schedule# tasks/#activities# for a specific camp group, so that i can track each groups daily/weekly and monthly activities.",
             "First UserStory": "user_story_06: #g12# as a #camp administrator#, i want to be able to #schedule# #activities# for campers, so that camp workers can easily keep track of who is where at all times."
         },
-        "Project Number": "g12"
+        "Project Number": "g12",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to be able to #schedule# tasks/#activities# for a specific camp group"],
+            "First UserStory": [" i want to be able to #schedule# #activities# for campers"]
+        },
+        "All Contains": {
+            "user_story_06": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_27": {
+                "Main Part": [
+                    [
+                        "specific camp group",
+                        "activities"
+                    ],
+                    [
+                        "specific camp group",
+                        "tasks"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_06": {
+                "Main Part": [[
+                    "schedule",
+                    "activities"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_27": {
+                "Main Part": [
+                    [
+                        "schedule",
+                        "tasks"
+                    ],
+                    [
+                        "schedule",
+                        "activities"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "track",
+                    "each groups daily/weekly and monthly activities"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_30_AND_user_story_32",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["information"]},
+        "Common Targets": {
+            "Main Part": [[
+                "modify",
+                "information"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["modify"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to be able to #modify# the #information# of added parents"],
-            "First UserStory": [" i want to be able to #modify# the #information# of enrolled campers"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "modify",
@@ -51,20 +121,73 @@
             "Second UserStory": "user_story_32: #g12# as a #camp administrator#, i want to be able to #modify# the #information# of added parents, so that i can keep parent's information up to date.",
             "First UserStory": "user_story_30: #g12# as a #camp administrator#, i want to be able to #modify# the #information# of enrolled campers, so that i can keep the campers information up to date."
         },
-        "Project Number": "g12"
+        "Project Number": "g12",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to be able to #modify# the #information# of added parents"],
+            "First UserStory": [" i want to be able to #modify# the #information# of enrolled campers"]
+        },
+        "All Contains": {
+            "user_story_32": {
+                "Main Part": [[
+                    "added parents",
+                    "information"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_30": {
+                "Main Part": [[
+                    "enrolled campers",
+                    "information"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_32": {
+                "Main Part": [[
+                    "modify",
+                    "information"
+                ]],
+                "Benefit Part": [[
+                    "keep",
+                    "parent's information up to date"
+                ]]
+            },
+            "user_story_30": {
+                "Main Part": [[
+                    "modify",
+                    "information"
+                ]],
+                "Benefit Part": [[
+                    "keep",
+                    "campers information up to date"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_31_AND_user_story_33",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["pages"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "keep",
+                "pages"
+            ]]
+        },
         "Action": {"Secondary Action": ["keep"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #keep# my #pages# free of unneeded clutter."],
-            "First UserStory": [" so that i can #keep# my #pages# free of clutter."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "keep",
@@ -78,30 +201,134 @@
             "Second UserStory": "user_story_33: #g12# as a camp administrator, i want to be able to delete parents from the database, so that i can #keep# my #pages# free of unneeded clutter.",
             "First UserStory": "user_story_31: #g12# as a camp administrator, i want to be able to delete campers from the database, so that i can #keep# my #pages# free of clutter."
         },
-        "Project Number": "g12"
+        "Project Number": "g12",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #keep# my #pages# free of unneeded clutter."],
+            "First UserStory": [" so that i can #keep# my #pages# free of clutter."]
+        },
+        "All Contains": {
+            "user_story_33": {
+                "Main Part": [[
+                    "database",
+                    "parents"
+                ]],
+                "Benefit Part": [[
+                    "pages",
+                    "free of unneeded clutter"
+                ]]
+            },
+            "user_story_31": {
+                "Main Part": [[
+                    "database",
+                    "campers"
+                ]],
+                "Benefit Part": [[
+                    "pages",
+                    "free of clutter"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_33": {
+                "Main Part": [[
+                    "delete",
+                    "parents"
+                ]],
+                "Benefit Part": [[
+                    "keep",
+                    "pages"
+                ]]
+            },
+            "user_story_31": {
+                "Main Part": [[
+                    "delete",
+                    "campers"
+                ]],
+                "Benefit Part": [[
+                    "keep",
+                    "pages"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_37_AND_user_story_40",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["peace of mind"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "have",
+                "peace of mind"
+            ]]
+        },
         "Action": {"Secondary Action": ["have"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #have# #peace of mind#."],
-            "First UserStory": [" so that i can #have# #peace of mind#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "have",
             "peace of mind"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_40: #g12# as a parent, i want to see which counselors are assigned to my kids, so that i can #have# #peace of mind#.",
             "First UserStory": "user_story_37: #g12# as a parent, i want to be able to track my child's activity and schedule at camp, so that i can #have# #peace of mind#."
         },
-        "Project Number": "g12"
+        "Project Number": "g12",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #have# #peace of mind#."],
+            "First UserStory": [" so that i can #have# #peace of mind#."]
+        },
+        "All Contains": {
+            "user_story_37": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_40": {
+                "Main Part": [[
+                    "counselors",
+                    "kids"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_37": {
+                "Main Part": [
+                    [
+                        "track",
+                        "child's activity"
+                    ],
+                    [
+                        "track",
+                        "schedule"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "have",
+                    "peace of mind"
+                ]]
+            },
+            "user_story_40": {
+                "Main Part": [[
+                    "see",
+                    "counselors"
+                ]],
+                "Benefit Part": [[
+                    "have",
+                    "peace of mind"
+                ]]
+            }
+        }
     }
 ]

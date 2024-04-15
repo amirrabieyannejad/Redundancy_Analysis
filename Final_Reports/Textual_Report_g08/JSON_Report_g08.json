@@ -3,25 +3,48 @@
         "Potential Redundant User Stories": "user_story_01_AND_user_story_14",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data package"],
             "Secondary Entity": ["analysis"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "start using",
+                    "data"
+                ]
+            ]
+        },
         "Action": {
             "Secondary Action": ["start using"],
             "Primary Action": ["get"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
-            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
         },
-        "Contains": [[
-            "data package",
-            "data"
-        ]],
         "Targets": [
             [
                 "get",
@@ -48,31 +71,132 @@
             "Second UserStory": "user_story_14: #g08# as a #developer#, i want to #get# a #data# package# into python in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_01: #g08# as a #developer#, i want to #get# a #data# package# into node, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_01_AND_user_story_19",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["data"]
-        },
-        "Action": {
-            "Secondary Action": ["doing"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
         },
         "Contains": [[
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "python",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "node",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_14": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_01": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_01_AND_user_story_19",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["data"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "start using",
+                    "data"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["doing"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -99,25 +223,119 @@
             "Second UserStory": "user_story_19: #g08# as a #developer#, i want to #get# a #data# package# into julia in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_01: #g08# as a #developer#, i want to #get# a #data# package# into node, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        },
+        "Contains": [[
+            "data package",
+            "data"
+        ]],
+        "All Contains": {
+            "user_story_19": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "julia",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "node",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_19": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_01": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_06_AND_user_story_45",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 3
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["trust"]},
-        "Action": {"Secondary Action": ["feel"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
-            "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."]
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "feel",
+                    "usefulness"
+                ],
+                [
+                    "feel",
+                    "trust"
+                ]
+            ]
         },
-        "Contains": [[
-            "validity",
-            "trust"
-        ]],
+        "Action": {"Secondary Action": ["feel"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "validity",
+                "trust"
+            ]]
+        },
         "Targets": [
             [
                 "feel",
@@ -128,36 +346,129 @@
                 "trust"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_45: #g08# as a researcherpublisher, i want validate my data with a minimum of clicks, so that i can #feel# #trust# in the #validity# and #usefulness# of the data.",
             "First UserStory": "user_story_06: #g08# as a researcherpublisher, i want to know that my data conforms to its data package profile, so that i can #feel# #trust# in the #validity# and #usefulness# of the data."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
+            "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."]
+        },
+        "Contains": [[
+            "validity",
+            "trust"
+        ]],
+        "All Contains": {
+            "user_story_06": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "data.",
+                        "usefulness"
+                    ],
+                    [
+                        "validity",
+                        "trust"
+                    ]
+                ]
+            },
+            "user_story_45": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "data",
+                        "usefulness"
+                    ],
+                    [
+                        "validity",
+                        "trust"
+                    ]
+                ]
+            }
+        },
+        "All Targets": {
+            "user_story_06": {
+                "Main Part": [[
+                    "know",
+                    "data"
+                ]],
+                "Benefit Part": [
+                    [
+                        "feel",
+                        "usefulness"
+                    ],
+                    [
+                        "feel",
+                        "trust"
+                    ]
+                ]
+            },
+            "user_story_45": {
+                "Main Part": [[
+                    "validate",
+                    "data"
+                ]],
+                "Benefit Part": [
+                    [
+                        "feel",
+                        "usefulness"
+                    ],
+                    [
+                        "feel",
+                        "trust"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_08_AND_user_story_18",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 5,
-            "Benefit Part Redundancy Clause": 3
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data package"],
             "Secondary Entity": ["visualizations"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
         "Action": {
             "Secondary Action": ["doing"],
             "Primary Action": ["get"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
-            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
         },
-        "Contains": [[
-            "data package",
-            "data"
-        ]],
         "Targets": [
             [
                 "start using",
@@ -176,36 +487,137 @@
                 "visualizations"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_18: #g08# as a developer, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_08: #g08# as a researcher, i want to #get# a #data# package# into r in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_09_AND_user_story_11",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["analysis"]
-        },
-        "Action": {
-            "Secondary Action": ["start using"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
+            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
         },
         "Contains": [[
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_08": {
+                "Main Part": [
+                    [
+                        "r",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_18": {
+                "Main Part": [
+                    [
+                        "clojure",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_08": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_18": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_09_AND_user_story_11",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["analysis"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "start using",
+                    "data"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["start using"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "doing",
@@ -232,20 +644,115 @@
             "Second UserStory": "user_story_11: #g08# as a #researcher#, i want to #get# a #data# package# into stata in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_09: #g08# as a #researcher#, i want to #get# a #data# package# into excel in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
+            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        },
+        "Contains": [[
+            "data package",
+            "data"
+        ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [
+                    [
+                        "excel",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_11": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "stata",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ]
+                ]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_21",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["analysis"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "start using",
+                    "data"
+                ]
+            ]
+        },
         "Action": {"Secondary Action": ["start using"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#."],
-            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and visualizations."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -257,36 +764,132 @@
                 "data"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_21: #g08# as a machine learning expert, i would like to package ml datasets as data packages, so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#.",
             "First UserStory": "user_story_09: #g08# as a researcher, i want to get a data package into excel in seconds, so that i can #start using# the #data# for #doing# #analysis# and visualizations."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#."],
+            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and visualizations."]
+        },
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [
+                    [
+                        "excel",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_21": {
+                "Main Part": [
+                    [
+                        "data packages",
+                        "ml datasets"
+                    ],
+                    [
+                        "ml datasets",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "data",
+                    "analysis"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ]
+                ]
+            },
+            "user_story_21": {
+                "Main Part": [[
+                    "package",
+                    "ml datasets"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_10_AND_user_story_02",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data package"],
             "Secondary Entity": ["visualizations"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ]
+            ]
+        },
         "Action": {
             "Secondary Action": ["start using"],
             "Primary Action": ["get"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
-            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
         },
-        "Contains": [[
-            "data package",
-            "data"
-        ]],
         "Targets": [
             [
                 "get",
@@ -313,23 +916,7 @@
             "Second UserStory": "user_story_02: #g08# as a #researcher#, i want to #get# a #data# package# into julia in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_10: #g08# as a #researcher#, i want to #get# a #data# package# into spss in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_10_AND_user_story_11",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["analysis"]
-        },
-        "Action": {
-            "Secondary Action": ["start using"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
             "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
@@ -338,6 +925,123 @@
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "julia",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "spss",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_02": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_10_AND_user_story_11",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["analysis"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["start using"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -364,23 +1068,7 @@
             "Second UserStory": "user_story_11: #g08# as a #researcher#, i want to #get# a #data# package# into stata in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_10: #g08# as a #researcher#, i want to #get# a #data# package# into spss in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_11_AND_user_story_08",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["analysis"]
-        },
-        "Action": {
-            "Secondary Action": ["doing"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
             "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
@@ -389,6 +1077,123 @@
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_11": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "stata",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "spss",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_11": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_11_AND_user_story_08",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["analysis"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["doing"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "start using",
@@ -415,71 +1220,7 @@
             "Second UserStory": "user_story_08: #g08# as a #researcher#, i want to #get# a #data# package# into r in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_11: #g08# as a #researcher#, i want to #get# a #data# package# into stata in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_13_AND_user_story_18",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 5,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["data"]
-        },
-        "Action": {
-            "Secondary Action": ["start using"],
-            "Primary Action": ["get"]
-        },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
-            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
-        },
-        "Contains": [[
-            "data package",
-            "data"
-        ]],
-        "Targets": [
-            [
-                "get",
-                "data package"
-            ],
-            [
-                "start using",
-                "data"
-            ],
-            [
-                "doing",
-                "analysis"
-            ],
-            [
-                "doing",
-                "visualizations"
-            ]
-        ],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_18: #g08# as a developer, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
-            "First UserStory": "user_story_13: #g08# as a researcher, i want to #get# a #data# package# into libreoffice/openoffice in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
-        },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_14_AND_user_story_09",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 5,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["visualizations"]
-        },
-        "Action": {
-            "Secondary Action": ["start using"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
             "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
@@ -488,6 +1229,276 @@
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_08": {
+                "Main Part": [
+                    [
+                        "r",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_11": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "stata",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_08": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_13_AND_user_story_18",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 5,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["data"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["start using"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
+        "Targets": [
+            [
+                "get",
+                "data package"
+            ],
+            [
+                "start using",
+                "data"
+            ],
+            [
+                "doing",
+                "analysis"
+            ],
+            [
+                "doing",
+                "visualizations"
+            ]
+        ],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_18: #g08# as a developer, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
+            "First UserStory": "user_story_13: #g08# as a researcher, i want to #get# a #data# package# into libreoffice/openoffice in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
+        },
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
+        },
+        "Contains": [[
+            "data package",
+            "data"
+        ]],
+        "All Contains": {
+            "user_story_18": {
+                "Main Part": [
+                    [
+                        "clojure",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "libreoffice",
+                        "data package"
+                    ],
+                    [
+                        "openoffice",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_18": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            },
+            "user_story_13": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_14_AND_user_story_09",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 5,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["visualizations"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["start using"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -506,36 +1517,137 @@
                 "visualizations"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_09: #g08# as a researcher, i want to #get# a #data# package# into excel in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_14: #g08# as a developer, i want to #get# a #data# package# into python in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_14_AND_user_story_18",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["analysis"]
-        },
-        "Action": {
-            "Secondary Action": ["doing"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
         },
         "Contains": [[
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [
+                    [
+                        "excel",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "python",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ]
+                ]
+            },
+            "user_story_14": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_14_AND_user_story_18",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["analysis"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["doing"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -562,23 +1674,7 @@
             "Second UserStory": "user_story_18: #g08# as a #developer#, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_14: #g08# as a #developer#, i want to #get# a #data# package# into python in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_14_AND_user_story_19",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["visualizations"]
-        },
-        "Action": {
-            "Secondary Action": ["doing"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
             "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
@@ -587,6 +1683,123 @@
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_18": {
+                "Main Part": [
+                    [
+                        "clojure",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "python",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_18": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            },
+            "user_story_14": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_14_AND_user_story_19",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["visualizations"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "doing",
+                    "analysis"
+                ],
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["doing"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -613,31 +1826,132 @@
             "Second UserStory": "user_story_19: #g08# as a #developer#, i want to #get# a #data# package# into julia in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_14: #g08# as a #developer#, i want to #get# a #data# package# into python in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_18_AND_user_story_02",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 5,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["analysis"]
-        },
-        "Action": {
-            "Secondary Action": ["doing"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
-            "First UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."]
+            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "First UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."]
         },
         "Contains": [[
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_19": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "julia",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "python",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_19": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_14": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_18_AND_user_story_02",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 5,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["analysis"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["doing"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -656,36 +1970,137 @@
                 "analysis"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_02: #g08# as a researcher, i want to #get# a #data# package# into julia in seconds, so that i can #start using# the #data# for #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_18: #g08# as a developer, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_18_AND_user_story_20",
-        "Status": {
-            "Main Part Redundancy Clauses": 3,
-            "Total Redundancy Clauses": 6,
-            "Benefit Part Redundancy Clause": 3
-        },
-        "Entity": {
-            "Primary Entity": ["data package"],
-            "Secondary Entity": ["visualizations"]
-        },
-        "Action": {
-            "Secondary Action": ["start using"],
-            "Primary Action": ["get"]
-        },
+        "Project Number": "g08",
         "Part of Sentence": {
-            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "Second UserStory": [" so that i can #start using# the #data# for #doing# #analysis# and #visualizations#."],
             "First UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."]
         },
         "Contains": [[
             "data package",
             "data"
         ]],
+        "All Contains": {
+            "user_story_18": {
+                "Main Part": [
+                    [
+                        "clojure",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "julia",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_18": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            },
+            "user_story_02": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_18_AND_user_story_20",
+        "Status": {
+            "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 6,
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["visualizations"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "data package"
+            ]],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "visualizations"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ]
+            ]
+        },
+        "Action": {
+            "Secondary Action": ["start using"],
+            "Primary Action": ["get"]
+        },
+        "Common Contains": {
+            "Main Part": [[
+                "data package",
+                "data"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -712,20 +2127,115 @@
             "Second UserStory": "user_story_20: #g08# as a #developer#, i want to #get# a #data# package# into c++ in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#.",
             "First UserStory": "user_story_18: #g08# as a #developer#, i want to #get# a #data# package# into clojure in seconds, so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."],
+            "First UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and #visualizations#."]
+        },
+        "Contains": [[
+            "data package",
+            "data"
+        ]],
+        "All Contains": {
+            "user_story_18": {
+                "Main Part": [
+                    [
+                        "clojure",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_20": {
+                "Main Part": [
+                    [
+                        "c++",
+                        "data package"
+                    ],
+                    [
+                        "data package",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_18": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            },
+            "user_story_20": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_19_AND_user_story_21",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["analysis"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "start using",
+                    "data"
+                ],
+                [
+                    "doing",
+                    "analysis"
+                ]
+            ]
+        },
         "Action": {"Secondary Action": ["doing"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#."],
-            "First UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and visualizations."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -737,25 +2247,109 @@
                 "analysis"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_21: #g08# as a machine learning expert, i would like to package ml datasets as data packages, so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#.",
             "First UserStory": "user_story_19: #g08# as a developer, i want to get a data package into julia in seconds, so that i can #start using# the #data# in #doing# #analysis# and visualizations."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can easily import them into my ml platform, so that i can #start using# the #data# in #doing# #analysis#."],
+            "First UserStory": [" so that i can #start using# the #data# in #doing# #analysis# and visualizations."]
+        },
+        "All Contains": {
+            "user_story_19": {
+                "Main Part": [
+                    [
+                        "data package",
+                        "data"
+                    ],
+                    [
+                        "julia",
+                        "data package"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_21": {
+                "Main Part": [
+                    [
+                        "data packages",
+                        "ml datasets"
+                    ],
+                    [
+                        "ml datasets",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "data",
+                    "analysis"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_19": {
+                "Main Part": [[
+                    "get",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ],
+                    [
+                        "doing",
+                        "visualizations"
+                    ]
+                ]
+            },
+            "user_story_21": {
+                "Main Part": [[
+                    "package",
+                    "ml datasets"
+                ]],
+                "Benefit Part": [
+                    [
+                        "start using",
+                        "data"
+                    ],
+                    [
+                        "doing",
+                        "analysis"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_24",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data-packaged data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "integrate",
+                "data-packaged data"
+            ]]
+        },
         "Action": {"Secondary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use eprints."],
-            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
@@ -769,20 +2363,67 @@
             "Second UserStory": "user_story_24: #g08# as a developer, i want an eprints integration, so that i can #integrate# #data-packaged data# with pipelines that use eprints.",
             "First UserStory": "user_story_22: #g08# as a developer, i want an elasticsearch integration, so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use eprints."],
+            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        },
+        "All Contains": {
+            "user_story_24": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_22": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_24": {
+                "Main Part": [[
+                    "want",
+                    "eprints integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            },
+            "user_story_22": {
+                "Main Part": [[
+                    "want",
+                    "elasticsearch integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_25",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data-packaged data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "integrate",
+                "data-packaged data"
+            ]]
+        },
         "Action": {"Secondary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use mongo."],
-            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
@@ -796,20 +2437,67 @@
             "Second UserStory": "user_story_25: #g08# as a developer, i want a mongo integration, so that i can #integrate# #data-packaged data# with pipelines that use mongo.",
             "First UserStory": "user_story_22: #g08# as a developer, i want an elasticsearch integration, so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use mongo."],
+            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        },
+        "All Contains": {
+            "user_story_25": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_22": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_25": {
+                "Main Part": [[
+                    "want",
+                    "mongo integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            },
+            "user_story_22": {
+                "Main Part": [[
+                    "want",
+                    "elasticsearch integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_34",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data-packaged data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "integrate",
+                "data-packaged data"
+            ]]
+        },
         "Action": {"Secondary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use hdf5."],
-            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
@@ -823,20 +2511,67 @@
             "Second UserStory": "user_story_34: #g08# as a developer, i want hdf5 integration, so that i can #integrate# #data-packaged data# with pipelines that use hdf5.",
             "First UserStory": "user_story_22: #g08# as a developer, i want an elasticsearch integration, so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use hdf5."],
+            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use elasticsearch."]
+        },
+        "All Contains": {
+            "user_story_22": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_34": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_22": {
+                "Main Part": [[
+                    "want",
+                    "elasticsearch integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "want",
+                    "hdf5 integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_25_AND_user_story_26",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data-packaged data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "integrate",
+                "data-packaged data"
+            ]]
+        },
         "Action": {"Secondary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use dat."],
-            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use mongo."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
@@ -850,20 +2585,67 @@
             "Second UserStory": "user_story_26: #g08# as a developer, i want a dat integration, so that i can #integrate# #data-packaged data# with pipelines that use dat.",
             "First UserStory": "user_story_25: #g08# as a developer, i want a mongo integration, so that i can #integrate# #data-packaged data# with pipelines that use mongo."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use dat."],
+            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use mongo."]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_25": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [[
+                    "want",
+                    "dat integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            },
+            "user_story_25": {
+                "Main Part": [[
+                    "want",
+                    "mongo integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_34_AND_user_story_23",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data-packaged data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "integrate",
+                "data-packaged data"
+            ]]
+        },
         "Action": {"Secondary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use spss."],
-            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use hdf5."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
@@ -877,47 +2659,171 @@
             "Second UserStory": "user_story_23: #g08# as a developer, i want an spss integration, so that i can #integrate# #data-packaged data# with pipelines that use spss.",
             "First UserStory": "user_story_34: #g08# as a developer, i want hdf5 integration, so that i can #integrate# #data-packaged data# with pipelines that use hdf5."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use spss."],
+            "First UserStory": [" so that i can #integrate# #data-packaged data# with pipelines that use hdf5."]
+        },
+        "All Contains": {
+            "user_story_34": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_23": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_34": {
+                "Main Part": [[
+                    "want",
+                    "hdf5 integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            },
+            "user_story_23": {
+                "Main Part": [[
+                    "want",
+                    "spss integration"
+                ]],
+                "Benefit Part": [[
+                    "integrate",
+                    "data-packaged data"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_36_AND_user_story_41",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["integration"]},
+        "Common Targets": {
+            "Main Part": [[
+                "want",
+                "integration"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# an #integration# with https://data.mendeley.com/"],
-            "First UserStory": [" i #want# an #integration# with zenodo"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "want",
             "integration"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_41: #g08# as a researcher, i #want# an #integration# with https://data.mendeley.com/, so that i can validate my data upon ingest to the service.",
             "First UserStory": "user_story_36: #g08# as a researcherpublisher, i #want# an #integration# with zenodo, so that when i store my dataset in github, i donÃ¢â\u201a¬â\u201e¢t have to retype descriptive information about my dataset."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# an #integration# with https://data.mendeley.com/"],
+            "First UserStory": [" i #want# an #integration# with zenodo"]
+        },
+        "All Contains": {
+            "user_story_36": {
+                "Main Part": [[
+                    "zenodo",
+                    "integration"
+                ]],
+                "Benefit Part": [
+                    [
+                        "github",
+                        "dataset"
+                    ],
+                    [
+                        "dataset",
+                        "descriptive information"
+                    ]
+                ]
+            },
+            "user_story_41": {
+                "Main Part": [[
+                    "https://data.mendeley.com/",
+                    "integration "
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_36": {
+                "Main Part": [[
+                    "want",
+                    "integration"
+                ]],
+                "Benefit Part": [
+                    [
+                        "donÃ¢â\u201a¬â\u201e¢t have to retype",
+                        "descriptive information"
+                    ],
+                    [
+                        "store",
+                        "dataset"
+                    ]
+                ]
+            },
+            "user_story_41": {
+                "Main Part": [[
+                    "want",
+                    "integration"
+                ]],
+                "Benefit Part": [
+                    [
+                        "ingest",
+                        "service"
+                    ],
+                    [
+                        "validate",
+                        " data"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_37_AND_user_story_42",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["integration"]},
+        "Common Targets": {
+            "Main Part": [[
+                "would like",
+                "integration"
+            ]],
+            "Benefit Part": [[
+                "output",
+                "cleaned data packages"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["output"],
             "Primary Action": ["would like"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #output# #cleaned data packages#."],
-            "First UserStory": [" so that i can #output# #cleaned data packages#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -937,49 +2843,176 @@
             "Second UserStory": "user_story_42: #g08# as a #publisher#, i #would like# an #integration# with excel, so that i can #output# #cleaned data packages#.",
             "First UserStory": "user_story_37: #g08# as a #publisher#, i #would like# an #integration# with open refine, so that i can #output# #cleaned data packages#."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #output# #cleaned data packages#."],
+            "First UserStory": [" so that i can #output# #cleaned data packages#."]
+        },
+        "All Contains": {
+            "user_story_37": {
+                "Main Part": [[
+                    "open refine",
+                    "integration"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_42": {
+                "Main Part": [[
+                    "excel",
+                    "integration"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_37": {
+                "Main Part": [[
+                    "would like",
+                    "integration"
+                ]],
+                "Benefit Part": [[
+                    "output",
+                    "cleaned data packages"
+                ]]
+            },
+            "user_story_42": {
+                "Main Part": [[
+                    "would like",
+                    "integration"
+                ]],
+                "Benefit Part": [[
+                    "output",
+                    "cleaned data packages"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_44_AND_user_story_58",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["tool"]},
+        "Common Targets": {
+            "Main Part": [[
+                "want",
+                "tool"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# a #tool# that can generate basic statistics about a dataset"],
-            "First UserStory": [" i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "want",
             "tool"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_58: #g08# as a researcher, i #want# a #tool# that can generate basic statistics about a dataset, so that i can get a quick preview of the data.",
             "First UserStory": "user_story_44: #g08# as a repository manager, i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data, so that it is more findable and therefore useful."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# a #tool# that can generate basic statistics about a dataset"],
+            "First UserStory": [" i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data"]
+        },
+        "All Contains": {
+            "user_story_58": {
+                "Main Part": [[
+                    "dataset",
+                    "basic statistics"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "quick preview"
+                ]]
+            },
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "research data",
+                        "basic metadata "
+                    ],
+                    [
+                        "users",
+                        "research data"
+                    ],
+                    [
+                        "researchers",
+                        "research data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_58": {
+                "Main Part": [[
+                    "want",
+                    "tool"
+                ]],
+                "Benefit Part": [[
+                    "get",
+                    "quick preview"
+                ]]
+            },
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "want",
+                        "tool"
+                    ],
+                    [
+                        "add",
+                        "basic metadata "
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_47_AND_user_story_06",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 3
+            "Benefit Part Redundancy Clause": 3,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["trust"]},
-        "Action": {"Secondary Action": ["feel"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
-            "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data quickly and in the context of my command line workflow."]
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "feel",
+                    "trust"
+                ],
+                [
+                    "feel",
+                    "usefulness"
+                ]
+            ]
         },
-        "Contains": [[
-            "validity",
-            "trust"
-        ]],
+        "Action": {"Secondary Action": ["feel"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "validity",
+                "trust"
+            ]]
+        },
         "Targets": [
             [
                 "feel",
@@ -990,35 +3023,190 @@
                 "usefulness"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_06: #g08# as a researcherpublisher, i want to know that my data conforms to its data package profile, so that i can #feel# #trust# in the #validity# and #usefulness# of the data.",
             "First UserStory": "user_story_47: #g08# as a developerwrangler, i want to use a command line tool that allows met to validate data, so that i can #feel# #trust# in the #validity# and #usefulness# of the data quickly and in the context of my command line workflow."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
+            "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data quickly and in the context of my command line workflow."]
+        },
+        "Contains": [[
+            "validity",
+            "trust"
+        ]],
+        "All Contains": {
+            "user_story_06": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "data.",
+                        "usefulness"
+                    ],
+                    [
+                        "validity",
+                        "trust"
+                    ]
+                ]
+            },
+            "user_story_47": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "validity",
+                        "trust"
+                    ],
+                    [
+                        "command line workflow",
+                        "usefulness"
+                    ],
+                    [
+                        "data",
+                        "usefulness"
+                    ]
+                ]
+            }
+        },
+        "All Targets": {
+            "user_story_06": {
+                "Main Part": [[
+                    "know",
+                    "data"
+                ]],
+                "Benefit Part": [
+                    [
+                        "feel",
+                        "usefulness"
+                    ],
+                    [
+                        "feel",
+                        "trust"
+                    ]
+                ]
+            },
+            "user_story_47": {
+                "Main Part": [
+                    [
+                        "validate",
+                        "data"
+                    ],
+                    [
+                        "use",
+                        "command line tool"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "feel",
+                        "trust"
+                    ],
+                    [
+                        "feel",
+                        "usefulness"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_59_AND_user_story_44",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["tool"]},
+        "Common Targets": {
+            "Main Part": [[
+                "want",
+                "tool"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["want"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data"],
-            "First UserStory": [" i #want# a #tool# to create an embeddable data summary via iframe"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "want",
             "tool"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_44: #g08# as a repository manager, i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data, so that it is more findable and therefore useful.",
             "First UserStory": "user_story_59: #g08# as a developerpublisher, i #want# a #tool# to create an embeddable data summary via iframe, so that i can embed data summaries across sites."
         },
-        "Project Number": "g08"
+        "Project Number": "g08",
+        "Part of Sentence": {
+            "Second UserStory": [" i #want# a #tool# that makes it easy for researchers/ users to add basic metadata to their research data"],
+            "First UserStory": [" i #want# a #tool# to create an embeddable data summary via iframe"]
+        },
+        "All Contains": {
+            "user_story_59": {
+                "Main Part": [[
+                    "iframe",
+                    "embeddable data summary"
+                ]],
+                "Benefit Part": [[
+                    "sites",
+                    "data summaries"
+                ]]
+            },
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "research data",
+                        "basic metadata "
+                    ],
+                    [
+                        "users",
+                        "research data"
+                    ],
+                    [
+                        "researchers",
+                        "research data"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_59": {
+                "Main Part": [
+                    [
+                        "want",
+                        "tool"
+                    ],
+                    [
+                        "create",
+                        "embeddable data summary"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "embed",
+                    "data summaries"
+                ]]
+            },
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "want",
+                        "tool"
+                    ],
+                    [
+                        "add",
+                        "basic metadata "
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     }
 ]

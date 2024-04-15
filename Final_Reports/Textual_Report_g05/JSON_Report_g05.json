@@ -3,25 +3,41 @@
         "Potential Redundant User Stories": "user_story_02_AND_user_story_07",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 4
+            "Benefit Part Redundancy Clause": 4,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["bugs"]},
-        "Action": {"Secondary Action": ["make"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."],
-            "First UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."]
-        },
-        "Contains": [
-            [
-                "api",
-                "enhancements"
-            ],
-            [
-                "data",
-                "api"
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "fix",
+                    "bugs"
+                ],
+                [
+                    "make",
+                    "enhancements"
+                ]
             ]
-        ],
+        },
+        "Action": {"Secondary Action": ["make"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "api",
+                    "enhancements"
+                ],
+                [
+                    "data",
+                    "api"
+                ]
+            ]
+        },
         "Targets": [
             [
                 "fix",
@@ -40,26 +56,122 @@
             "Second UserStory": "user_story_07: #g05# as a data publishing user, i want to be able to edit the data source of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#.",
             "First UserStory": "user_story_02: #g05# as a data publishing user, i want to be able to edit the model of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."],
+            "First UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."]
+        },
+        "Contains": [
+            [
+                "api",
+                "enhancements"
+            ],
+            [
+                "data",
+                "api"
+            ]
+        ],
+        "All Contains": {
+            "user_story_07": {
+                "Main Part": [[
+                    "data i have already imported",
+                    "data source"
+                ]],
+                "Benefit Part": [
+                    [
+                        "api",
+                        "enhancements"
+                    ],
+                    [
+                        "data",
+                        "api"
+                    ]
+                ]
+            },
+            "user_story_02": {
+                "Main Part": [[
+                    "data i have already imported",
+                    "model"
+                ]],
+                "Benefit Part": [
+                    [
+                        "api",
+                        "enhancements"
+                    ],
+                    [
+                        "data",
+                        "api"
+                    ]
+                ]
+            }
+        },
+        "All Targets": {
+            "user_story_07": {
+                "Main Part": [[
+                    "edit",
+                    "data source"
+                ]],
+                "Benefit Part": [
+                    [
+                        "fix",
+                        "bugs"
+                    ],
+                    [
+                        "make",
+                        "enhancements"
+                    ]
+                ]
+            },
+            "user_story_02": {
+                "Main Part": [[
+                    "edit",
+                    "model"
+                ]],
+                "Benefit Part": [
+                    [
+                        "fix",
+                        "bugs"
+                    ],
+                    [
+                        "make",
+                        "enhancements"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_05_AND_user_story_45",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["view"],
             "Secondary Entity": ["management actions"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "have",
+                "view"
+            ]],
+            "Benefit Part": [[
+                "perform",
+                "management actions"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["perform"],
             "Primary Action": ["have"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #perform# #management actions# on my own datasets."],
-            "First UserStory": [" so that i can #perform# #management actions# on any dataset."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -71,36 +183,97 @@
                 "management actions"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_45: #g05# as a data publishing user, i want to #have# a #view# on all the datasets i #have# published, so that i can #perform# #management actions# on my own datasets.",
             "First UserStory": "user_story_05: #g05# as a platform administrator, i want to #have# a #view# on all datasets published by all users, so that i can #perform# #management actions# on any dataset."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #perform# #management actions# on my own datasets."],
+            "First UserStory": [" so that i can #perform# #management actions# on any dataset."]
+        },
+        "All Contains": {
+            "user_story_05": {
+                "Main Part": [[
+                    "view",
+                    "datasets published"
+                ]],
+                "Benefit Part": [[
+                    "any dataset",
+                    "management actions"
+                ]]
+            },
+            "user_story_45": {
+                "Main Part": [[
+                    "datasets i have published",
+                    "view"
+                ]],
+                "Benefit Part": [[
+                    "own datasets",
+                    "management actions"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_05": {
+                "Main Part": [[
+                    "have",
+                    "view"
+                ]],
+                "Benefit Part": [[
+                    "perform",
+                    "management actions"
+                ]]
+            },
+            "user_story_45": {
+                "Main Part": [[
+                    "have",
+                    "view"
+                ]],
+                "Benefit Part": [[
+                    "perform",
+                    "management actions"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_11",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data"],
             "Secondary Entity": ["data packager"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["use"],
             "Primary Action": ["import"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
-            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
         },
-        "Contains": [[
-            "data",
-            "data formats"
-        ]],
         "Targets": [
             [
                 "import",
@@ -119,31 +292,96 @@
             "Second UserStory": "user_story_11: #g05# as a #data publishing user#, i want to be able to #import# #data# in json, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_09: #g05# as a #data publishing user#, i want to be able to #import# #data# in excel, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
+            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        },
+        "Contains": [[
+            "data",
+            "data formats"
+        ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [[
+                    "excel",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "json",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_12",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data"],
             "Secondary Entity": ["data packager"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["use"],
             "Primary Action": ["import"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
-            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
         },
-        "Contains": [[
-            "data",
-            "data formats"
-        ]],
         "Targets": [
             [
                 "import",
@@ -162,31 +400,96 @@
             "Second UserStory": "user_story_12: #g05# as a #data publishing user#, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_09: #g05# as a #data publishing user#, i want to be able to #import# #data# in excel, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
+            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        },
+        "Contains": [[
+            "data",
+            "data formats"
+        ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [[
+                    "excel",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "google spreadsheet",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_13",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["data"],
             "Secondary Entity": ["data packager"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["use"],
             "Primary Action": ["import"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
-            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
         },
-        "Contains": [[
-            "data",
-            "data formats"
-        ]],
         "Targets": [
             [
                 "import",
@@ -205,23 +508,7 @@
             "Second UserStory": "user_story_13: #g05# as a #data publishing user#, i want to be able to #import# #data# from fiscal #data# package descriptor file, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_09: #g05# as a #data publishing user#, i want to be able to #import# #data# in excel, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_11_AND_user_story_12",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["data"],
-            "Secondary Entity": ["data packager"]
-        },
-        "Action": {
-            "Secondary Action": ["use"],
-            "Primary Action": ["import"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
             "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
@@ -230,6 +517,87 @@
             "data",
             "data formats"
         ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [[
+                    "excel",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_13": {
+                "Main Part": [[
+                    "fiscal data package descriptor file",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_13": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_11_AND_user_story_12",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data"],
+            "Secondary Entity": ["data packager"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["use"],
+            "Primary Action": ["import"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
+        },
         "Targets": [
             [
                 "import",
@@ -248,23 +616,7 @@
             "Second UserStory": "user_story_12: #g05# as a #data publishing user#, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_11: #g05# as a #data publishing user#, i want to be able to #import# #data# in json, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_11_AND_user_story_13",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["data"],
-            "Secondary Entity": ["data packager"]
-        },
-        "Action": {
-            "Secondary Action": ["use"],
-            "Primary Action": ["import"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
             "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
@@ -273,6 +625,87 @@
             "data",
             "data formats"
         ]],
+        "All Contains": {
+            "user_story_11": {
+                "Main Part": [[
+                    "json",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "google spreadsheet",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_11": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_11_AND_user_story_13",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data"],
+            "Secondary Entity": ["data packager"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["use"],
+            "Primary Action": ["import"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
+        },
         "Targets": [
             [
                 "import",
@@ -291,23 +724,7 @@
             "Second UserStory": "user_story_13: #g05# as a #data publishing user#, i want to be able to #import# #data# from fiscal #data# package descriptor file, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_11: #g05# as a #data publishing user#, i want to be able to #import# #data# in json, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_12_AND_user_story_13",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["data"],
-            "Secondary Entity": ["data packager"]
-        },
-        "Action": {
-            "Secondary Action": ["use"],
-            "Primary Action": ["import"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
             "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
@@ -316,6 +733,87 @@
             "data",
             "data formats"
         ]],
+        "All Contains": {
+            "user_story_13": {
+                "Main Part": [[
+                    "fiscal data package descriptor file",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "json",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_13": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_12_AND_user_story_13",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["data"],
+            "Secondary Entity": ["data packager"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["use"],
+            "Primary Action": ["import"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
+        },
         "Targets": [
             [
                 "import",
@@ -334,26 +832,92 @@
             "Second UserStory": "user_story_13: #g05# as a #data publishing user#, i want to be able to #import# #data# from fiscal #data# package descriptor file, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
             "First UserStory": "user_story_12: #g05# as a #data publishing user#, i want to be able to #import# #data# from a google spreadsheet, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
+            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        },
+        "Contains": [[
+            "data",
+            "data formats"
+        ]],
+        "All Contains": {
+            "user_story_13": {
+                "Main Part": [[
+                    "fiscal data package descriptor file",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "google spreadsheet",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_13": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_25_AND_user_story_26",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": true
         },
         "Entity": {
             "Primary Entity": ["user"],
             "Secondary Entity": ["functionality"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "understand",
+                "user"
+            ]],
+            "Benefit Part": [[
+                "offer",
+                "functionality"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["offer"],
             "Primary Action": ["understand"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #offer# #functionality# based on platform administration privileges."],
-            "First UserStory": [" so that i can #offer# #functionality# based on dataset publisher privileges."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -373,25 +937,74 @@
             "Second UserStory": "user_story_26: #g05# as an #api user#, i want to be able to #understand# if a #user# is an administrator, so that i can #offer# #functionality# based on platform administration privileges.",
             "First UserStory": "user_story_25: #g05# as an #api user#, i want to be able to #understand# if a #user# is a publisher, so that i can #offer# #functionality# based on dataset publisher privileges."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #offer# #functionality# based on platform administration privileges."],
+            "First UserStory": [" so that i can #offer# #functionality# based on dataset publisher privileges."]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_25": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [[
+                    "understand",
+                    "user"
+                ]],
+                "Benefit Part": [[
+                    "offer",
+                    "functionality"
+                ]]
+            },
+            "user_story_25": {
+                "Main Part": [[
+                    "understand",
+                    "user"
+                ]],
+                "Benefit Part": [[
+                    "offer",
+                    "functionality"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_32_AND_user_story_33",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["results"]},
-        "Action": {"Secondary Action": ["get"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #build# #user experiences# based on more than one dataset more easily."],
-            "First UserStory": [" so that i can #build# #user experiences# based on more than one dataset more easily."]
+        "Common Targets": {
+            "Main Part": [[
+                "get",
+                "results"
+            ]],
+            "Benefit Part": [[
+                "build",
+                "user experiences"
+            ]]
         },
-        "Contains": [[
-            "multiple datasets",
-            "results"
-        ]],
+        "Action": {"Secondary Action": ["get"]},
+        "Common Contains": {
+            "Main Part": [[
+                "multiple datasets",
+                "results"
+            ]],
+            "Benefit Part": []
+        },
         "Targets": [
             [
                 "get",
@@ -410,31 +1023,108 @@
             "Second UserStory": "user_story_33: #g05# as an #api user#, i want to be able to use data to #get# #results# from #multiple datasets#, so that i can #build# #user experiences# based on more than one dataset more easily.",
             "First UserStory": "user_story_32: #g05# as an #api user#, i want to be able to use metadata to #get# #results# from #multiple datasets#, so that i can #build# #user experiences# based on more than one dataset more easily."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #build# #user experiences# based on more than one dataset more easily."],
+            "First UserStory": [" so that i can #build# #user experiences# based on more than one dataset more easily."]
+        },
+        "Contains": [[
+            "multiple datasets",
+            "results"
+        ]],
+        "All Contains": {
+            "user_story_33": {
+                "Main Part": [[
+                    "multiple datasets",
+                    "results"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_32": {
+                "Main Part": [[
+                    "multiple datasets",
+                    "results"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_33": {
+                "Main Part": [
+                    [
+                        "get",
+                        "results"
+                    ],
+                    [
+                        "use",
+                        "data"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "use",
+                        "data"
+                    ],
+                    [
+                        "build",
+                        "user experiences"
+                    ]
+                ]
+            },
+            "user_story_32": {
+                "Main Part": [
+                    [
+                        "use",
+                        "metadata"
+                    ],
+                    [
+                        "get",
+                        "results"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "build",
+                    "user experiences"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_34_AND_user_story_35",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["measures"],
             "Secondary Entity": ["datasets"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["work"],
             "Primary Action": ["normalise"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
-            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
         },
-        "Contains": [[
-            "datasets",
-            "contextual constraints"
-        ]],
         "Targets": [
             [
                 "normalise",
@@ -453,31 +1143,96 @@
             "Second UserStory": "user_story_35: #g05# as an #api user#, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_34: #g05# as an #api user#, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
+            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        },
+        "Contains": [[
+            "datasets",
+            "contextual constraints"
+        ]],
+        "All Contains": {
+            "user_story_35": {
+                "Main Part": [[
+                    "measures",
+                    "geographical area"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "measures",
+                    "population"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_35": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_34_AND_user_story_36",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["measures"],
             "Secondary Entity": ["datasets"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["work"],
             "Primary Action": ["normalise"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
-            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
         },
-        "Contains": [[
-            "datasets",
-            "contextual constraints"
-        ]],
         "Targets": [
             [
                 "normalise",
@@ -496,31 +1251,96 @@
             "Second UserStory": "user_story_36: #g05# as an #api user#, i want to be able to #normalise# #measures# by gdp, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_34: #g05# as an #api user#, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
+            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        },
+        "Contains": [[
+            "datasets",
+            "contextual constraints"
+        ]],
+        "All Contains": {
+            "user_story_36": {
+                "Main Part": [[
+                    "measures",
+                    "gdp"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "measures",
+                    "population"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_36": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_34_AND_user_story_37",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {
             "Primary Entity": ["measures"],
             "Secondary Entity": ["datasets"]
         },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
         "Action": {
             "Secondary Action": ["work"],
             "Primary Action": ["normalise"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
-            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
         },
-        "Contains": [[
-            "datasets",
-            "contextual constraints"
-        ]],
         "Targets": [
             [
                 "normalise",
@@ -539,23 +1359,7 @@
             "Second UserStory": "user_story_37: #g05# as an #api user#, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_34: #g05# as an #api user#, i want to be able to #normalise# #measures# by population, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_35_AND_user_story_36",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["measures"],
-            "Secondary Entity": ["datasets"]
-        },
-        "Action": {
-            "Secondary Action": ["work"],
-            "Primary Action": ["normalise"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
             "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
@@ -564,6 +1368,93 @@
             "datasets",
             "contextual constraints"
         ]],
+        "All Contains": {
+            "user_story_37": {
+                "Main Part": [
+                    [
+                        "gini",
+                        "measures"
+                    ],
+                    [
+                        "related socioeconomic indexes",
+                        "measures"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "measures",
+                    "population"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_37": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_34": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_35_AND_user_story_36",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["measures"],
+            "Secondary Entity": ["datasets"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["work"],
+            "Primary Action": ["normalise"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
+        },
         "Targets": [
             [
                 "work",
@@ -582,23 +1473,7 @@
             "Second UserStory": "user_story_36: #g05# as an #api user#, i want to be able to #normalise# #measures# by gdp, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_35: #g05# as an #api user#, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_35_AND_user_story_37",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["measures"],
-            "Secondary Entity": ["datasets"]
-        },
-        "Action": {
-            "Secondary Action": ["work"],
-            "Primary Action": ["normalise"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
             "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
@@ -607,6 +1482,87 @@
             "datasets",
             "contextual constraints"
         ]],
+        "All Contains": {
+            "user_story_35": {
+                "Main Part": [[
+                    "measures",
+                    "geographical area"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "measures",
+                    "gdp"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_35": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_35_AND_user_story_37",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["measures"],
+            "Secondary Entity": ["datasets"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["work"],
+            "Primary Action": ["normalise"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
+        },
         "Targets": [
             [
                 "work",
@@ -625,23 +1581,7 @@
             "Second UserStory": "user_story_37: #g05# as an #api user#, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_35: #g05# as an #api user#, i want to be able to #normalise# #measures# by geographical area, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
-    },
-    {
-        "Potential Redundant User Stories": "user_story_36_AND_user_story_37",
-        "Status": {
-            "Main Part Redundancy Clauses": 2,
-            "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 2
-        },
-        "Entity": {
-            "Primary Entity": ["measures"],
-            "Secondary Entity": ["datasets"]
-        },
-        "Action": {
-            "Secondary Action": ["work"],
-            "Primary Action": ["normalise"]
-        },
+        "Project Number": "g05",
         "Part of Sentence": {
             "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
             "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
@@ -650,6 +1590,93 @@
             "datasets",
             "contextual constraints"
         ]],
+        "All Contains": {
+            "user_story_37": {
+                "Main Part": [
+                    [
+                        "gini",
+                        "measures"
+                    ],
+                    [
+                        "related socioeconomic indexes",
+                        "measures"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_35": {
+                "Main Part": [[
+                    "measures",
+                    "geographical area"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_37": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_35": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
+    },
+    {
+        "Potential Redundant User Stories": "user_story_36_AND_user_story_37",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
+        },
+        "Entity": {
+            "Primary Entity": ["measures"],
+            "Secondary Entity": ["datasets"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "normalise",
+                "measures"
+            ]],
+            "Benefit Part": [[
+                "work",
+                "datasets"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["work"],
+            "Primary Action": ["normalise"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "contextual constraints"
+            ]]
+        },
         "Targets": [
             [
                 "normalise",
@@ -668,6 +1695,64 @@
             "Second UserStory": "user_story_37: #g05# as an #api user#, i want to be able to #normalise# #measures# by gini and related socioeconomic indexes, so that i #work# with #datasets# in reference to their #contextual constraints#.",
             "First UserStory": "user_story_36: #g05# as an #api user#, i want to be able to #normalise# #measures# by gdp, so that i #work# with #datasets# in reference to their #contextual constraints#."
         },
-        "Project Number": "g05"
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."],
+            "First UserStory": [" so that i #work# with #datasets# in reference to their #contextual constraints#."]
+        },
+        "Contains": [[
+            "datasets",
+            "contextual constraints"
+        ]],
+        "All Contains": {
+            "user_story_37": {
+                "Main Part": [
+                    [
+                        "gini",
+                        "measures"
+                    ],
+                    [
+                        "related socioeconomic indexes",
+                        "measures"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "measures",
+                    "gdp"
+                ]],
+                "Benefit Part": [[
+                    "datasets",
+                    "contextual constraints"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_37": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "normalise",
+                    "measures"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "datasets"
+                ]]
+            }
+        }
     }
 ]

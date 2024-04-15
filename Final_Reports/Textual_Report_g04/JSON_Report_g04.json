@@ -3,43 +3,94 @@
         "Potential Redundant User Stories": "user_story_05_AND_user_story_12",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["website"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "conveniently use",
+                "website"
+            ]]
+        },
         "Action": {"Secondary Action": ["conveniently use"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can more #conveniently use# the #website#."],
-            "First UserStory": [" so that i can more #conveniently use# the #website#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "conveniently use",
             "website"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_12: #g04# as a user, i want to choose a flexible pick up time, so that i can more #conveniently use# the #website#.",
             "First UserStory": "user_story_05: #g04# as a user, i want to have a flexible pick up time, so that i can more #conveniently use# the #website#."
         },
-        "Project Number": "g04"
+        "Project Number": "g04",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can more #conveniently use# the #website#."],
+            "First UserStory": [" so that i can more #conveniently use# the #website#."]
+        },
+        "All Contains": {
+            "user_story_05": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_05": {
+                "Main Part": [[
+                    "have",
+                    "flexible pick up time"
+                ]],
+                "Benefit Part": [[
+                    "conveniently use",
+                    "website"
+                ]]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "choose",
+                    "flexible pick up time"
+                ]],
+                "Benefit Part": [[
+                    "conveniently use",
+                    "website"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_10",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["map display"]},
+        "Common Targets": {"Main Part": [[
+            "view",
+            "map display"
+        ]]},
         "Action": {"Primary Action": ["view"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to be able to #view# a #map display# of the special waste drop off sites around my #area#."],
-            "First UserStory": [" i want to be able to #view# a #map display# of the public recycling bins around my #area#."]
-        },
-        "Contains": [[
+        "Common Contains": {"Main Part": [[
             "map display",
             "area"
-        ]],
+        ]]},
         "Targets": [[
             "view",
             "map display"
@@ -52,54 +103,239 @@
             "Second UserStory": "user_story_10: #g04# as a #user#, i want to be able to #view# a #map display# of the special waste drop off sites around my #area#.",
             "First UserStory": "user_story_09: #g04# as a #user#, i want to be able to #view# a #map display# of the public recycling bins around my #area#."
         },
-        "Project Number": "g04"
+        "Project Number": "g04",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to be able to #view# a #map display# of the special waste drop off sites around my #area#."],
+            "First UserStory": [" i want to be able to #view# a #map display# of the public recycling bins around my #area#."]
+        },
+        "Contains": [[
+            "map display",
+            "area"
+        ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [
+                    [
+                        "map display",
+                        "public recycling bins"
+                    ],
+                    [
+                        "map display",
+                        "area"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [
+                    [
+                        "map display",
+                        "special waste drop off sites"
+                    ],
+                    [
+                        "map display",
+                        "area"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "view",
+                    "map display"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "view",
+                    "map display"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_22_AND_user_story_24",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["sense"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "have",
+                "sense"
+            ]]
+        },
         "Action": {"Secondary Action": ["have"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #have# a #sense# of my company's performance."],
-            "First UserStory": [" so that i can #have# a #sense# of what people are doing on our sites and know the service status."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "have",
             "sense"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_24: #g04# as an executive, i want to have full access to data related to my company, so that i can #have# a #sense# of my company's performance.",
             "First UserStory": "user_story_22: #g04# as an admin, i want to view a dashboard that monitors all the sites' statuses, so that i can #have# a #sense# of what people are doing on our sites and know the service status."
         },
-        "Project Number": "g04"
+        "Project Number": "g04",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #have# a #sense# of my company's performance."],
+            "First UserStory": [" so that i can #have# a #sense# of what people are doing on our sites and know the service status."]
+        },
+        "All Contains": {
+            "user_story_24": {
+                "Main Part": [[
+                    "data related to my company",
+                    "full access"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_22": {
+                "Main Part": [[
+                    "dashboard",
+                    "sites' statuses"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_24": {
+                "Main Part": [[
+                    "have",
+                    "full access"
+                ]],
+                "Benefit Part": [[
+                    "have",
+                    "sense"
+                ]]
+            },
+            "user_story_22": {
+                "Main Part": [
+                    [
+                        "view",
+                        "dashboard"
+                    ],
+                    [
+                        "monitors",
+                        "sites' statuses"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "have",
+                        "sense"
+                    ],
+                    [
+                        "know",
+                        "service status"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_26_AND_user_story_50",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["access"]},
+        "Common Targets": {"Main Part": [[
+            "have",
+            "access"
+        ]]},
         "Action": {"Primary Action": ["have"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #have# #access# to user stats and schedules"],
-            "First UserStory": [" i want to #have# #access# to the full information of all employees working for this business."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "have",
             "access"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_50: #g04# as a recyclingfacility representative, i want to #have# #access# to user stats and schedules, so that i can adjust my hours and/or upgrade equipment and capacity in order to be able to accomodate larger amounts of recyclable materials.",
             "First UserStory": "user_story_26: #g04# as an employee from the hr department, i want to #have# #access# to the full information of all employees working for this business."
         },
-        "Project Number": "g04"
+        "Project Number": "g04",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# #access# to user stats and schedules"],
+            "First UserStory": [" i want to #have# #access# to the full information of all employees working for this business."]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [
+                    [
+                        "business",
+                        "employees"
+                    ],
+                    [
+                        "full information",
+                        "access"
+                    ],
+                    [
+                        "employees",
+                        "full information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [[
+                    "user stats",
+                    "access"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [[
+                    "have",
+                    "access"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [[
+                    "have",
+                    "access"
+                ]],
+                "Benefit Part": [
+                    [
+                        "adjust",
+                        "hours"
+                    ],
+                    [
+                        "upgrade",
+                        "capacity"
+                    ],
+                    [
+                        "upgrade",
+                        "equipment"
+                    ],
+                    [
+                        "accomodate",
+                        "larger amounts of recyclable materials"
+                    ]
+                ]
+            }
+        }
     }
 ]

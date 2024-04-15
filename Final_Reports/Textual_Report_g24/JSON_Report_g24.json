@@ -3,14 +3,31 @@
         "Potential Redundant User Stories": "user_story_01_AND_user_story_03",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "deposit",
+                    "datasets"
+                ],
+                [
+                    "maintain",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -36,20 +53,97 @@
             "Second UserStory": "user_story_03: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through pure, so that i have a single onestop shop for managing my research outputs.",
             "First UserStory": "user_story_01: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through a simple web interface, so that i don't need to install and learn new software to deposit."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        },
+        "All Contains": {
+            "user_story_03": {
+                "Main Part": [[
+                    "pure",
+                    "datasets"
+                ]],
+                "Benefit Part": [[
+                    "single onestop shop",
+                    "research outputs"
+                ]]
+            },
+            "user_story_01": {
+                "Main Part": [[
+                    "simple web interface",
+                    "datasets"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "have",
+                        "single onestop shop"
+                    ],
+                    [
+                        "managing",
+                        "research outputs"
+                    ]
+                ]
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_01_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "deposit",
+                    "datasets"
+                ],
+                [
+                    "maintain",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -75,20 +169,98 @@
             "Second UserStory": "user_story_04: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools, so that i can continue to work with tools with which i'm familiar.",
             "First UserStory": "user_story_01: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through a simple web interface, so that i don't need to install and learn new software to deposit."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "virtual research environments",
+                        "datasets"
+                    ],
+                    [
+                        "other workflow tools",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [[
+                    "simple web interface",
+                    "datasets"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "maintain",
+                        "datasets"
+                    ],
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "work",
+                        "tools"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "work",
+                    "tools"
+                ]]
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_01_AND_user_story_50",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "deposit",
+                    "datasets"
+                ],
+                [
+                    "maintain",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -100,25 +272,99 @@
                 "datasets"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_50: #g24# as a developer, i want to #deposit# and #maintain# #datasets# via an api such as sword2, so that my service can interact with the archive.",
             "First UserStory": "user_story_01: #g24# as a depositor, i want to #deposit# and #maintain# #datasets# through a simple web interface, so that i don't need to install and learn new software to deposit."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through a simple web interface"]
+        },
+        "All Contains": {
+            "user_story_01": {
+                "Main Part": [[
+                    "simple web interface",
+                    "datasets"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "api",
+                        "sword2"
+                    ],
+                    [
+                        "api",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "interact",
+                    "archive"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "deposit",
+                    "datasets"
+                ],
+                [
+                    "maintain",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -144,20 +390,110 @@
             "Second UserStory": "user_story_04: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools, so that i can continue to work with tools with which i'm familiar.",
             "First UserStory": "user_story_03: #g24# as a #depositor#, i want to #deposit# and #maintain# #datasets# through pure, so that i have a single onestop shop for managing my research outputs."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "virtual research environments",
+                        "datasets"
+                    ],
+                    [
+                        "other workflow tools",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [[
+                    "pure",
+                    "datasets"
+                ]],
+                "Benefit Part": [[
+                    "single onestop shop",
+                    "research outputs"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "maintain",
+                        "datasets"
+                    ],
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "work",
+                        "tools"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "work",
+                    "tools"
+                ]]
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "have",
+                        "single onestop shop"
+                    ],
+                    [
+                        "managing",
+                        "research outputs"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_50",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "deposit",
+                    "datasets"
+                ],
+                [
+                    "maintain",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -169,25 +505,111 @@
                 "datasets"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_50: #g24# as a developer, i want to #deposit# and #maintain# #datasets# via an api such as sword2, so that my service can interact with the archive.",
             "First UserStory": "user_story_03: #g24# as a depositor, i want to #deposit# and #maintain# #datasets# through pure, so that i have a single onestop shop for managing my research outputs."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through pure"]
+        },
+        "All Contains": {
+            "user_story_03": {
+                "Main Part": [[
+                    "pure",
+                    "datasets"
+                ]],
+                "Benefit Part": [[
+                    "single onestop shop",
+                    "research outputs"
+                ]]
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "api",
+                        "sword2"
+                    ],
+                    [
+                        "api",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "have",
+                        "single onestop shop"
+                    ],
+                    [
+                        "managing",
+                        "research outputs"
+                    ]
+                ]
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "interact",
+                    "archive"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_04_AND_user_story_50",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [
+                [
+                    "maintain",
+                    "datasets"
+                ],
+                [
+                    "deposit",
+                    "datasets"
+                ]
+            ],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["maintain"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
-            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [
             [
@@ -199,25 +621,106 @@
                 "datasets"
             ]
         ],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_50: #g24# as a developer, i want to #deposit# and #maintain# #datasets# via an api such as sword2, so that my service can interact with the archive.",
             "First UserStory": "user_story_04: #g24# as a depositor, i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools, so that i can continue to work with tools with which i'm familiar."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #deposit# and #maintain# #datasets# via an api such as sword2"],
+            "First UserStory": [" i want to #deposit# and #maintain# #datasets# through virtual research environments and other workflow tools"]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "virtual research environments",
+                        "datasets"
+                    ],
+                    [
+                        "other workflow tools",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "api",
+                        "sword2"
+                    ],
+                    [
+                        "api",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "maintain",
+                        "datasets"
+                    ],
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "work",
+                        "tools"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "work",
+                    "tools"
+                ]]
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "deposit",
+                        "datasets"
+                    ],
+                    [
+                        "maintain",
+                        "datasets"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "interact",
+                    "archive"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_10_AND_user_story_19",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["datasets"]},
+        "Common Targets": {
+            "Main Part": [[
+                "link",
+                "datasets"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["link"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #link# #datasets# with the project dmp"],
-            "First UserStory": [" i want to #link# #datasets# to publications in opus"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "link",
@@ -231,25 +734,98 @@
             "Second UserStory": "user_story_19: #g24# as a #depositor#, i want to #link# #datasets# with the project dmp, so that compliance with dmp can be demonstrated and whole project workflow is linked together.",
             "First UserStory": "user_story_10: #g24# as a #depositor#, i want to #link# #datasets# to publications in opus, so that both my data and publications are more easily discovered."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #link# #datasets# with the project dmp"],
+            "First UserStory": [" i want to #link# #datasets# to publications in opus"]
+        },
+        "All Contains": {
+            "user_story_19": {
+                "Main Part": [[
+                    "project dmp",
+                    "datasets"
+                ]],
+                "Benefit Part": [[
+                    "dmp",
+                    "compliance"
+                ]]
+            },
+            "user_story_10": {
+                "Main Part": [
+                    [
+                        "publications",
+                        "datasets"
+                    ],
+                    [
+                        "opus",
+                        "publications"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_19": {
+                "Main Part": [[
+                    "link",
+                    "datasets"
+                ]],
+                "Benefit Part": [
+                    [
+                        "demonstrated",
+                        "compliance"
+                    ],
+                    [
+                        "linked together",
+                        "whole project workflow"
+                    ]
+                ]
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "link",
+                    "datasets"
+                ]],
+                "Benefit Part": [
+                    [
+                        "more easily discovered",
+                        "data"
+                    ],
+                    [
+                        "more easily discovered",
+                        "publications"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_15_AND_user_story_16",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["impact"]},
-        "Action": {"Secondary Action": ["demonstrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #demonstrate# the #impact# of my #work#"],
-            "First UserStory": [" so that i can #demonstrate# the #impact# of my #work#."]
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "demonstrate",
+                "impact"
+            ]]
         },
-        "Contains": [[
-            "work",
-            "impact"
-        ]],
+        "Action": {"Secondary Action": ["demonstrate"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "work",
+                "impact"
+            ]]
+        },
         "Targets": [[
             "demonstrate",
             "impact"
@@ -262,89 +838,361 @@
             "Second UserStory": "user_story_16: #g24# as a depositor, i want to track citations of my data, so that i can #demonstrate# the #impact# of my #work#",
             "First UserStory": "user_story_15: #g24# as a depositor, i want to track downloads of my data, so that i can #demonstrate# the #impact# of my #work#."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #demonstrate# the #impact# of my #work#"],
+            "First UserStory": [" so that i can #demonstrate# the #impact# of my #work#."]
+        },
+        "Contains": [[
+            "work",
+            "impact"
+        ]],
+        "All Contains": {
+            "user_story_15": {
+                "Main Part": [[
+                    "data",
+                    "downloads"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "impact"
+                ]]
+            },
+            "user_story_16": {
+                "Main Part": [[
+                    "data",
+                    "citations"
+                ]],
+                "Benefit Part": [[
+                    "work",
+                    "impact"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_15": {
+                "Main Part": [[
+                    "track",
+                    "downloads"
+                ]],
+                "Benefit Part": [[
+                    "demonstrate",
+                    "impact"
+                ]]
+            },
+            "user_story_16": {
+                "Main Part": [[
+                    "track",
+                    "citations"
+                ]],
+                "Benefit Part": [[
+                    "demonstrate",
+                    "impact"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_17_AND_user_story_32",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["guarantees"]},
+        "Common Targets": {
+            "Main Part": [[
+                "have",
+                "guarantees"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["have"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #have# #guarantees# that my ip rights will not be breached"],
-            "First UserStory": [" i want to #have# #guarantees# about data integrity"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "have",
             "guarantees"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_32: #g24# as an externalcoordinator, i want to #have# #guarantees# that my ip rights will not be breached, so that the risk of collaborating with bath is acceptable to me.",
             "First UserStory": "user_story_17: #g24# as a depositor, i want to #have# #guarantees# about data integrity, so that i can use my data in the future and i can fulfil funder requirements for archival."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# #guarantees# that my ip rights will not be breached"],
+            "First UserStory": [" i want to #have# #guarantees# about data integrity"]
+        },
+        "All Contains": {
+            "user_story_17": {
+                "Main Part": [[
+                    "data integrity",
+                    "guarantees"
+                ]],
+                "Benefit Part": [[
+                    "archival",
+                    "funder requirements"
+                ]]
+            },
+            "user_story_32": {
+                "Main Part": [[
+                    "guarantees",
+                    "ip rights"
+                ]],
+                "Benefit Part": [[
+                    "bath",
+                    "risk"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_17": {
+                "Main Part": [[
+                    "have",
+                    "guarantees"
+                ]],
+                "Benefit Part": [
+                    [
+                        "use",
+                        "data"
+                    ],
+                    [
+                        "fulfil",
+                        "funder requirements"
+                    ]
+                ]
+            },
+            "user_story_32": {
+                "Main Part": [[
+                    "have",
+                    "guarantees"
+                ]],
+                "Benefit Part": [[
+                    "collaborating",
+                    "bath"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_19_AND_user_story_20",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["whole project workflow"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "linked together",
+                "whole project workflow"
+            ]]
+        },
         "Action": {"Secondary Action": ["linked together"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that #whole project workflow# is #linked together#."],
-            "First UserStory": [" so that compliance with dmp can be demonstrated and #whole project workflow# is #linked together#."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "linked together",
             "whole project workflow"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_20: #g24# as a depositor, i want to manage and share 'live' research data, so that #whole project workflow# is #linked together#.",
             "First UserStory": "user_story_19: #g24# as a depositor, i want to link datasets with the project dmp, so that compliance with dmp can be demonstrated and #whole project workflow# is #linked together#."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" so that #whole project workflow# is #linked together#."],
+            "First UserStory": [" so that compliance with dmp can be demonstrated and #whole project workflow# is #linked together#."]
+        },
+        "All Contains": {
+            "user_story_19": {
+                "Main Part": [[
+                    "project dmp",
+                    "datasets"
+                ]],
+                "Benefit Part": [[
+                    "dmp",
+                    "compliance"
+                ]]
+            },
+            "user_story_20": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_19": {
+                "Main Part": [[
+                    "link",
+                    "datasets"
+                ]],
+                "Benefit Part": [
+                    [
+                        "demonstrated",
+                        "compliance"
+                    ],
+                    [
+                        "linked together",
+                        "whole project workflow"
+                    ]
+                ]
+            },
+            "user_story_20": {
+                "Main Part": [
+                    [
+                        "manage",
+                        "'live' research data"
+                    ],
+                    [
+                        "share",
+                        "'live' research data"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "linked together",
+                    "whole project workflow"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_27_AND_user_story_28",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["data"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "get back",
+                "data"
+            ]]
+        },
         "Action": {"Secondary Action": ["get back"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #get back# to the #data# in future."],
-            "First UserStory": [" so that i can #get back# to the #data# in future and i can import the dataset into my referencemanagement software automatically."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "get back",
             "data"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_28: #g24# as a data reuser, i want to get a persistent url for a dataset, so that i can #get back# to the #data# in future.",
             "First UserStory": "user_story_27: #g24# as a data reuser, i want to view a doi for a dataset, so that i can #get back# to the #data# in future and i can import the dataset into my referencemanagement software automatically."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #get back# to the #data# in future."],
+            "First UserStory": [" so that i can #get back# to the #data# in future and i can import the dataset into my referencemanagement software automatically."]
+        },
+        "All Contains": {
+            "user_story_28": {
+                "Main Part": [[
+                    "dataset",
+                    "persistent url"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_27": {
+                "Main Part": [[
+                    "dataset",
+                    "doi"
+                ]],
+                "Benefit Part": [[
+                    "referencemanagement software",
+                    "dataset"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_28": {
+                "Main Part": [[
+                    "get",
+                    "persistent url"
+                ]],
+                "Benefit Part": [[
+                    "get back",
+                    "data"
+                ]]
+            },
+            "user_story_27": {
+                "Main Part": [[
+                    "view",
+                    "doi"
+                ]],
+                "Benefit Part": [
+                    [
+                        "get back",
+                        "data"
+                    ],
+                    [
+                        "import",
+                        "dataset"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_35_AND_user_story_36",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["consistent quality"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "maintained",
+                "consistent quality"
+            ]]
+        },
         "Action": {"Secondary Action": ["maintained"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "metadata",
+                "consistent quality"
+            ]]
+        },
+        "Targets": [[
+            "maintained",
+            "consistent quality"
+        ]],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_36: #g24# as a bath data archive administrator, i want to require a minimum set of metadata, so that #consistent quality# of #metadata# is #maintained#.",
+            "First UserStory": "user_story_35: #g24# as a bath data archive administrator, i want to make some checks on deposited datasets before they are made public, so that #consistent quality# of #metadata# is #maintained#, compliance with policies can be checked and details of licensing can be checked."
+        },
+        "Project Number": "g24",
         "Part of Sentence": {
             "Second UserStory": [" so that #consistent quality# of #metadata# is #maintained#."],
             "First UserStory": [" so that #consistent quality# of #metadata# is #maintained#, compliance with policies can be checked and details of licensing can be checked."]
@@ -353,50 +1201,209 @@
             "metadata",
             "consistent quality"
         ]],
-        "Targets": [[
-            "maintained",
-            "consistent quality"
-        ]],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_36: #g24# as a bath data archive administrator, i want to require a minimum set of metadata, so that #consistent quality# of #metadata# is #maintained#.",
-            "First UserStory": "user_story_35: #g24# as a bath data archive administrator, i want to make some checks on deposited datasets before they are made public, so that #consistent quality# of #metadata# is #maintained#, compliance with policies can be checked and details of licensing can be checked."
+        "All Contains": {
+            "user_story_35": {
+                "Main Part": [[
+                    "deposited datasets",
+                    "some checks"
+                ]],
+                "Benefit Part": [
+                    [
+                        "policies",
+                        "compliance"
+                    ],
+                    [
+                        "licensing",
+                        "details"
+                    ],
+                    [
+                        "metadata",
+                        "consistent quality"
+                    ]
+                ]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "minimum set",
+                    "metadata"
+                ]],
+                "Benefit Part": [[
+                    "metadata",
+                    "consistent quality"
+                ]]
+            }
         },
-        "Project Number": "g24"
+        "All Targets": {
+            "user_story_35": {
+                "Main Part": [[
+                    "make",
+                    "some checks"
+                ]],
+                "Benefit Part": [
+                    [
+                        "checked",
+                        "compliance"
+                    ],
+                    [
+                        "checked",
+                        "details"
+                    ],
+                    [
+                        "maintained",
+                        "consistent quality"
+                    ]
+                ]
+            },
+            "user_story_36": {
+                "Main Part": [[
+                    "require",
+                    "minimum set"
+                ]],
+                "Benefit Part": [[
+                    "maintained",
+                    "consistent quality"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_41_AND_user_story_47",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["archive"]},
+        "Common Targets": {
+            "Main Part": [[
+                "integrate",
+                "archive"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["integrate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #integrate# the #archive# with existing university systems such as ldap"],
-            "First UserStory": [" i want to #integrate# the #archive# with cris"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "integrate",
             "archive"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_47: #g24# as an univitservice, i want to #integrate# the #archive# with existing university systems such as ldap, so that the cost of administering the system can be kept low.",
             "First UserStory": "user_story_41: #g24# as a research information manager, i want to #integrate# the #archive# with cris, so that i can analyse impact of research data publication i can link funding to all of the outputs it produces."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #integrate# the #archive# with existing university systems such as ldap"],
+            "First UserStory": [" i want to #integrate# the #archive# with cris"]
+        },
+        "All Contains": {
+            "user_story_47": {
+                "Main Part": [
+                    [
+                        "existing university systems",
+                        "archive"
+                    ],
+                    [
+                        "existing university systems",
+                        "ldap"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "system",
+                    "cost"
+                ]]
+            },
+            "user_story_41": {
+                "Main Part": [[
+                    "cris",
+                    "archive"
+                ]],
+                "Benefit Part": [
+                    [
+                        "research data publication",
+                        "impact"
+                    ],
+                    [
+                        "outputs",
+                        "funding"
+                    ]
+                ]
+            }
+        },
+        "All Targets": {
+            "user_story_47": {
+                "Main Part": [[
+                    "integrate",
+                    "archive"
+                ]],
+                "Benefit Part": [[
+                    "administering",
+                    "system"
+                ]]
+            },
+            "user_story_41": {
+                "Main Part": [[
+                    "integrate",
+                    "archive"
+                ]],
+                "Benefit Part": [
+                    [
+                        "analyse",
+                        "impact"
+                    ],
+                    [
+                        "link",
+                        "funding"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_43_AND_user_story_44",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 2
+            "Benefit Part Redundancy Clause": 2,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["impact"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "demonstrated",
+                "impact"
+            ]]
+        },
         "Action": {"Secondary Action": ["demonstrated"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "datasets",
+                "impact"
+            ]]
+        },
+        "Targets": [[
+            "demonstrated",
+            "impact"
+        ]],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_44: #g24# as a research information manager, i want to segment the view and download statistics by country and sector so that #impact# of #datasets# outside academia can be #demonstrated#.",
+            "First UserStory": "user_story_43: #g24# as a research information manager, i want to track citation counts for published datasets, so that #impact# of #datasets# within academia can be #demonstrated#."
+        },
+        "Project Number": "g24",
         "Part of Sentence": {
             "Second UserStory": [" i want to segment the view and download statistics by country and sector so that #impact# of #datasets# outside academia can be #demonstrated#."],
             "First UserStory": [" so that #impact# of #datasets# within academia can be #demonstrated#."]
@@ -405,29 +1412,98 @@
             "datasets",
             "impact"
         ]],
-        "Targets": [[
-            "demonstrated",
-            "impact"
-        ]],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_44: #g24# as a research information manager, i want to segment the view and download statistics by country and sector so that #impact# of #datasets# outside academia can be #demonstrated#.",
-            "First UserStory": "user_story_43: #g24# as a research information manager, i want to track citation counts for published datasets, so that #impact# of #datasets# within academia can be #demonstrated#."
+        "All Contains": {
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "country",
+                        "statistics"
+                    ],
+                    [
+                        "sector",
+                        "statistics"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "datasets",
+                        "impact"
+                    ],
+                    [
+                        "outside academia",
+                        "datasets"
+                    ]
+                ]
+            },
+            "user_story_43": {
+                "Main Part": [[
+                    "published datasets",
+                    "citation counts"
+                ]],
+                "Benefit Part": [
+                    [
+                        "datasets",
+                        "impact"
+                    ],
+                    [
+                        "academia",
+                        "datasets"
+                    ]
+                ]
+            }
         },
-        "Project Number": "g24"
+        "All Targets": {
+            "user_story_44": {
+                "Main Part": [
+                    [
+                        "segment",
+                        "view"
+                    ],
+                    [
+                        "download",
+                        "statistics"
+                    ]
+                ],
+                "Benefit Part": [[
+                    "demonstrated",
+                    "impact"
+                ]]
+            },
+            "user_story_43": {
+                "Main Part": [[
+                    "track",
+                    "citation counts"
+                ]],
+                "Benefit Part": [[
+                    "demonstrated",
+                    "impact"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_46_AND_user_story_48",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["archived data"]},
+        "Common Targets": {
+            "Main Part": [[
+                "store",
+                "archived data"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["store"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #store# #archived data# directly on the hcp object #store#"],
-            "First UserStory": [" i want to #store# #archived data# on existing storage systems"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "store",
@@ -441,6 +1517,45 @@
             "Second UserStory": "user_story_48: #g24# as an #univitservice#, i want to #store# #archived data# directly on the hcp object #store#, so that  features can be made.",
             "First UserStory": "user_story_46: #g24# as an #univitservice#, i want to #store# #archived data# on existing storage systems, so that university data storage is consistent and maintainable and future availability of data can be guaranteed."
         },
-        "Project Number": "g24"
+        "Project Number": "g24",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #store# #archived data# directly on the hcp object #store#"],
+            "First UserStory": [" i want to #store# #archived data# on existing storage systems"]
+        },
+        "All Contains": {
+            "user_story_48": {
+                "Main Part": [[
+                    "hcp object store",
+                    "archived data"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_46": {
+                "Main Part": [[
+                    "existing storage systems",
+                    "archived data"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_48": {
+                "Main Part": [[
+                    "store",
+                    "archived data"
+                ]],
+                "Benefit Part": [[
+                    "made",
+                    "features"
+                ]]
+            },
+            "user_story_46": {
+                "Main Part": [[
+                    "store",
+                    "archived data"
+                ]],
+                "Benefit Part": []
+            }
+        }
     }
 ]

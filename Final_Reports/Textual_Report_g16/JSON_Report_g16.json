@@ -3,45 +3,119 @@
         "Potential Redundant User Stories": "user_story_11_AND_user_story_25",
         "Status": {
             "Main Part Redundancy Clauses": 1,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["repository"]},
+        "Common Targets": {"Main Part": [[
+            "have",
+            "repository"
+        ]]},
         "Action": {"Primary Action": ["have"]},
-        "Contains in Main Part": [],
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #have# the #repository# to lift embargoes on the release date and set the access controls to the configuration set on item on that date."],
-            "First UserStory": [" i want to #have# the #repository# queue my collection for replication upon ingest to our remote storage site and to display the remote replication status in each item and component page in the staff interface."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "have",
             "repository"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_25: #g16# as a digitalrecords archivist, i want to #have# the #repository# to lift embargoes on the release date and set the access controls to the configuration set on item on that date.",
             "First UserStory": "user_story_11: #g16# as a collection curator, i want to #have# the #repository# queue my collection for replication upon ingest to our remote storage site and to display the remote replication status in each item and component page in the staff interface."
         },
-        "Targets in Main Part": [[
-            "have",
-            "repository"
-        ]],
-        "Project Number": "g16"
+        "Project Number": "g16",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# the #repository# to lift embargoes on the release date and set the access controls to the configuration set on item on that date."],
+            "First UserStory": [" i want to #have# the #repository# queue my collection for replication upon ingest to our remote storage site and to display the remote replication status in each item and component page in the staff interface."]
+        },
+        "All Contains": {
+            "user_story_25": {
+                "Main Part": [[
+                    "item",
+                    "configuration set"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_11": {
+                "Main Part": [
+                    [
+                        "each item",
+                        "remote replication status"
+                    ],
+                    [
+                        "staff interface",
+                        "component page"
+                    ],
+                    [
+                        "component page",
+                        "remote replication status"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_25": {
+                "Main Part": [
+                    [
+                        "have",
+                        "repository"
+                    ],
+                    [
+                        "lift",
+                        "embargoes"
+                    ],
+                    [
+                        "set",
+                        "access controls"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_11": {
+                "Main Part": [
+                    [
+                        "have",
+                        "repository"
+                    ],
+                    [
+                        "queue",
+                        "collection"
+                    ],
+                    [
+                        "ingest",
+                        "remote storage site"
+                    ],
+                    [
+                        "display",
+                        "remote replication status"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_15_AND_user_story_46",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": true
         },
         "Entity": {"Primary Entity": ["symplectic elements"]},
+        "Common Targets": {"Main Part": [[
+            "have",
+            "symplectic elements"
+        ]]},
         "Action": {"Primary Action": ["have"]},
-        "Contains in Main Part": [],
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #have# #symplectic elements# to communicate"],
-            "First UserStory": [" i want to #have# #symplectic elements# bidirectionally communicate and integrate with ddr"]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "have",
             "symplectic elements"
@@ -54,26 +128,74 @@
             "Second UserStory": "user_story_46: #g16# as a #repoadmin#, i want to #have# #symplectic elements# to communicate",
             "First UserStory": "user_story_15: #g16# as a #repoadmin#, i want to #have# #symplectic elements# bidirectionally communicate and integrate with ddr, which  provide a fedora connector and emory is using a hidden fedora instance that hydra collects objects for."
         },
-        "Targets in Main Part": [[
-            "have",
-            "symplectic elements"
-        ]],
-        "Project Number": "g16"
+        "Project Number": "g16",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# #symplectic elements# to communicate"],
+            "First UserStory": [" i want to #have# #symplectic elements# bidirectionally communicate and integrate with ddr"]
+        },
+        "All Contains": {
+            "user_story_15": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_46": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "provide",
+                        "fedora connector"
+                    ],
+                    [
+                        "using",
+                        "hidden fedora instance"
+                    ],
+                    [
+                        "have",
+                        "symplectic elements"
+                    ],
+                    [
+                        "bidirectionally communicate",
+                        "ddr"
+                    ],
+                    [
+                        "integrate",
+                        "ddr"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_46": {
+                "Main Part": [[
+                    "have",
+                    "symplectic elements"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_23_AND_user_story_31",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Redundancy Clause": 0,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Primary Entity": ["method"]},
+        "Common Targets": {"Main Part": [[
+            "have",
+            "method"
+        ]]},
         "Action": {"Primary Action": ["have"]},
-        "Contains in Main Part": [],
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #have# a #method# to add and remove individual people from deposit groups."],
-            "First UserStory": [" i want to #have# a #method# to batch ingest etds we receive from proquest."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "have",
             "method"
@@ -86,10 +208,62 @@
             "Second UserStory": "user_story_31: #g16# as a #digitalrecords archivist#, i want to #have# a #method# to add and remove individual people from deposit groups.",
             "First UserStory": "user_story_23: #g16# as a #digitalrecords archivist#, i want to #have# a #method# to batch ingest etds we receive from proquest."
         },
-        "Targets in Main Part": [[
-            "have",
-            "method"
-        ]],
-        "Project Number": "g16"
+        "Project Number": "g16",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #have# a #method# to add and remove individual people from deposit groups."],
+            "First UserStory": [" i want to #have# a #method# to batch ingest etds we receive from proquest."]
+        },
+        "All Contains": {
+            "user_story_23": {
+                "Main Part": [[
+                    "proquest",
+                    " etds"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_31": {
+                "Main Part": [[
+                    "deposit groups",
+                    "individual people"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_23": {
+                "Main Part": [
+                    [
+                        "have",
+                        "method"
+                    ],
+                    [
+                        "batch",
+                        " etds"
+                    ],
+                    [
+                        "ingest",
+                        " etds"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_31": {
+                "Main Part": [
+                    [
+                        "have",
+                        "method"
+                    ],
+                    [
+                        "add",
+                        "individual people"
+                    ],
+                    [
+                        "remove",
+                        "individual people"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     }
 ]

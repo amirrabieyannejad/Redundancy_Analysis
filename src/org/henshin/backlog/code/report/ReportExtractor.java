@@ -60,11 +60,13 @@ public class ReportExtractor {
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-//		String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16", "18", "19", "21", "22", "23", "24",
-//				"25", "26", "27", "28" };
-		String[] datasets = { "14" };
-//		 Version of data set
+		// String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
+		// "21", "22", "23", "24",
+		// "25", "26", "27", "28" };
+		String[] datasets = { "21" };
+//		 Version of data set "18", "19"
 		for (int i = 0; i < datasets.length; i++) {
+			System.out.println("Dataset: " + datasets[i]);
 			ReportExtractor cdaConvertor = new ReportExtractor(
 					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
 					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
@@ -80,7 +82,7 @@ public class ReportExtractor {
 			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
 			cdaConvertor.writeTable(cdaReport, listConflictPairs);
-			
+
 		}
 	}
 
@@ -184,9 +186,9 @@ public class ReportExtractor {
 		redundantPairs = new ArrayList<>();
 		// Iterate through critical pairs
 		if (main.exists() && main.list().length != 0) {
-			for (String confPair : main.list()) {
-				if (!checkIfReportExist(confPair, pairList) && containsAnd(confPair)) {
-					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + confPair);
+			for (String redPair : main.list()) {
+				if (!checkIfReportExist(redPair, pairList) && containsAnd(redPair)) {
+					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + redPair);
 					if (!conflictReasonDir.isFile()) {
 						JSONObject jsonRedundancyPair = new JSONObject();
 						arrayTotalElementsNames = new ArrayList<>();
@@ -197,8 +199,8 @@ public class ReportExtractor {
 						if (conflictReasonListing.length > 1) {
 							for (String conflictReason : conflictReasonListing) {
 								// Check if minimal ECore exist
-								if (minimalEcoreExist(confPair, conflictReason)) {
-									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + confPair + "\\"
+								if (minimalEcoreExist(redPair, conflictReason)) {
+									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + redPair + "\\"
 											+ conflictReason + "\\minimal-model.ecore");
 									try {
 										processMinimalModels(minimalModelEcoreFile, arrayTotalElements,
@@ -215,19 +217,19 @@ public class ReportExtractor {
 								&& hasActions(arrayTotalElementsNames, redundancyItems)
 								&& hasTargets(arrayTotalElementsNames, redundancyItems)) {
 							fileWriter.write("\n------------------[Potential Redundant User"
-									+ " Stories found]--------------------------\n{" + confPair + "}\n  ");
-							jsonRedundancyPair.put("Potential Redundant User Stories", confPair);
+									+ " Stories found]--------------------------\n{" + redPair + "}\n  ");
+							jsonRedundancyPair.put("Potential Redundant User Stories", redPair);
 
 							fileWriter.write("\nRedundant clauses within user stories are: ");
-							List<TargetsPair> targetsPairs = getCommonTargets(confPair, jsonRedundancyPair);
-							List<ContainsPair> containsPairs = getCommonContains(confPair, jsonRedundancyPair);
-							List<TriggersPair> triggersPairs = getCommonTriggers(confPair);
+							List<TargetsPair> targetsPairs = getCommonTargets(redPair, jsonRedundancyPair);
+							List<ContainsPair> containsPairs = getCommonContains(redPair, jsonRedundancyPair);
+							List<TriggersPair> triggersPairs = getCommonTriggers(redPair);
 							redundancyItems.printRedundantItems(fileWriter, targetsPairs, containsPairs, triggersPairs,
 									jsonRedundancyPair);
-							
+
 							// receive text of user stories as input
 							// in order to highlight the redundancy clauses in each text
-							writeUsText(confPair, arrayTotalElementsNames, redundantPairs, redundancyItems, fileWriter,
+							writeUsText(redPair, arrayTotalElementsNames, redundantPairs, redundancyItems, fileWriter,
 									targetsPairs, triggersPairs, containsPairs, jsonRedundancyPair);
 
 							// add JSON Object into main JSON array
@@ -241,24 +243,24 @@ public class ReportExtractor {
 										+ " redundancies between user stories:\n\n");
 
 								// here we should write USsSentenceParts
-								writeUsSentencePart(confPair, redundancyItems, fileWriter, jsonRedundancyPair);
-								
+								writeUsSentencePart(redPair, redundancyItems, fileWriter, jsonRedundancyPair);
+
 								// Try to evaluate, if main or benefit part are fully/partially redundant
-								evaluateRedundancyCriteria(jsonRedundancyPair,confPair);
-								
+								evaluateRedundancyCriteria(jsonRedundancyPair, redPair);
+
 								// Add JSONObject Texts of two user story and store them into Text JSONObject
 								JSONObject jsonText = new JSONObject();
 								jsonText.put("First UserStory",
-										getUsName1(confPair) + ": " + redundancyItems.getTextUs1());
+										getUsName1(redPair) + ": " + redundancyItems.getTextUs1());
 								jsonText.put("Second UserStory",
-										getUsName2(confPair) + ": " + redundancyItems.getTextUs2());
+										getUsName2(redPair) + ": " + redundancyItems.getTextUs2());
 								jsonRedundancyPair.put("Text", jsonText);
 
 								// select project Number and save it to JSONFile
 								String projectNr = redundancyItems.getTextUs1().replaceAll(".*#(g\\d\\d)#.*", "$1");
 								jsonRedundancyPair.put("Project Number", projectNr);
 							}
-							
+
 							// add JSON Object into main JSON array
 							jsonArray.put(jsonRedundancyPair);
 
@@ -281,64 +283,164 @@ public class ReportExtractor {
 		return redundantPairs;
 
 	}
-	public void evaluateRedundancyCriteria(JSONObject jsonData, String confPair) {
-	    JSONArray allTargets = jsonData.getJSONArray("All Targets");
-	    JSONArray allContains = jsonData.getJSONArray("All Contains");
-	    JSONArray triggers = jsonData.getJSONArray("Triggers");
-	    JSONObject commonTargets = jsonData.getJSONObject("Common Targets");
-	    JSONObject commonContains = jsonData.getJSONObject("Common Contains");
-	    
-	    String us1 = getUsName1(confPair);
-	    String us2 = getUsName2(confPair);
-	    
-	    // Extract data for both user stories in all targets
-	    JSONArray targetsAllUs1Data = allTargets.getJSONObject(0).getJSONArray(us1);
-	    JSONArray targetsAllUs2Data = allTargets.getJSONObject(1).getJSONArray(us2);
+	// - two user stories are fully redundant("Full Redundant in Main Part" : true):
+	// if in Main Part: if JSONArray "Triggers" is not empty or null.
+	// if "All Targets/Contains in Main Part" of at lease one of to USs are equal to
+	// "Common Targets/Contains in Main Part"
+//	   Otherwise, "Full Redundant in Main Part" : false and
+	// "Partially Redundant in Main Part" : true.
 
-	    // Get Main and Benefit parts in All targets
-	    JSONObject targetsAllUs1MainPart = targetsAllUs1Data.getJSONObject(0);  
-	    JSONObject targetsAllUs1BenefitPart = targetsAllUs1Data.getJSONObject(1);   
-	    JSONObject targetsAllUs2MainPart = targetsAllUs2Data.getJSONObject(0);
-	    JSONObject targetsAllUs2BenefitPart = targetsAllUs2Data.getJSONObject(1);
-	    
-	    // Get Main and Benefit Parts in Common Targets
-	    JSONArray targetsCommonUs1MainPart = commonTargets.getJSONArray("Main Part");
-	    JSONArray targetsCommonUs1BenefitPart = commonTargets.getJSONArray("Benefit Part");
-	    JSONArray targetsCommonUs2MainPart = commonTargets.getJSONArray("Main Part");
-	    JSONArray targetsCommonUs2BenefitPart = commonTargets.getJSONArray("Benefit Part");
-	    
-	    // Extract data for both user stories in contains
-	    JSONArray containsUs1Data = allContains.getJSONObject(0).getJSONArray(us1);
-	    JSONArray containsUs2Data = allContains.getJSONObject(1).getJSONArray(us2);
+	private void evaluateRedundancyCriteria(JSONObject jsonData, String redPair) {
 
-	    // Get Main and Benefit parts in contains
-	    JSONObject containsUs1MainPart = containsUs1Data.getJSONObject(0);  
-	    JSONObject containsUs1BenefitPart = containsUs1Data.getJSONObject(1);
-	    
-	    JSONObject containsUs2MainPart = containsUs2Data.getJSONObject(0);
-	    JSONObject containsUs2BenefitPart = containsUs2Data.getJSONObject(1);
-	    
-	    // Get main and benefit parts in common Contains
-	    // Get Main and Benefit Parts in Common Targets
-	    JSONArray containsCommonUs1MainPart = commonContains.getJSONArray("Main Part");
-	    JSONArray containsCommonUs1BenefitPart = commonContains.getJSONArray("Benefit Part");
-	    JSONArray containsCommonUs2MainPart = commonContains.getJSONArray("Main Part");
-	    JSONArray containsCommonUs2BenefitPart = commonContains.getJSONArray("Benefit Part");
-	    
-	    // 
-	    // Check for redundancy
-	    boolean isMainRedundant = targetsAllUs1MainPart.toString().equals(us2MainPart.toString());
-	    boolean isBenefitRedundant = targetsAllUs1BenefitPart.toString().equals(us2BenefitPart.toString());
+		JSONObject allTargets = jsonData.getJSONObject("All Targets");
+		JSONObject allContains = jsonData.getJSONObject("All Contains");
+		JSONArray triggers = jsonData.getJSONArray("Triggers");
 
-	    // Add redundancy status to the JSON object
-	    JSONObject redundancyStatus = new JSONObject();
-	    redundancyStatus.put("Full Redundant in Main Part", isMainRedundant);
-	    redundancyStatus.put("Full Redundant in Benefit Part", isBenefitRedundant);
-	    redundancyStatus.put("Partially Redundant in Main Part", !isMainRedundant);
-	    redundancyStatus.put("Partially Redundant in Benefit Part", !isBenefitRedundant);
+		JSONObject commonTargets = jsonData.getJSONObject("Common Targets");
+		JSONObject commonContains = jsonData.getJSONObject("Common Contains");
 
-	    // Append redundancy status to the input JSON
-	    jsonData.put("Redundancy Status", redundancyStatus);
+		String us1 = getUsName1(redPair);
+		String us2 = getUsName2(redPair);
+
+		// Extract data for both user stories in all targets
+		JSONObject targetsAllUs1Data = allTargets.getJSONObject(us1);
+		JSONObject targetsAllUs2Data = allTargets.getJSONObject(us2);
+
+		// Get Main and Benefit parts in All targets
+		JSONArray targetsAllUs1MainPart = targetsAllUs1Data.getJSONArray("Main Part");
+		JSONArray targetsAllUs1BenefitPart = getJSONArraySafely(targetsAllUs1Data, "Benefit Part");
+
+		JSONArray targetsAllUs2MainPart = targetsAllUs2Data.getJSONArray("Main Part");
+		JSONArray targetsAllUs2BenefitPart = getJSONArraySafely(targetsAllUs2Data, "Benefit Part");
+
+		// Get Main and Benefit Parts in Common Targets
+		JSONArray targetsCommonMainPart = commonTargets.getJSONArray("Main Part");
+		// JSONArray targetsCommonBenefitPart = commonTargets.getJSONArray("Benefit
+		// Part");
+		JSONArray targetsCommonBenefitPart = getJSONArraySafely(commonTargets, "Benefit Part");
+		// Extract data for both user stories in All contains
+		JSONObject containsAllUs1Data = allContains.getJSONObject(us1);
+		JSONObject containsAllUs2Data = allContains.getJSONObject(us2);
+
+		// Get Main and Benefit parts in All contains
+		JSONArray containsAllUs1MainPart = containsAllUs1Data.getJSONArray("Main Part");
+		JSONArray containsAllUs1BenefitPart = getJSONArraySafely(containsAllUs1Data, "Benefit Part");
+		JSONArray containsAllUs2MainPart = containsAllUs2Data.getJSONArray("Main Part");
+		JSONArray containsAllUs2BenefitPart = getJSONArraySafely(containsAllUs2Data, "Benefit Part");
+
+		// Get main and benefit parts in common Contains
+		JSONArray containsCommonMainPart = commonContains.getJSONArray("Main Part");
+		JSONArray containsCommonBenefitPart = getJSONArraySafely(commonContains, "Benefit Part");
+
+		// Check Full redundancy
+		// Check targets, Contains and Trigger in main part, if they are equal
+		boolean isTriggersRedundant = triggers.isEmpty();
+		boolean isTargetsMainRedundant = checkFullRedaundat(targetsAllUs1MainPart, targetsCommonMainPart)
+				|| checkFullRedaundat(targetsAllUs2MainPart, targetsCommonMainPart);
+		boolean isContainsMainRedundant = checkFullRedaundat(containsAllUs1MainPart, containsCommonMainPart)
+				|| checkFullRedaundat(containsAllUs2MainPart, containsCommonMainPart);
+		boolean isMainFullRedundant = isTargetsMainRedundant && isContainsMainRedundant && !isTriggersRedundant;
+
+		// Check targets, Contains and Trigger in benefit part, if they are equal
+		boolean isBenefitFullRedundant = false;
+		// Check if there are elements to compare in targets and contains for benefit
+		// parts
+		boolean targetsBenefitExist = !targetsAllUs1BenefitPart.isEmpty() && !targetsAllUs2BenefitPart.isEmpty();
+		boolean containsBenefitExist = !containsAllUs1BenefitPart.isEmpty() && !containsAllUs2BenefitPart.isEmpty();
+
+		// Perform full redundancy checks only if there are elements to compare
+		boolean isTargetsBenefitFullRedundant = targetsBenefitExist
+				? (checkFullRedaundat(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
+						|| checkFullRedaundat(targetsAllUs2BenefitPart, targetsCommonBenefitPart))
+				: !targetsCommonBenefitPart.isEmpty();
+
+		boolean isContainsBenefitFullRedundant = containsBenefitExist
+				? (checkFullRedaundat(containsAllUs1BenefitPart, containsCommonBenefitPart)
+						|| checkFullRedaundat(containsAllUs2BenefitPart, containsCommonBenefitPart))
+				: !containsCommonBenefitPart.isEmpty();
+
+		isBenefitFullRedundant = isTargetsBenefitFullRedundant && isContainsBenefitFullRedundant;
+
+		// Evaluate partial redundancy
+		boolean isMainPartiallyRedundant = false;
+		if (isMainFullRedundant || (targetsAllUs1MainPart.isEmpty() && targetsAllUs2MainPart.isEmpty()
+				&& containsAllUs1MainPart.isEmpty() && containsAllUs2MainPart.isEmpty())) {
+			isMainPartiallyRedundant = false;
+		} else {
+			isMainPartiallyRedundant = checkPartialRedundancy(targetsAllUs1MainPart, targetsCommonMainPart)
+					|| checkPartialRedundancy(targetsAllUs2MainPart, targetsCommonMainPart)
+					|| checkPartialRedundancy(containsAllUs1MainPart, containsCommonMainPart)
+					|| checkPartialRedundancy(containsAllUs2MainPart, containsCommonMainPart);
+
+		}
+		boolean isBenefitPartiallyRedundant = false;
+		if (isBenefitFullRedundant || (targetsAllUs1BenefitPart.isEmpty() && targetsAllUs2BenefitPart.isEmpty()
+				&& containsAllUs1BenefitPart.isEmpty() && containsAllUs2BenefitPart.isEmpty())) {
+			isBenefitPartiallyRedundant = false;
+		} else {
+			isBenefitPartiallyRedundant = checkPartialRedundancy(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
+					|| checkPartialRedundancy(targetsAllUs2BenefitPart, targetsCommonBenefitPart)
+					|| checkPartialRedundancy(containsAllUs1BenefitPart, containsCommonBenefitPart)
+					|| checkPartialRedundancy(containsAllUs2BenefitPart, containsCommonBenefitPart);
+
+		}
+		// Add redundancy status to the JSON object
+		JSONObject status = jsonData.getJSONObject("Status");
+		status.put("Full Redundant in Main Part", isMainFullRedundant);
+		status.put("Full Redundant in Benefit Part", isBenefitFullRedundant);
+		status.put("Partially Redundant in Main Part", isMainPartiallyRedundant);
+		status.put("Partially Redundant in Benefit Part", isBenefitPartiallyRedundant);
+	}
+
+	private JSONArray getJSONArraySafely(JSONObject jsonObject, String key) {
+		return jsonObject.has(key) ? jsonObject.getJSONArray(key) : new JSONArray();
+	}
+
+	// checking partial redundancy by counting matches between the elements
+	// of the given JSONArrays and updating the JSON object with both full
+	// and partial redundancy statuses.
+	private boolean checkPartialRedundancy(JSONArray part1, JSONArray part2) {
+		int matchCount = 0;
+
+		if (part1.length() > 0 && part2.length() > 0) {
+			for (int i = 0; i < part1.length(); i++) {
+				JSONArray jsonArrayI = part1.getJSONArray(i);
+				String elementI1 = jsonArrayI.getString(0);
+				String elementI2 = jsonArrayI.getString(1);
+				for (int j = 0; j < part2.length(); j++) {
+					JSONArray jsonArrayJ = part2.getJSONArray(j);
+					String elementJ1 = jsonArrayJ.getString(0);
+					String elementJ2 = jsonArrayJ.getString(1);
+					if (elementI1.equals(elementJ1) && elementI2.equals(elementJ2)) {
+						matchCount++;
+						break;
+					}
+				}
+			}
+		}
+		return matchCount > 0;
+	}
+
+	private boolean checkFullRedaundat(JSONArray part1, JSONArray part2) {
+		if (part1.length() != part2.length()) {
+			return false;
+		}
+
+		for (int i = 0; i < part1.length(); i++) {
+			JSONArray jsonArrayJ1 = part1.getJSONArray(i);
+			JSONArray jsonArrayJ2 = part2.getJSONArray(i);
+			if (jsonArrayJ1.length() != jsonArrayJ2.length()) {
+				return false;
+			}
+
+			for (int j = 0; j < jsonArrayJ1.length(); j++) {
+				if (!jsonArrayJ1.getString(j).equals(jsonArrayJ2.getString(j))) {
+					return false;
+				}
+			}
+
+		}
+		return true;
 	}
 
 	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
@@ -359,10 +461,10 @@ public class ReportExtractor {
 
 	// receive a conflict Pair and a String which corresponds to "Targets" array
 	// Object in JSON file
-	private List<TargetsPair> getCommonTargets(String confPair, JSONObject jsonRedundancyPair)
+	private List<TargetsPair> getCommonTargets(String redPair, JSONObject jsonRedundancyPair)
 			throws EmptyOrNotExistJsonFile, JsonFileNotFound {
-		String us1 = getUsName1(confPair);
-		String us2 = getUsName2(confPair);
+		String us1 = getUsName1(redPair);
+		String us2 = getUsName2(redPair);
 		List<TargetsPair> targetPairs = new ArrayList<>();
 		JSONArray us1TargetsArray = null;
 		JSONArray us2TargetsArray = null;
@@ -398,11 +500,13 @@ public class ReportExtractor {
 				JSONArray jsonArrayUs1 = us1TargetsArray.getJSONArray(i);
 				String actionUs1 = jsonArrayUs1.getString(0).toLowerCase();
 				String entityUs1 = jsonArrayUs1.getString(1).toLowerCase();
-				JSONArray mainTargetsUs1 = getAllTargetsInMain(actionUs1, entityUs1, us1Text, jsonRedundancyPair);
+				JSONArray mainTargetsUs1 = new JSONArray();
+				mainTargetsUs1 = getAllTargetsInMain(actionUs1, entityUs1, us1Text, jsonRedundancyPair);
 				if (mainTargetsUs1 != null) {
 					jsonTargetsMainUs1.put(mainTargetsUs1);
 				}
-				JSONArray benefitTargetsUs1 = getAllTargetsInBenefit(actionUs1, entityUs1, us1Text, jsonRedundancyPair);
+				JSONArray benefitTargetsUs1 = new JSONArray();
+				benefitTargetsUs1 = getAllTargetsInBenefit(actionUs1, entityUs1, us1Text, jsonRedundancyPair);
 				if (benefitTargetsUs1 != null) {
 					jsonTargetsBenefitUs1.put(benefitTargetsUs1);
 				}
@@ -421,30 +525,39 @@ public class ReportExtractor {
 				JSONArray jsonArrayUs2 = us2TargetsArray.getJSONArray(j);
 				String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
 				String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
-				JSONArray mainTargetsUs2 = getAllTargetsInMain(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);
+				JSONArray mainTargetsUs2 = new JSONArray();
+				mainTargetsUs2 = getAllTargetsInMain(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);
 				if (mainTargetsUs2 != null) {
 					jsonTargetsMainUs2.put(mainTargetsUs2);
 				}
 
-				JSONArray benefitTargetsUs2 = getAllTargetsInBenefit(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);
+				JSONArray benefitTargetsUs2 = new JSONArray();
+				benefitTargetsUs2 = getAllTargetsInBenefit(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);
 				if (benefitTargetsUs2 != null) {
 					jsonTargetsBenefitUs2.put(benefitTargetsUs2);
 				}
 			}
 
 		}
-		JSONObject jsonAllTargetsUS1 = new JSONObject();
-		JSONObject jsonAllTargetsUS2 = new JSONObject();
-		JSONArray jsonAllTargets = new JSONArray();
-		JSONObject jsonAllTargetsUS1Main = new JSONObject().put("Main Part", jsonTargetsMainUs1);
-		JSONObject jsonAllTargetsUS1Benefit = new JSONObject().put("Benefit Part", jsonTargetsBenefitUs1);
-		JSONObject jsonAllTargetsUS2Main = new JSONObject().put("Main Part", jsonTargetsMainUs2);
-		JSONObject jsonAllTargetsUS2Benefit = new JSONObject().put("Benefit Part", jsonTargetsBenefitUs2);
-		JSONArray jsonArrayAllTargetsUS1 = new JSONArray().put(jsonAllTargetsUS1Main).put(jsonAllTargetsUS1Benefit);
-		JSONArray jsonArrayAllTargetsUS2 = new JSONArray().put(jsonAllTargetsUS2Main).put(jsonAllTargetsUS2Benefit);
-		jsonAllTargetsUS1.put(us1, jsonArrayAllTargetsUS1);
-		jsonAllTargetsUS2.put(us2, jsonArrayAllTargetsUS2);
-		jsonAllTargets.put(jsonAllTargetsUS1).put(jsonAllTargetsUS2);
+		JSONObject jsonAllTargets = new JSONObject();
+
+		JSONObject jsonObjectAllTargetsUS1 = new JSONObject();
+		JSONObject jsonObjectAllTargetsUS2 = new JSONObject();
+
+		JSONObject jsonAllTargetsUS2Main = new JSONObject();
+		JSONObject jsonAllTargetsUS2Benefit = new JSONObject();
+
+		jsonObjectAllTargetsUS1.put("Main Part", jsonTargetsMainUs1);
+		jsonObjectAllTargetsUS1.put("Benefit Part", jsonTargetsBenefitUs1);
+
+		jsonAllTargetsUS2Main.put("Main Part", jsonTargetsMainUs2);
+		jsonAllTargetsUS2Benefit.put("Benefit Part", jsonTargetsBenefitUs2);
+
+		jsonObjectAllTargetsUS2.put("Main Part", jsonTargetsMainUs2);
+		jsonObjectAllTargetsUS2.put("Benefit Part", jsonTargetsBenefitUs2);
+
+		jsonAllTargets.put(us1, jsonObjectAllTargetsUS1);
+		jsonAllTargets.put(us2, jsonObjectAllTargetsUS2);
 		jsonRedundancyPair.put("All Targets", jsonAllTargets);
 
 		return targetPairs;
@@ -469,9 +582,10 @@ public class ReportExtractor {
 		int benefitIndex = usText.indexOf("so that");
 		String mainPart = usText;
 		JSONArray jsonMain = new JSONArray();
+		if (benefitIndex != -1) {
 
-		mainPart = usText.substring(0, benefitIndex);
-
+			mainPart = usText.substring(0, benefitIndex);
+		}
 		jsonMain = processElements(action, entity, mainPart, jsonRedundancyPair);
 		return jsonMain;
 
@@ -479,9 +593,9 @@ public class ReportExtractor {
 
 	// receive a conflict Pair and a String which corresponds to "Triggers" array
 	// Object in JSON file
-	private List<TriggersPair> getCommonTriggers(String confPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
-		String us1 = getUsName1(confPair);
-		String us2 = getUsName2(confPair);
+	private List<TriggersPair> getCommonTriggers(String redPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+		String us1 = getUsName1(redPair);
+		String us2 = getUsName2(redPair);
 		List<TriggersPair> triggersPairs = new ArrayList<>();
 
 		JSONArray us1TriggersArray = null;
@@ -529,10 +643,10 @@ public class ReportExtractor {
 
 	// receive a conflict Pair and a String which corresponds to "Contains" array
 	// Object in JSON file
-	private List<ContainsPair> getCommonContains(String confPair, JSONObject jsonRedundancyPair)
+	private List<ContainsPair> getCommonContains(String redPair, JSONObject jsonRedundancyPair)
 			throws EmptyOrNotExistJsonFile, JsonFileNotFound {
-		String us1 = getUsName1(confPair);
-		String us2 = getUsName2(confPair);
+		String us1 = getUsName1(redPair);
+		String us2 = getUsName2(redPair);
 		List<ContainsPair> containsPairs = new ArrayList<>();
 		JSONArray us1ContainsArray = null;
 		JSONArray us2ContainsArray = null;
@@ -565,12 +679,13 @@ public class ReportExtractor {
 				String childUs1 = jsonArrayUs1.getString(1).toLowerCase();
 				// add each founded element into JSON report according
 				// to their occurrence into main or benefit part
-				JSONArray mainContainsUs1 = getAllContainsInMain(parentUs1, childUs1, us1Text, jsonRedundancyPair);
+				JSONArray mainContainsUs1 = new JSONArray();
+				mainContainsUs1 = getAllContainsInMain(parentUs1, childUs1, us1Text, jsonRedundancyPair);
 				if (mainContainsUs1 != null) {
 					jsonContainsMainUs1.put(mainContainsUs1);
 				}
-				JSONArray benefitContainsUs1 = getAllContainsInBenefit(parentUs1, childUs1, us1Text,
-						jsonRedundancyPair);
+				JSONArray benefitContainsUs1 = new JSONArray();
+				benefitContainsUs1 = getAllContainsInBenefit(parentUs1, childUs1, us1Text, jsonRedundancyPair);
 				if (benefitContainsUs1 != null) {
 					jsonContainsBenefitUs1.put(benefitContainsUs1);
 				}
@@ -588,13 +703,14 @@ public class ReportExtractor {
 				JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
 				String parentUs2 = jsonArrayUs2.getString(0).toLowerCase();
 				String childUs2 = jsonArrayUs2.getString(1).toLowerCase();
-				JSONArray mainContainsUs2 = getAllContainsInMain(parentUs2, childUs2, us2Text, jsonRedundancyPair);
+				JSONArray mainContainsUs2 = new JSONArray();
+				mainContainsUs2 = getAllContainsInMain(parentUs2, childUs2, us2Text, jsonRedundancyPair);
 				if (mainContainsUs2 != null) {
 					jsonContainsMainUs2.put(mainContainsUs2);
 				}
 
-				JSONArray benefitContainsUs2 = getAllContainsInBenefit(parentUs2, childUs2, us2Text,
-						jsonRedundancyPair);
+				JSONArray benefitContainsUs2 = new JSONArray();
+				benefitContainsUs2 = getAllContainsInBenefit(parentUs2, childUs2, us2Text, jsonRedundancyPair);
 				if (benefitContainsUs2 != null) {
 					jsonContainsBenefitUs2.put(benefitContainsUs2);
 				}
@@ -602,18 +718,25 @@ public class ReportExtractor {
 
 		}
 
-		JSONObject jsonAllContainsUS1 = new JSONObject();
-		JSONObject jsonAllContainsUS2 = new JSONObject();
-		JSONArray jsonAllContains = new JSONArray();
-		JSONObject jsonAllContainsUS1Main = new JSONObject().put("Main Part", jsonContainsMainUs1);
-		JSONObject jsonAllContainsUS1Benefit = new JSONObject().put("Benefit Part", jsonContainsBenefitUs1);
-		JSONObject jsonAllContainsUS2Main = new JSONObject().put("Main Part", jsonContainsMainUs2);
-		JSONObject jsonAllContainsUS2Benefit = new JSONObject().put("Benefit Part", jsonContainsBenefitUs2);
-		JSONArray jsonArrayAllContainsUS1 = new JSONArray().put(jsonAllContainsUS1Main).put(jsonAllContainsUS1Benefit);
-		JSONArray jsonArrayAllContainsUS2 = new JSONArray().put(jsonAllContainsUS2Main).put(jsonAllContainsUS2Benefit);
-		jsonAllContainsUS1.put(us1, jsonArrayAllContainsUS1);
-		jsonAllContainsUS2.put(us2, jsonArrayAllContainsUS2);
-		jsonAllContains.put(jsonAllContainsUS1).put(jsonAllContainsUS2);
+		JSONObject jsonAllContains = new JSONObject();
+
+		JSONObject jsonObjectAllContainsUS1 = new JSONObject();
+		JSONObject jsonObjectAllContainsUS2 = new JSONObject();
+
+		JSONObject jsonAllContainsUS2Main = new JSONObject();
+		JSONObject jsonAllContainsUS2Benefit = new JSONObject();
+
+		jsonObjectAllContainsUS1.put("Main Part", jsonContainsMainUs1);
+		jsonObjectAllContainsUS1.put("Benefit Part", jsonContainsBenefitUs1);
+
+		jsonAllContainsUS2Main.put("Main Part", jsonContainsMainUs2);
+		jsonAllContainsUS2Benefit.put("Benefit Part", jsonContainsBenefitUs2);
+
+		jsonObjectAllContainsUS2.put("Main Part", jsonContainsMainUs2);
+		jsonObjectAllContainsUS2.put("Benefit Part", jsonContainsBenefitUs2);
+
+		jsonAllContains.put(us1, jsonObjectAllContainsUS1);
+		jsonAllContains.put(us2, jsonObjectAllContainsUS2);
 		jsonRedundancyPair.put("All Contains", jsonAllContains);
 
 		return containsPairs;
@@ -639,9 +762,9 @@ public class ReportExtractor {
 		int benefitIndex = usText.indexOf("so that");
 		String mainPart = usText;
 		JSONArray jsonMain = new JSONArray();
-
-		mainPart = usText.substring(0, benefitIndex);
-
+		if (benefitIndex != -1) {
+			mainPart = usText.substring(0, benefitIndex);
+		}
 		jsonMain = processElements(parentUs, childUs, mainPart, jsonRedundancyPair);
 		return jsonMain;
 
@@ -655,9 +778,9 @@ public class ReportExtractor {
 		return null;
 	}
 
-	private boolean minimalEcoreExist(String confPair, String conflictReason)
+	private boolean minimalEcoreExist(String redPair, String conflictReason)
 			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		Path path = Paths.get(getAbsoluteDirPath() + "\\" + confPair + "\\" + conflictReason + "\\minimal-model.ecore");
+		Path path = Paths.get(getAbsoluteDirPath() + "\\" + redPair + "\\" + conflictReason + "\\minimal-model.ecore");
 		if (Files.exists(path)) {
 			return true;
 		} else {
@@ -1240,8 +1363,7 @@ public class ReportExtractor {
 					subStringBenefitUs2, jsonRedundancyPair);
 			subStringBenefitUs1 = usText[0];
 			subStringBenefitUs2 = usText[1];
-			// textUs1 = textUs1 + usText[0];
-			// textUs2 = textUs2 + usText[1];
+
 			// add the number of conflict pairs from benefit sentence
 			benefitConflict = benefitConflict + Integer.parseInt(usText[2]);
 
@@ -1262,14 +1384,8 @@ public class ReportExtractor {
 			// (one element in main and on in benefit), it the conflict element of main
 			// should be increased not main and benefit
 			// Apply hash symbol to common elements in the both user stories if any
-			// usText = applyHashSymbolContaians(containsPairs, redundancyItems, textUs1,
-			// textUs2);
-			// textUs1 = subStringFirstUs1 + "," + usText[0];
-			// textUs2 = subStringFirstUs2 + "," + usText[1];
 			textUs1 = subStringFirstUs1 + "," + textUs1;
 			textUs2 = subStringFirstUs2 + "," + textUs2;
-			// textUs1 = usText[0];
-			// textUs2 = usText[1];
 
 		}
 
@@ -1409,13 +1525,11 @@ public class ReportExtractor {
 				jsonTargets.put(josnTarget);
 			}
 		}
+
 		// JSONObject jsonCommonTargets = new JSONObject();
-		// jsonCommonTargets.put("Benefit Part", jsonTargets);
-		// jsonRedundancyPair.put("Common Targets", jsonCommonTargets);
 		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject("Common Targets");
 		if (jsonCommonTargets == null) {
 			jsonCommonTargets = new JSONObject();
-			jsonCommonTargets.put("Benefit Part", jsonTargets);
 			jsonRedundancyPair.put("Common Targets", jsonCommonTargets);
 		}
 		jsonCommonTargets.put("Benefit Part", jsonTargets);
@@ -1517,13 +1631,10 @@ public class ReportExtractor {
 				jsonContains.put(jsonContain);
 			}
 		}
-		// JSONObject jsonCommonContains = new JSONObject();
-		// jsonCommonContains.put("Benefit Part", jsonContains);
-//		jsonRedundancyPair.put("Common Contains", jsonCommonContains);
+
 		JSONObject jsonCommonContains = jsonRedundancyPair.optJSONObject("Common Contains");
 		if (jsonCommonContains == null) {
 			jsonCommonContains = new JSONObject();
-			jsonCommonContains.put("Benefit Part", jsonContains);
 			jsonRedundancyPair.put("Common Contains", jsonCommonContains);
 		}
 		jsonCommonContains.put("Benefit Part", jsonContains);

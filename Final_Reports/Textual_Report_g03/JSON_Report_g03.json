@@ -3,38 +3,156 @@
         "Potential Redundant User Stories": "user_story_12_AND_user_story_39",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": false,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["compliance"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "review",
+                "compliance"
+            ]]
+        },
         "Action": {"Secondary Action": ["review"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #review# them for #compliance# and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant."],
-            "First UserStory": [" so that i can #review# the for #compliance# and subsequently approved or denied."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "review",
             "compliance"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_39: #g03# as a plan review staff member, i want to review plans, so that i can #review# them for #compliance# and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.",
             "First UserStory": "user_story_12: #g03# as a staff member, i want to assign an application for detailed review, so that i can #review# the for #compliance# and subsequently approved or denied."
         },
-        "Project Number": "g03"
+        "Project Number": "g03",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #review# them for #compliance# and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant."],
+            "First UserStory": [" so that i can #review# the for #compliance# and subsequently approved or denied."]
+        },
+        "All Contains": {
+            "user_story_39": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "applicant",
+                        "plans"
+                    ],
+                    [
+                        "plans",
+                        "clearances"
+                    ],
+                    [
+                        "plans",
+                        "corrections"
+                    ],
+                    [
+                        "plans",
+                        "any conditions"
+                    ]
+                ]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "application",
+                    "detailed review"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_39": {
+                "Main Part": [[
+                    "review",
+                    "plans"
+                ]],
+                "Benefit Part": [
+                    [
+                        "review",
+                        "plans"
+                    ],
+                    [
+                        "review",
+                        "compliance"
+                    ],
+                    [
+                        "approve",
+                        "plans"
+                    ],
+                    [
+                        "fail",
+                        "plans"
+                    ],
+                    [
+                        "deny",
+                        "plans"
+                    ],
+                    [
+                        "record",
+                        "clearances"
+                    ],
+                    [
+                        "record",
+                        "corrections"
+                    ],
+                    [
+                        "record",
+                        "any conditions"
+                    ]
+                ]
+            },
+            "user_story_12": {
+                "Main Part": [[
+                    "assign",
+                    "application"
+                ]],
+                "Benefit Part": [
+                    [
+                        "review",
+                        "compliance"
+                    ],
+                    [
+                        "subsequently approved",
+                        "compliance"
+                    ],
+                    [
+                        "denied",
+                        "compliance"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_17_AND_user_story_30",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Full Redundant in Benefit Part": true,
+            "Partially Redundant in Main Part": false,
+            "Partially Redundant in Benefit Part": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Redundancy Clause": 1,
+            "Full Redundant in Main Part": false
         },
         "Entity": {"Secondary Entity": ["compliance"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "ensure",
+                "compliance"
+            ]]
+        },
         "Action": {"Secondary Action": ["ensure"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that i can #ensure# #compliance# with the requirements prior to the hearing."],
-            "First UserStory": [" so that i can #ensure# #compliance# with and satisfaction of the proffer in the future."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "ensure",
@@ -48,6 +166,57 @@
             "Second UserStory": "user_story_30: #g03# as a staff member, i want to manage affidavits, so that i can #ensure# #compliance# with the requirements prior to the hearing.",
             "First UserStory": "user_story_17: #g03# as a staff member, i want to manage approved proffers, so that i can #ensure# #compliance# with and satisfaction of the proffer in the future."
         },
-        "Project Number": "g03"
+        "Project Number": "g03",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i can #ensure# #compliance# with the requirements prior to the hearing."],
+            "First UserStory": [" so that i can #ensure# #compliance# with and satisfaction of the proffer in the future."]
+        },
+        "All Contains": {
+            "user_story_17": {
+                "Main Part": [],
+                "Benefit Part": [
+                    [
+                        "proffer",
+                        "satisfaction"
+                    ],
+                    [
+                        "proffer",
+                        "compliance"
+                    ]
+                ]
+            },
+            "user_story_30": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_17": {
+                "Main Part": [[
+                    "manage",
+                    "approved proffers"
+                ]],
+                "Benefit Part": [
+                    [
+                        "ensure",
+                        "compliance"
+                    ],
+                    [
+                        "ensure",
+                        "satisfaction"
+                    ]
+                ]
+            },
+            "user_story_30": {
+                "Main Part": [[
+                    "manage",
+                    "affidavits"
+                ]],
+                "Benefit Part": [[
+                    "ensure",
+                    "compliance"
+                ]]
+            }
+        }
     }
 ]
