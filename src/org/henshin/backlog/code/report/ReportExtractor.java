@@ -60,10 +60,11 @@ public class ReportExtractor {
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-		// String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-		// "21", "22", "23", "24",
-		// "25", "26", "27", "28" };
-		String[] datasets = { "21" };
+		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
+		 "21", "22", "23", "24",
+		 "25", "26", "27", "28" };
+		//String[] datasets = { "18","21","22" };
+		// checked: 21, 04,03 ,05,08,10,11,12,14,16
 //		 Version of data set "18", "19"
 		for (int i = 0; i < datasets.length; i++) {
 			System.out.println("Dataset: " + datasets[i]);
@@ -153,13 +154,13 @@ public class ReportExtractor {
 		FileWriter cdaWriter = null;
 		try {
 			if (totalCda.createNewFile()) {
-				System.out.println("File created succesfully: " + totalCda.getName());
+				//System.out.println("File created succesfully: " + totalCda.getName());
 				cdaWriter = new FileWriter(totalCda);
 				return cdaWriter;
 
 			} else {
 				cdaWriter = new FileWriter(totalCda);
-				System.out.println("File already exists. Try to overwrite..!");
+				//System.out.println("File already exists. Try to overwrite..!");
 				return cdaWriter;
 			}
 		} catch (IOException e) {
@@ -334,32 +335,71 @@ public class ReportExtractor {
 
 		// Check Full redundancy
 		// Check targets, Contains and Trigger in main part, if they are equal
+
 		boolean isTriggersRedundant = triggers.isEmpty();
-		boolean isTargetsMainRedundant = checkFullRedaundat(targetsAllUs1MainPart, targetsCommonMainPart)
-				|| checkFullRedaundat(targetsAllUs2MainPart, targetsCommonMainPart);
-		boolean isContainsMainRedundant = checkFullRedaundat(containsAllUs1MainPart, containsCommonMainPart)
-				|| checkFullRedaundat(containsAllUs2MainPart, containsCommonMainPart);
-		boolean isMainFullRedundant = isTargetsMainRedundant && isContainsMainRedundant && !isTriggersRedundant;
+		boolean isTargetsMainFullyRedundant;
+		boolean isContainsMainFullyRedundant;
+//		System.out.println(redPair);
+		if (targetsCommonMainPart.length() == 0
+				&& (targetsAllUs1MainPart.length() != 0 || targetsAllUs2MainPart.length() != 0)) {
+			isTargetsMainFullyRedundant = false;
+		} else if (targetsAllUs1MainPart.length() == 0 && targetsAllUs2MainPart.length() == 0) {
+			isTargetsMainFullyRedundant = true;
+		} else {
+			isTargetsMainFullyRedundant = checkFullRedaundat(targetsAllUs1MainPart, targetsCommonMainPart)
+					|| checkFullRedaundat(targetsAllUs2MainPart, targetsCommonMainPart);
+		}
+		if (containsCommonMainPart.length() == 0
+				&& (containsAllUs1MainPart.length() != 0 || containsAllUs2MainPart.length() != 0)) {
+			isContainsMainFullyRedundant = false;
+		} else if (containsAllUs1MainPart.length() == 0 && containsAllUs2MainPart.length() == 0) {
+			isContainsMainFullyRedundant = true;
+		} else {
+			isContainsMainFullyRedundant = checkFullRedaundat(containsAllUs1MainPart, containsCommonMainPart)
+					|| checkFullRedaundat(containsAllUs2MainPart, containsCommonMainPart);
+		}
+		
+//		System.out.println("isTargetsMainRedundant "+ isTargetsMainFullyRedundant);
+//		System.out.println("isContainsMainRedundant "+isContainsMainFullyRedundant);
+		boolean isMainFullRedundant = isTargetsMainFullyRedundant && isContainsMainFullyRedundant && !isTriggersRedundant;
 
 		// Check targets, Contains and Trigger in benefit part, if they are equal
 		boolean isBenefitFullRedundant = false;
-		// Check if there are elements to compare in targets and contains for benefit
-		// parts
-		boolean targetsBenefitExist = !targetsAllUs1BenefitPart.isEmpty() && !targetsAllUs2BenefitPart.isEmpty();
-		boolean containsBenefitExist = !containsAllUs1BenefitPart.isEmpty() && !containsAllUs2BenefitPart.isEmpty();
+		// if there is no common contains but one the USs has contains, it means there
+		// is no full
+		// redundant in contains benefit
+		//System.out.println(redPair);
+		boolean isTargetsBenefitRedundant;
+		if (targetsCommonBenefitPart.length() == 0
+				&& (targetsAllUs1BenefitPart.length() != 0 || targetsAllUs2BenefitPart.length() != 0)) {
+			isTargetsBenefitRedundant = false;
+			//System.out.println("isTargetsBenefitRedundant_if: " + isTargetsBenefitRedundant);
+		} else if (targetsAllUs1BenefitPart.length() == 0 && targetsAllUs2BenefitPart.length() == 0) {
+			isTargetsBenefitRedundant = true;
+			//System.out.println("isTargetsBenefitRedundant_esle_if: " + isTargetsBenefitRedundant);
+		} else {
+			isTargetsBenefitRedundant = checkFullRedaundat(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
+					|| checkFullRedaundat(targetsAllUs2BenefitPart, targetsCommonBenefitPart);
+//			System.out.println("isTargetsBenefitRedundant_else: " + isTargetsBenefitRedundant);
+		}
+		boolean isContainsBenefitRedundant;
+		if (containsCommonBenefitPart.length() == 0
+				&& (containsAllUs1BenefitPart.length() != 0 || containsAllUs2BenefitPart.length() != 0)) {
+			isContainsBenefitRedundant = false;
+		} else if (containsAllUs1BenefitPart.length() == 0 && containsAllUs2BenefitPart.length() == 0) {
+			isContainsBenefitRedundant = true;
+		} else {
+			isContainsBenefitRedundant = (checkFullRedaundat(containsAllUs1BenefitPart, containsCommonBenefitPart)
+					|| checkFullRedaundat(containsAllUs2BenefitPart, containsCommonBenefitPart));
 
-		// Perform full redundancy checks only if there are elements to compare
-		boolean isTargetsBenefitFullRedundant = targetsBenefitExist
-				? (checkFullRedaundat(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
-						|| checkFullRedaundat(targetsAllUs2BenefitPart, targetsCommonBenefitPart))
-				: !targetsCommonBenefitPart.isEmpty();
-
-		boolean isContainsBenefitFullRedundant = containsBenefitExist
-				? (checkFullRedaundat(containsAllUs1BenefitPart, containsCommonBenefitPart)
-						|| checkFullRedaundat(containsAllUs2BenefitPart, containsCommonBenefitPart))
-				: !containsCommonBenefitPart.isEmpty();
-
-		isBenefitFullRedundant = isTargetsBenefitFullRedundant && isContainsBenefitFullRedundant;
+		}
+		
+		
+		//System.out.println("isContainsBenefitRedundant" + isContainsBenefitRedundant);
+		// benefit part is full redundant if all elements of contains and targets are
+		// redundant
+		isBenefitFullRedundant = isTargetsBenefitRedundant && isContainsBenefitRedundant
+				&& (targetsCommonBenefitPart.length() != 0 || containsCommonBenefitPart.length() != 0);
 
 		// Evaluate partial redundancy
 		boolean isMainPartiallyRedundant = false;
@@ -386,10 +426,10 @@ public class ReportExtractor {
 		}
 		// Add redundancy status to the JSON object
 		JSONObject status = jsonData.getJSONObject("Status");
-		status.put("Full Redundant in Main Part", isMainFullRedundant);
-		status.put("Full Redundant in Benefit Part", isBenefitFullRedundant);
-		status.put("Partially Redundant in Main Part", isMainPartiallyRedundant);
-		status.put("Partially Redundant in Benefit Part", isBenefitPartiallyRedundant);
+		status.put("Main Part Fully Redundant", isMainFullRedundant);
+		status.put("Main Part Partially Redundant", isMainPartiallyRedundant);
+		status.put("Benefit Part Fully Redundant", isBenefitFullRedundant);
+		status.put("Benefit Part Partially Redundant", isBenefitPartiallyRedundant);
 	}
 
 	private JSONArray getJSONArraySafely(JSONObject jsonObject, String key) {
@@ -421,26 +461,34 @@ public class ReportExtractor {
 		return matchCount > 0;
 	}
 
-	private boolean checkFullRedaundat(JSONArray part1, JSONArray part2) {
-		if (part1.length() != part2.length()) {
+	// contains/targets are full redundant if their length and their elements are
+	// are the same
+	private boolean checkFullRedaundat(JSONArray allElements, JSONArray commonElements) {
+		if (allElements.length() != commonElements.length()) {
 			return false;
 		}
+//		System.out.println("allElements: " + allElements);
+//		System.out.println("commonElements: " + commonElements);
+		int length = allElements.length();
+		int count = 0;
+		for (int i = 0; i < allElements.length(); i++) {
+			JSONArray jsonArrayAll = allElements.getJSONArray(i);
 
-		for (int i = 0; i < part1.length(); i++) {
-			JSONArray jsonArrayJ1 = part1.getJSONArray(i);
-			JSONArray jsonArrayJ2 = part2.getJSONArray(i);
-			if (jsonArrayJ1.length() != jsonArrayJ2.length()) {
-				return false;
-			}
-
-			for (int j = 0; j < jsonArrayJ1.length(); j++) {
-				if (!jsonArrayJ1.getString(j).equals(jsonArrayJ2.getString(j))) {
-					return false;
-				}
+			for (int j = 0; j < commonElements.length(); j++) {
+				JSONArray jsonArrayCommon = commonElements.getJSONArray(j);
+//				System.out.println("second Loop_jsonArrayAll: "+ jsonArrayAll);
+//				System.out.println("second Loop_jsonArrayCommon: "+jsonArrayCommon);
+				if (jsonArrayAll.toString().equalsIgnoreCase(jsonArrayCommon.toString())) {
+//					System.out.println("second Loop_inside_if_jsonArrayAll: "+jsonArrayAll);
+//					System.out.println("second Loop_inside_if_jsonArrayCommon: "+jsonArrayCommon);
+					count++;
+//					System.out.println("count: " + count);
+					break;
+				} 
 			}
 
 		}
-		return true;
+		return length == count;
 	}
 
 	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON

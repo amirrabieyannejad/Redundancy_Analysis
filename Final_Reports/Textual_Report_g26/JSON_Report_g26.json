@@ -3,38 +3,121 @@
         "Potential Redundant User Stories": "user_story_01_AND_user_story_45",
         "Status": {
             "Main Part Redundancy Clauses": 0,
+            "Main Part Partially Redundant": false,
             "Total Redundancy Clauses": 1,
-            "Benefit Part Redundancy Clause": 1
+            "Benefit Part Fully Redundant": true,
+            "Benefit Part Redundancy Clause": 1,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Secondary Entity": ["what"]},
+        "Common Targets": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "know",
+                "what"
+            ]]
+        },
         "Action": {"Secondary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" so that they #know# #what# they can do with images."],
-            "First UserStory": [" so that i #know# #what# i can do with a file."]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "know",
             "what"
         ]],
-        "Triggers": "",
+        "Triggers": [],
         "Text": {
             "Second UserStory": "user_story_45: #g26# as an archivist, i want to make information about rights available to researchers and donors, so that they #know# #what# they can do with images.",
             "First UserStory": "user_story_01: #g26# as an archivist, i want to apply a license or rights statement, so that i #know# #what# i can do with a file."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" so that they #know# #what# they can do with images."],
+            "First UserStory": [" so that i #know# #what# i can do with a file."]
+        },
+        "All Contains": {
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_45": {
+                "Main Part": [
+                    [
+                        "researchers",
+                        "information"
+                    ],
+                    [
+                        "donors",
+                        "information"
+                    ],
+                    [
+                        "rights",
+                        "information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "apply",
+                        "license"
+                    ],
+                    [
+                        "apply",
+                        "rights statement"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "know",
+                        "what"
+                    ],
+                    [
+                        "do",
+                        "file"
+                    ]
+                ]
+            },
+            "user_story_45": {
+                "Main Part": [[
+                    "make",
+                    "information"
+                ]],
+                "Benefit Part": [[
+                    "know",
+                    "what"
+                ]]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_09_AND_user_story_10",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["access"]},
+        "Common Targets": {
+            "Main Part": [[
+                "restrict",
+                "access"
+            ]],
+            "Benefit Part": []
+        },
         "Action": {"Primary Action": ["restrict"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #restrict# #access# to certain files by user"],
-            "First UserStory": [" i want to #restrict# #access# to some files by ip address"]
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
         },
         "Targets": [[
             "restrict",
@@ -48,17 +131,93 @@
             "Second UserStory": "user_story_10: #g26# as an #archivist#, i want to #restrict# #access# to certain files by user, so that i can allow donor representatives to see certain files.",
             "First UserStory": "user_story_09: #g26# as an #archivist#, i want to #restrict# #access# to some files by ip address, so that i can give reading room access only to certain digital files."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #restrict# #access# to certain files by user"],
+            "First UserStory": [" i want to #restrict# #access# to some files by ip address"]
+        },
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [[
+                    "some files",
+                    "access"
+                ]],
+                "Benefit Part": [[
+                    "certain digital files",
+                    "reading room access"
+                ]]
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "certain files",
+                    "access"
+                ]],
+                "Benefit Part": [[
+                    "donor representatives",
+                    "certain files"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "restrict",
+                    "access"
+                ]],
+                "Benefit Part": [[
+                    "give",
+                    "reading room access"
+                ]]
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "restrict",
+                    "access"
+                ]],
+                "Benefit Part": [
+                    [
+                        "allow",
+                        "donor representatives"
+                    ],
+                    [
+                        "see",
+                        "certain files"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_56_AND_user_story_61",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["all files"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "all files"
+        ]]},
         "Action": {"Primary Action": ["search"]},
+        "Common Contains": {"Main Part": [[
+            "all files",
+            "keyword"
+        ]]},
+        "Targets": [[
+            "search",
+            "all files"
+        ]],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_61: #g26# as an archivist, i want to #search# #all files# by #keyword#.",
+            "First UserStory": "user_story_56: #g26# as a researcher, i want to #search# #all files# by #keyword#."
+        },
+        "Project Number": "g26",
         "Part of Sentence": {
             "Second UserStory": [" i want to #search# #all files# by #keyword#."],
             "First UserStory": [" i want to #search# #all files# by #keyword#."]
@@ -67,26 +226,70 @@
             "all files",
             "keyword"
         ]],
-        "Targets": [[
-            "search",
-            "all files"
-        ]],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_61: #g26# as an archivist, i want to #search# #all files# by #keyword#.",
-            "First UserStory": "user_story_56: #g26# as a researcher, i want to #search# #all files# by #keyword#."
+        "All Contains": {
+            "user_story_56": {
+                "Main Part": [[
+                    "all files",
+                    "keyword"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_61": {
+                "Main Part": [[
+                    "all files",
+                    "keyword"
+                ]],
+                "Benefit Part": []
+            }
         },
-        "Project Number": "g26"
+        "All Targets": {
+            "user_story_56": {
+                "Main Part": [[
+                    "search",
+                    "all files"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_61": {
+                "Main Part": [[
+                    "search",
+                    "all files"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_59_AND_user_story_60",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["files"]},
+        "Common Targets": {"Main Part": [[
+            "browse through",
+            "files"
+        ]]},
         "Action": {"Primary Action": ["browse through"]},
+        "Common Contains": {"Main Part": [[
+            "collection",
+            "files"
+        ]]},
+        "Targets": [[
+            "browse through",
+            "files"
+        ]],
+        "Triggers": [],
+        "Text": {
+            "Second UserStory": "user_story_60: #g26# as an archivist, i want to #browse through# #files# in a #collection#.",
+            "First UserStory": "user_story_59: #g26# as a researcher, i want to #browse through# #files# in a #collection#."
+        },
+        "Project Number": "g26",
         "Part of Sentence": {
             "Second UserStory": [" i want to #browse through# #files# in a #collection#."],
             "First UserStory": [" i want to #browse through# #files# in a #collection#."]
@@ -95,30 +298,57 @@
             "collection",
             "files"
         ]],
-        "Targets": [[
-            "browse through",
-            "files"
-        ]],
-        "Triggers": "",
-        "Text": {
-            "Second UserStory": "user_story_60: #g26# as an archivist, i want to #browse through# #files# in a #collection#.",
-            "First UserStory": "user_story_59: #g26# as a researcher, i want to #browse through# #files# in a #collection#."
+        "All Contains": {
+            "user_story_59": {
+                "Main Part": [[
+                    "collection",
+                    "files"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_60": {
+                "Main Part": [[
+                    "collection",
+                    "files"
+                ]],
+                "Benefit Part": []
+            }
         },
-        "Project Number": "g26"
+        "All Targets": {
+            "user_story_59": {
+                "Main Part": [[
+                    "browse through",
+                    "files"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_60": {
+                "Main Part": [[
+                    "browse through",
+                    "files"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_83_AND_user_story_84",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by people represented in them."],
-            "First UserStory": [" i want to #search# #images# by photographer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -131,21 +361,62 @@
             "Second UserStory": "user_story_84: #g26# as an #archivist#, i want to #search# #images# by people represented in them.",
             "First UserStory": "user_story_83: #g26# as an #archivist#, i want to #search# #images# by photographer."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by people represented in them."],
+            "First UserStory": [" i want to #search# #images# by photographer."]
+        },
+        "All Contains": {
+            "user_story_84": {
+                "Main Part": [[
+                    "images",
+                    "people"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "images",
+                    "photographer"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_84": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_83_AND_user_story_85",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by place the photo was taken."],
-            "First UserStory": [" i want to #search# #images# by photographer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -158,21 +429,74 @@
             "Second UserStory": "user_story_85: #g26# as an #archivist#, i want to #search# #images# by place the photo was taken.",
             "First UserStory": "user_story_83: #g26# as an #archivist#, i want to #search# #images# by photographer."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by place the photo was taken."],
+            "First UserStory": [" i want to #search# #images# by photographer."]
+        },
+        "All Contains": {
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "photo",
+                        "place"
+                    ],
+                    [
+                        "images",
+                        "place"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "images",
+                    "photographer"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "search",
+                        "images"
+                    ],
+                    [
+                        "taken",
+                        "photo"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_83_AND_user_story_86",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by rights."],
-            "First UserStory": [" i want to #search# #images# by photographer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -185,21 +509,62 @@
             "Second UserStory": "user_story_86: #g26# as an #archivist#, i want to #search# #images# by rights.",
             "First UserStory": "user_story_83: #g26# as an #archivist#, i want to #search# #images# by photographer."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by rights."],
+            "First UserStory": [" i want to #search# #images# by photographer."]
+        },
+        "All Contains": {
+            "user_story_86": {
+                "Main Part": [[
+                    "images",
+                    "rights"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "images",
+                    "photographer"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_86": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_83": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_84_AND_user_story_85",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by place the photo was taken."],
-            "First UserStory": [" i want to #search# #images# by people represented in them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -212,21 +577,74 @@
             "Second UserStory": "user_story_85: #g26# as an #archivist#, i want to #search# #images# by place the photo was taken.",
             "First UserStory": "user_story_84: #g26# as an #archivist#, i want to #search# #images# by people represented in them."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by place the photo was taken."],
+            "First UserStory": [" i want to #search# #images# by people represented in them."]
+        },
+        "All Contains": {
+            "user_story_84": {
+                "Main Part": [[
+                    "images",
+                    "people"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "photo",
+                        "place"
+                    ],
+                    [
+                        "images",
+                        "place"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_84": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "search",
+                        "images"
+                    ],
+                    [
+                        "taken",
+                        "photo"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_84_AND_user_story_86",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by rights."],
-            "First UserStory": [" i want to #search# #images# by people represented in them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -239,21 +657,62 @@
             "Second UserStory": "user_story_86: #g26# as an #archivist#, i want to #search# #images# by rights.",
             "First UserStory": "user_story_84: #g26# as an #archivist#, i want to #search# #images# by people represented in them."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by rights."],
+            "First UserStory": [" i want to #search# #images# by people represented in them."]
+        },
+        "All Contains": {
+            "user_story_86": {
+                "Main Part": [[
+                    "images",
+                    "rights"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_84": {
+                "Main Part": [[
+                    "images",
+                    "people"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_86": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_84": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_85_AND_user_story_86",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["images"]},
+        "Common Targets": {"Main Part": [[
+            "search",
+            "images"
+        ]]},
         "Action": {"Primary Action": ["search"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# #images# by rights."],
-            "First UserStory": [" i want to #search# #images# by place the photo was taken."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "search",
             "images"
@@ -266,6 +725,54 @@
             "Second UserStory": "user_story_86: #g26# as an #archivist#, i want to #search# #images# by rights.",
             "First UserStory": "user_story_85: #g26# as an #archivist#, i want to #search# #images# by place the photo was taken."
         },
-        "Project Number": "g26"
+        "Project Number": "g26",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# #images# by rights."],
+            "First UserStory": [" i want to #search# #images# by place the photo was taken."]
+        },
+        "All Contains": {
+            "user_story_86": {
+                "Main Part": [[
+                    "images",
+                    "rights"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "photo",
+                        "place"
+                    ],
+                    [
+                        "images",
+                        "place"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_86": {
+                "Main Part": [[
+                    "search",
+                    "images"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_85": {
+                "Main Part": [
+                    [
+                        "search",
+                        "images"
+                    ],
+                    [
+                        "taken",
+                        "photo"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     }
 ]

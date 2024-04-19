@@ -3,15 +3,26 @@
         "Potential Redundant User Stories": "user_story_01_AND_user_story_02",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": true,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# based on my profile."],
-            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -36,21 +47,82 @@
             "Second UserStory": "user_story_02: #g28# as a #user#, i want to #search# and #discover# #music# based on my profile.",
             "First UserStory": "user_story_01: #g28# as a #user#, i want to #search# and #discover# #music# using content identification or fingerprinting."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# based on my profile."],
+            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
+        },
+        "All Contains": {
+            "user_story_02": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "using",
+                        "content identification"
+                    ],
+                    [
+                        "using",
+                        "fingerprinting"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_01_AND_user_story_03",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."],
-            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -75,21 +147,85 @@
             "Second UserStory": "user_story_03: #g28# as a #user#, i want to #search# and #discover# #music# based on other users similar to myself.",
             "First UserStory": "user_story_01: #g28# as a #user#, i want to #search# and #discover# #music# using content identification or fingerprinting."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."],
+            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
+        },
+        "All Contains": {
+            "user_story_03": {
+                "Main Part": [[
+                    "other users similar to myself",
+                    "music"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "using",
+                        "content identification"
+                    ],
+                    [
+                        "using",
+                        "fingerprinting"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_01_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
-            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -114,21 +250,93 @@
             "Second UserStory": "user_story_04: #g28# as a #user#, i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity.",
             "First UserStory": "user_story_01: #g28# as a #user#, i want to #search# and #discover# #music# using content identification or fingerprinting."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
+            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [[
+                    "given music video",
+                    "content similarity"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "using",
+                        "content identification"
+                    ],
+                    [
+                        "using",
+                        "fingerprinting"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_01_AND_user_story_05",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
-            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -153,21 +361,103 @@
             "Second UserStory": "user_story_05: #g28# as a #user#, i want to #search# and #discover# #music# by exploiting enriched metadata and image tags, so that i find related artists, new genre, or other relevant listening path.",
             "First UserStory": "user_story_01: #g28# as a #user#, i want to #search# and #discover# #music# using content identification or fingerprinting."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
+            "First UserStory": [" i want to #search# and #discover# #music# using content identification or fingerprinting."]
+        },
+        "All Contains": {
+            "user_story_05": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_05": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "exploiting",
+                        "enriched metadata"
+                    ],
+                    [
+                        "exploiting",
+                        "image tags"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "related artists"
+                    ],
+                    [
+                        "find",
+                        "new genre"
+                    ],
+                    [
+                        "find",
+                        "other relevant listening path"
+                    ]
+                ]
+            },
+            "user_story_01": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "using",
+                        "content identification"
+                    ],
+                    [
+                        "using",
+                        "fingerprinting"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_02_AND_user_story_03",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."],
-            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -192,21 +482,77 @@
             "Second UserStory": "user_story_03: #g28# as a #user#, i want to #search# and #discover# #music# based on other users similar to myself.",
             "First UserStory": "user_story_02: #g28# as a #user#, i want to #search# and #discover# #music# based on my profile."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."],
+            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
+        },
+        "All Contains": {
+            "user_story_02": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [[
+                    "other users similar to myself",
+                    "music"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_02_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
-            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -231,21 +577,85 @@
             "Second UserStory": "user_story_04: #g28# as a #user#, i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity.",
             "First UserStory": "user_story_02: #g28# as a #user#, i want to #search# and #discover# #music# based on my profile."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
+            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [[
+                    "given music video",
+                    "content similarity"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_02": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_02_AND_user_story_05",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": false,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": true,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "search",
+                "music"
+            ],
+            [
+                "discover",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
-            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "search",
@@ -270,21 +680,95 @@
             "Second UserStory": "user_story_05: #g28# as a #user#, i want to #search# and #discover# #music# by exploiting enriched metadata and image tags, so that i find related artists, new genre, or other relevant listening path.",
             "First UserStory": "user_story_02: #g28# as a #user#, i want to #search# and #discover# #music# based on my profile."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
+            "First UserStory": [" i want to #search# and #discover# #music# based on my profile."]
+        },
+        "All Contains": {
+            "user_story_05": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_02": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_05": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "exploiting",
+                        "enriched metadata"
+                    ],
+                    [
+                        "exploiting",
+                        "image tags"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "related artists"
+                    ],
+                    [
+                        "find",
+                        "new genre"
+                    ],
+                    [
+                        "find",
+                        "other relevant listening path"
+                    ]
+                ]
+            },
+            "user_story_02": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_04",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "discover",
+                "music"
+            ],
+            [
+                "search",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
-            "First UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "discover",
@@ -309,21 +793,88 @@
             "Second UserStory": "user_story_04: #g28# as a #user#, i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity.",
             "First UserStory": "user_story_03: #g28# as a #user#, i want to #search# and #discover# #music# based on other users similar to myself."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."],
+            "First UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [[
+                    "given music video",
+                    "content similarity"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [[
+                    "other users similar to myself",
+                    "music"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_03_AND_user_story_05",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "discover",
+                "music"
+            ],
+            [
+                "search",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
-            "First UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "discover",
@@ -348,21 +899,98 @@
             "Second UserStory": "user_story_05: #g28# as a #user#, i want to #search# and #discover# #music# by exploiting enriched metadata and image tags, so that i find related artists, new genre, or other relevant listening path.",
             "First UserStory": "user_story_03: #g28# as a #user#, i want to #search# and #discover# #music# based on other users similar to myself."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
+            "First UserStory": [" i want to #search# and #discover# #music# based on other users similar to myself."]
+        },
+        "All Contains": {
+            "user_story_05": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_03": {
+                "Main Part": [[
+                    "other users similar to myself",
+                    "music"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_05": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "exploiting",
+                        "enriched metadata"
+                    ],
+                    [
+                        "exploiting",
+                        "image tags"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "related artists"
+                    ],
+                    [
+                        "find",
+                        "new genre"
+                    ],
+                    [
+                        "find",
+                        "other relevant listening path"
+                    ]
+                ]
+            },
+            "user_story_03": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_04_AND_user_story_05",
         "Status": {
             "Main Part Redundancy Clauses": 4,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 4,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["music"]},
+        "Common Targets": {"Main Part": [
+            [
+                "discover",
+                "music"
+            ],
+            [
+                "search",
+                "music"
+            ]
+        ]},
         "Action": {"Primary Action": ["discover"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
-            "First UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "discover",
@@ -387,25 +1015,103 @@
             "Second UserStory": "user_story_05: #g28# as a #user#, i want to #search# and #discover# #music# by exploiting enriched metadata and image tags, so that i find related artists, new genre, or other relevant listening path.",
             "First UserStory": "user_story_04: #g28# as a #user#, i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #search# and #discover# #music# by exploiting enriched metadata and image tags"],
+            "First UserStory": [" i want to #search# and #discover# #music# or ringback tones similar to a given #music# video based on content similarity."]
+        },
+        "All Contains": {
+            "user_story_04": {
+                "Main Part": [[
+                    "given music video",
+                    "content similarity"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_05": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_04": {
+                "Main Part": [
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "ringback tones"
+                    ],
+                    [
+                        "search",
+                        "music"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_05": {
+                "Main Part": [
+                    [
+                        "search",
+                        "music"
+                    ],
+                    [
+                        "discover",
+                        "music"
+                    ],
+                    [
+                        "exploiting",
+                        "enriched metadata"
+                    ],
+                    [
+                        "exploiting",
+                        "image tags"
+                    ]
+                ],
+                "Benefit Part": [
+                    [
+                        "find",
+                        "related artists"
+                    ],
+                    [
+                        "find",
+                        "new genre"
+                    ],
+                    [
+                        "find",
+                        "other relevant listening path"
+                    ]
+                ]
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_08_AND_user_story_09",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["info"]},
+        "Common Targets": {"Main Part": [[
+            "get",
+            "info"
+        ]]},
         "Action": {"Primary Action": ["get"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #get# #info# about perceptually similar video items and #segments#."],
-            "First UserStory": [" i want to #get# #info# about similar video items and #segments#."]
-        },
-        "Contains": [[
+        "Common Contains": {"Main Part": [[
             "segments",
             "info"
-        ]],
+        ]]},
         "Targets": [[
             "get",
             "info"
@@ -418,21 +1124,78 @@
             "Second UserStory": "user_story_09: #g28# as a #user#, i want to #get# #info# about perceptually similar video items and #segments#.",
             "First UserStory": "user_story_08: #g28# as a #user#, i want to #get# #info# about similar video items and #segments#."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #get# #info# about perceptually similar video items and #segments#."],
+            "First UserStory": [" i want to #get# #info# about similar video items and #segments#."]
+        },
+        "Contains": [[
+            "segments",
+            "info"
+        ]],
+        "All Contains": {
+            "user_story_08": {
+                "Main Part": [
+                    [
+                        "similar video items",
+                        "info"
+                    ],
+                    [
+                        "segments",
+                        "info"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_09": {
+                "Main Part": [
+                    [
+                        "perceptually similar video items",
+                        "info"
+                    ],
+                    [
+                        "segments",
+                        "info"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_08": {
+                "Main Part": [[
+                    "get",
+                    "info"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_09": {
+                "Main Part": [[
+                    "get",
+                    "info"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_10_AND_user_story_11",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["content recommendations"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "content recommendations"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #receive# #content recommendations# based on most relevant news events in my area."],
-            "First UserStory": [" i want to #receive# #content recommendations# from similar profiles."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "content recommendations"
@@ -445,21 +1208,62 @@
             "Second UserStory": "user_story_11: #g28# as a #user#, i want to #receive# #content recommendations# based on most relevant news events in my area.",
             "First UserStory": "user_story_10: #g28# as a #user#, i want to #receive# #content recommendations# from similar profiles."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #receive# #content recommendations# based on most relevant news events in my area."],
+            "First UserStory": [" i want to #receive# #content recommendations# from similar profiles."]
+        },
+        "All Contains": {
+            "user_story_11": {
+                "Main Part": [[
+                    "area",
+                    "most relevant news events"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "similar profiles",
+                    "content recommendations"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_11": {
+                "Main Part": [[
+                    "receive",
+                    "content recommendations"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_10": {
+                "Main Part": [[
+                    "receive",
+                    "content recommendations"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_12_AND_user_story_13",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -478,21 +1282,86 @@
             "Second UserStory": "user_story_13: #g28# as a #user#, i want to identify products in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_12: #g28# as a #user#, i want to identify persons in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "products"
+                    ],
+                    [
+                        "products",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "persons"
+                    ],
+                    [
+                        "persons",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "products"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "persons"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_12_AND_user_story_14",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -511,21 +1380,80 @@
             "Second UserStory": "user_story_14: #g28# as a #user#, i want to identify broadcaster logos in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_12: #g28# as a #user#, i want to identify persons in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_14": {
+                "Main Part": [[
+                    "videos",
+                    "broadcaster logos"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "persons"
+                    ],
+                    [
+                        "persons",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "broadcaster logos"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "persons"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_12_AND_user_story_15",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -544,21 +1472,86 @@
             "Second UserStory": "user_story_15: #g28# as a #user#, i want to identify brands in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_12: #g28# as a #user#, i want to identify persons in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "brands"
+                    ],
+                    [
+                        "brands",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "persons"
+                    ],
+                    [
+                        "persons",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "brands"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_12": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "persons"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_13_AND_user_story_14",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -577,21 +1570,80 @@
             "Second UserStory": "user_story_14: #g28# as a #user#, i want to identify broadcaster logos in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_13: #g28# as a #user#, i want to identify products in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "products"
+                    ],
+                    [
+                        "products",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [[
+                    "videos",
+                    "broadcaster logos"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "products"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "broadcaster logos"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_13_AND_user_story_15",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -610,21 +1662,86 @@
             "Second UserStory": "user_story_15: #g28# as a #user#, i want to identify brands in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_13: #g28# as a #user#, i want to identify products in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "brands"
+                    ],
+                    [
+                        "brands",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "products"
+                    ],
+                    [
+                        "products",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "brands"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_13": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "products"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_14_AND_user_story_15",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["related information"]},
+        "Common Targets": {"Main Part": [[
+            "receive",
+            "related information"
+        ]]},
         "Action": {"Primary Action": ["receive"]},
-        "Part of Sentence": {
-            "Second UserStory": [" and #receive# #related information# about them."],
-            "First UserStory": [" and #receive# #related information# about them."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "receive",
             "related information"
@@ -643,27 +1760,92 @@
             "Second UserStory": "user_story_15: #g28# as a #user#, i want to identify brands in videos, and #receive# #related information# about them.",
             "First UserStory": "user_story_14: #g28# as a #user#, i want to identify broadcaster logos in videos, and #receive# #related information# about them."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" and #receive# #related information# about them."],
+            "First UserStory": [" and #receive# #related information# about them."]
+        },
+        "All Contains": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "videos",
+                        "brands"
+                    ],
+                    [
+                        "brands",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [[
+                    "videos",
+                    "broadcaster logos"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_15": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "brands"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_14": {
+                "Main Part": [
+                    [
+                        "identify",
+                        "broadcaster logos"
+                    ],
+                    [
+                        "receive",
+                        "related information"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_24_AND_user_story_26",
         "Status": {
             "Main Part Redundancy Clauses": 3,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 3,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {
             "Primary Entity": ["content"],
             "Secondary Entity": ["search"]
         },
+        "Common Targets": {"Main Part": [
+            [
+                "prefilter",
+                "content"
+            ],
+            [
+                "using",
+                "search"
+            ]
+        ]},
         "Action": {
             "Secondary Action": ["using"],
             "Primary Action": ["prefilter"]
         },
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #prefilter# the #content# #using# #search# on high-level asset information such as metadata and tags either recognized by the system of provided by the user."],
-            "First UserStory": [" i want to #prefilter# #content# #using# #search# based on low-level asset information."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [
             [
                 "prefilter",
@@ -682,21 +1864,88 @@
             "Second UserStory": "user_story_26: #g28# as an #admin#, i want to #prefilter# the #content# #using# #search# on high-level asset information such as metadata and tags either recognized by the system of provided by the user.",
             "First UserStory": "user_story_24: #g28# as an #admin#, i want to #prefilter# #content# #using# #search# based on low-level asset information."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #prefilter# the #content# #using# #search# on high-level asset information such as metadata and tags either recognized by the system of provided by the user."],
+            "First UserStory": [" i want to #prefilter# #content# #using# #search# based on low-level asset information."]
+        },
+        "All Contains": {
+            "user_story_26": {
+                "Main Part": [
+                    [
+                        "high-level asset information",
+                        "metadata"
+                    ],
+                    [
+                        "high-level asset information",
+                        "tags"
+                    ],
+                    [
+                        "user",
+                        "system of provided"
+                    ],
+                    [
+                        "content",
+                        "high-level asset information"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_24": {
+                "Main Part": [[
+                    "content",
+                    "low-level asset information"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_26": {
+                "Main Part": [
+                    [
+                        "prefilter",
+                        "content"
+                    ],
+                    [
+                        "using",
+                        "search"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_24": {
+                "Main Part": [
+                    [
+                        "prefilter",
+                        "content"
+                    ],
+                    [
+                        "using",
+                        "search"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_49_AND_user_story_50",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Secondary Entity": ["volunteer"]},
+        "Common Targets": {"Main Part": [[
+            "interrupt",
+            "volunteer"
+        ]]},
         "Action": {"Secondary Action": ["interrupt"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to know whether i should #interrupt# a #volunteer# with text"],
-            "First UserStory": [" i want to know when i should #interrupt# a #volunteer#."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "interrupt",
             "volunteer"
@@ -709,21 +1958,75 @@
             "Second UserStory": "user_story_50: #g28# as a #zooniverse admin#, i want to know whether i should #interrupt# a #volunteer# with text, an image, or a video.",
             "First UserStory": "user_story_49: #g28# as a #zooniverse admin#, i want to know when i should #interrupt# a #volunteer#."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to know whether i should #interrupt# a #volunteer# with text"],
+            "First UserStory": [" i want to know when i should #interrupt# a #volunteer#."]
+        },
+        "All Contains": {
+            "user_story_49": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "text"
+                    ],
+                    [
+                        "volunteer",
+                        "image"
+                    ],
+                    [
+                        "volunteer",
+                        "video"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_49": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "interrupt",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_50": {
+                "Main Part": [[
+                    "interrupt",
+                    "volunteer"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_49_AND_user_story_51",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# i should educate a volunteer."],
-            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -736,21 +2039,68 @@
             "Second UserStory": "user_story_51: #g28# as a #zooniverse admin#, i want to #know# #when# i should educate a volunteer.",
             "First UserStory": "user_story_49: #g28# as a #zooniverse admin#, i want to #know# #when# i should interrupt a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# i should educate a volunteer."],
+            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
+        },
+        "All Contains": {
+            "user_story_49": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_49": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "interrupt",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "educate",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_49_AND_user_story_54",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."],
-            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -763,21 +2113,77 @@
             "Second UserStory": "user_story_54: #g28# as a #zooniverse admin#, i want to #know# #when# a volunteer has made an interesting comment on a subject.",
             "First UserStory": "user_story_49: #g28# as a #zooniverse admin#, i want to #know# #when# i should interrupt a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."],
+            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
+        },
+        "All Contains": {
+            "user_story_49": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "interesting comment"
+                    ],
+                    [
+                        "subject",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_49": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "interrupt",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "made",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_49_AND_user_story_55",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
-            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -790,21 +2196,68 @@
             "Second UserStory": "user_story_55: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should comment on a subject.",
             "First UserStory": "user_story_49: #g28# as a #zooniverse admin#, i want to #know# #when# i should interrupt a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
+            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
+        },
+        "All Contains": {
+            "user_story_49": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_55": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_49": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "interrupt",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_55": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "comment",
+                        "subject"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_49_AND_user_story_56",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
-            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -817,21 +2270,71 @@
             "Second UserStory": "user_story_56: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should give an explanation.",
             "First UserStory": "user_story_49: #g28# as a #zooniverse admin#, i want to #know# #when# i should interrupt a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
+            "First UserStory": [" i want to #know# #when# i should interrupt a volunteer."]
+        },
+        "All Contains": {
+            "user_story_49": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_56": {
+                "Main Part": [[
+                    "zoonibot",
+                    "explanation"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_49": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "interrupt",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_56": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "give",
+                        "explanation"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_51_AND_user_story_52",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Secondary Entity": ["volunteer"]},
+        "Common Targets": {"Main Part": [[
+            "educate",
+            "volunteer"
+        ]]},
         "Action": {"Secondary Action": ["educate"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to know whether i should #educate# a #volunteer# with text"],
-            "First UserStory": [" i want to know when i should #educate# a #volunteer#."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "educate",
             "volunteer"
@@ -844,21 +2347,75 @@
             "Second UserStory": "user_story_52: #g28# as a #zooniverse admin#, i want to know whether i should #educate# a #volunteer# with text, an image, or a video.",
             "First UserStory": "user_story_51: #g28# as a #zooniverse admin#, i want to know when i should #educate# a #volunteer#."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to know whether i should #educate# a #volunteer# with text"],
+            "First UserStory": [" i want to know when i should #educate# a #volunteer#."]
+        },
+        "All Contains": {
+            "user_story_51": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_52": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "text"
+                    ],
+                    [
+                        "volunteer",
+                        "image"
+                    ],
+                    [
+                        "volunteer",
+                        "video"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_51": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "educate",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_52": {
+                "Main Part": [[
+                    "educate",
+                    "volunteer"
+                ]],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_51_AND_user_story_54",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."],
-            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -871,21 +2428,77 @@
             "Second UserStory": "user_story_54: #g28# as a #zooniverse admin#, i want to #know# #when# a volunteer has made an interesting comment on a subject.",
             "First UserStory": "user_story_51: #g28# as a #zooniverse admin#, i want to #know# #when# i should educate a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."],
+            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
+        },
+        "All Contains": {
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "interesting comment"
+                    ],
+                    [
+                        "subject",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "made",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "educate",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_51_AND_user_story_55",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
-            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -898,21 +2511,68 @@
             "Second UserStory": "user_story_55: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should comment on a subject.",
             "First UserStory": "user_story_51: #g28# as a #zooniverse admin#, i want to #know# #when# i should educate a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
+            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
+        },
+        "All Contains": {
+            "user_story_55": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_55": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "comment",
+                        "subject"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "educate",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_51_AND_user_story_56",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
-            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -925,21 +2585,71 @@
             "Second UserStory": "user_story_56: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should give an explanation.",
             "First UserStory": "user_story_51: #g28# as a #zooniverse admin#, i want to #know# #when# i should educate a volunteer."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
+            "First UserStory": [" i want to #know# #when# i should educate a volunteer."]
+        },
+        "All Contains": {
+            "user_story_56": {
+                "Main Part": [[
+                    "zoonibot",
+                    "explanation"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_56": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "give",
+                        "explanation"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_51": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "educate",
+                        "volunteer"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_54_AND_user_story_55",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
-            "First UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -952,21 +2662,77 @@
             "Second UserStory": "user_story_55: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should comment on a subject.",
             "First UserStory": "user_story_54: #g28# as a #zooniverse admin#, i want to #know# #when# a volunteer has made an interesting comment on a subject."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should comment on a subject."],
+            "First UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."]
+        },
+        "All Contains": {
+            "user_story_55": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "interesting comment"
+                    ],
+                    [
+                        "subject",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_55": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "comment",
+                        "subject"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "made",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_54_AND_user_story_56",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
-            "First UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -979,21 +2745,80 @@
             "Second UserStory": "user_story_56: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should give an explanation.",
             "First UserStory": "user_story_54: #g28# as a #zooniverse admin#, i want to #know# #when# a volunteer has made an interesting comment on a subject."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
+            "First UserStory": [" i want to #know# #when# a volunteer has made an interesting comment on a subject."]
+        },
+        "All Contains": {
+            "user_story_56": {
+                "Main Part": [[
+                    "zoonibot",
+                    "explanation"
+                ]],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "volunteer",
+                        "interesting comment"
+                    ],
+                    [
+                        "subject",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_56": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "give",
+                        "explanation"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_54": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "made",
+                        "interesting comment"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     },
     {
         "Potential Redundant User Stories": "user_story_55_AND_user_story_56",
         "Status": {
             "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
             "Total Redundancy Clauses": 2,
-            "Benefit Part Redundancy Clause": 0
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
         },
         "Entity": {"Primary Entity": ["when"]},
+        "Common Targets": {"Main Part": [[
+            "know",
+            "when"
+        ]]},
         "Action": {"Primary Action": ["know"]},
-        "Part of Sentence": {
-            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
-            "First UserStory": [" i want to #know# #when# zoonibot should comment on a subject."]
-        },
+        "Common Contains": {"Main Part": []},
         "Targets": [[
             "know",
             "when"
@@ -1006,6 +2831,51 @@
             "Second UserStory": "user_story_56: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should give an explanation.",
             "First UserStory": "user_story_55: #g28# as a #zooniverse admin#, i want to #know# #when# zoonibot should comment on a subject."
         },
-        "Project Number": "g28"
+        "Project Number": "g28",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #know# #when# zoonibot should give an explanation."],
+            "First UserStory": [" i want to #know# #when# zoonibot should comment on a subject."]
+        },
+        "All Contains": {
+            "user_story_55": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_56": {
+                "Main Part": [[
+                    "zoonibot",
+                    "explanation"
+                ]],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_55": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "comment",
+                        "subject"
+                    ]
+                ],
+                "Benefit Part": []
+            },
+            "user_story_56": {
+                "Main Part": [
+                    [
+                        "know",
+                        "when"
+                    ],
+                    [
+                        "give",
+                        "explanation"
+                    ]
+                ],
+                "Benefit Part": []
+            }
+        }
     }
 ]
