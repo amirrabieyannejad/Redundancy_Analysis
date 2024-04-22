@@ -1,0 +1,110 @@
+[
+{
+        "Potential Redundant User Stories": "user_story_09_AND_user_story_11",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": true,
+            "Total Redundancy Clauses": 4,
+            "Benefit Part Fully Redundant": true,
+            "Benefit Part Redundancy Clause": 2,
+            "Main Part Fully Redundant": false,
+            "Benefit Part Partially Redundant": false
+        },
+        "Entity": {
+            "Primary Entity": ["data"],
+            "Secondary Entity": ["data packager"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "import",
+                "data"
+            ]],
+            "Benefit Part": [[
+                "use",
+                "data packager"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["use"],
+            "Primary Action": ["import"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": [[
+                "data",
+                "data formats"
+            ]]
+        },
+        "Targets": [
+            [
+                "import",
+                "data"
+            ],
+            [
+                "use",
+                "data packager"
+            ]
+        ],
+        "Triggers": [[
+            "data publishing user",
+            "import"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_11: #g05# as a #data publishing user#, i want to be able to #import# #data# in json, so that i do not have to convert #data# formats# in order to #use# the #data# packager#.",
+            "First UserStory": "user_story_09: #g05# as a #data publishing user#, i want to be able to #import# #data# in excel, so that i do not have to convert #data# formats# in order to #use# the #data# packager#."
+        },
+        "Project Number": "g05",
+        "Part of Sentence": {
+            "Second UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."],
+            "First UserStory": [" so that i do not have to convert #data# formats# in order to #use# the #data# packager#."]
+        },
+        "Contains": [[
+            "data",
+            "data formats"
+        ]],
+        "All Contains": {
+            "user_story_09": {
+                "Main Part": [[
+                    "excel",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "json",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "data",
+                    "data formats"
+                ]]
+            }
+        },
+        "All Targets": {
+            "user_story_09": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            },
+            "user_story_11": {
+                "Main Part": [[
+                    "import",
+                    "data"
+                ]],
+                "Benefit Part": [[
+                    "use",
+                    "data packager"
+                ]]
+            }
+        }
+    }
+]

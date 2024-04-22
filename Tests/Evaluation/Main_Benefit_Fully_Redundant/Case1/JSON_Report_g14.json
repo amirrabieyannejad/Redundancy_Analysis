@@ -1,0 +1,97 @@
+[
+{
+        "Potential Redundant User Stories": "user_story_22_AND_user_story_24",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": false,
+            "Total Redundancy Clauses": 3,
+            "Benefit Part Fully Redundant": true,
+            "Benefit Part Redundancy Clause": 1,
+            "Main Part Fully Redundant": true,
+            "Benefit Part Partially Redundant": false
+        },
+        "Entity": {
+            "Primary Entity": ["data package"],
+            "Secondary Entity": ["sense"]
+        },
+        "Common Targets": {
+            "Main Part": [[
+                "view",
+                "data package"
+            ]],
+            "Benefit Part": [[
+                "get",
+                "sense"
+            ]]
+        },
+        "Action": {
+            "Secondary Action": ["get"],
+            "Primary Action": ["view"]
+        },
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
+        },
+        "Targets": [
+            [
+                "view",
+                "data package"
+            ],
+            [
+                "get",
+                "sense"
+            ]
+        ],
+        "Triggers": [[
+            "consumer",
+            "view"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_24: #g14# as a #consumer#, i want to #view# the #data package#, so that that i can #get# a #sense# of whether i want this dataset or not.",
+            "First UserStory": "user_story_22: #g14# as a #consumer#, i want to #view# a #data package# online, so that i can #get# a #sense# of whether this is the dataset i want."
+        },
+        "Project Number": "g14",
+        "Part of Sentence": {
+            "Second UserStory": [" so that that i can #get# a #sense# of whether i want this dataset or not."],
+            "First UserStory": [" so that i can #get# a #sense# of whether this is the dataset i want."]
+        },
+        "All Contains": {
+            "user_story_24": {
+                "Main Part": [],
+                "Benefit Part": []
+            },
+            "user_story_22": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_24": {
+                "Main Part": [[
+                    "view",
+                    "data package"
+                ]],
+                "Benefit Part": [
+                    [
+                        "get",
+                        "sense"
+                    ],
+                    [
+                        "want",
+                        "dataset"
+                    ]
+                ]
+            },
+            "user_story_22": {
+                "Main Part": [[
+                    "view",
+                    "data package"
+                ]],
+                "Benefit Part": [[
+                    "get",
+                    "sense"
+                ]]
+            }
+        }
+    }
+]

@@ -2,14 +2,31 @@
     "Potential Redundant User Stories": "user_story_65_AND_user_story_67",
     "Status": {
         "Main Part Redundancy Clauses": 0,
+        "Main Part Partially Redundant": false,
         "Total Redundancy Clauses": 2,
-        "Benefit Part Redundancy Clause": 2
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 2,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": true
     },
     "Entity": {"Secondary Entity": ["technology"]},
+    "Common Targets": {
+        "Main Part": [],
+        "Benefit Part": [
+            [
+                "know",
+                "technology"
+            ],
+            [
+                "know",
+                "background information"
+            ]
+        ]
+    },
     "Action": {"Primary Action": ["know"]},
-    "Part of Sentence": {
-        "Second UserStory": [" so that i #know# what #technology# or #background information# might be necessary to (re-)use the data."],
-        "First UserStory": [" so that i #know# what #technology# or #background information# might be necessary to use the data."]
+    "Common Contains": {
+        "Main Part": [],
+        "Benefit Part": []
     },
     "Targets": [
         [
@@ -29,5 +46,97 @@
         "Second UserStory": "user_story_67: #g22# as a data manager, i want to know with which software or technology the data is produced or used, so that i #know# what #technology# or #background information# might be necessary to (re-)use the data.",
         "First UserStory": "user_story_65: #g22# as a data manager, i want to know which formats are used, so that i #know# what #technology# or #background information# might be necessary to use the data."
     },
-    "Project Number": "g22"
+    "Project Number": "g22",
+    "Part of Sentence": {
+        "Second UserStory": [" so that i #know# what #technology# or #background information# might be necessary to (re-)use the data."],
+        "First UserStory": [" so that i #know# what #technology# or #background information# might be necessary to use the data."]
+    },
+    "All Contains": {
+        "user_story_67": {
+            "Main Part": [
+                [
+                    "technology",
+                    "data"
+                ],
+                [
+                    "software",
+                    "data"
+                ]
+            ],
+            "Benefit Part": [[
+                "technology",
+                "data"
+            ]]
+        },
+        "user_story_65": {
+            "Main Part": [],
+            "Benefit Part": []
+        }
+    },
+    "All Targets": {
+        "user_story_67": {
+            "Main Part": [
+                [
+                    "know",
+                    "software"
+                ],
+                [
+                    "know",
+                    "technology"
+                ],
+                [
+                    "produced",
+                    "data"
+                ],
+                [
+                    "used",
+                    "data"
+                ]
+            ],
+            "Benefit Part": [
+                [
+                    "know",
+                    "technology"
+                ],
+                [
+                    "know",
+                    "background information"
+                ],
+                [
+                    "(re-)use",
+                    "data"
+                ]
+            ]
+        },
+        "user_story_65": {
+            "Main Part": [
+                [
+                    "know",
+                    "formats"
+                ],
+                [
+                    "used",
+                    "formats"
+                ],
+                [
+                    "use",
+                    "data"
+                ]
+            ],
+            "Benefit Part": [
+                [
+                    "know",
+                    "technology"
+                ],
+                [
+                    "know",
+                    "background information"
+                ],
+                [
+                    "use",
+                    "data"
+                ]
+            ]
+        }
+    }
 }]

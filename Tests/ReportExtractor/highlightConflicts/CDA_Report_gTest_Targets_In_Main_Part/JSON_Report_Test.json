@@ -2,20 +2,37 @@
     "Potential Redundant User Stories": "user_story_04_AND_user_story_60",
     "Status": {
         "Main Part Redundancy Clauses": 2,
+        "Main Part Partially Redundant": true,
         "Total Redundancy Clauses": 2,
-        "Benefit Part Redundancy Clause": 0
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 0,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": false
     },
     "Entity": {
         "Primary Entity": ["how"],
         "Secondary Entity": ["data"]
     },
+    "Common Targets": {
+        "Main Part": [
+            [
+                "know",
+                "how"
+            ],
+            [
+                "used",
+                "data"
+            ]
+        ],
+        "Benefit Part": []
+    },
     "Action": {
         "Secondary Action": ["used"],
         "Primary Action": ["know"]
     },
-    "Part of Sentence": {
-        "Second UserStory": [" i want to #know# #how# the #data# is #used#"],
-        "First UserStory": [" i want to #know# #how# the #data# is #used#"]
+    "Common Contains": {
+        "Main Part": [],
+        "Benefit Part": []
     },
     "Targets": [
         [
@@ -27,10 +44,70 @@
             "data"
         ]
     ],
-    "Triggers": "",
+    "Triggers": [],
     "Text": {
         "Second UserStory": "user_story_60: #g22# as an it staff member, i want to #know# #how# the #data# is #used#, so that i can determine what kind of basic services and functionalities are required.",
         "First UserStory": "user_story_04: #g22# as a data manager, i want to #know# #how# the #data# is #used#, so that i can develop more detailed usage and support scenarios with researchers."
     },
-    "Project Number": "g22"
+    "Project Number": "g22",
+    "Part of Sentence": {
+        "Second UserStory": [" i want to #know# #how# the #data# is #used#"],
+        "First UserStory": [" i want to #know# #how# the #data# is #used#"]
+    },
+    "All Contains": {
+        "user_story_04": {
+            "Main Part": [],
+            "Benefit Part": []
+        },
+        "user_story_60": {
+            "Main Part": [],
+            "Benefit Part": []
+        }
+    },
+    "All Targets": {
+        "user_story_04": {
+            "Main Part": [
+                [
+                    "know",
+                    "how"
+                ],
+                [
+                    "used",
+                    "data"
+                ]
+            ],
+            "Benefit Part": [
+                [
+                    "develop",
+                    "more detailed usage"
+                ],
+                [
+                    "support",
+                    "scenarios"
+                ]
+            ]
+        },
+        "user_story_60": {
+            "Main Part": [
+                [
+                    "know",
+                    "how"
+                ],
+                [
+                    "used",
+                    "data"
+                ]
+            ],
+            "Benefit Part": [
+                [
+                    "determine",
+                    "kind of basic services"
+                ],
+                [
+                    "determine",
+                    "functionalities"
+                ]
+            ]
+        }
+    }
 }]

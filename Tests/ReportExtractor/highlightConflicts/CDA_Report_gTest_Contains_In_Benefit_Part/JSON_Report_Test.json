@@ -2,19 +2,35 @@
     "Potential Redundant User Stories": "user_story_06_AND_user_story_45",
     "Status": {
         "Main Part Redundancy Clauses": 0,
+        "Main Part Partially Redundant": false,
         "Total Redundancy Clauses": 3,
-        "Benefit Part Redundancy Clause": 3
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 3,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": true
     },
     "Entity": {"Secondary Entity": ["trust"]},
-    "Action": {"Secondary Action": ["feel"]},
-    "Part of Sentence": {
-        "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
-        "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."]
+    "Common Targets": {
+        "Main Part": [],
+        "Benefit Part": [
+            [
+                "feel",
+                "usefulness"
+            ],
+            [
+                "feel",
+                "trust"
+            ]
+        ]
     },
-    "Contains": [[
-        "validity",
-        "trust"
-    ]],
+    "Action": {"Secondary Action": ["feel"]},
+    "Common Contains": {
+        "Main Part": [],
+        "Benefit Part": [[
+            "validity",
+            "trust"
+        ]]
+    },
     "Targets": [
         [
             "feel",
@@ -25,10 +41,80 @@
             "trust"
         ]
     ],
-    "Triggers": "",
+    "Triggers": [],
     "Text": {
         "Second UserStory": "user_story_45: #g08# as a researcherpublisher, i want validate my data with a minimum of clicks, so that i can #feel# #trust# in the #validity# and #usefulness# of the data.",
         "First UserStory": "user_story_06: #g08# as a researcherpublisher, i want to know that my data conforms to its data package profile, so that i can #feel# #trust# in the #validity# and #usefulness# of the data."
     },
-    "Project Number": "g08"
+    "Project Number": "g08",
+    "Part of Sentence": {
+        "Second UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."],
+        "First UserStory": [" so that i can #feel# #trust# in the #validity# and #usefulness# of the data."]
+    },
+    "Contains": [[
+        "validity",
+        "trust"
+    ]],
+    "All Contains": {
+        "user_story_06": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "data.",
+                    "usefulness"
+                ],
+                [
+                    "validity",
+                    "trust"
+                ]
+            ]
+        },
+        "user_story_45": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "data",
+                    "usefulness"
+                ],
+                [
+                    "validity",
+                    "trust"
+                ]
+            ]
+        }
+    },
+    "All Targets": {
+        "user_story_06": {
+            "Main Part": [[
+                "know",
+                "data"
+            ]],
+            "Benefit Part": [
+                [
+                    "feel",
+                    "usefulness"
+                ],
+                [
+                    "feel",
+                    "trust"
+                ]
+            ]
+        },
+        "user_story_45": {
+            "Main Part": [[
+                "validate",
+                "data"
+            ]],
+            "Benefit Part": [
+                [
+                    "feel",
+                    "usefulness"
+                ],
+                [
+                    "feel",
+                    "trust"
+                ]
+            ]
+        }
+    }
 }]

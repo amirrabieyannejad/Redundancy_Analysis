@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.henshin.backlog.code.evaluation.Evaluation;
 //import org.graalvm.compiler.hotspot.nodes.PatchReturnAddressNode;
 import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
 import org.henshin.backlog.code.rule.JsonFileNotFound;
@@ -60,10 +61,14 @@ public class ReportExtractor {
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-		 "21", "22", "23", "24",
-		 "25", "26", "27", "28" };
-		//String[] datasets = { "18","21","22" };
+//		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
+//		 "21", "22", "23", "24",
+//		 "25", "26", "27", "28" };
+		String[] datasets = { "03" };
+
+	}
+	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
 		// checked: 21, 04,03 ,05,08,10,11,12,14,16
 //		 Version of data set "18", "19"
 		for (int i = 0; i < datasets.length; i++) {
@@ -73,18 +78,19 @@ public class ReportExtractor {
 					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
 
 			// Create text file in order to report to user a readable format
-			File cdaReport = new File(cdaConvertor.getFinalReportDir() + "\\Textual_Report_g" + datasets[i]
+			File cdaReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
 					+ "\\Textual_Report_g" + datasets[i] + ".txt");
 			FileWriter fileWriter = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 
 			// Create JSON File in order to have systematic overview of result
-			File jsonReport = new File(cdaConvertor.getFinalReportDir() + "\\Textual_Report_g" + datasets[i]
+			File jsonReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
 					+ "\\JSON_Report_g" + datasets[i] + ".json");
 			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
 			cdaConvertor.writeTable(cdaReport, listConflictPairs);
 
 		}
+		
 	}
 
 	public String getDirName() {
@@ -95,32 +101,32 @@ public class ReportExtractor {
 		return jsonDatasetFile;
 	}
 
-	public String getAbsoluteDirPath() throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+	public String getAbsoluteDirPath()
+			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
 		Path path = Paths.get("C:\\Users\\amirr\\" + getDirName());
 		if (Files.exists(path)) {
 			if (Files.isDirectory(path)) { // Check if it's a directory
-				try (DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path)) {
-					boolean isEmpty = true;
-					boolean hasSubDirectories = false;
+				DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path);
+				boolean isEmpty = true;
+				boolean hasSubDirectories = false;
 
-					for (Path entry : directoryStream) {
-						if (Files.isDirectory(entry)) {
-							hasSubDirectories = true;
-						}
-						isEmpty = false;
+				for (Path entry : directoryStream) {
+					if (Files.isDirectory(entry)) {
+						hasSubDirectories = true;
 					}
-
-					if (isEmpty) {
-						throw new CdaReportDirIsEmpty("CDA Report Directory is empty!");
-					} else if (!hasSubDirectories) {
-						throw new CdaReportDirIsEmpty(
-								"CDA Report Directory found but doesn't have any subdirectories!");
-					} else {
-						return path.toString();
-					}
-				} catch (IOException e) {
-					throw new CdaReportDirNotFound("Error checking directory content: " + e.getMessage());
+					isEmpty = false;
 				}
+
+				// if (isEmpty) {
+				// throw new CdaReportDirIsEmpty("CDA Report Directory is empty!");
+				// }
+
+				if (!hasSubDirectories) {
+					throw new CdaReportDirIsEmpty("CDA Report Directory found but doesn't have any subdirectories!");
+				} else {
+					return path.toString();
+				}
+
 			} else {
 				throw new CdaReportDirIsNotADirectory();
 			}
@@ -139,10 +145,11 @@ public class ReportExtractor {
 		}
 	}
 
-	public String getFinalReportDir() {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
+	public String getFinalReportDir(Path path) {
+
 		if (Files.exists(path)) {
 
+			System.out.println(path.toString());
 			return path.toString();
 		} else {
 			return null;
@@ -150,24 +157,18 @@ public class ReportExtractor {
 	}
 
 	// Create or overwrite report file which return/pass the FileWriter object
-	public FileWriter createOrOverwriteReportFile(File totalCda) {
+	public FileWriter createOrOverwriteReportFile(File totalCda) throws IOException {
 		FileWriter cdaWriter = null;
-		try {
-			if (totalCda.createNewFile()) {
-				//System.out.println("File created succesfully: " + totalCda.getName());
-				cdaWriter = new FileWriter(totalCda);
-				return cdaWriter;
+		if (totalCda.createNewFile()) {
+			// System.out.println("File created succesfully: " + totalCda.getName());
+			cdaWriter = new FileWriter(totalCda);
+			return cdaWriter;
 
-			} else {
-				cdaWriter = new FileWriter(totalCda);
-				//System.out.println("File already exists. Try to overwrite..!");
-				return cdaWriter;
-			}
-		} catch (IOException e) {
-			System.out.println("An error occured.");
-			e.printStackTrace();
+		} else {
+			cdaWriter = new FileWriter(totalCda);
+			// System.out.println("File already exists. Try to overwrite..!");
+			return cdaWriter;
 		}
-		return null;
 	}
 
 	public List<RedundantPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
@@ -203,12 +204,10 @@ public class ReportExtractor {
 								if (minimalEcoreExist(redPair, conflictReason)) {
 									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + redPair + "\\"
 											+ conflictReason + "\\minimal-model.ecore");
-									try {
-										processMinimalModels(minimalModelEcoreFile, arrayTotalElements,
-												arrayTotalElementsNames, redundancyItems);
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
+
+									processMinimalModels(minimalModelEcoreFile, arrayTotalElements,
+											arrayTotalElementsNames, redundancyItems);
+
 								}
 							}
 						}
@@ -247,8 +246,10 @@ public class ReportExtractor {
 								writeUsSentencePart(redPair, redundancyItems, fileWriter, jsonRedundancyPair);
 
 								// Try to evaluate, if main or benefit part are fully/partially redundant
-								evaluateRedundancyCriteria(jsonRedundancyPair, redPair);
-
+								String us1 = getUsName1(redPair);
+								String us2 = getUsName2(redPair);
+								Evaluation evaluation = new Evaluation();
+								evaluation.evaluateRedundancyCriteria(jsonRedundancyPair, us1, us2);
 								// Add JSONObject Texts of two user story and store them into Text JSONObject
 								JSONObject jsonText = new JSONObject();
 								jsonText.put("First UserStory",
@@ -280,215 +281,7 @@ public class ReportExtractor {
 			fileWriter.close();
 
 		}
-
 		return redundantPairs;
-
-	}
-	// - two user stories are fully redundant("Full Redundant in Main Part" : true):
-	// if in Main Part: if JSONArray "Triggers" is not empty or null.
-	// if "All Targets/Contains in Main Part" of at lease one of to USs are equal to
-	// "Common Targets/Contains in Main Part"
-//	   Otherwise, "Full Redundant in Main Part" : false and
-	// "Partially Redundant in Main Part" : true.
-
-	private void evaluateRedundancyCriteria(JSONObject jsonData, String redPair) {
-
-		JSONObject allTargets = jsonData.getJSONObject("All Targets");
-		JSONObject allContains = jsonData.getJSONObject("All Contains");
-		JSONArray triggers = jsonData.getJSONArray("Triggers");
-
-		JSONObject commonTargets = jsonData.getJSONObject("Common Targets");
-		JSONObject commonContains = jsonData.getJSONObject("Common Contains");
-
-		String us1 = getUsName1(redPair);
-		String us2 = getUsName2(redPair);
-
-		// Extract data for both user stories in all targets
-		JSONObject targetsAllUs1Data = allTargets.getJSONObject(us1);
-		JSONObject targetsAllUs2Data = allTargets.getJSONObject(us2);
-
-		// Get Main and Benefit parts in All targets
-		JSONArray targetsAllUs1MainPart = targetsAllUs1Data.getJSONArray("Main Part");
-		JSONArray targetsAllUs1BenefitPart = getJSONArraySafely(targetsAllUs1Data, "Benefit Part");
-
-		JSONArray targetsAllUs2MainPart = targetsAllUs2Data.getJSONArray("Main Part");
-		JSONArray targetsAllUs2BenefitPart = getJSONArraySafely(targetsAllUs2Data, "Benefit Part");
-
-		// Get Main and Benefit Parts in Common Targets
-		JSONArray targetsCommonMainPart = commonTargets.getJSONArray("Main Part");
-		// JSONArray targetsCommonBenefitPart = commonTargets.getJSONArray("Benefit
-		// Part");
-		JSONArray targetsCommonBenefitPart = getJSONArraySafely(commonTargets, "Benefit Part");
-		// Extract data for both user stories in All contains
-		JSONObject containsAllUs1Data = allContains.getJSONObject(us1);
-		JSONObject containsAllUs2Data = allContains.getJSONObject(us2);
-
-		// Get Main and Benefit parts in All contains
-		JSONArray containsAllUs1MainPart = containsAllUs1Data.getJSONArray("Main Part");
-		JSONArray containsAllUs1BenefitPart = getJSONArraySafely(containsAllUs1Data, "Benefit Part");
-		JSONArray containsAllUs2MainPart = containsAllUs2Data.getJSONArray("Main Part");
-		JSONArray containsAllUs2BenefitPart = getJSONArraySafely(containsAllUs2Data, "Benefit Part");
-
-		// Get main and benefit parts in common Contains
-		JSONArray containsCommonMainPart = commonContains.getJSONArray("Main Part");
-		JSONArray containsCommonBenefitPart = getJSONArraySafely(commonContains, "Benefit Part");
-
-		// Check Full redundancy
-		// Check targets, Contains and Trigger in main part, if they are equal
-
-		boolean isTriggersRedundant = triggers.isEmpty();
-		boolean isTargetsMainFullyRedundant;
-		boolean isContainsMainFullyRedundant;
-//		System.out.println(redPair);
-		if (targetsCommonMainPart.length() == 0
-				&& (targetsAllUs1MainPart.length() != 0 || targetsAllUs2MainPart.length() != 0)) {
-			isTargetsMainFullyRedundant = false;
-		} else if (targetsAllUs1MainPart.length() == 0 && targetsAllUs2MainPart.length() == 0) {
-			isTargetsMainFullyRedundant = true;
-		} else {
-			isTargetsMainFullyRedundant = checkFullRedaundat(targetsAllUs1MainPart, targetsCommonMainPart)
-					|| checkFullRedaundat(targetsAllUs2MainPart, targetsCommonMainPart);
-		}
-		if (containsCommonMainPart.length() == 0
-				&& (containsAllUs1MainPart.length() != 0 || containsAllUs2MainPart.length() != 0)) {
-			isContainsMainFullyRedundant = false;
-		} else if (containsAllUs1MainPart.length() == 0 && containsAllUs2MainPart.length() == 0) {
-			isContainsMainFullyRedundant = true;
-		} else {
-			isContainsMainFullyRedundant = checkFullRedaundat(containsAllUs1MainPart, containsCommonMainPart)
-					|| checkFullRedaundat(containsAllUs2MainPart, containsCommonMainPart);
-		}
-		
-//		System.out.println("isTargetsMainRedundant "+ isTargetsMainFullyRedundant);
-//		System.out.println("isContainsMainRedundant "+isContainsMainFullyRedundant);
-		boolean isMainFullRedundant = isTargetsMainFullyRedundant && isContainsMainFullyRedundant && !isTriggersRedundant;
-
-		// Check targets, Contains and Trigger in benefit part, if they are equal
-		boolean isBenefitFullRedundant = false;
-		// if there is no common contains but one the USs has contains, it means there
-		// is no full
-		// redundant in contains benefit
-		//System.out.println(redPair);
-		boolean isTargetsBenefitRedundant;
-		if (targetsCommonBenefitPart.length() == 0
-				&& (targetsAllUs1BenefitPart.length() != 0 || targetsAllUs2BenefitPart.length() != 0)) {
-			isTargetsBenefitRedundant = false;
-			//System.out.println("isTargetsBenefitRedundant_if: " + isTargetsBenefitRedundant);
-		} else if (targetsAllUs1BenefitPart.length() == 0 && targetsAllUs2BenefitPart.length() == 0) {
-			isTargetsBenefitRedundant = true;
-			//System.out.println("isTargetsBenefitRedundant_esle_if: " + isTargetsBenefitRedundant);
-		} else {
-			isTargetsBenefitRedundant = checkFullRedaundat(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
-					|| checkFullRedaundat(targetsAllUs2BenefitPart, targetsCommonBenefitPart);
-//			System.out.println("isTargetsBenefitRedundant_else: " + isTargetsBenefitRedundant);
-		}
-		boolean isContainsBenefitRedundant;
-		if (containsCommonBenefitPart.length() == 0
-				&& (containsAllUs1BenefitPart.length() != 0 || containsAllUs2BenefitPart.length() != 0)) {
-			isContainsBenefitRedundant = false;
-		} else if (containsAllUs1BenefitPart.length() == 0 && containsAllUs2BenefitPart.length() == 0) {
-			isContainsBenefitRedundant = true;
-		} else {
-			isContainsBenefitRedundant = (checkFullRedaundat(containsAllUs1BenefitPart, containsCommonBenefitPart)
-					|| checkFullRedaundat(containsAllUs2BenefitPart, containsCommonBenefitPart));
-
-		}
-		
-		
-		//System.out.println("isContainsBenefitRedundant" + isContainsBenefitRedundant);
-		// benefit part is full redundant if all elements of contains and targets are
-		// redundant
-		isBenefitFullRedundant = isTargetsBenefitRedundant && isContainsBenefitRedundant
-				&& (targetsCommonBenefitPart.length() != 0 || containsCommonBenefitPart.length() != 0);
-
-		// Evaluate partial redundancy
-		boolean isMainPartiallyRedundant = false;
-		if (isMainFullRedundant || (targetsAllUs1MainPart.isEmpty() && targetsAllUs2MainPart.isEmpty()
-				&& containsAllUs1MainPart.isEmpty() && containsAllUs2MainPart.isEmpty())) {
-			isMainPartiallyRedundant = false;
-		} else {
-			isMainPartiallyRedundant = checkPartialRedundancy(targetsAllUs1MainPart, targetsCommonMainPart)
-					|| checkPartialRedundancy(targetsAllUs2MainPart, targetsCommonMainPart)
-					|| checkPartialRedundancy(containsAllUs1MainPart, containsCommonMainPart)
-					|| checkPartialRedundancy(containsAllUs2MainPart, containsCommonMainPart);
-
-		}
-		boolean isBenefitPartiallyRedundant = false;
-		if (isBenefitFullRedundant || (targetsAllUs1BenefitPart.isEmpty() && targetsAllUs2BenefitPart.isEmpty()
-				&& containsAllUs1BenefitPart.isEmpty() && containsAllUs2BenefitPart.isEmpty())) {
-			isBenefitPartiallyRedundant = false;
-		} else {
-			isBenefitPartiallyRedundant = checkPartialRedundancy(targetsAllUs1BenefitPart, targetsCommonBenefitPart)
-					|| checkPartialRedundancy(targetsAllUs2BenefitPart, targetsCommonBenefitPart)
-					|| checkPartialRedundancy(containsAllUs1BenefitPart, containsCommonBenefitPart)
-					|| checkPartialRedundancy(containsAllUs2BenefitPart, containsCommonBenefitPart);
-
-		}
-		// Add redundancy status to the JSON object
-		JSONObject status = jsonData.getJSONObject("Status");
-		status.put("Main Part Fully Redundant", isMainFullRedundant);
-		status.put("Main Part Partially Redundant", isMainPartiallyRedundant);
-		status.put("Benefit Part Fully Redundant", isBenefitFullRedundant);
-		status.put("Benefit Part Partially Redundant", isBenefitPartiallyRedundant);
-	}
-
-	private JSONArray getJSONArraySafely(JSONObject jsonObject, String key) {
-		return jsonObject.has(key) ? jsonObject.getJSONArray(key) : new JSONArray();
-	}
-
-	// checking partial redundancy by counting matches between the elements
-	// of the given JSONArrays and updating the JSON object with both full
-	// and partial redundancy statuses.
-	private boolean checkPartialRedundancy(JSONArray part1, JSONArray part2) {
-		int matchCount = 0;
-
-		if (part1.length() > 0 && part2.length() > 0) {
-			for (int i = 0; i < part1.length(); i++) {
-				JSONArray jsonArrayI = part1.getJSONArray(i);
-				String elementI1 = jsonArrayI.getString(0);
-				String elementI2 = jsonArrayI.getString(1);
-				for (int j = 0; j < part2.length(); j++) {
-					JSONArray jsonArrayJ = part2.getJSONArray(j);
-					String elementJ1 = jsonArrayJ.getString(0);
-					String elementJ2 = jsonArrayJ.getString(1);
-					if (elementI1.equals(elementJ1) && elementI2.equals(elementJ2)) {
-						matchCount++;
-						break;
-					}
-				}
-			}
-		}
-		return matchCount > 0;
-	}
-
-	// contains/targets are full redundant if their length and their elements are
-	// are the same
-	private boolean checkFullRedaundat(JSONArray allElements, JSONArray commonElements) {
-		if (allElements.length() != commonElements.length()) {
-			return false;
-		}
-//		System.out.println("allElements: " + allElements);
-//		System.out.println("commonElements: " + commonElements);
-		int length = allElements.length();
-		int count = 0;
-		for (int i = 0; i < allElements.length(); i++) {
-			JSONArray jsonArrayAll = allElements.getJSONArray(i);
-
-			for (int j = 0; j < commonElements.length(); j++) {
-				JSONArray jsonArrayCommon = commonElements.getJSONArray(j);
-//				System.out.println("second Loop_jsonArrayAll: "+ jsonArrayAll);
-//				System.out.println("second Loop_jsonArrayCommon: "+jsonArrayCommon);
-				if (jsonArrayAll.toString().equalsIgnoreCase(jsonArrayCommon.toString())) {
-//					System.out.println("second Loop_inside_if_jsonArrayAll: "+jsonArrayAll);
-//					System.out.println("second Loop_inside_if_jsonArrayCommon: "+jsonArrayCommon);
-					count++;
-//					System.out.println("count: " + count);
-					break;
-				} 
-			}
-
-		}
-		return length == count;
 	}
 
 	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
@@ -510,7 +303,7 @@ public class ReportExtractor {
 	// receive a conflict Pair and a String which corresponds to "Targets" array
 	// Object in JSON file
 	private List<TargetsPair> getCommonTargets(String redPair, JSONObject jsonRedundancyPair)
-			throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
 		List<TargetsPair> targetPairs = new ArrayList<>();
@@ -641,7 +434,8 @@ public class ReportExtractor {
 
 	// receive a conflict Pair and a String which corresponds to "Triggers" array
 	// Object in JSON file
-	private List<TriggersPair> getCommonTriggers(String redPair) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+	private List<TriggersPair> getCommonTriggers(String redPair)
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
 		List<TriggersPair> triggersPairs = new ArrayList<>();
@@ -692,7 +486,7 @@ public class ReportExtractor {
 	// receive a conflict Pair and a String which corresponds to "Contains" array
 	// Object in JSON file
 	private List<ContainsPair> getCommonContains(String redPair, JSONObject jsonRedundancyPair)
-			throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
 		List<ContainsPair> containsPairs = new ArrayList<>();
@@ -826,8 +620,8 @@ public class ReportExtractor {
 		return null;
 	}
 
-	private boolean minimalEcoreExist(String redPair, String conflictReason)
-			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+	public boolean minimalEcoreExist(String redPair, String conflictReason)
+			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
 		Path path = Paths.get(getAbsoluteDirPath() + "\\" + redPair + "\\" + conflictReason + "\\minimal-model.ecore");
 		if (Files.exists(path)) {
 			return true;
@@ -865,12 +659,7 @@ public class ReportExtractor {
 					iteratePackages(minimalPackage, arrayMaximalElements, arrayMaximalElementsNames, redundancyItems);
 
 				}
-			} else {
-				System.out.println("minimal-model.ecore not found!");
 			}
-		} else {
-
-			System.out.println("No registered resource factory founded: " + minimalModelEcoreFile.getAbsolutePath());
 		}
 	}
 
@@ -940,29 +729,25 @@ public class ReportExtractor {
 
 	}
 
-	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound {
+	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
 		JSONArray jsonArray;
-		try (FileReader reader = new FileReader(path)) {
-			JSONTokener tokener = new JSONTokener(reader);
-			if (!tokener.more()) {
-				throw new EmptyOrNotExistJsonFile();
+		FileReader reader = new FileReader(path);
+		JSONTokener tokener = new JSONTokener(reader);
+		if (!tokener.more()) {
+			throw new EmptyOrNotExistJsonFile();
 
-			}
-			// Read JSON file
-			jsonArray = new JSONArray(tokener);
-
-			return jsonArray;
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
+		// Read JSON file
+		jsonArray = new JSONArray(tokener);
 
-		return null;
+		return jsonArray;
+
 	}
 
 	// in order to insert the table at the very first place of the file
 	// we need to first store the report at StringBuilder and then make
 	// file again but at this time writing the table first
-	private void writeTable(File totalCda, List<RedundantPair> redundantPairs) throws IOException {
+	public void writeTable(File totalCda, List<RedundantPair> redundantPairs) throws IOException {
 
 		List<String> pairListSeperate = new ArrayList<>();
 		StringBuilder report = new StringBuilder();
@@ -972,47 +757,42 @@ public class ReportExtractor {
 			report.append(line).append("\n");
 		}
 		reader.close();
-		try (FileWriter writer = new FileWriter(totalCda)) {
+		FileWriter writer = new FileWriter(totalCda);
 
-			// display the table
-			StringBuilder table = new StringBuilder();
-			// add new line before the table
-			table.append("* Table of potential redundancies between user stories"
-					+ " and the number of their overlapping elements\n\n");
-			// table.append("\t");
-			for (RedundantPair redundantPair : redundantPairs) {
-				if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {
-					pairListSeperate.add(redundantPair.getRedundantPair1());
-				}
-				if (!pairListSeperate.contains(redundantPair.getRedundantPair2())) {
-					pairListSeperate.add(redundantPair.getRedundantPair2());
-				}
+		// display the table
+		StringBuilder table = new StringBuilder();
+		// add new line before the table
+		table.append("* Table of potential redundancies between user stories"
+				+ " and the number of their overlapping elements\n\n");
+		// table.append("\t");
+		for (RedundantPair redundantPair : redundantPairs) {
+			if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {
+				pairListSeperate.add(redundantPair.getRedundantPair1());
 			}
-			String[][] stringTable = createTable(pairListSeperate, redundantPairs);
-			int numCols = stringTable[0].length;
-
-			// find the maximum width for each column
-			int[] maxWidths = new int[numCols];
-			for (String[] row : stringTable) {
-				for (int j = 0; j < numCols; j++) {
-					maxWidths[j] = Math.max(maxWidths[j], row[j].length());
-				}
+			if (!pairListSeperate.contains(redundantPair.getRedundantPair2())) {
+				pairListSeperate.add(redundantPair.getRedundantPair2());
 			}
-			for (String[] row : stringTable) {
-				for (int j = 0; j < numCols; j++) {
-
-					table.append(String.format("%-" + (maxWidths[j] + 2) + "s", row[j]));
-				}
-				table.append("\n");
-			}
-			writer.write(table.toString());
-			writer.write(report.toString());
-
-		} catch (
-
-		IOException e) {
-			e.printStackTrace();
 		}
+		String[][] stringTable = createTable(pairListSeperate, redundantPairs);
+		int numCols = stringTable[0].length;
+
+		// find the maximum width for each column
+		int[] maxWidths = new int[numCols];
+		for (String[] row : stringTable) {
+			for (int j = 0; j < numCols; j++) {
+				maxWidths[j] = Math.max(maxWidths[j], row[j].length());
+			}
+		}
+		for (String[] row : stringTable) {
+			for (int j = 0; j < numCols; j++) {
+
+				table.append(String.format("%-" + (maxWidths[j] + 2) + "s", row[j]));
+			}
+			table.append("\n");
+		}
+		writer.write(table.toString());
+		writer.write(report.toString());
+		writer.close();
 
 	}
 
@@ -1113,53 +893,31 @@ public class ReportExtractor {
 	}
 
 	// get USs Text from JSON File and add them into redundancyItems
-	private void getUssTexts(String usPair, RedundancyItems redundancyItems) throws JsonFileNotFound {
+	private void getUssTexts(String usPair, RedundancyItems redundancyItems)
+			throws JsonFileNotFound, IOException, EmptyOrNotExistJsonFile {
 		JSONArray json = null;
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
-		try {
 
-			json = readJsonArrayFromFile(getAbsoluteFinalReportDir());
-			for (int i = 0; i < json.length(); i++) {
-				JSONObject jsonObject = json.getJSONObject(i);
+		json = readJsonArrayFromFile(getAbsoluteFinalReportDir());
+		for (int i = 0; i < json.length(); i++) {
+			JSONObject jsonObject = json.getJSONObject(i);
 
-				// check if two related object are exist in JSON file
-				// if so
-				if (jsonObject.has("US_Nr")) {
-					if (jsonObject.has("Text")) {
-						String usNr = jsonObject.getString("US_Nr");
-						// all words should be lower case to avoid mismatching
-						String usText = jsonObject.getString("Text").toLowerCase();
-						if (usNr.equals(us1)) {
-							redundancyItems.setTextUs1(usText);
+			// check if two related object are exist in JSON file
+			// if so
 
-						} else if (usNr.equals(us2)) {
+			String usNr = jsonObject.getString("US_Nr");
+			// all words should be lower case to avoid mismatching
+			String usText = jsonObject.getString("Text").toLowerCase();
+			if (usNr.equals(us1)) {
+				redundancyItems.setTextUs1(usText);
 
-							redundancyItems.setTextUs2(usText);
+			} else if (usNr.equals(us2)) {
 
-						}
-					} else {
-
-						throw new TextInJsonFileNotFound();
-					}
-				} else {
-					throw new UsNrInJsonFileNotFound();
-				}
+				redundancyItems.setTextUs2(usText);
 
 			}
 
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-
-		} catch (TextInJsonFileNotFound e) {
-			e.printStackTrace();
-		} catch (UsNrInJsonFileNotFound e) {
-			e.printStackTrace();
-		} catch (EmptyOrNotExistJsonFile e) {
-
-			e.printStackTrace();
 		}
 
 	}
@@ -1181,7 +939,7 @@ public class ReportExtractor {
 
 		// get USs Text from JSON File and add them into redundancyItems
 		getUssTexts(usPair, redundancyItems);
-		try {
+		
 			// here I want to send both USs as parameter for highlightingConflicts
 			redundancyItems = highlightRedundancies(redundancyItems, usPair, targetsPairs, triggersPairs, containsPairs,
 					jsonRedundancyPair);
@@ -1196,12 +954,6 @@ public class ReportExtractor {
 			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
 			redundantPairs.add(redundantPair);
 
-		} catch (JSONException e) {
-			e.printStackTrace();
-		} catch (NullPointerException e) {
-			e.printStackTrace();
-
-		}
 
 	}
 
@@ -1229,20 +981,20 @@ public class ReportExtractor {
 		String textUs2 = redundancyItems.getTextUs2();
 		int mainConflict = redundancyItems.getMainRedundancyCount();
 		int benefitConflict = redundancyItems.getBenefitRedundancyCount();
-		if (textUs1.length() <= 0 && textUs2.length() <= 0) {
-			return null;
-		}
+		//if (textUs1.length() <= 0 && textUs2.length() <= 0) {
+	//		return null;
+	//	}
 
 		// find the index of first comma
 		int firstCommaUs1 = textUs1.indexOf(',');
 		int firstCommaUs2 = textUs2.indexOf(',');
 		// if there is no main part in the sentence
 		// which include triggers and targets
-		if (firstCommaUs1 == -1 || firstCommaUs2 == -1) {
-			return redundancyItems;
-		}
+//		if (firstCommaUs1 == -1 || firstCommaUs2 == -1) {
+//			return redundancyItems;
 		// receive the index of first comma in both Text in USs
 		// subString will be like this: I want to be able to ....
+//		}
 		String subStringFirstUs1 = textUs1.substring(0, firstCommaUs1);
 		String subStringFirstUs2 = textUs2.substring(0, firstCommaUs2);
 
@@ -1463,12 +1215,7 @@ public class ReportExtractor {
 			// check if both elements of contains is included in both segment part
 			// and check do so if
 			if ((subStringUs1.contains(child) && subStringUs2.contains(child) && subStringUs1.contains(parent)
-					&& subStringUs2.contains(parent))
-			// && !(subStringUs1.contains("#" + child + "#")
-//							&& subStringUs2.contains("#" + child + "#")
-//							&& subStringUs1.contains("#" + parent + "#")
-//							&& subStringUs2.contains("#" + parent + "#")
-			) {
+					&& subStringUs2.contains(parent))) {
 
 				// add hash symbol to contains pairs
 				String[] matches = { parent, child };

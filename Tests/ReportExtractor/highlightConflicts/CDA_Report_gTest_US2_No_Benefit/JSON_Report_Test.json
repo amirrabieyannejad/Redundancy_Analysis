@@ -2,23 +2,95 @@
     "Potential Redundant User Stories": "user_story_68_AND_user_story_73",
     "Status": {
         "Main Part Redundancy Clauses": 1,
+        "Main Part Partially Redundant": true,
         "Total Redundancy Clauses": 1,
-        "Benefit Part Redundancy Clause": 0
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 0,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": false
     },
     "Entity": {"Primary Entity": ["how"]},
+    "Common Targets": {"Main Part": [[
+        "understand",
+        "how"
+    ]]},
     "Action": {"Primary Action": ["understand"]},
-    "Part of Sentence": {
-        "Second UserStory": [" i want to #understand# #how# work moves between ux/content > visual design > front end dev for a sprint cycle."],
-        "First UserStory": [" i want to #understand# #how# other similar organizations are handling content"]
-    },
+    "Common Contains": {"Main Part": []},
     "Targets": [[
         "understand",
         "how"
     ]],
-    "Triggers": "",
+    "Triggers": [],
     "Text": {
         "Second UserStory": "user_story_73: #g11# as a team member, i want to #understand# #how# work moves between ux/content > visual design > front end dev for a sprint cycle.",
         "First UserStory": "user_story_68: #g11# as a site administrator, i want to #understand# #how# other similar organizations are handling content, so that i can make informed decisions about what appears to work well and what doesn't."
     },
-    "Project Number": "g11"
+    "Project Number": "g11",
+    "Part of Sentence": {
+        "Second UserStory": [" i want to #understand# #how# work moves between ux/content > visual design > front end dev for a sprint cycle."],
+        "First UserStory": [" i want to #understand# #how# other similar organizations are handling content"]
+    },
+    "All Contains": {
+        "user_story_68": {
+            "Main Part": [[
+                "other similar organizations",
+                "content"
+            ]],
+            "Benefit Part": []
+        },
+        "user_story_73": {
+            "Main Part": [
+                [
+                    "ux/content",
+                    "work"
+                ],
+                [
+                    "visual design",
+                    "work"
+                ],
+                [
+                    "front end dev",
+                    "work"
+                ],
+                [
+                    "sprint cycle",
+                    "ux/content"
+                ],
+                [
+                    "sprint cycle",
+                    "visual design"
+                ],
+                [
+                    "sprint cycle",
+                    "front end dev"
+                ]
+            ],
+            "Benefit Part": []
+        }
+    },
+    "All Targets": {
+        "user_story_68": {
+            "Main Part": [
+                [
+                    "handling",
+                    "content"
+                ],
+                [
+                    "understand",
+                    "how"
+                ]
+            ],
+            "Benefit Part": [[
+                "make",
+                "informed decisions"
+            ]]
+        },
+        "user_story_73": {
+            "Main Part": [[
+                "understand",
+                "how"
+            ]],
+            "Benefit Part": []
+        }
+    }
 }]

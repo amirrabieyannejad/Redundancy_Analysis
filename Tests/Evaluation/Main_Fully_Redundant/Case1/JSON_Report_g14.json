@@ -1,0 +1,79 @@
+[
+    {
+        "Potential Redundant User Stories": "user_story_01_AND_user_story_02",
+        "Status": {
+            "Main Part Redundancy Clauses": 2,
+            "Main Part Partially Redundant": false,
+            "Total Redundancy Clauses": 2,
+            "Benefit Part Fully Redundant": false,
+            "Benefit Part Redundancy Clause": 0,
+            "Main Part Fully Redundant": true,
+            "Benefit Part Partially Redundant": false
+        },
+        "Entity": {"Secondary Entity": ["dataset"]},
+        "Common Targets": {
+            "Main Part": [[
+                "publish",
+                "dataset"
+            ]],
+            "Benefit Part": []
+        },
+        "Action": {"Primary Action": ["publish"]},
+        "Common Contains": {
+            "Main Part": [],
+            "Benefit Part": []
+        },
+        "Targets": [[
+            "publish",
+            "dataset"
+        ]],
+        "Triggers": [[
+            "publisher",
+            "publish"
+        ]],
+        "Text": {
+            "Second UserStory": "user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can share the dataset publicly with everyone.",
+            "First UserStory": "user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#, so that i can view just the dataset with a few people."
+        },
+        "Project Number": "g14",
+        "Part of Sentence": {
+            "Second UserStory": [" i want to #publish# a #dataset#"],
+            "First UserStory": [" i want to #publish# a #dataset#"]
+        },
+        "All Contains": {
+            "user_story_02": {
+                "Main Part": [],
+                "Benefit Part": [[
+                    "everyone",
+                    "dataset"
+                ]]
+            },
+            "user_story_01": {
+                "Main Part": [],
+                "Benefit Part": []
+            }
+        },
+        "All Targets": {
+            "user_story_02": {
+                "Main Part": [[
+                    "publish",
+                    "dataset"
+                ]],
+                "Benefit Part": [[
+                    "share",
+                    "dataset"
+                ]]
+            },
+            "user_story_01": {
+                "Main Part": [[
+                    "publish",
+                    "dataset"
+                ]],
+                "Benefit Part": [[
+                    "view",
+                    "dataset"
+                ]]
+            }
+        }
+    }
+]

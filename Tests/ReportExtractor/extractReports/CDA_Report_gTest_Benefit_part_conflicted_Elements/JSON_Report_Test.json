@@ -2,25 +2,41 @@
     "Potential Redundant User Stories": "user_story_02_AND_user_story_07",
     "Status": {
         "Main Part Redundancy Clauses": 0,
+        "Main Part Partially Redundant": false,
         "Total Redundancy Clauses": 4,
-        "Benefit Part Redundancy Clause": 4
+        "Benefit Part Fully Redundant": true,
+        "Benefit Part Redundancy Clause": 4,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": false
     },
     "Entity": {"Secondary Entity": ["bugs"]},
-    "Action": {"Secondary Action": ["make"]},
-    "Part of Sentence": {
-        "Second UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."],
-        "First UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."]
-    },
-    "Contains": [
-        [
-            "api",
-            "enhancements"
-        ],
-        [
-            "data",
-            "api"
+    "Common Targets": {
+        "Main Part": [],
+        "Benefit Part": [
+            [
+                "fix",
+                "bugs"
+            ],
+            [
+                "make",
+                "enhancements"
+            ]
         ]
-    ],
+    },
+    "Action": {"Secondary Action": ["make"]},
+    "Common Contains": {
+        "Main Part": [],
+        "Benefit Part": [
+            [
+                "api",
+                "enhancements"
+            ],
+            [
+                "data",
+                "api"
+            ]
+        ]
+    },
     "Targets": [
         [
             "fix",
@@ -39,5 +55,87 @@
         "Second UserStory": "user_story_07: #g05# as a data publishing user, i want to be able to edit the data source of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#.",
         "First UserStory": "user_story_02: #g05# as a data publishing user, i want to be able to edit the model of data i have already imported, so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."
     },
-    "Project Number": "g05"
+    "Project Number": "g05",
+    "Part of Sentence": {
+        "Second UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."],
+        "First UserStory": [" so that i can #fix# #bugs# or #make# #enhancements# in the #api# built for my #data#."]
+    },
+    "Contains": [
+        [
+            "api",
+            "enhancements"
+        ],
+        [
+            "data",
+            "api"
+        ]
+    ],
+    "All Contains": {
+        "user_story_07": {
+            "Main Part": [[
+                "data i have already imported",
+                "data source"
+            ]],
+            "Benefit Part": [
+                [
+                    "api",
+                    "enhancements"
+                ],
+                [
+                    "data",
+                    "api"
+                ]
+            ]
+        },
+        "user_story_02": {
+            "Main Part": [[
+                "data i have already imported",
+                "model"
+            ]],
+            "Benefit Part": [
+                [
+                    "api",
+                    "enhancements"
+                ],
+                [
+                    "data",
+                    "api"
+                ]
+            ]
+        }
+    },
+    "All Targets": {
+        "user_story_07": {
+            "Main Part": [[
+                "edit",
+                "data source"
+            ]],
+            "Benefit Part": [
+                [
+                    "fix",
+                    "bugs"
+                ],
+                [
+                    "make",
+                    "enhancements"
+                ]
+            ]
+        },
+        "user_story_02": {
+            "Main Part": [[
+                "edit",
+                "model"
+            ]],
+            "Benefit Part": [
+                [
+                    "fix",
+                    "bugs"
+                ],
+                [
+                    "make",
+                    "enhancements"
+                ]
+            ]
+        }
+    }
 }]

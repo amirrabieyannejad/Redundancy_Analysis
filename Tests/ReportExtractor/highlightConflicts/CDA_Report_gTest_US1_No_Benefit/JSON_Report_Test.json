@@ -2,23 +2,91 @@
     "Potential Redundant User Stories": "user_story_26_AND_user_story_50",
     "Status": {
         "Main Part Redundancy Clauses": 1,
+        "Main Part Partially Redundant": true,
         "Total Redundancy Clauses": 1,
-        "Benefit Part Redundancy Clause": 0
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 0,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": false
     },
     "Entity": {"Primary Entity": ["access"]},
+    "Common Targets": {"Main Part": [[
+        "have",
+        "access"
+    ]]},
     "Action": {"Primary Action": ["have"]},
-    "Part of Sentence": {
-        "Second UserStory": [" i want to #have# #access# to user stats and schedules"],
-        "First UserStory": [" i want to #have# #access# to the full information of all employees working for this business."]
-    },
+    "Common Contains": {"Main Part": []},
     "Targets": [[
         "have",
         "access"
     ]],
-    "Triggers": "",
+    "Triggers": [],
     "Text": {
         "Second UserStory": "user_story_50: #g04# as a recyclingfacility representative, i want to #have# #access# to user stats and schedules, so that i can adjust my hours and/or upgrade equipment and capacity in order to be able to accomodate larger amounts of recyclable materials.",
         "First UserStory": "user_story_26: #g04# as an employee from the hr department, i want to #have# #access# to the full information of all employees working for this business."
     },
-    "Project Number": "g04"
+    "Project Number": "g04",
+    "Part of Sentence": {
+        "Second UserStory": [" i want to #have# #access# to user stats and schedules"],
+        "First UserStory": [" i want to #have# #access# to the full information of all employees working for this business."]
+    },
+    "All Contains": {
+        "user_story_26": {
+            "Main Part": [
+                [
+                    "business",
+                    "employees"
+                ],
+                [
+                    "full information",
+                    "access"
+                ],
+                [
+                    "employees",
+                    "full information"
+                ]
+            ],
+            "Benefit Part": []
+        },
+        "user_story_50": {
+            "Main Part": [[
+                "user stats",
+                "access"
+            ]],
+            "Benefit Part": []
+        }
+    },
+    "All Targets": {
+        "user_story_26": {
+            "Main Part": [[
+                "have",
+                "access"
+            ]],
+            "Benefit Part": []
+        },
+        "user_story_50": {
+            "Main Part": [[
+                "have",
+                "access"
+            ]],
+            "Benefit Part": [
+                [
+                    "adjust",
+                    "hours"
+                ],
+                [
+                    "upgrade",
+                    "capacity"
+                ],
+                [
+                    "upgrade",
+                    "equipment"
+                ],
+                [
+                    "accomodate",
+                    "larger amounts of recyclable materials"
+                ]
+            ]
+        }
+    }
 }]
