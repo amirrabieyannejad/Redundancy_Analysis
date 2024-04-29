@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RuleCreator.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RuleCreator_Test (1) (23.04.2024 16:59:35)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlog</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlog.code.rule</a> &gt; <span class="el_source">RuleCreator.java</span></div><h1>RuleCreator.java</h1><pre class="source lang-java linenums">package org.henshin.backlog.code.rule;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
+import org.eclipse.emf.henshin.model.compact.CModule;
+import org.eclipse.emf.henshin.model.compact.CNode;
+import org.eclipse.emf.henshin.model.compact.CRule;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+/*  Delete Annotation for Attributes actions and entities
+ *  plus their edges which have target edges or triggers edge
+ *  This version is include US's Text
+ */
+public class RuleCreator {
+	private String jsonFile;
+	private String henshinFile;
+	private String eCoreFile;
+
+<span class="fc" id="L28">	public RuleCreator(String JsonFileName, String henshinFileName, String eCoreFileName) {</span>
+<span class="fc" id="L29">		jsonFile = JsonFileName;</span>
+<span class="fc" id="L30">		henshinFile = henshinFileName;</span>
+<span class="fc" id="L31">		eCoreFile = eCoreFileName;</span>
+<span class="fc" id="L32">	}</span>
+
+	public String getJsonFile() {
+<span class="fc" id="L35">		return jsonFile;</span>
+	}
+
+	public String getJsonFileAbsolutePath() throws EmptyOrNotExistJsonFile {
+<span class="fc" id="L39">		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\&quot; + &quot;org.henshin.backlog2\\&quot; + getJsonFile());</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">		if (Files.exists(path)) {</span>
+<span class="fc" id="L41">			return path.toString();</span>
+
+		} else {
+<span class="fc" id="L44">			throw new EmptyOrNotExistJsonFile();</span>
+		}
+
+	}
+
+	public String getEcoreFileAbsolutePath() {
+<span class="fc" id="L50">		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\&quot; + &quot;org.henshin.backlog2\\&quot; + getEcoreFile());</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">		if (Files.exists(path)) {</span>
+<span class="fc" id="L52">			return path.toString();</span>
+
+		}
+<span class="fc" id="L55">		return null;</span>
+
+	}
+
+	public String getHenshinFile() {
+<span class="fc" id="L60">		return henshinFile;</span>
+	}
+
+	public String getEcoreFile() {
+<span class="fc" id="L64">		return eCoreFile;</span>
+	}
+
+	// private static final Logger LOGGER =
+	// Logger.getLogger(RuleCreator_v4.class.getName());
+
+	public static void main(String[] args) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
+			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
+			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
+			EdgeWithSameSourceAndTarget {
+<span class="nc" id="L74">		String version = &quot;03&quot;;</span>
+<span class="nc" id="L75">		createRules(version);</span>
+
+<span class="nc" id="L77">	}</span>
+
+	public static void createRules(String version) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
+			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
+			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
+			EdgeWithSameSourceAndTarget {
+
+<span class="fc" id="L84">		RuleCreator ruleCreator = new RuleCreator(</span>
+<span class="fc" id="L85">				&quot;Final_Reports\\Textual_Report_g&quot; + version + &quot;\\g&quot; + version + &quot;_baseline_pos.json&quot;,</span>
+<span class="fc" id="L86">				&quot;Henshin_backlog_g&quot; + version, &quot;Backlog_v2.3.ecore&quot;);</span>
+<span class="fc" id="L87">		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();</span>
+<span class="fc" id="L88">		CModule cModule = ruleCreator.processJsonFile(jsonArray);</span>
+<span class="fc" id="L89">		cModule.save();</span>
+<span class="fc" id="L90">	}</span>
+
+	// This method receives a JSON file as input and reads the JSON file,
+	// tokenises the JSON content and parses the JSON content into a JSON
+	// array and returns the parsed JSON array.
+	public JSONArray readJsonArrayFromFile() throws EmptyOrNotExistJsonFile, FileNotFoundException {
+		JSONArray jsonArray;
+		// System.out.println(&quot;getJsonFileAbsolutePath(): &quot; +
+		// getJsonFileAbsolutePath());
+<span class="fc" id="L99">		FileReader reader = new FileReader(getJsonFileAbsolutePath());</span>
+
+<span class="fc" id="L101">		JSONTokener tokener = new JSONTokener(reader);</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">		if (!tokener.more()) {</span>
+<span class="fc" id="L103">			throw new EmptyOrNotExistJsonFile();</span>
+
+		}
+		// Read JSON file
+<span class="fc" id="L107">		jsonArray = new JSONArray(tokener);</span>
+
+<span class="fc" id="L109">		return jsonArray;</span>
+
+	}
+
+//	This method assign a CModule to a Ecore meta-model. 
+//	It creates a new CModule object with the provided Henshin-file name,
+//	adds imports from the Ecore file, and returns the module. 
+	public CModule assignCmodule() throws EcoreFileNotFound {
+<span class="fc" id="L117">		CModule module = new CModule(getHenshinFile());</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">		if (getEcoreFileAbsolutePath() == null) {</span>
+<span class="fc" id="L119">			throw new EcoreFileNotFound();</span>
+		}
+<span class="fc" id="L121">		module.addImportsFromFile(getEcoreFile());</span>
+<span class="fc" id="L122">		return module;</span>
+
+	}
+
+//	It takes parsed JSON array as input and processes their attributes,
+//	such as persona, actions/entities, entities, text and their edges, such
+//	as targets, triggers. Corresponding elements are created as output in a 
+//	the Henshin transformation module (CModule).
+	public CModule processJsonFile(JSONArray json)
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
+<span class="fc" id="L134">		CModule cModule = assignCmodule();</span>
+<span class="fc" id="L135">		String usNrM = null;</span>
+<span class="fc" id="L136">		CRule userStoryM = null;</span>
+<span class="fc" id="L137">		JSONArray personaM = null;</span>
+<span class="fc" id="L138">		JSONObject actionM = null;</span>
+<span class="fc" id="L139">		JSONObject entityM = null;</span>
+<span class="fc" id="L140">		JSONArray targetsArrayM = null;</span>
+<span class="fc" id="L141">		JSONArray containsArrayM = null;</span>
+<span class="fc" id="L142">		String textM = null;</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">		for (int i = 0; i &lt; json.length(); i++) {</span>
+
+<span class="fc" id="L145">			JSONObject jsonObject = json.getJSONObject(i);</span>
+
+<span class="fc bfc" id="L147" title="All 2 branches covered.">			if (jsonObject.has(&quot;US_Nr&quot;)) {</span>
+
+<span class="fc" id="L149">				usNrM = jsonObject.getString(&quot;US_Nr&quot;);</span>
+<span class="fc" id="L150">				userStoryM = processRule(jsonObject, usNrM, cModule);</span>
+<span class="fc" id="L151">			} else {</span>
+<span class="fc" id="L152">				throw new UsNrInJsonFileNotFound();</span>
+			}
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">			if (jsonObject.has(&quot;Persona&quot;)) {</span>
+<span class="fc" id="L156">				personaM = jsonObject.getJSONArray(&quot;Persona&quot;);</span>
+<span class="fc" id="L157">			} else {</span>
+<span class="fc" id="L158">				throw new PersonaInJsonFileNotFound();</span>
+			}
+
+<span class="fc bfc" id="L161" title="All 2 branches covered.">			if (jsonObject.has(&quot;Action&quot;)) {</span>
+<span class="fc" id="L162">				actionM = jsonObject.getJSONObject(&quot;Action&quot;);</span>
+<span class="fc" id="L163">			} else {</span>
+<span class="fc" id="L164">				throw new ActionInJsonFileNotFound();</span>
+			}
+
+<span class="fc bfc" id="L167" title="All 2 branches covered.">			if (jsonObject.has(&quot;Entity&quot;)) {</span>
+<span class="fc" id="L168">				entityM = jsonObject.getJSONObject(&quot;Entity&quot;);</span>
+
+<span class="fc" id="L170">			} else {</span>
+<span class="fc" id="L171">				throw new EntityInJsonFileNotFound();</span>
+			}
+<span class="fc bfc" id="L173" title="All 2 branches covered.">			if (jsonObject.has(&quot;Triggers&quot;)) {</span>
+<span class="fc" id="L174">				targetsArrayM = jsonObject.getJSONArray(&quot;Triggers&quot;);</span>
+<span class="fc" id="L175">			} else {</span>
+<span class="fc" id="L176">				throw new TriggersInJsonFileNotFound();</span>
+			}
+<span class="fc bfc" id="L178" title="All 2 branches covered.">			if (jsonObject.has(&quot;Targets&quot;)) {</span>
+<span class="fc" id="L179">				targetsArrayM = jsonObject.getJSONArray(&quot;Targets&quot;);</span>
+<span class="fc" id="L180">			} else {</span>
+<span class="fc" id="L181">				throw new TargetsInJsonFileNotFound();</span>
+			}
+<span class="fc bfc" id="L183" title="All 2 branches covered.">			if (jsonObject.has(&quot;Contains&quot;)) {</span>
+<span class="fc" id="L184">				containsArrayM = jsonObject.getJSONArray(&quot;Contains&quot;);</span>
+<span class="fc" id="L185">			} else {</span>
+				// it should be at least an empty array like &quot;Contains&quot;:[]
+<span class="fc" id="L187">				throw new ContainsInJsonFileNotFound();</span>
+			}
+<span class="fc bfc" id="L189" title="All 2 branches covered.">			if (jsonObject.has(&quot;Text&quot;)) {</span>
+<span class="fc" id="L190">				textM = jsonObject.getString(&quot;Text&quot;);</span>
+<span class="fc" id="L191">			} else {</span>
+<span class="fc" id="L192">				throw new TextInJsonFileNotFound();</span>
+			}
+
+<span class="fc" id="L195">			CNode personaNode = processPersona(jsonObject, personaM, userStoryM, usNrM);</span>
+			// store all entities in one map which the string is the name of entities and
+			// CNode correspond to their CNode Object
+<span class="fc" id="L198">			Map&lt;String, CNode&gt; entityMap = new HashMap&lt;&gt;();</span>
+			// store all actions in one map which the string is the name of actions and
+			// CNode correspond to their CNode Object
+<span class="fc" id="L201">			Map&lt;String, CNode&gt; actionMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L202">			processText(jsonObject, userStoryM, textM);</span>
+<span class="fc" id="L203">			processActions(jsonObject, userStoryM, actionM, personaNode, actionMap, usNrM);</span>
+<span class="fc" id="L204">			processEntities(jsonObject, userStoryM, entityM, targetsArrayM, entityMap, usNrM);</span>
+<span class="fc" id="L205">			processTargetsEdges(jsonObject, targetsArrayM, entityMap, actionMap, usNrM);</span>
+<span class="fc" id="L206">			processContainsEdges(jsonObject, containsArrayM, targetsArrayM, entityMap, usNrM);</span>
+
+		}
+<span class="fc" id="L209">		return cModule;</span>
+	}
+
+//	It takes the \enquote{US\_Nr} JSON-object as input 
+//	and creates a new CRule with the name of unique US 
+//	identifier in the CModule.
+	private CRule processRule(JSONObject jsonObject, String usNr, CModule module) {
+<span class="fc" id="L216">		CRule userStory = module.createRule(usNr);</span>
+<span class="fc" id="L217">		return userStory;</span>
+	}
+
+//	It receives as input US text extracted from JSON data and 
+//	the associated CRule to create a new CNode representing the 
+//	text within the provided CRule and adds the attribute 
+//	\enquote{text} with US text as value. Finally, the created 
+//	CNode representing the US text is returned.
+	private void processText(JSONObject jsonObject, CRule userStory, String text) {
+
+<span class="fc" id="L227">		CNode nodeText = userStory.createNode(&quot;Story&quot;);</span>
+<span class="fc" id="L228">		text = text.replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="fc" id="L229">		nodeText.createAttribute(&quot;text&quot;, &quot;\&quot;&quot; + text + &quot;\&quot;&quot;);</span>
+
+<span class="fc" id="L231">	}</span>
+
+	private CNode processPersona(JSONObject jsonObject, JSONArray persona, CRule userStory, String usNr) {
+
+<span class="fc" id="L235">		CNode nodePersona = userStory.createNode(&quot;Persona&quot;);</span>
+<span class="fc" id="L236">		String person = persona.getString(0).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="fc" id="L237">		nodePersona.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + person + &quot;\&quot;&quot;);</span>
+<span class="fc" id="L238">		return nodePersona;</span>
+
+	}
+
+	private void processActions(JSONObject jsonObject, CRule userStory, JSONObject action, CNode nodePersona,
+			Map&lt;String, CNode&gt; actionMap, String usNrM) throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
+
+<span class="fc bfc" id="L245" title="All 2 branches covered.">		if (action.has(&quot;Primary Action&quot;)) {</span>
+
+<span class="fc" id="L247">			JSONArray primaryAction = action.getJSONArray(&quot;Primary Action&quot;);</span>
+			// Creating Nodes for Primary Action/s
+<span class="fc bfc" id="L249" title="All 2 branches covered.">			for (int i = 0; i &lt; primaryAction.length(); i++) {</span>
+<span class="fc" id="L250">				String priAction = primaryAction.getString(i).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="fc" id="L251">				CNode cNode = userStory.createNode(&quot;Primary Action&quot;);</span>
+
+<span class="fc" id="L253">				cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + priAction + &quot;\&quot;&quot;, &quot;delete&quot;);</span>
+
+				// Create Edges from Action to Primary Action names
+				// primary actions
+
+//				try {
+<span class="fc" id="L259">					nodePersona.createEdge(cNode, &quot;triggers&quot;, &quot;delete&quot;);</span>
+//				} catch (RuntimeException e) {
+//
+//					throw new EdgeWithSameSourceAndTarget(
+//							&quot;Edge with Action: \&quot;&quot; + primaryAction.getString(i).toLowerCase() + &quot;\&quot; and with Persona&quot;
+//									+ &quot; is already created!&quot;);
+//				}
+<span class="fc" id="L266">				actionMap.put(priAction, cNode);</span>
+
+			}
+<span class="fc" id="L269">		} else {</span>
+<span class="fc" id="L270">			throw new ActionInJsonFileNotFound(&quot;Primary Action in JOSNObject not found!&quot;);</span>
+		}
+<span class="fc bfc" id="L272" title="All 2 branches covered.">		if (action.has(&quot;Secondary Action&quot;)) {</span>
+			// Creating Nodes for Secondary Action/s
+<span class="fc" id="L274">			JSONArray secondaryAction = action.getJSONArray(&quot;Secondary Action&quot;);</span>
+<span class="fc bfc" id="L275" title="All 2 branches covered.">			for (int i = 0; i &lt; secondaryAction.length(); i++) {</span>
+<span class="fc" id="L276">				String secAction = secondaryAction.getString(i).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+				//System.out.println(&quot;secAction: &quot; + secAction +&quot; path: &quot; + getJsonFileAbsolutePath());
+<span class="fc" id="L278">				CNode cNode = userStory.createNode(&quot;Secondary Action&quot;);</span>
+				
+<span class="fc" id="L280">				cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + secAction + &quot;\&quot;&quot;, &quot;delete&quot;);</span>
+
+<span class="fc" id="L282">				actionMap.put(secAction, cNode);</span>
+			}
+<span class="fc" id="L284">		} else {</span>
+<span class="fc" id="L285">			System.out.println(&quot;Secondary Action not found!&quot; );</span>
+<span class="fc" id="L286">			throw new ActionInJsonFileNotFound(&quot;Secondary Action in JOSNObject not found!&quot;);</span>
+		}
+
+<span class="fc" id="L289">	}</span>
+
+//	It receives as parameters the JSON-object with information about the entities,
+//	the CRule object representing the US to which the entities belong and the
+//	JSON-array with information about the targets associated with the entities. 
+//	The method checks whether primary/secondary entities are present, then creates 
+//	a CNode for each primary/secondary entity and checks whether the entity is
+//	present in the target array. If this is the case, its attribute \enquote{name} 
+//	is annotated for deletion.
+	private void processEntities(JSONObject jsonObject, CRule userStory, JSONObject entity, JSONArray targetsArray,
+			Map&lt;String, CNode&gt; entityMap, String usNrM) throws EntityInJsonFileNotFound {
+
+<span class="fc bfc" id="L301" title="All 2 branches covered.">		if (entity.has(&quot;Primary Entity&quot;)) {</span>
+<span class="fc" id="L302">			JSONArray primaryEntity = entity.getJSONArray(&quot;Primary Entity&quot;);</span>
+
+			// Creating Nodes for Primary Entity/s
+<span class="fc bfc" id="L305" title="All 2 branches covered.">			for (int i = 0; i &lt; primaryEntity.length(); i++) {</span>
+<span class="fc" id="L306">				CNode cNode = null;</span>
+<span class="fc" id="L307">				String priEntity = primaryEntity.getString(i).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+				// check if entity exist in entityMap
+<span class="fc bfc" id="L309" title="All 2 branches covered.">				if (checkEntityIsTarget(primaryEntity.getString(i), targetsArray)) {</span>
+<span class="fc" id="L310">					cNode = userStory.createNode(&quot;Primary Entity&quot;);</span>
+<span class="fc" id="L311">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + priEntity + &quot;\&quot;&quot;, &quot;delete&quot;);</span>
+<span class="fc" id="L312">					entityMap.put(priEntity, cNode);</span>
+<span class="fc" id="L313">				} else {</span>
+<span class="fc" id="L314">					cNode = userStory.createNode(&quot;Primary Entity&quot;);</span>
+<span class="fc" id="L315">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + priEntity + &quot;\&quot;&quot;);</span>
+<span class="fc" id="L316">					entityMap.put(priEntity, cNode);</span>
+				}
+			}
+<span class="fc" id="L319">		} else {</span>
+<span class="fc" id="L320">			throw new EntityInJsonFileNotFound(&quot;Primary Entity in JSON file not found!&quot;);</span>
+		}
+<span class="fc bfc" id="L322" title="All 2 branches covered.">		if (entity.has(&quot;Secondary Entity&quot;)) {</span>
+			// Creating Nodes for Secondary Entity/ies
+<span class="fc" id="L324">			JSONArray secondaryEntity = entity.getJSONArray(&quot;Secondary Entity&quot;);</span>
+			// Creating Nodes for Primary Entity/s
+<span class="fc bfc" id="L326" title="All 2 branches covered.">			for (int i = 0; i &lt; secondaryEntity.length(); i++) {</span>
+<span class="fc" id="L327">				String secEntity = secondaryEntity.getString(i).toLowerCase().replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;);</span>
+<span class="fc" id="L328">				CNode cNode = null;</span>
+				// check if entity exist in enttiyMap
+<span class="fc bfc" id="L330" title="All 2 branches covered.">				if (checkEntityIsTarget(secEntity, targetsArray)) {</span>
+
+<span class="fc" id="L332">					cNode = userStory.createNode(&quot;Secondary Entity&quot;);</span>
+<span class="fc" id="L333">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + secEntity + &quot;\&quot;&quot;, &quot;delete&quot;);</span>
+<span class="fc" id="L334">					entityMap.put(secEntity, cNode);</span>
+<span class="fc" id="L335">				} else {</span>
+
+<span class="fc" id="L337">					cNode = userStory.createNode(&quot;Secondary Entity&quot;);</span>
+
+<span class="fc" id="L339">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + secEntity + &quot;\&quot;&quot;);</span>
+<span class="fc" id="L340">					entityMap.put(secEntity, cNode);</span>
+
+				}
+
+			}
+<span class="fc" id="L345">		} else {</span>
+
+<span class="fc" id="L347">			throw new EntityInJsonFileNotFound(&quot;Secondary Entity in JSON file not found!&quot;);</span>
+		}
+
+<span class="fc" id="L350">	}</span>
+
+//	It receives the JSON object to be processed, the JSON array with information 
+//	about the target edges and the US identifier as parameters. The method checks
+//	whether the action and entity in the target array exists in the JSON file.
+//	If the action and the entity exist, an edge with the name \enquote{targets} 
+//	is created between them in the Henshin files and annotated for deletion.
+	private void processTargetsEdges(JSONObject jsonObject, JSONArray targetsArray, Map&lt;String, CNode&gt; entityMap,
+			Map&lt;String, CNode&gt; actionMap, String usNrM)
+			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
+
+<span class="fc bfc" id="L361" title="All 2 branches covered.">		for (int i = 0; i &lt; targetsArray.length(); i++) {</span>
+<span class="fc" id="L362">			JSONArray currentArray = targetsArray.getJSONArray(i);</span>
+			// replace space at the end of text if any
+<span class="fc" id="L364">			String action = currentArray.getString(0).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="fc" id="L365">			String entity = currentArray.getString(1).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="fc" id="L366">			CNode nodeEntity = null;</span>
+<span class="fc" id="L367">			CNode nodeAction = null;</span>
+			// check if action and entity are exist in corresponding JSON Object in file
+<span class="fc bfc" id="L369" title="All 2 branches covered.">			if ((actionMap.get(action) != null)) {</span>
+<span class="fc" id="L370">				nodeAction = actionMap.get(action);</span>
+<span class="fc" id="L371">			} else {</span>
+<span class="fc" id="L372">				throw new ActionInJsonFileNotFound(</span>
+<span class="fc" id="L373">						&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Action: \&quot;&quot; + action.toString() + &quot;\&quot; is not found!&quot;);</span>
+			}
+
+<span class="fc bfc" id="L376" title="All 2 branches covered.">			if ((entityMap.get(entity) != null)) {</span>
+
+<span class="fc" id="L378">				nodeEntity = entityMap.get(entity);</span>
+<span class="fc" id="L379">			} else {</span>
+
+<span class="fc" id="L381">				throw new EntityInJsonFileNotFound(</span>
+<span class="fc" id="L382">						&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Entity: \&quot;&quot; + entity.toString() + &quot;\&quot; is not found!&quot;);</span>
+			}
+
+			// throw exception if Failed to create Edge
+//			try {
+<span class="fc" id="L387">				nodeAction.createEdge(nodeEntity, &quot;targets&quot;, &quot;delete&quot;);</span>
+//			} catch (RuntimeException e) {
+//
+//				throw new EdgeWithSameSourceAndTarget(&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Edge with Action: \&quot;&quot;
+//						+ action.toString() + &quot;\&quot; and with Entity: \&quot;&quot; + entity.toString() + &quot;\&quot; is already created!&quot;);
+//			}
+
+		}
+<span class="fc" id="L395">	}</span>
+
+//	It receives the JSON-object to be processed, the JSON array 
+//	with information about contains/target edges and the US identifier
+//	as parameters. It first checks whether both entities belong to 
+//	contains edges. If both entities exist, an edge is created between 
+//	them in CRule with the name \enquote{contains}. If one of the entities 
+//	is a target of another entity (as specified in the targets array), the
+//	edge is annotated for deletion. If none of the entities is a target,
+//	the edge is annotated as \enquote{preserve}.
+	private void processContainsEdges(JSONObject jsonObject, JSONArray containsArray, JSONArray targetsArray,
+			Map&lt;String, CNode&gt; entityMap, String usNrM) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
+
+		// iterate through contains JSONArray
+<span class="fc bfc" id="L409" title="All 2 branches covered.">		for (int i = 0; i &lt; containsArray.length(); i++) {</span>
+<span class="fc" id="L410">			JSONArray currentArray = containsArray.getJSONArray(i);</span>
+
+			// consider the first element of array as firstEnttiy
+			// replace space at the end of text if any
+<span class="fc" id="L414">			String firstEntity = currentArray.getString(0).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+			// consider the first element of array as secondEnttiy
+			// replace space at the end of text if any
+<span class="fc" id="L417">			String secondEntity = currentArray.getString(1).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+
+			// make sure that both entity is already listed in entityMap
+<span class="pc bpc" id="L420" title="1 of 4 branches missed.">			if ((entityMap.get(firstEntity) != null) &amp;&amp; (entityMap.get(secondEntity) != null)) {</span>
+<span class="fc" id="L421">				CNode nodefirstEntity = entityMap.get(firstEntity);</span>
+<span class="fc" id="L422">				CNode nodeSecondEntity = entityMap.get(secondEntity);</span>
+
+				// Check if any Entity in Contains is already exist in Targets
+				// if so annotate the contains edge as &lt;delete&gt;
+				// otherwise annotate the contains edge as &lt;preserve&gt;
+<span class="fc bfc" id="L427" title="All 4 branches covered.">				if (checkEntityIsTarget(firstEntity, targetsArray) || checkEntityIsTarget(secondEntity, targetsArray)) {</span>
+
+//					try {
+						// add an edge from first Entity to second Entity and annotated it as&lt;delete&gt;
+<span class="fc" id="L431">						nodefirstEntity.createEdge(nodeSecondEntity, &quot;contains&quot;, &quot;delete&quot;);</span>
+//					} catch (RuntimeException e) {
+
+//						throw new EdgeWithSameSourceAndTarget(&quot;In \&quot;Contains\&quot; of &quot; + usNrM + &quot;, Edge with Entity: \&quot;&quot;
+//								+ firstEntity.toLowerCase().toString() + &quot;\&quot; and Entity \&quot;&quot; + secondEntity.toString()
+//								+ &quot;\&quot; is already created!&quot;);
+//					}
+
+<span class="fc" id="L439">				} else {</span>
+//					try {
+						// add an edge from first Entity to second Entity and annotated it as&lt;preserve&gt;
+<span class="fc" id="L442">						nodefirstEntity.createEdge(nodeSecondEntity, &quot;contains&quot;);</span>
+//					} catch (RuntimeException e) {
+
+//						throw new EdgeWithSameSourceAndTarget(&quot;In \&quot;Contains\&quot; of &quot; + usNrM + &quot;, Edge with Entity: \&quot;&quot;
+//								+ firstEntity.toLowerCase().toString() + &quot;\&quot; and Entity&quot; + secondEntity.toString()
+//								+ &quot; is already created!&quot;);
+//					}
+
+				}
+<span class="fc" id="L451">			} else {</span>
+<span class="fc" id="L452">				throw new EntityInJsonFileNotFound(&quot;In &quot; + usNrM + &quot;, following entties are missing: &quot;</span>
+<span class="fc" id="L453">						+ firstEntity.toString() + &quot; and &quot; + secondEntity.toString());</span>
+			}
+		}
+
+<span class="fc" id="L457">	}</span>
+
+//	It receives the name of the entity and the JSON-array with 
+//	information about target edges. The method iterates through
+//	the JSON-array targets, which contains arrays that represent
+//	targets edges between actions and entities. It compares the 
+//	targets entity with the specified entity. If there is a match,
+//	it returns true to indicate that the entity is a target.
+	private static boolean checkEntityIsTarget(String entity, JSONArray targets) {
+<span class="fc bfc" id="L466" title="All 2 branches covered.">		for (int j = 0; j &lt; targets.length(); j++) {</span>
+			// iterate through each element in array
+<span class="fc" id="L468">			JSONArray currentArray = targets.getJSONArray(j);</span>
+<span class="fc" id="L469">			String targetEntity = currentArray.getString(1);</span>
+<span class="fc bfc" id="L470" title="All 2 branches covered.">			if (targetEntity.equals(entity)) {</span>
+<span class="fc" id="L471">				return true;</span>
+			}
+		}
+<span class="fc" id="L474">		return false;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>RuleCreator_Test (1) (23.04.2024 16:59:35)</div></body></html>

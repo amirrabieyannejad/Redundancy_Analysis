@@ -64,7 +64,7 @@ public class ReportExtractorTest {
 
 	}
 
-	// TODO: Add this to paper
+	
 	// completeMajorElements\_edge \newline(testExtractReports)&Provision of a CDA
 	// report for US-pair containing exactly one \enquote{Targets} edge&Inclusion of
 	// this US-pair in the text report with the nodes \enquote{Action},
@@ -205,7 +205,7 @@ public class ReportExtractorTest {
 		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 	}
 
-	// TODO: Add it to document
+	
 	// testCdaDirNotDirectroy&Assing not directory&Through an exception:
 	// \textit{CdaReportDirIsEmpty.class}&Check if CDA Report directory is empty\\
 	@Test(expected = CdaReportDirIsNotADirectory.class)
@@ -217,7 +217,6 @@ public class ReportExtractorTest {
 		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 	}
 
-	// TODO: Add it to document
 	// testEmptyDirectroy&Assing not directory&Through an exception:
 	// \textit{CdaReportDirIsEmpty.class}&Check if CDA Report directory is empty\\
 	@Test(expected = CdaReportDirNotFound.class)
@@ -229,7 +228,7 @@ public class ReportExtractorTest {
 		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
 	}
 
-	// TODO: Add it to document
+	
 	// Check if final reports directory all null or not
 	@Test
 	public void testFinalReportDir() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
@@ -247,7 +246,7 @@ public class ReportExtractorTest {
 		assertNull(reportDummy);
 	}
 
-	// TODO: Add it to document
+	// 
 	// check minimalEcore are exist
 	@Test
 	public void testMinimalEcoreExist() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
@@ -265,7 +264,7 @@ public class ReportExtractorTest {
 
 	}
 
-	// TODO: Add it to document
+
 	// check minimalEcore are exist
 	@Test
 	public void testWriteTable() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,

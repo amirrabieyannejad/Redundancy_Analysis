@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RedundancyItems.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RuleCreator_Test (1) (23.04.2024 16:59:35)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlog</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlog.code.report</a> &gt; <span class="el_source">RedundancyItems.java</span></div><h1>RedundancyItems.java</h1><pre class="source lang-java linenums">package org.henshin.backlog.code.report;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashSet;
+
+public class RedundancyItems {
+	private List&lt;SecondaryEntity&gt; secondaryEntity;
+	private List&lt;PrimaryEntity&gt; primaryEntity;
+	private List&lt;SecondaryAction&gt; secondaryAction;
+	private List&lt;PrimaryAction&gt; primaryAction;
+	private List&lt;Triggers&gt; triggers;
+	private List&lt;Targets&gt; targets;
+	private List&lt;Contains&gt; contains;
+	private int maxRedundancyCount;
+	private String textUs1;
+	private String textUs2;
+	private String UsNr1;
+	private String UsNr2;
+
+	// this values are used to find out how many conflict pairs
+	// are found in which sentence part(main vs benefit)
+	private int mainRedundancyCount;
+	private int benefitRedundancyCount;
+
+	public int getMainRedundancyCount() {
+<span class="nc" id="L35">		return mainRedundancyCount;</span>
+	}
+
+	public void setMainRedundancyCount(int mainRedundancyCount) {
+<span class="nc" id="L39">		this.mainRedundancyCount = mainRedundancyCount;</span>
+<span class="nc" id="L40">	}</span>
+
+	public int getBenefitRedundancyCount() {
+<span class="nc" id="L43">		return benefitRedundancyCount;</span>
+	}
+
+	public void setBenefitRedundancyCount(int benefitRedundancyCount) {
+<span class="nc" id="L47">		this.benefitRedundancyCount = benefitRedundancyCount;</span>
+<span class="nc" id="L48">	}</span>
+
+	public String getUsNr1() {
+<span class="nc" id="L51">		return UsNr1;</span>
+	}
+
+	public void setUsNr1(String usNr1) {
+<span class="nc" id="L55">		UsNr1 = usNr1;</span>
+<span class="nc" id="L56">	}</span>
+
+	public String getUsNr2() {
+<span class="nc" id="L59">		return UsNr2;</span>
+	}
+
+	public void setUsNr2(String usNr2) {
+<span class="nc" id="L63">		UsNr2 = usNr2;</span>
+<span class="nc" id="L64">	}</span>
+
+<span class="nc" id="L66">	public RedundancyItems() {</span>
+<span class="nc" id="L67">		this.secondaryEntity = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L68">		this.primaryEntity = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L69">		this.secondaryAction = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L70">		this.primaryAction = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L71">		this.triggers = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L72">		this.targets = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L73">		this.contains = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L74">	}</span>
+
+	public void addSecondaryEntity(SecondaryEntity entity) {
+<span class="nc" id="L77">		secondaryEntity.add(entity);</span>
+
+<span class="nc" id="L79">	}</span>
+
+	public void addPrimaryEntity(PrimaryEntity entity) {
+<span class="nc" id="L82">		primaryEntity.add(entity);</span>
+
+<span class="nc" id="L84">	}</span>
+
+	public void addSecondaryAction(SecondaryAction action) {
+<span class="nc" id="L87">		secondaryAction.add(action);</span>
+
+<span class="nc" id="L89">	}</span>
+
+	public void addPrimaryAction(PrimaryAction action) {
+<span class="nc" id="L92">		primaryAction.add(action);</span>
+<span class="nc" id="L93">	}</span>
+
+	public void addTriggers(Triggers trigger) {
+<span class="nc" id="L96">		triggers.add(trigger);</span>
+<span class="nc" id="L97">	}</span>
+
+	public void addTargets(Targets target) {
+<span class="nc" id="L100">		targets.add(target);</span>
+<span class="nc" id="L101">	}</span>
+
+	public void addContains(Contains contain) {
+<span class="nc" id="L104">		contains.add(contain);</span>
+<span class="nc" id="L105">	}</span>
+
+	public List&lt;SecondaryEntity&gt; getSecondaryEntity() {
+<span class="nc" id="L108">		return secondaryEntity;</span>
+
+	}
+
+	public List&lt;PrimaryEntity&gt; getPrimaryEntity() {
+<span class="nc" id="L113">		return primaryEntity;</span>
+	}
+
+	public List&lt;SecondaryAction&gt; getSecondaryAction() {
+<span class="nc" id="L117">		return secondaryAction;</span>
+	}
+
+	public List&lt;PrimaryAction&gt; getPrimaryActions() {
+<span class="nc" id="L121">		return primaryAction;</span>
+	}
+
+	public List&lt;Triggers&gt; getTriggers() {
+<span class="nc" id="L125">		return triggers;</span>
+	}
+
+	public void setMaxRedundancyCount(int maxRedundancyCount) {
+<span class="nc" id="L129">		this.maxRedundancyCount = maxRedundancyCount;</span>
+<span class="nc" id="L130">	}</span>
+
+	public List&lt;Targets&gt; getTargets() {
+<span class="nc" id="L133">		return targets;</span>
+	}
+
+	public List&lt;Contains&gt; getContains() {
+<span class="nc" id="L137">		return contains;</span>
+	}
+
+	public int getTotalRedundancyCount() {
+<span class="nc" id="L141">		return maxRedundancyCount;</span>
+	}
+
+	public String getTextUs1() {
+<span class="nc" id="L145">		return textUs1;</span>
+	}
+
+	public void setTextUs1(String textUs1) {
+<span class="nc" id="L149">		this.textUs1 = textUs1;</span>
+<span class="nc" id="L150">	}</span>
+
+	public String getTextUs2() {
+<span class="nc" id="L153">		return textUs2;</span>
+	}
+
+	public void setTextUs2(String textUs2) {
+<span class="nc" id="L157">		this.textUs2 = textUs2;</span>
+<span class="nc" id="L158">	}</span>
+
+	// Method to printout all Conflicting Items
+	public void printRedundantItems(FileWriter cdaWriter, List&lt;TargetsPair&gt; targetsPairs,
+			List&lt;ContainsPair&gt; containsPairs, List&lt;TriggersPair&gt; triggersPairs, JSONObject jsonRedundancyPair)
+			throws IOException {
+
+<span class="nc" id="L165">		List&lt;SecondaryEntity&gt; secondaryEntities = getSecondaryEntity();</span>
+<span class="nc" id="L166">		List&lt;SecondaryAction&gt; secondaryActions = getSecondaryAction();</span>
+<span class="nc" id="L167">		List&lt;PrimaryEntity&gt; primaryEntities = getPrimaryEntity();</span>
+<span class="nc" id="L168">		List&lt;PrimaryAction&gt; primaryActions = getPrimaryActions();</span>
+
+		// Add main Action which contains Primary and secondary Action
+<span class="nc" id="L171">		JSONObject action = new JSONObject();</span>
+
+		// Add main Entity which contains Primary and secondary Entity
+<span class="nc" id="L174">		JSONObject entity = new JSONObject();</span>
+
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		if (!secondaryActions.isEmpty()) {</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			for (SecondaryAction secondaryAction : secondaryActions) {</span>
+<span class="nc" id="L178">				String secondaryActionName=secondaryAction.getName();</span>
+<span class="nc" id="L179">				String secondaryActionClass=secondaryAction.getClassType();</span>
+<span class="nc bnc" id="L180" title="All 2 branches missed.">				if (isInCommonTargets(secondaryActionName, secondaryActionClass, &quot;&quot;, &quot;&quot;, targetsPairs)) {</span>
+<span class="nc" id="L181">					cdaWriter.write(&quot;\n* &quot; + secondaryAction.getClassType() + &quot;: &quot; + secondaryAction.getName());</span>
+					// put each secondary Actions into JSON data as an array
+<span class="nc" id="L183">					action.put(secondaryAction.getClassType(), new JSONArray().put(secondaryAction.getName()));</span>
+
+				}
+			}
+		}
+
+<span class="nc bnc" id="L189" title="All 2 branches missed.">		if (!secondaryEntities.isEmpty()) {</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			for (SecondaryEntity secondaryEntity : secondaryEntities) {</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">				if (isInCommonTargets(secondaryEntity.getName(), secondaryEntity.getClassType(), &quot;&quot;, &quot;&quot;, targetsPairs)) {</span>
+<span class="nc" id="L192">					cdaWriter.write(&quot;\n* &quot; + secondaryEntity.getClassType() + &quot;: &quot; + secondaryEntity.getName());</span>
+					// put each primary entity into JSON data as an array
+<span class="nc" id="L194">					entity.put(secondaryEntity.getClassType(), new JSONArray().put(secondaryEntity.getName()));</span>
+
+				}
+
+			}
+
+		}
+<span class="nc bnc" id="L201" title="All 2 branches missed.">		if (!primaryActions.isEmpty()) {</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">			for (PrimaryAction primaryAction : primaryActions) {</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">				if (isInCommonTargets(primaryAction.getName(), primaryAction.getClassType(), &quot;&quot;, &quot;&quot;, targetsPairs)) {</span>
+<span class="nc" id="L204">					cdaWriter.write(&quot;\n* &quot; + primaryAction.getClassType() + &quot;: &quot; + primaryAction.getName());</span>
+					// put each primary action into JSON data as an array
+<span class="nc" id="L206">					action.put(primaryAction.getClassType(), new JSONArray().put(primaryAction.getName()));</span>
+
+				}
+			}
+
+		}
+<span class="nc bnc" id="L212" title="All 2 branches missed.">		if (!primaryEntities.isEmpty()) {</span>
+<span class="nc bnc" id="L213" title="All 2 branches missed.">			for (PrimaryEntity primaryEntity : primaryEntities) {</span>
+<span class="nc bnc" id="L214" title="All 2 branches missed.">				if (isInCommonTargets(primaryEntity.getName(), primaryEntity.getClassType(), &quot;&quot;, &quot;&quot;, targetsPairs)) {</span>
+<span class="nc" id="L215">					cdaWriter.write(&quot;\n* &quot; + primaryEntity.getClassType() + &quot;: &quot; + primaryEntity.getName());</span>
+					// put each primary action into JSON data as an array
+<span class="nc" id="L217">					entity.put(primaryEntity.getClassType(), new JSONArray().put(primaryEntity.getName()));</span>
+				}
+			}
+		}
+		// add all primary/secondary Action/Entity into JSON object
+<span class="nc" id="L222">		jsonRedundancyPair.put(&quot;Entity&quot;, entity);</span>
+<span class="nc" id="L223">		jsonRedundancyPair.put(&quot;Action&quot;, action);</span>
+
+<span class="nc bnc" id="L225" title="All 2 branches missed.">		if (!targetsPairs.isEmpty()) {</span>
+			// Add Common Targets of both user stories
+<span class="nc" id="L227">			JSONArray jsonTargets = new JSONArray();</span>
+<span class="nc bnc" id="L228" title="All 2 branches missed.">			for (TargetsPair targetPair : targetsPairs) {</span>
+				// Write it also in JSON Array Targets
+<span class="nc" id="L230">				JSONArray jsonTargetsPair = new JSONArray().put(targetPair.getAction()).put(targetPair.getEntity());</span>
+<span class="nc" id="L231">				jsonTargets.put(jsonTargetsPair);</span>
+
+				// Write it on Report if any
+<span class="nc" id="L234">				cdaWriter.write(&quot;\n* Targets: Link from \&quot;&quot; + targetPair.getAction() + &quot;\&quot; to \&quot;&quot;</span>
+<span class="nc" id="L235">						+ targetPair.getEntity() + &quot;\&quot; is found.&quot;);</span>
+
+			}
+<span class="nc" id="L238">			jsonRedundancyPair.put(&quot;Targets&quot;, jsonTargets);</span>
+		}
+
+		// In this scenario I assume that the relationship between
+		// Primary Action and Secondary Entity as Targets node is
+		// not allowed. According to https://github.com/ace-design/nlp-stories
+<span class="nc" id="L244">		JSONArray jsonTriggers = new JSONArray();</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">		if (!triggersPairs.isEmpty()) {</span>
+			// Add Common Triggers of both user stories
+			
+<span class="nc bnc" id="L248" title="All 2 branches missed.">			for (TriggersPair triggerPair : triggersPairs) {</span>
+<span class="nc" id="L249">				String triggerPersona= triggerPair.getPersona();</span>
+<span class="nc" id="L250">				String triggerAction = triggerPair.getAction();</span>
+				
+				// make sure that action is
+				// also belongs to common targets if any
+					// Write it also in JSON Array Triggers
+<span class="nc" id="L255">					JSONArray jsonTriggersPair = new JSONArray().put(triggerPersona).put(triggerAction);</span>
+<span class="nc" id="L256">					jsonTriggers.put(jsonTriggersPair);</span>
+
+					// Write it on Report if any
+<span class="nc" id="L259">					cdaWriter.write(&quot;\n* Triggers: Link from \&quot;&quot; + triggerPersona + &quot;\&quot; to \&quot;&quot;</span>
+<span class="nc" id="L260">							+ triggerAction + &quot;\&quot; is found.&quot;);</span>
+			}
+<span class="nc" id="L262">			jsonRedundancyPair.put(&quot;Triggers&quot;, jsonTriggers);</span>
+<span class="nc" id="L263">		}else {</span>
+<span class="nc" id="L264">			jsonRedundancyPair.put(&quot;Triggers&quot;, jsonTriggers);</span>
+		}
+		
+		// Check if there is conflict element listed in &quot;Contains&quot; and if the containing
+		// element
+		// is in Targets if yes, write the contains edge as well
+		// link
+<span class="nc bnc" id="L271" title="All 2 branches missed.">		if (!containsPairs.isEmpty()) {</span>
+<span class="nc" id="L272">			JSONArray jsonContains = new JSONArray();</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">			for (ContainsPair contain : containsPairs) {</span>
+<span class="nc" id="L274">				JSONArray jsonContainsPair = new JSONArray().put(contain.getParentEntity())</span>
+<span class="nc" id="L275">						.put(contain.getChildEntity());</span>
+<span class="nc" id="L276">				jsonContains.put(jsonContainsPair);</span>
+<span class="nc" id="L277">				cdaWriter.write(&quot;\n* Contains: Link between \&quot;&quot; + contain.getParentEntity() + &quot;\&quot; and \&quot;&quot;</span>
+<span class="nc" id="L278">						+ contain.getChildEntity() + &quot;\&quot; is found.&quot;);</span>
+
+			}
+<span class="nc" id="L281">			jsonRedundancyPair.put(&quot;Contains&quot;, jsonContains);</span>
+
+		}
+
+<span class="nc" id="L285">	}</span>
+
+	// Iterate through Targets Array of related user stories in json file
+	// return true if name of elements which contains is in conflicting items
+	// whether exist or not
+	public boolean isInCommonTargets(String name1, String type1, String name2, String type2,
+			List&lt;TargetsPair&gt; targetsPairs) {
+
+		// Iterate through list of common Targets
+<span class="nc bnc" id="L294" title="All 2 branches missed.">		for (TargetsPair targetsPair : targetsPairs) {</span>
+
+<span class="nc bnc" id="L296" title="All 2 branches missed.">			if (name2.isEmpty()) {</span>
+				// check whether type of class in action or entity
+<span class="nc bnc" id="L298" title="All 2 branches missed.">				if (type1.toLowerCase().contains(&quot;action&quot;)) {</span>
+<span class="nc" id="L299">					String action = targetsPair.getAction().toLowerCase();</span>
+
+					// check if name of action(the first element) is exist in Targets Array
+<span class="nc bnc" id="L302" title="All 2 branches missed.">					if (action.equals(name1.toLowerCase())) {</span>
+<span class="nc" id="L303">						return true;</span>
+					}
+<span class="nc bnc" id="L305" title="All 2 branches missed.">				} else if (type1.toLowerCase().contains(&quot;entity&quot;)) {</span>
+<span class="nc" id="L306">					String entity = targetsPair.getEntity().toLowerCase();</span>
+					// check if name of entity(the second element) is exist in Targets Array
+<span class="nc bnc" id="L308" title="All 2 branches missed.">					if (entity.equals(name1.toLowerCase())) {</span>
+<span class="nc" id="L309">						return true;</span>
+					}
+
+				}
+
+			} else {
+<span class="nc" id="L315">				String action = targetsPair.getAction();</span>
+<span class="nc" id="L316">				String entity = targetsPair.getEntity();</span>
+<span class="nc bnc" id="L317" title="All 4 branches missed.">				if (name1.equalsIgnoreCase(action) &amp;&amp; name2.equalsIgnoreCase(entity)) {</span>
+<span class="nc" id="L318">					return true;</span>
+				}
+
+			}
+		}
+<span class="nc" id="L323">		return false;</span>
+	}
+
+	// Iterate through Contains Array of related user stories in json file
+	// return true if name of elements which contains in conflicting items
+	// whether exist or not
+	public String isInCommonContains(String name, List&lt;ContainsPair&gt; containsPairs) {
+		// Iterate through list of common Contains
+<span class="nc bnc" id="L331" title="All 2 branches missed.">		for (ContainsPair containsPair : containsPairs) {</span>
+<span class="nc" id="L332">			String parentEntity = containsPair.getParentEntity().toLowerCase();</span>
+<span class="nc" id="L333">			String childEntity = containsPair.getChildEntity().toLowerCase();</span>
+<span class="nc bnc" id="L334" title="All 2 branches missed.">			if (parentEntity.equalsIgnoreCase(name)) {</span>
+
+<span class="nc" id="L336">				return childEntity;</span>
+<span class="nc bnc" id="L337" title="All 2 branches missed.">			} else if (childEntity.equalsIgnoreCase(name)) {</span>
+
+<span class="nc" id="L339">				return parentEntity;</span>
+			}
+		}
+<span class="nc" id="L342">		return null;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>RuleCreator_Test (1) (23.04.2024 16:59:35)</div></body></html>

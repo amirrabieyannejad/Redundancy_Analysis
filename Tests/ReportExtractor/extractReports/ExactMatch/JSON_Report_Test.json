@@ -1,0 +1,131 @@
+[{
+    "Potential Redundant User Stories": "user_story_12_AND_user_story_39",
+    "Status": {
+        "Main Part Redundancy Clauses": 0,
+        "Main Part Partially Redundant": false,
+        "Total Redundancy Clauses": 1,
+        "Benefit Part Fully Redundant": false,
+        "Benefit Part Redundancy Clause": 1,
+        "Main Part Fully Redundant": false,
+        "Benefit Part Partially Redundant": true
+    },
+    "Entity": {"Secondary Entity": ["compliance"]},
+    "Common Targets": {
+        "Main Part": [],
+        "Benefit Part": [[
+            "review",
+            "compliance"
+        ]]
+    },
+    "Action": {"Secondary Action": ["review"]},
+    "Common Contains": {
+        "Main Part": [],
+        "Benefit Part": []
+    },
+    "Targets": [[
+        "review",
+        "compliance"
+    ]],
+    "Triggers": [],
+    "Text": {
+        "Second UserStory": "user_story_39: #g03# as a plan review staff member, i want to review plans, so that i can #review# them for #compliance# and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant.",
+        "First UserStory": "user_story_12: #g03# as a staff member, i want to assign an application for detailed review, so that i can #review# the for #compliance# and subsequently approved or denied."
+    },
+    "Project Number": "g03",
+    "Part of Sentence": {
+        "Second UserStory": [" so that i can #review# them for #compliance# and either approve, or fail or deny the plans and record any conditions, clearances, or corrections needed from the applicant."],
+        "First UserStory": [" so that i can #review# the for #compliance# and subsequently approved or denied."]
+    },
+    "All Contains": {
+        "user_story_39": {
+            "Main Part": [],
+            "Benefit Part": [
+                [
+                    "applicant",
+                    "plans"
+                ],
+                [
+                    "plans",
+                    "clearances"
+                ],
+                [
+                    "plans",
+                    "corrections"
+                ],
+                [
+                    "plans",
+                    "any conditions"
+                ]
+            ]
+        },
+        "user_story_12": {
+            "Main Part": [[
+                "application",
+                "detailed review"
+            ]],
+            "Benefit Part": []
+        }
+    },
+    "All Targets": {
+        "user_story_39": {
+            "Main Part": [[
+                "review",
+                "plans"
+            ]],
+            "Benefit Part": [
+                [
+                    "review",
+                    "plans"
+                ],
+                [
+                    "review",
+                    "compliance"
+                ],
+                [
+                    "approve",
+                    "plans"
+                ],
+                [
+                    "fail",
+                    "plans"
+                ],
+                [
+                    "deny",
+                    "plans"
+                ],
+                [
+                    "record",
+                    "clearances"
+                ],
+                [
+                    "record",
+                    "corrections"
+                ],
+                [
+                    "record",
+                    "any conditions"
+                ]
+            ]
+        },
+        "user_story_12": {
+            "Main Part": [[
+                "assign",
+                "application"
+            ]],
+            "Benefit Part": [
+                [
+                    "review",
+                    "compliance"
+                ],
+                [
+                    "subsequently approved",
+                    "compliance"
+                ],
+                [
+                    "denied",
+                    "compliance"
+                ]
+            ]
+        }
+    }
+}]

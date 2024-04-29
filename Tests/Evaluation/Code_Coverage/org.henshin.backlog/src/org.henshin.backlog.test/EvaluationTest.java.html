@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>EvaluationTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">EvaluationTest (23.04.2024 15:50:05)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlog</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlog.test</a> &gt; <span class="el_source">EvaluationTest.java</span></div><h1>EvaluationTest.java</h1><pre class="source lang-java linenums">package org.henshin.backlog.test;
+
+import static org.junit.Assert.assertTrue;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.henshin.backlog.code.evaluation.Evaluation;
+import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
+import org.henshin.backlog.code.rule.JsonFileNotFound;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.junit.Test;
+
+<span class="fc" id="L16">public class EvaluationTest {</span>
+
+	@Test(expected = EmptyOrNotExistJsonFile.class)
+	public void testEmptyOrNotExistJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="fc" id="L20">		String jsonReportPath = &quot;Tests\\Evaluation\\Dummy_JSON_File\\dummy_empty.json&quot;;</span>
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L22">		Evaluation evaluation = new Evaluation();</span>
+<span class="nc" id="L23">		evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+
+<span class="nc" id="L25">	}</span>
+
+	@Test(expected = IOException.class)
+	public void testJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="fc" id="L29">		String jsonReportPath = &quot;Tests\\Evaluation\\Dummy_JSON_File\\dummy_corrupt1.json&quot;;</span>
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L31">		Evaluation evaluation = new Evaluation();</span>
+<span class="nc" id="L32">		evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+<span class="nc" id="L33">	}</span>
+
+	// Benefit partially redundant
+	// commonContains: null
+	@Test
+	public void testEvaluateRedundancyCriteria_benefitParial()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L40">		String jsonReportPath = &quot;Tests\\Evaluation\\Benefit_Partially_Redundant\\Case1\\JSON_Report_g03.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L43">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L44">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L48">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L49">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_12&quot;, &quot;user_story_39&quot;);</span>
+<span class="fc" id="L50">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L51">		boolean status = jsonStatus.getBoolean(&quot;Benefit Part Partially Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L54">		assertTrue(status == true);</span>
+<span class="fc" id="L55">	}</span>
+
+	// Benefit fully redundant
+	// commonContains: null
+	@Test
+	public void testEvaluateRedundancyCriteria_benefitFull_Case1()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L62">		String jsonReportPath = &quot;Tests\\Evaluation\\Benefit_Fully_Redundant\\Case1\\JSON_Report_g04.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L65">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L66">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L70">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L71">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_05&quot;, &quot;user_story_12&quot;);</span>
+<span class="fc" id="L72">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L73">		boolean status = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L76">		assertTrue(status == true);</span>
+<span class="fc" id="L77">	}</span>
+
+	// Benefit fully redundant
+	// commonContains: not null
+	// allTargets: null but AllTargets US1 not null
+	@Test
+	public void testEvaluateRedundancyCriteria_benefitFull_Case2()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L85">		String jsonReportPath = &quot;Tests\\Evaluation\\Benefit_Fully_Redundant\\Case2\\JSON_Report_g04.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L88">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L89">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L93">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L94">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_05&quot;, &quot;user_story_12&quot;);</span>
+<span class="fc" id="L95">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L96">		boolean status = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L99">		assertTrue(status == true);</span>
+<span class="fc" id="L100">	}</span>
+
+	// Benefit fully redundant
+	// commonContains: not null
+	// AllTargets US1/US2 not null
+	@Test
+	public void testEvaluateRedundancyCriteria_benefitFull_Case3()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L108">		String jsonReportPath = &quot;Tests\\Evaluation\\Benefit_Fully_Redundant\\Case3\\JSON_Report_g04.json&quot;;</span>
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L110">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L111">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L115">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L116">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_05&quot;, &quot;user_story_12&quot;);</span>
+<span class="fc" id="L117">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L118">		boolean status = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L121">		assertTrue(status == true);</span>
+<span class="fc" id="L122">	}</span>
+
+	// Benefit fully redundant
+	// commonContains: not null
+	// allTargets: not null
+	@Test
+	public void testEvaluateRedundancyCriteria_benefitFull_Case4()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L130">		String jsonReportPath = &quot;Tests\\Evaluation\\Benefit_Fully_Redundant\\Case4\\JSON_Report_g04.json&quot;;</span>
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L132">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L133">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L137">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L138">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_05&quot;, &quot;user_story_12&quot;);</span>
+<span class="fc" id="L139">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L140">		boolean status = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L143">		assertTrue(status == true);</span>
+<span class="fc" id="L144">	}</span>
+
+// Main partially redundant	
+// commonContains and commonTargets not null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainPartial_Case1()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L151">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Partially_Redundant\\Case1\\JSON_Report_g04.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L154">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L155">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L159">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L160">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_09&quot;, &quot;user_story_10&quot;);</span>
+<span class="fc" id="L161">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L162">		boolean status = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L165">		assertTrue(status == true);</span>
+<span class="fc" id="L166">	}</span>
+
+	// Main partially redundant
+	// commonContains and commonTargets not null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainPartial_Case2()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L173">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Partially_Redundant\\Case2\\JSON_Report_g04.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L176">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L177">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L181">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L182">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_09&quot;, &quot;user_story_10&quot;);</span>
+<span class="fc" id="L183">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L184">		boolean status = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L187">		assertTrue(status == true);</span>
+<span class="fc" id="L188">	}</span>
+
+	// Main even not partially redundant
+	// commonContains and commonTargets are null
+	// allContainsUs1/Us2 and allTargetsUs1/Us2 are null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainNotRedundant()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L196">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Not_Redundant\\Case1\\JSON_Report_g04.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L199">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L200">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L204">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L205">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_09&quot;, &quot;user_story_10&quot;);</span>
+<span class="fc" id="L206">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L207">		boolean status = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="pc bpc" id="L210" title="1 of 2 branches missed.">		assertTrue(status == false);</span>
+<span class="fc" id="L211">	}</span>
+
+	// Main fully redundant
+	// commonContains: null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainFull_Case1()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L218">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Fully_Redundant\\Case1\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L221">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L222">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L226">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L227">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_01&quot;, &quot;user_story_02&quot;);</span>
+<span class="fc" id="L228">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L229">		boolean status = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L232">		assertTrue(status == true);</span>
+<span class="fc" id="L233">	}</span>
+
+	// Main fully redundant
+	// All Targets_Us1 is not null but commonTargets is null
+	// Common Contains are identical
+	@Test
+	public void testEvaluateRedundancyCriteria_mainFull_Case2()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L241">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Fully_Redundant\\Case2\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L244">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L245">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L249">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L250">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_01&quot;, &quot;user_story_02&quot;);</span>
+<span class="fc" id="L251">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L252">		boolean status = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L255">		assertTrue(status == true);</span>
+<span class="fc" id="L256">	}</span>
+
+	// Main fully redundant
+	// commonContains is identical
+	// allTargets US1 &amp; US2 are null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainFull_Case3()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L264">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Fully_Redundant\\Case3\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L267">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L268">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L272">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L273">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_01&quot;, &quot;user_story_02&quot;);</span>
+<span class="fc" id="L274">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L275">		boolean status = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L278">		assertTrue(status == true);</span>
+<span class="fc" id="L279">	}</span>
+	// Main fully redundant
+	// commonContains is identical
+	// allContainsUs2 Fully redundant
+	// allTargets US1 &amp; US2 are null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainFull_Case4()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L287">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Fully_Redundant\\Case4\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L290">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L291">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L295">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L296">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_01&quot;, &quot;user_story_02&quot;);</span>
+<span class="fc" id="L297">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L298">		boolean status = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="fc" id="L301">		assertTrue(status == true);</span>
+<span class="fc" id="L302">	}</span>
+
+	// Main fully redundant
+	// commonContains: null
+	@Test
+	public void testEvaluateRedundancyCriteria_mainBenefitFull()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L309">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Benefit_Fully_Redundant\\Case1\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L312">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L313">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L317">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L318">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_22&quot;, &quot;user_story_24&quot;);</span>
+<span class="fc" id="L319">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L320">		boolean statusMain = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+<span class="fc" id="L321">		boolean statusBenefit = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+<span class="fc" id="L322">		boolean statusMainPartial = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+<span class="fc" id="L323">		boolean statusBenefitPartial = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+		// check if maximal number of redundancy clause barbells are match
+<span class="pc bpc" id="L325" title="3 of 6 branches missed.">		assertTrue(statusMain == true &amp;&amp; statusBenefit == true &amp;&amp; statusBenefitPartial == false</span>
+<span class="pc bpc" id="L326" title="1 of 2 branches missed.">				&amp;&amp; statusMainPartial == false);</span>
+<span class="fc" id="L327">	}</span>
+
+	// Main fully redundant
+	// Benefit partially redundant
+	@Test
+	public void testEvaluateRedundancyCriteria_mainPartialBenefitFull()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L334">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Partial_Benefit_Full\\Case1\\JSON_Report_g05.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L337">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L338">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L342">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L343">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_09&quot;, &quot;user_story_11&quot;);</span>
+<span class="fc" id="L344">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L345">		boolean statusMain = jsonStatus.getBoolean(&quot;Main Part Partially Redundant&quot;);</span>
+<span class="fc" id="L346">		boolean statusBenefit = jsonStatus.getBoolean(&quot;Benefit Part Fully Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="pc bpc" id="L349" title="2 of 4 branches missed.">		assertTrue(statusMain == true &amp;&amp; statusBenefit == true);</span>
+<span class="fc" id="L350">	}</span>
+
+	// Main partially redundant
+	// Benefit fully redundant
+	@Test
+	public void testEvaluateRedundancyCriteria_mainFullBenefitPartial()
+			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
+<span class="fc" id="L357">		String jsonReportPath = &quot;Tests\\Evaluation\\Main_Full_Benefit_Partial\\Case1\\JSON_Report_g14.json&quot;;</span>
+
+		// Read the JSON_report_Test file to verify the results
+<span class="fc" id="L360">		Evaluation evaluation = new Evaluation();</span>
+<span class="fc" id="L361">		JSONArray jsonArray = evaluation.readJsonArrayFromFile(jsonReportPath);</span>
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// jsonArray.toString());
+
+<span class="fc" id="L365">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L366">		evaluation.evaluateRedundancyCriteria(jsonObject, &quot;user_story_22&quot;, &quot;user_story_24&quot;);</span>
+<span class="fc" id="L367">		JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L368">		boolean statusMain = jsonStatus.getBoolean(&quot;Main Part Fully Redundant&quot;);</span>
+<span class="fc" id="L369">		boolean statusBenefit = jsonStatus.getBoolean(&quot;Benefit Part Partially Redundant&quot;);</span>
+
+		// check if maximal number of redundancy clause barbells are match
+<span class="pc bpc" id="L372" title="2 of 4 branches missed.">		assertTrue(statusMain == true &amp;&amp; statusBenefit == true);</span>
+<span class="fc" id="L373">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>EvaluationTest (23.04.2024 15:50:05)</div></body></html>

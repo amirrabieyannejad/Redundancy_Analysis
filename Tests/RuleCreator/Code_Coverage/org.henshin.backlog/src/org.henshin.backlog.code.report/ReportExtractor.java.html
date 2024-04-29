@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ReportExtractor.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RuleCreator_Test (1) (23.04.2024 16:59:35)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlog</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlog.code.report</a> &gt; <span class="el_source">ReportExtractor.java</span></div><h1>ReportExtractor.java</h1><pre class="source lang-java linenums">package org.henshin.backlog.code.report;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+//import org.eclipse.core.internal.resources.Resource;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.henshin.backlog.code.evaluation.Evaluation;
+//import org.graalvm.compiler.hotspot.nodes.PatchReturnAddressNode;
+import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
+import org.henshin.backlog.code.rule.JsonFileNotFound;
+import org.henshin.backlog.code.rule.TextInJsonFileNotFound;
+import org.henshin.backlog.code.rule.UsNrInJsonFileNotFound;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.Set;
+import java.util.HashSet;
+
+/** Report maximal overlap if and only if in Minimal Models
+ * at least Entity, Action and Triggers exist. With Table summary
+ */
+/**
+ * @author amirr
+ *
+ */
+public class ReportExtractor {
+	private static String dirName;
+	private static String jsonDatasetFile;
+
+<span class="nc" id="L56">	public ReportExtractor(String directroyName, String jsonFileName) {</span>
+<span class="nc" id="L57">		dirName = directroyName;</span>
+<span class="nc" id="L58">		jsonDatasetFile = jsonFileName;</span>
+<span class="nc" id="L59">	}</span>
+
+	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
+			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+
+//		 String[] datasets = { &quot;03&quot;, &quot;04&quot;, &quot;05&quot;, &quot;08&quot;, &quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;14&quot;, &quot;16&quot;,
+//		 &quot;21&quot;, &quot;22&quot;, &quot;23&quot;, &quot;24&quot;,
+//		 &quot;25&quot;, &quot;26&quot;, &quot;27&quot;, &quot;28&quot; };
+<span class="nc" id="L67">		String[] datasets = { &quot;03&quot; };</span>
+
+<span class="nc" id="L69">	}</span>
+	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+<span class="nc" id="L71">		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\&quot;);</span>
+		// checked: 21, 04,03 ,05,08,10,11,12,14,16
+//		 Version of data set &quot;18&quot;, &quot;19&quot;
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		for (int i = 0; i &lt; datasets.length; i++) {</span>
+<span class="nc" id="L75">			System.out.println(&quot;Dataset: &quot; + datasets[i]);</span>
+<span class="nc" id="L76">			ReportExtractor cdaConvertor = new ReportExtractor(</span>
+<span class="nc" id="L77">					&quot;eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g&quot; + datasets[i],</span>
+<span class="nc" id="L78">					&quot;Final_Reports\\Textual_Report_g&quot; + datasets[i] + &quot;\\g&quot; + datasets[i] + &quot;_baseline_pos.json&quot;);</span>
+
+			// Create text file in order to report to user a readable format
+<span class="nc" id="L81">			File cdaReport = new File(cdaConvertor.getFinalReportDir(path) + &quot;\\Textual_Report_g&quot; + datasets[i]</span>
+<span class="nc" id="L82">					+ &quot;\\Textual_Report_g&quot; + datasets[i] + &quot;.txt&quot;);</span>
+<span class="nc" id="L83">			FileWriter fileWriter = cdaConvertor.createOrOverwriteReportFile(cdaReport);</span>
+
+			// Create JSON File in order to have systematic overview of result
+<span class="nc" id="L86">			File jsonReport = new File(cdaConvertor.getFinalReportDir(path) + &quot;\\Textual_Report_g&quot; + datasets[i]</span>
+<span class="nc" id="L87">					+ &quot;\\JSON_Report_g&quot; + datasets[i] + &quot;.json&quot;);</span>
+<span class="nc" id="L88">			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);</span>
+<span class="nc" id="L89">			List&lt;RedundantPair&gt; listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);</span>
+<span class="nc" id="L90">			cdaConvertor.writeTable(cdaReport, listConflictPairs);</span>
+
+		}
+		
+<span class="nc" id="L94">	}</span>
+
+	public String getDirName() {
+<span class="nc" id="L97">		return dirName;</span>
+	}
+
+	public String getJsonDatasetFile() {
+<span class="nc" id="L101">		return jsonDatasetFile;</span>
+	}
+
+	public String getAbsoluteDirPath()
+			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
+<span class="nc" id="L106">		Path path = Paths.get(&quot;C:\\Users\\amirr\\&quot; + getDirName());</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">			if (Files.isDirectory(path)) { // Check if it's a directory</span>
+<span class="nc" id="L109">				DirectoryStream&lt;Path&gt; directoryStream = Files.newDirectoryStream(path);</span>
+<span class="nc" id="L110">				boolean isEmpty = true;</span>
+<span class="nc" id="L111">				boolean hasSubDirectories = false;</span>
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">				for (Path entry : directoryStream) {</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">					if (Files.isDirectory(entry)) {</span>
+<span class="nc" id="L115">						hasSubDirectories = true;</span>
+					}
+<span class="nc" id="L117">					isEmpty = false;</span>
+				}
+
+				// if (isEmpty) {
+				// throw new CdaReportDirIsEmpty(&quot;CDA Report Directory is empty!&quot;);
+				// }
+
+<span class="nc bnc" id="L124" title="All 2 branches missed.">				if (!hasSubDirectories) {</span>
+<span class="nc" id="L125">					throw new CdaReportDirIsEmpty(&quot;CDA Report Directory found but doesn't have any subdirectories!&quot;);</span>
+				} else {
+<span class="nc" id="L127">					return path.toString();</span>
+				}
+
+			} else {
+<span class="nc" id="L131">				throw new CdaReportDirIsNotADirectory();</span>
+			}
+		} else {
+<span class="nc" id="L134">			throw new CdaReportDirNotFound();</span>
+		}
+	}
+
+	public String getAbsoluteFinalReportDir() throws JsonFileNotFound {
+<span class="nc" id="L139">		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\&quot; + getJsonDatasetFile());</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+
+<span class="nc" id="L142">			return path.toString();</span>
+		} else {
+<span class="nc" id="L144">			throw new JsonFileNotFound();</span>
+		}
+	}
+
+	public String getFinalReportDir(Path path) {
+
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+
+<span class="nc" id="L152">			System.out.println(path.toString());</span>
+<span class="nc" id="L153">			return path.toString();</span>
+		} else {
+<span class="nc" id="L155">			return null;</span>
+		}
+	}
+
+	// Create or overwrite report file which return/pass the FileWriter object
+	public FileWriter createOrOverwriteReportFile(File totalCda) throws IOException {
+<span class="nc" id="L161">		FileWriter cdaWriter = null;</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">		if (totalCda.createNewFile()) {</span>
+			// System.out.println(&quot;File created succesfully: &quot; + totalCda.getName());
+<span class="nc" id="L164">			cdaWriter = new FileWriter(totalCda);</span>
+<span class="nc" id="L165">			return cdaWriter;</span>
+
+		} else {
+<span class="nc" id="L168">			cdaWriter = new FileWriter(totalCda);</span>
+			// System.out.println(&quot;File already exists. Try to overwrite..!&quot;);
+<span class="nc" id="L170">			return cdaWriter;</span>
+		}
+	}
+
+	public List&lt;RedundantPair&gt; extractReports(FileWriter fileWriter, FileWriter jsonWriter)
+			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
+			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+
+		// create JSON array in order to contains all redundant pairs and their
+<span class="nc" id="L179">		JSONArray jsonArray = new JSONArray();</span>
+
+		RedundancyItems redundancyItems;
+		List&lt;RedundantPair&gt; redundantPairs;
+		ArrayList&lt;String&gt; arrayTotalElements;
+		ArrayList&lt;String&gt; arrayTotalElementsNames;
+<span class="nc" id="L185">		List&lt;String&gt; pairList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L186">		File main = new File(getAbsoluteDirPath());</span>
+		// Instantiate redundantPairs
+<span class="nc" id="L188">		redundantPairs = new ArrayList&lt;&gt;();</span>
+		// Iterate through critical pairs
+<span class="nc bnc" id="L190" title="All 4 branches missed.">		if (main.exists() &amp;&amp; main.list().length != 0) {</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">			for (String redPair : main.list()) {</span>
+<span class="nc bnc" id="L192" title="All 4 branches missed.">				if (!checkIfReportExist(redPair, pairList) &amp;&amp; containsAnd(redPair)) {</span>
+<span class="nc" id="L193">					File conflictReasonDir = new File(getAbsoluteDirPath() + &quot;\\&quot; + redPair);</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">					if (!conflictReasonDir.isFile()) {</span>
+<span class="nc" id="L195">						JSONObject jsonRedundancyPair = new JSONObject();</span>
+<span class="nc" id="L196">						arrayTotalElementsNames = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L197">						arrayTotalElements = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L198">						redundancyItems = new RedundancyItems();</span>
+<span class="nc" id="L199">						String[] conflictReasonListing = conflictReasonDir.list();</span>
+						// Iterate through conflict reasons if there is more than one conflict_reason.
+<span class="nc bnc" id="L201" title="All 2 branches missed.">						if (conflictReasonListing.length &gt; 1) {</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">							for (String conflictReason : conflictReasonListing) {</span>
+								// Check if minimal ECore exist
+<span class="nc bnc" id="L204" title="All 2 branches missed.">								if (minimalEcoreExist(redPair, conflictReason)) {</span>
+<span class="nc" id="L205">									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + &quot;\\&quot; + redPair + &quot;\\&quot;</span>
+<span class="nc" id="L206">											+ conflictReason + &quot;\\minimal-model.ecore&quot;);</span>
+
+<span class="nc" id="L208">									processMinimalModels(minimalModelEcoreFile, arrayTotalElements,</span>
+<span class="nc" id="L209">											arrayTotalElementsNames, redundancyItems);</span>
+
+								}
+							}
+						}
+						// Write only the Elements which contains Primary/Secondary Action and
+						// Primary/Secondary Entity
+<span class="nc bnc" id="L216" title="All 2 branches missed.">						if (hasEntitys(arrayTotalElementsNames, redundancyItems)</span>
+<span class="nc bnc" id="L217" title="All 2 branches missed.">								&amp;&amp; hasActions(arrayTotalElementsNames, redundancyItems)</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">								&amp;&amp; hasTargets(arrayTotalElementsNames, redundancyItems)) {</span>
+<span class="nc" id="L219">							fileWriter.write(&quot;\n------------------[Potential Redundant User&quot;</span>
+<span class="nc" id="L220">									+ &quot; Stories found]--------------------------\n{&quot; + redPair + &quot;}\n  &quot;);</span>
+<span class="nc" id="L221">							jsonRedundancyPair.put(&quot;Potential Redundant User Stories&quot;, redPair);</span>
+
+<span class="nc" id="L223">							fileWriter.write(&quot;\nRedundant clauses within user stories are: &quot;);</span>
+<span class="nc" id="L224">							List&lt;TargetsPair&gt; targetsPairs = getCommonTargets(redPair, jsonRedundancyPair);</span>
+<span class="nc" id="L225">							List&lt;ContainsPair&gt; containsPairs = getCommonContains(redPair, jsonRedundancyPair);</span>
+<span class="nc" id="L226">							List&lt;TriggersPair&gt; triggersPairs = getCommonTriggers(redPair);</span>
+<span class="nc" id="L227">							redundancyItems.printRedundantItems(fileWriter, targetsPairs, containsPairs, triggersPairs,</span>
+<span class="nc" id="L228">									jsonRedundancyPair);</span>
+
+							// receive text of user stories as input
+							// in order to highlight the redundancy clauses in each text
+<span class="nc" id="L232">							writeUsText(redPair, arrayTotalElementsNames, redundantPairs, redundancyItems, fileWriter,</span>
+<span class="nc" id="L233">									targetsPairs, triggersPairs, containsPairs, jsonRedundancyPair);</span>
+
+							// add JSON Object into main JSON array
+<span class="nc" id="L236">							JSONObject jsonConflictStatus = getRedundancyStatus(redundancyItems);</span>
+
+							// put all in Status as subPart of &quot;Status&quot;
+<span class="nc" id="L239">							jsonRedundancyPair.put(&quot;Status&quot;, jsonConflictStatus);</span>
+
+<span class="nc bnc" id="L241" title="All 4 branches missed.">							if (redundancyItems.getTextUs1() != null &amp;&amp; redundancyItems.getTextUs2() != null) {</span>
+<span class="nc" id="L242">								fileWriter.write(&quot;\n\nThe following sentence parts are&quot; + &quot; candidates for possible&quot;</span>
+										+ &quot; redundancies between user stories:\n\n&quot;);
+
+								// here we should write USsSentenceParts
+<span class="nc" id="L246">								writeUsSentencePart(redPair, redundancyItems, fileWriter, jsonRedundancyPair);</span>
+
+								// Try to evaluate, if main or benefit part are fully/partially redundant
+<span class="nc" id="L249">								String us1 = getUsName1(redPair);</span>
+<span class="nc" id="L250">								String us2 = getUsName2(redPair);</span>
+<span class="nc" id="L251">								Evaluation evaluation = new Evaluation();</span>
+<span class="nc" id="L252">								evaluation.evaluateRedundancyCriteria(jsonRedundancyPair, us1, us2);</span>
+								// Add JSONObject Texts of two user story and store them into Text JSONObject
+<span class="nc" id="L254">								JSONObject jsonText = new JSONObject();</span>
+<span class="nc" id="L255">								jsonText.put(&quot;First UserStory&quot;,</span>
+<span class="nc" id="L256">										getUsName1(redPair) + &quot;: &quot; + redundancyItems.getTextUs1());</span>
+<span class="nc" id="L257">								jsonText.put(&quot;Second UserStory&quot;,</span>
+<span class="nc" id="L258">										getUsName2(redPair) + &quot;: &quot; + redundancyItems.getTextUs2());</span>
+<span class="nc" id="L259">								jsonRedundancyPair.put(&quot;Text&quot;, jsonText);</span>
+
+								// select project Number and save it to JSONFile
+<span class="nc" id="L262">								String projectNr = redundancyItems.getTextUs1().replaceAll(&quot;.*#(g\\d\\d)#.*&quot;, &quot;$1&quot;);</span>
+<span class="nc" id="L263">								jsonRedundancyPair.put(&quot;Project Number&quot;, projectNr);</span>
+							}
+
+							// add JSON Object into main JSON array
+<span class="nc" id="L267">							jsonArray.put(jsonRedundancyPair);</span>
+
+						}
+
+					}
+				}
+			}
+
+<span class="nc bnc" id="L275" title="All 2 branches missed.">			if (redundantPairs.size() == 0) {</span>
+<span class="nc" id="L276">				fileWriter.write(&quot;No redundancy found between user stories!&quot;);</span>
+
+			}
+<span class="nc" id="L279">			jsonWriter.write(jsonArray.toString(4));</span>
+<span class="nc" id="L280">			jsonWriter.close();</span>
+<span class="nc" id="L281">			fileWriter.close();</span>
+
+		}
+<span class="nc" id="L284">		return redundantPairs;</span>
+	}
+
+	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
+	// data
+	private JSONObject getRedundancyStatus(RedundancyItems redundancyItems) {
+<span class="nc" id="L290">		JSONObject jsonRedundancyStatus = new JSONObject();</span>
+
+		// add observed conflicted pairs in Main part sentence
+<span class="nc" id="L293">		jsonRedundancyStatus.put(&quot;Main Part Redundancy Clauses&quot;, redundancyItems.getMainRedundancyCount());</span>
+
+		// add observed conflicted pairs in Benefit part sentence
+<span class="nc" id="L296">		jsonRedundancyStatus.put(&quot;Benefit Part Redundancy Clause&quot;, redundancyItems.getBenefitRedundancyCount());</span>
+
+		// add observed total conflicted pairs
+<span class="nc" id="L299">		jsonRedundancyStatus.put(&quot;Total Redundancy Clauses&quot;, redundancyItems.getTotalRedundancyCount());</span>
+<span class="nc" id="L300">		return jsonRedundancyStatus;</span>
+	}
+
+	// receive a conflict Pair and a String which corresponds to &quot;Targets&quot; array
+	// Object in JSON file
+	private List&lt;TargetsPair&gt; getCommonTargets(String redPair, JSONObject jsonRedundancyPair)
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="nc" id="L307">		String us1 = getUsName1(redPair);</span>
+<span class="nc" id="L308">		String us2 = getUsName2(redPair);</span>
+<span class="nc" id="L309">		List&lt;TargetsPair&gt; targetPairs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L310">		JSONArray us1TargetsArray = null;</span>
+<span class="nc" id="L311">		JSONArray us2TargetsArray = null;</span>
+<span class="nc" id="L312">		JSONArray jsonTargetsMainUs1 = new JSONArray();</span>
+<span class="nc" id="L313">		JSONArray jsonTargetsBenefitUs1 = new JSONArray();</span>
+<span class="nc" id="L314">		JSONArray jsonTargetsMainUs2 = new JSONArray();</span>
+<span class="nc" id="L315">		JSONArray jsonTargetsBenefitUs2 = new JSONArray();</span>
+<span class="nc" id="L316">		String us1Text = null;</span>
+<span class="nc" id="L317">		String us2Text = null;</span>
+<span class="nc" id="L318">		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());</span>
+
+		// Check if there US_Nr and Targets Objects exists in JOSN file
+		// if so return the ArrayObjects of Targets
+<span class="nc bnc" id="L322" title="All 2 branches missed.">		for (int i = 0; i &lt; jsonArray.length(); i++) {</span>
+<span class="nc" id="L323">			JSONObject jsonObject = jsonArray.getJSONObject(i);</span>
+<span class="nc bnc" id="L324" title="All 4 branches missed.">			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Targets&quot;)) {</span>
+<span class="nc" id="L325">				String usNr = jsonObject.getString(&quot;US_Nr&quot;);</span>
+<span class="nc bnc" id="L326" title="All 2 branches missed.">				if (usNr.equals(us1)) {</span>
+<span class="nc" id="L327">					us1TargetsArray = jsonObject.getJSONArray(&quot;Targets&quot;);</span>
+<span class="nc" id="L328">					us1Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();</span>
+
+<span class="nc bnc" id="L330" title="All 2 branches missed.">				} else if (usNr.equals(us2)) {</span>
+<span class="nc" id="L331">					us2TargetsArray = jsonObject.getJSONArray(&quot;Targets&quot;);</span>
+<span class="nc" id="L332">					us2Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();</span>
+
+				}
+			}
+		}
+		// check if TargetArrays of both USs not null then find the Common
+		// Targets Pairs and add it to TargetPairs List
+<span class="nc bnc" id="L339" title="All 4 branches missed.">		if (us2TargetsArray != null &amp;&amp; us1TargetsArray != null) {</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">			for (int i = 0; i &lt; us1TargetsArray.length(); i++) {</span>
+<span class="nc" id="L341">				JSONArray jsonArrayUs1 = us1TargetsArray.getJSONArray(i);</span>
+<span class="nc" id="L342">				String actionUs1 = jsonArrayUs1.getString(0).toLowerCase();</span>
+<span class="nc" id="L343">				String entityUs1 = jsonArrayUs1.getString(1).toLowerCase();</span>
+<span class="nc" id="L344">				JSONArray mainTargetsUs1 = new JSONArray();</span>
+<span class="nc" id="L345">				mainTargetsUs1 = getAllTargetsInMain(actionUs1, entityUs1, us1Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L346" title="All 2 branches missed.">				if (mainTargetsUs1 != null) {</span>
+<span class="nc" id="L347">					jsonTargetsMainUs1.put(mainTargetsUs1);</span>
+				}
+<span class="nc" id="L349">				JSONArray benefitTargetsUs1 = new JSONArray();</span>
+<span class="nc" id="L350">				benefitTargetsUs1 = getAllTargetsInBenefit(actionUs1, entityUs1, us1Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L351" title="All 2 branches missed.">				if (benefitTargetsUs1 != null) {</span>
+<span class="nc" id="L352">					jsonTargetsBenefitUs1.put(benefitTargetsUs1);</span>
+				}
+<span class="nc bnc" id="L354" title="All 2 branches missed.">				for (int j = 0; j &lt; us2TargetsArray.length(); j++) {</span>
+<span class="nc" id="L355">					JSONArray jsonArrayUs2 = us2TargetsArray.getJSONArray(j);</span>
+<span class="nc" id="L356">					String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();</span>
+<span class="nc" id="L357">					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();</span>
+<span class="nc bnc" id="L358" title="All 4 branches missed.">					if (enttiyUs2.equalsIgnoreCase(entityUs1) &amp;&amp; actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {</span>
+<span class="nc" id="L359">						targetPairs.add(new TargetsPair(actionUs1, entityUs1));</span>
+<span class="nc" id="L360">						break;</span>
+					}
+				}
+			}
+			// iterate through other US and gather all Targets in there
+<span class="nc bnc" id="L365" title="All 2 branches missed.">			for (int j = 0; j &lt; us2TargetsArray.length(); j++) {</span>
+<span class="nc" id="L366">				JSONArray jsonArrayUs2 = us2TargetsArray.getJSONArray(j);</span>
+<span class="nc" id="L367">				String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();</span>
+<span class="nc" id="L368">				String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();</span>
+<span class="nc" id="L369">				JSONArray mainTargetsUs2 = new JSONArray();</span>
+<span class="nc" id="L370">				mainTargetsUs2 = getAllTargetsInMain(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">				if (mainTargetsUs2 != null) {</span>
+<span class="nc" id="L372">					jsonTargetsMainUs2.put(mainTargetsUs2);</span>
+				}
+
+<span class="nc" id="L375">				JSONArray benefitTargetsUs2 = new JSONArray();</span>
+<span class="nc" id="L376">				benefitTargetsUs2 = getAllTargetsInBenefit(actionUs2, enttiyUs2, us2Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L377" title="All 2 branches missed.">				if (benefitTargetsUs2 != null) {</span>
+<span class="nc" id="L378">					jsonTargetsBenefitUs2.put(benefitTargetsUs2);</span>
+				}
+			}
+
+		}
+<span class="nc" id="L383">		JSONObject jsonAllTargets = new JSONObject();</span>
+
+<span class="nc" id="L385">		JSONObject jsonObjectAllTargetsUS1 = new JSONObject();</span>
+<span class="nc" id="L386">		JSONObject jsonObjectAllTargetsUS2 = new JSONObject();</span>
+
+<span class="nc" id="L388">		JSONObject jsonAllTargetsUS2Main = new JSONObject();</span>
+<span class="nc" id="L389">		JSONObject jsonAllTargetsUS2Benefit = new JSONObject();</span>
+
+<span class="nc" id="L391">		jsonObjectAllTargetsUS1.put(&quot;Main Part&quot;, jsonTargetsMainUs1);</span>
+<span class="nc" id="L392">		jsonObjectAllTargetsUS1.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs1);</span>
+
+<span class="nc" id="L394">		jsonAllTargetsUS2Main.put(&quot;Main Part&quot;, jsonTargetsMainUs2);</span>
+<span class="nc" id="L395">		jsonAllTargetsUS2Benefit.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs2);</span>
+
+<span class="nc" id="L397">		jsonObjectAllTargetsUS2.put(&quot;Main Part&quot;, jsonTargetsMainUs2);</span>
+<span class="nc" id="L398">		jsonObjectAllTargetsUS2.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs2);</span>
+
+<span class="nc" id="L400">		jsonAllTargets.put(us1, jsonObjectAllTargetsUS1);</span>
+<span class="nc" id="L401">		jsonAllTargets.put(us2, jsonObjectAllTargetsUS2);</span>
+<span class="nc" id="L402">		jsonRedundancyPair.put(&quot;All Targets&quot;, jsonAllTargets);</span>
+
+<span class="nc" id="L404">		return targetPairs;</span>
+	}
+
+	private JSONArray getAllTargetsInBenefit(String action, String entity, String usText,
+			JSONObject jsonRedundancyPair) {
+<span class="nc" id="L409">		int benefitIndex = usText.indexOf(&quot;so that&quot;);</span>
+<span class="nc" id="L410">		JSONArray jsonBenefit = new JSONArray();</span>
+<span class="nc" id="L411">		String benefitPart = &quot;&quot;;</span>
+<span class="nc bnc" id="L412" title="All 2 branches missed.">		if (benefitIndex != -1) {</span>
+<span class="nc" id="L413">			benefitPart = usText.substring(benefitIndex);</span>
+<span class="nc" id="L414">			jsonBenefit = processElements(action, entity, benefitPart, jsonRedundancyPair);</span>
+<span class="nc" id="L415">			return jsonBenefit;</span>
+		}
+
+<span class="nc" id="L418">		return null;</span>
+
+	}
+
+	private JSONArray getAllTargetsInMain(String action, String entity, String usText, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L423">		int benefitIndex = usText.indexOf(&quot;so that&quot;);</span>
+<span class="nc" id="L424">		String mainPart = usText;</span>
+<span class="nc" id="L425">		JSONArray jsonMain = new JSONArray();</span>
+<span class="nc bnc" id="L426" title="All 2 branches missed.">		if (benefitIndex != -1) {</span>
+
+<span class="nc" id="L428">			mainPart = usText.substring(0, benefitIndex);</span>
+		}
+<span class="nc" id="L430">		jsonMain = processElements(action, entity, mainPart, jsonRedundancyPair);</span>
+<span class="nc" id="L431">		return jsonMain;</span>
+
+	}
+
+	// receive a conflict Pair and a String which corresponds to &quot;Triggers&quot; array
+	// Object in JSON file
+	private List&lt;TriggersPair&gt; getCommonTriggers(String redPair)
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="nc" id="L439">		String us1 = getUsName1(redPair);</span>
+<span class="nc" id="L440">		String us2 = getUsName2(redPair);</span>
+<span class="nc" id="L441">		List&lt;TriggersPair&gt; triggersPairs = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L443">		JSONArray us1TriggersArray = null;</span>
+<span class="nc" id="L444">		JSONArray us2TriggersArray = null;</span>
+<span class="nc" id="L445">		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());</span>
+
+<span class="nc bnc" id="L447" title="All 2 branches missed.">		for (int i = 0; i &lt; jsonArray.length(); i++) {</span>
+<span class="nc" id="L448">			JSONObject jsonObject = jsonArray.getJSONObject(i);</span>
+<span class="nc bnc" id="L449" title="All 4 branches missed.">			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Triggers&quot;)) {</span>
+<span class="nc" id="L450">				String usNr = jsonObject.getString(&quot;US_Nr&quot;);</span>
+<span class="nc bnc" id="L451" title="All 2 branches missed.">				if (usNr.equals(us1)) {</span>
+<span class="nc" id="L452">					us1TriggersArray = jsonObject.getJSONArray(&quot;Triggers&quot;);</span>
+
+<span class="nc bnc" id="L454" title="All 2 branches missed.">				} else if (usNr.equals(us2)) {</span>
+<span class="nc" id="L455">					us2TriggersArray = jsonObject.getJSONArray(&quot;Triggers&quot;);</span>
+
+				}
+			}
+		}
+<span class="nc bnc" id="L460" title="All 4 branches missed.">		if (us2TriggersArray != null &amp;&amp; us1TriggersArray != null) {</span>
+			// first check if entity in Triggers is also exist in common Targets
+
+<span class="nc bnc" id="L463" title="All 2 branches missed.">			for (int i = 0; i &lt; us1TriggersArray.length(); i++) {</span>
+<span class="nc" id="L464">				JSONArray jsonArrayUs1 = us1TriggersArray.getJSONArray(i);</span>
+<span class="nc" id="L465">				String personaUs1 = jsonArrayUs1.getString(0).toLowerCase();</span>
+<span class="nc" id="L466">				String actionUs1 = jsonArrayUs1.getString(1).toLowerCase();</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">				for (int j = 0; j &lt; us2TriggersArray.length(); j++) {</span>
+<span class="nc" id="L468">					JSONArray jsonArrayUs2 = us2TriggersArray.getJSONArray(j);</span>
+<span class="nc" id="L469">					String personaUs2 = jsonArrayUs2.getString(0).toLowerCase();</span>
+<span class="nc" id="L470">					String actionUs2 = jsonArrayUs2.getString(1).toLowerCase();</span>
+					// check if both action and persona in triggers from USs
+					// are the same
+<span class="nc bnc" id="L473" title="All 4 branches missed.">					if (actionUs2.equalsIgnoreCase(actionUs1) &amp;&amp; personaUs2.equalsIgnoreCase(personaUs1)) {</span>
+<span class="nc" id="L474">						triggersPairs.add(new TriggersPair(personaUs1, actionUs1));</span>
+<span class="nc" id="L475">						break;</span>
+						// }
+//						}
+					}
+				}
+			}
+
+		}
+<span class="nc" id="L483">		return triggersPairs;</span>
+	}
+
+	// receive a conflict Pair and a String which corresponds to &quot;Contains&quot; array
+	// Object in JSON file
+	private List&lt;ContainsPair&gt; getCommonContains(String redPair, JSONObject jsonRedundancyPair)
+			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="nc" id="L490">		String us1 = getUsName1(redPair);</span>
+<span class="nc" id="L491">		String us2 = getUsName2(redPair);</span>
+<span class="nc" id="L492">		List&lt;ContainsPair&gt; containsPairs = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L493">		JSONArray us1ContainsArray = null;</span>
+<span class="nc" id="L494">		JSONArray us2ContainsArray = null;</span>
+<span class="nc" id="L495">		JSONArray jsonContainsMainUs1 = new JSONArray();</span>
+<span class="nc" id="L496">		JSONArray jsonContainsBenefitUs1 = new JSONArray();</span>
+<span class="nc" id="L497">		JSONArray jsonContainsMainUs2 = new JSONArray();</span>
+<span class="nc" id="L498">		JSONArray jsonContainsBenefitUs2 = new JSONArray();</span>
+<span class="nc" id="L499">		String us1Text = null;</span>
+<span class="nc" id="L500">		String us2Text = null;</span>
+<span class="nc" id="L501">		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());</span>
+
+<span class="nc bnc" id="L503" title="All 2 branches missed.">		for (int i = 0; i &lt; jsonArray.length(); i++) {</span>
+<span class="nc" id="L504">			JSONObject jsonObject = jsonArray.getJSONObject(i);</span>
+<span class="nc bnc" id="L505" title="All 4 branches missed.">			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Contains&quot;)) {</span>
+<span class="nc" id="L506">				String usNr = jsonObject.getString(&quot;US_Nr&quot;);</span>
+<span class="nc bnc" id="L507" title="All 2 branches missed.">				if (usNr.equals(us1)) {</span>
+<span class="nc" id="L508">					us1ContainsArray = jsonObject.getJSONArray(&quot;Contains&quot;);</span>
+<span class="nc" id="L509">					us1Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();</span>
+
+<span class="nc bnc" id="L511" title="All 2 branches missed.">				} else if (usNr.equals(us2)) {</span>
+<span class="nc" id="L512">					us2ContainsArray = jsonObject.getJSONArray(&quot;Contains&quot;);</span>
+<span class="nc" id="L513">					us2Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();</span>
+				}
+			}
+		}
+<span class="nc bnc" id="L517" title="All 4 branches missed.">		if (us2ContainsArray != null &amp;&amp; us1ContainsArray != null) {</span>
+<span class="nc bnc" id="L518" title="All 2 branches missed.">			for (int i = 0; i &lt; us1ContainsArray.length(); i++) {</span>
+<span class="nc" id="L519">				JSONArray jsonArrayUs1 = us1ContainsArray.getJSONArray(i);</span>
+<span class="nc" id="L520">				String parentUs1 = jsonArrayUs1.getString(0).toLowerCase();</span>
+<span class="nc" id="L521">				String childUs1 = jsonArrayUs1.getString(1).toLowerCase();</span>
+				// add each founded element into JSON report according
+				// to their occurrence into main or benefit part
+<span class="nc" id="L524">				JSONArray mainContainsUs1 = new JSONArray();</span>
+<span class="nc" id="L525">				mainContainsUs1 = getAllContainsInMain(parentUs1, childUs1, us1Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">				if (mainContainsUs1 != null) {</span>
+<span class="nc" id="L527">					jsonContainsMainUs1.put(mainContainsUs1);</span>
+				}
+<span class="nc" id="L529">				JSONArray benefitContainsUs1 = new JSONArray();</span>
+<span class="nc" id="L530">				benefitContainsUs1 = getAllContainsInBenefit(parentUs1, childUs1, us1Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L531" title="All 2 branches missed.">				if (benefitContainsUs1 != null) {</span>
+<span class="nc" id="L532">					jsonContainsBenefitUs1.put(benefitContainsUs1);</span>
+				}
+<span class="nc bnc" id="L534" title="All 2 branches missed.">				for (int j = 0; j &lt; us2ContainsArray.length(); j++) {</span>
+<span class="nc" id="L535">					JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);</span>
+<span class="nc" id="L536">					String parentUs2 = jsonArrayUs2.getString(0).toLowerCase();</span>
+<span class="nc" id="L537">					String childUs2 = jsonArrayUs2.getString(1).toLowerCase();</span>
+<span class="nc bnc" id="L538" title="All 4 branches missed.">					if (childUs2.equalsIgnoreCase(childUs1) &amp;&amp; parentUs2.equalsIgnoreCase(parentUs1.toLowerCase())) {</span>
+<span class="nc" id="L539">						containsPairs.add(new ContainsPair(parentUs1, childUs1));</span>
+					}
+				}
+			}
+			// iterate through other US and gather all contains in there
+<span class="nc bnc" id="L544" title="All 2 branches missed.">			for (int j = 0; j &lt; us2ContainsArray.length(); j++) {</span>
+<span class="nc" id="L545">				JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);</span>
+<span class="nc" id="L546">				String parentUs2 = jsonArrayUs2.getString(0).toLowerCase();</span>
+<span class="nc" id="L547">				String childUs2 = jsonArrayUs2.getString(1).toLowerCase();</span>
+<span class="nc" id="L548">				JSONArray mainContainsUs2 = new JSONArray();</span>
+<span class="nc" id="L549">				mainContainsUs2 = getAllContainsInMain(parentUs2, childUs2, us2Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L550" title="All 2 branches missed.">				if (mainContainsUs2 != null) {</span>
+<span class="nc" id="L551">					jsonContainsMainUs2.put(mainContainsUs2);</span>
+				}
+
+<span class="nc" id="L554">				JSONArray benefitContainsUs2 = new JSONArray();</span>
+<span class="nc" id="L555">				benefitContainsUs2 = getAllContainsInBenefit(parentUs2, childUs2, us2Text, jsonRedundancyPair);</span>
+<span class="nc bnc" id="L556" title="All 2 branches missed.">				if (benefitContainsUs2 != null) {</span>
+<span class="nc" id="L557">					jsonContainsBenefitUs2.put(benefitContainsUs2);</span>
+				}
+			}
+
+		}
+
+<span class="nc" id="L563">		JSONObject jsonAllContains = new JSONObject();</span>
+
+<span class="nc" id="L565">		JSONObject jsonObjectAllContainsUS1 = new JSONObject();</span>
+<span class="nc" id="L566">		JSONObject jsonObjectAllContainsUS2 = new JSONObject();</span>
+
+<span class="nc" id="L568">		JSONObject jsonAllContainsUS2Main = new JSONObject();</span>
+<span class="nc" id="L569">		JSONObject jsonAllContainsUS2Benefit = new JSONObject();</span>
+
+<span class="nc" id="L571">		jsonObjectAllContainsUS1.put(&quot;Main Part&quot;, jsonContainsMainUs1);</span>
+<span class="nc" id="L572">		jsonObjectAllContainsUS1.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs1);</span>
+
+<span class="nc" id="L574">		jsonAllContainsUS2Main.put(&quot;Main Part&quot;, jsonContainsMainUs2);</span>
+<span class="nc" id="L575">		jsonAllContainsUS2Benefit.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs2);</span>
+
+<span class="nc" id="L577">		jsonObjectAllContainsUS2.put(&quot;Main Part&quot;, jsonContainsMainUs2);</span>
+<span class="nc" id="L578">		jsonObjectAllContainsUS2.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs2);</span>
+
+<span class="nc" id="L580">		jsonAllContains.put(us1, jsonObjectAllContainsUS1);</span>
+<span class="nc" id="L581">		jsonAllContains.put(us2, jsonObjectAllContainsUS2);</span>
+<span class="nc" id="L582">		jsonRedundancyPair.put(&quot;All Contains&quot;, jsonAllContains);</span>
+
+<span class="nc" id="L584">		return containsPairs;</span>
+	}
+
+	private JSONArray getAllContainsInBenefit(String parentUs, String childUs, String usText,
+			JSONObject jsonRedundancyPair) {
+<span class="nc" id="L589">		int benefitIndex = usText.indexOf(&quot;so that&quot;);</span>
+<span class="nc" id="L590">		JSONArray jsonBenefit = new JSONArray();</span>
+<span class="nc" id="L591">		String benefitPart = &quot;&quot;;</span>
+<span class="nc bnc" id="L592" title="All 2 branches missed.">		if (benefitIndex != -1) {</span>
+<span class="nc" id="L593">			benefitPart = usText.substring(benefitIndex);</span>
+<span class="nc" id="L594">			jsonBenefit = processElements(parentUs, childUs, benefitPart, jsonRedundancyPair);</span>
+<span class="nc" id="L595">			return jsonBenefit;</span>
+		}
+
+<span class="nc" id="L598">		return null;</span>
+
+	}
+
+	private JSONArray getAllContainsInMain(String parentUs, String childUs, String usText,
+			JSONObject jsonRedundancyPair) {
+<span class="nc" id="L604">		int benefitIndex = usText.indexOf(&quot;so that&quot;);</span>
+<span class="nc" id="L605">		String mainPart = usText;</span>
+<span class="nc" id="L606">		JSONArray jsonMain = new JSONArray();</span>
+<span class="nc bnc" id="L607" title="All 2 branches missed.">		if (benefitIndex != -1) {</span>
+<span class="nc" id="L608">			mainPart = usText.substring(0, benefitIndex);</span>
+		}
+<span class="nc" id="L610">		jsonMain = processElements(parentUs, childUs, mainPart, jsonRedundancyPair);</span>
+<span class="nc" id="L611">		return jsonMain;</span>
+
+	}
+
+	private JSONArray processElements(String parentUs, String childUs, String UsPart, JSONObject jsonRedundancyPair) {
+<span class="nc bnc" id="L616" title="All 4 branches missed.">		if (UsPart.contains(parentUs) &amp;&amp; UsPart.contains(childUs)) {</span>
+<span class="nc" id="L617">			JSONArray contain = new JSONArray().put(parentUs).put(childUs);</span>
+<span class="nc" id="L618">			return contain;</span>
+		}
+<span class="nc" id="L620">		return null;</span>
+	}
+
+	public boolean minimalEcoreExist(String redPair, String conflictReason)
+			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
+<span class="nc" id="L625">		Path path = Paths.get(getAbsoluteDirPath() + &quot;\\&quot; + redPair + &quot;\\&quot; + conflictReason + &quot;\\minimal-model.ecore&quot;);</span>
+<span class="nc bnc" id="L626" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+<span class="nc" id="L627">			return true;</span>
+		} else {
+<span class="nc" id="L629">			return false;</span>
+		}
+
+	}
+
+//	This method make sure that folder name is identified
+//	with \textit{\_AND\_} due to the fact that through CDA 
+//	generated report is formatted like \enquote{user\_story\_\textless 
+//		digit \textgreater\_AND\_user\_story\_\textless
+	private boolean containsAnd(String folder) {
+<span class="nc bnc" id="L639" title="All 2 branches missed.">		if (folder.toLowerCase().contains(&quot;and&quot;)) {</span>
+<span class="nc" id="L640">			return true;</span>
+		} else {
+<span class="nc" id="L642">			return false;</span>
+		}
+	}
+
+	private void processMinimalModels(File minimalModelEcoreFile, ArrayList&lt;String&gt; arrayMaximalElements,
+			ArrayList&lt;String&gt; arrayMaximalElementsNames, RedundancyItems redundancyItems) throws IOException {
+<span class="nc bnc" id="L648" title="All 4 branches missed.">		if (minimalModelEcoreFile.exists() &amp;&amp; minimalModelEcoreFile.length() &gt; 0) {</span>
+<span class="nc" id="L649">			Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;</span>
+<span class="nc" id="L650">			resourceFactoryRegistry.getExtensionToFactoryMap().put(&quot;ecore&quot;, new XMIResourceFactoryImpl());</span>
+<span class="nc" id="L651">			ResourceSet resourceSet = new ResourceSetImpl();</span>
+<span class="nc" id="L652">			Resource resource = resourceSet.getResource(URI.createFileURI(minimalModelEcoreFile.getAbsolutePath()),</span>
+<span class="nc" id="L653">					true);</span>
+<span class="nc bnc" id="L654" title="All 4 branches missed.">			if (resource != null &amp;&amp; !resource.getContents().isEmpty()) {</span>
+
+<span class="nc bnc" id="L656" title="All 2 branches missed.">				for (EObject eObject : resource.getContents()) {</span>
+<span class="nc" id="L657">					EPackage minimalPackage = (EPackage) eObject;</span>
+
+<span class="nc" id="L659">					iteratePackages(minimalPackage, arrayMaximalElements, arrayMaximalElementsNames, redundancyItems);</span>
+
+				}
+			}
+		}
+<span class="nc" id="L664">	}</span>
+
+	private String getUsName1(String us) {
+<span class="nc" id="L667">		return us.replaceAll(&quot;(.*)_AND.*&quot;, &quot;$1&quot;);</span>
+	}
+
+	private String getUsName2(String us) {
+<span class="nc" id="L671">		return us.replaceAll(&quot;.*_AND_(.*)&quot;, &quot;$1&quot;);</span>
+	}
+
+	// Receive user stories texts with highlighted elements and
+	// return only the part/region of sentences which highlighted elements is
+	// appears
+	private void writeUsSentencePart(String string, RedundancyItems redundancyItems, FileWriter fileWriter,
+			JSONObject jsonObject) throws IOException {
+<span class="nc" id="L679">		String usNum1 = getUsName1(string);</span>
+<span class="nc" id="L680">		String usNum2 = getUsName2(string);</span>
+<span class="nc" id="L681">		String usText1 = redundancyItems.getTextUs1();</span>
+<span class="nc" id="L682">		String usText2 = redundancyItems.getTextUs2();</span>
+<span class="nc" id="L683">		splitUsText(usText1, usNum1, usText2, usNum2, fileWriter, jsonObject);</span>
+
+<span class="nc" id="L685">	}</span>
+
+	private void splitUsText(String usText1, String usNum1, String usText2, String usNum2, FileWriter fileWriter,
+			JSONObject jsonObject) throws IOException {
+<span class="nc" id="L689">		String[] parts1 = usText1.split(&quot;,&quot;, 3);</span>
+<span class="nc" id="L690">		String[] parts2 = usText2.split(&quot;,&quot;, 3);</span>
+		// show only part of sentences which include more that two hash symbol pairs
+<span class="nc" id="L692">		String regex = &quot;#[^#]+#&quot;;</span>
+<span class="nc" id="L693">		Set&lt;String&gt; writtenUserStoryPart1 = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L694">		Set&lt;String&gt; writtenUserStoryPart2 = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L695">		Pattern pattern = Pattern.compile(regex);</span>
+		// Initialize JOSN Object as Parts of Sentence
+<span class="nc" id="L697">		JSONObject jsonPartOfSentence = new JSONObject();</span>
+
+		// Create separate user story section part
+<span class="nc bnc" id="L700" title="All 2 branches missed.">		for (String part : parts1) {</span>
+<span class="nc" id="L701">			Matcher matcher = pattern.matcher(part);</span>
+<span class="nc" id="L702">			int count = 0;</span>
+<span class="nc bnc" id="L703" title="All 2 branches missed.">			while (matcher.find()) {</span>
+<span class="nc" id="L704">				count++;</span>
+<span class="nc bnc" id="L705" title="All 4 branches missed.">				if (count &gt;= 2 &amp;&amp; !writtenUserStoryPart1.contains(part)) {</span>
+<span class="nc" id="L706">					fileWriter.write(usNum1 + &quot;: &quot; + part + &quot;\n&quot;);</span>
+					// Write sentence Part first user story on sentence part A
+<span class="nc" id="L708">					jsonPartOfSentence.put(&quot;First UserStory&quot;, new JSONArray().put(part));</span>
+<span class="nc" id="L709">					writtenUserStoryPart1.add(part);</span>
+				}
+			}
+		}
+
+		// Create separate user story section part
+<span class="nc bnc" id="L715" title="All 2 branches missed.">		for (String part : parts2) {</span>
+<span class="nc" id="L716">			Matcher matcher = pattern.matcher(part);</span>
+<span class="nc" id="L717">			int count = 0;</span>
+<span class="nc bnc" id="L718" title="All 2 branches missed.">			while (matcher.find()) {</span>
+<span class="nc" id="L719">				count++;</span>
+<span class="nc bnc" id="L720" title="All 4 branches missed.">				if (count &gt;= 2 &amp;&amp; !writtenUserStoryPart2.contains(part)) {</span>
+<span class="nc" id="L721">					fileWriter.write(usNum2 + &quot;: &quot; + part + &quot;\n&quot;);</span>
+					// Write sentence Part first user story on sentence part A
+<span class="nc" id="L723">					jsonPartOfSentence.put(&quot;Second UserStory&quot;, new JSONArray().put(part));</span>
+<span class="nc" id="L724">					writtenUserStoryPart2.add(part);</span>
+				}
+			}
+		}
+<span class="nc" id="L728">		jsonObject.put(&quot;Part of Sentence&quot;, jsonPartOfSentence);</span>
+
+<span class="nc" id="L730">	}</span>
+
+	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+		JSONArray jsonArray;
+<span class="nc" id="L734">		FileReader reader = new FileReader(path);</span>
+<span class="nc" id="L735">		JSONTokener tokener = new JSONTokener(reader);</span>
+<span class="nc bnc" id="L736" title="All 2 branches missed.">		if (!tokener.more()) {</span>
+<span class="nc" id="L737">			throw new EmptyOrNotExistJsonFile();</span>
+
+		}
+		// Read JSON file
+<span class="nc" id="L741">		jsonArray = new JSONArray(tokener);</span>
+
+<span class="nc" id="L743">		return jsonArray;</span>
+
+	}
+
+	// in order to insert the table at the very first place of the file
+	// we need to first store the report at StringBuilder and then make
+	// file again but at this time writing the table first
+	public void writeTable(File totalCda, List&lt;RedundantPair&gt; redundantPairs) throws IOException {
+
+<span class="nc" id="L752">		List&lt;String&gt; pairListSeperate = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L753">		StringBuilder report = new StringBuilder();</span>
+<span class="nc" id="L754">		BufferedReader reader = new BufferedReader(new FileReader(totalCda));</span>
+		String line;
+<span class="nc bnc" id="L756" title="All 2 branches missed.">		while ((line = reader.readLine()) != null) {</span>
+<span class="nc" id="L757">			report.append(line).append(&quot;\n&quot;);</span>
+		}
+<span class="nc" id="L759">		reader.close();</span>
+<span class="nc" id="L760">		FileWriter writer = new FileWriter(totalCda);</span>
+
+		// display the table
+<span class="nc" id="L763">		StringBuilder table = new StringBuilder();</span>
+		// add new line before the table
+<span class="nc" id="L765">		table.append(&quot;* Table of potential redundancies between user stories&quot;</span>
+				+ &quot; and the number of their overlapping elements\n\n&quot;);
+		// table.append(&quot;\t&quot;);
+<span class="nc bnc" id="L768" title="All 2 branches missed.">		for (RedundantPair redundantPair : redundantPairs) {</span>
+<span class="nc bnc" id="L769" title="All 2 branches missed.">			if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {</span>
+<span class="nc" id="L770">				pairListSeperate.add(redundantPair.getRedundantPair1());</span>
+			}
+<span class="nc bnc" id="L772" title="All 2 branches missed.">			if (!pairListSeperate.contains(redundantPair.getRedundantPair2())) {</span>
+<span class="nc" id="L773">				pairListSeperate.add(redundantPair.getRedundantPair2());</span>
+			}
+		}
+<span class="nc" id="L776">		String[][] stringTable = createTable(pairListSeperate, redundantPairs);</span>
+<span class="nc" id="L777">		int numCols = stringTable[0].length;</span>
+
+		// find the maximum width for each column
+<span class="nc" id="L780">		int[] maxWidths = new int[numCols];</span>
+<span class="nc bnc" id="L781" title="All 2 branches missed.">		for (String[] row : stringTable) {</span>
+<span class="nc bnc" id="L782" title="All 2 branches missed.">			for (int j = 0; j &lt; numCols; j++) {</span>
+<span class="nc" id="L783">				maxWidths[j] = Math.max(maxWidths[j], row[j].length());</span>
+			}
+		}
+<span class="nc bnc" id="L786" title="All 2 branches missed.">		for (String[] row : stringTable) {</span>
+<span class="nc bnc" id="L787" title="All 2 branches missed.">			for (int j = 0; j &lt; numCols; j++) {</span>
+
+<span class="nc" id="L789">				table.append(String.format(&quot;%-&quot; + (maxWidths[j] + 2) + &quot;s&quot;, row[j]));</span>
+			}
+<span class="nc" id="L791">			table.append(&quot;\n&quot;);</span>
+		}
+<span class="nc" id="L793">		writer.write(table.toString());</span>
+<span class="nc" id="L794">		writer.write(report.toString());</span>
+<span class="nc" id="L795">		writer.close();</span>
+
+<span class="nc" id="L797">	}</span>
+
+	private String[][] createTable(List&lt;String&gt; pairListSeperate2, List&lt;RedundantPair&gt; redundantPairs2) {
+<span class="nc" id="L800">		int size = pairListSeperate2.size();</span>
+<span class="nc" id="L801">		String[][] table = new String[size + 1][size + 1];</span>
+
+<span class="nc" id="L803">		table[0][0] = &quot;&quot;;</span>
+<span class="nc bnc" id="L804" title="All 2 branches missed.">		for (int i = 0; i &lt; size; i++) {</span>
+<span class="nc" id="L805">			table[0][i + 1] = pairListSeperate2.get(i).replaceAll(&quot;user_story&quot;, &quot;us&quot;); // header row</span>
+<span class="nc" id="L806">			table[i + 1][0] = pairListSeperate2.get(i).replaceAll(&quot;user_story&quot;, &quot;us&quot;); // first column</span>
+		}
+<span class="nc bnc" id="L808" title="All 2 branches missed.">		for (int i = 0; i &lt; size; i++) {</span>
+<span class="nc bnc" id="L809" title="All 2 branches missed.">			for (int j = 0; j &lt; size; j++) {</span>
+<span class="nc" id="L810">				String pair1 = pairListSeperate2.get(i);</span>
+<span class="nc" id="L811">				String pair2 = pairListSeperate2.get(j);</span>
+<span class="nc" id="L812">				int maximal = getTotalRedundanciesFromPair(redundantPairs2, pair1, pair2);</span>
+<span class="nc" id="L813">				table[i + 1][j + 1] = String.valueOf(maximal);</span>
+			}
+
+		}
+<span class="nc" id="L817">		return table;</span>
+	}
+
+	private int getTotalRedundanciesFromPair(List&lt;RedundantPair&gt; redundantPairs, String pair1, String pair2) {
+<span class="nc bnc" id="L821" title="All 2 branches missed.">		for (RedundantPair redundantPair : redundantPairs) {</span>
+<span class="nc bnc" id="L822" title="All 4 branches missed.">			if ((redundantPair.getRedundantPair1().equals(pair1) &amp;&amp; redundantPair.getRedundantPair2().equals(pair2))</span>
+<span class="nc bnc" id="L823" title="All 2 branches missed.">					|| (redundantPair.getRedundantPair1().equals(pair2)</span>
+<span class="nc bnc" id="L824" title="All 2 branches missed.">							&amp;&amp; redundantPair.getRedundantPair2().equals(pair1))) {</span>
+<span class="nc" id="L825">				return redundantPair.getMaximal();</span>
+			}
+		}
+
+<span class="nc" id="L829">		return 0;</span>
+	}
+
+	// check if critical pair list already contain of
+	// whether user_story_XX_AND_user_story_YY
+	// or user_story_YY_AND_user_story_XX, if yes return true,
+	// Otherwise return false
+	private boolean checkIfReportExist(String usPairs, List&lt;String&gt; pairList) {
+<span class="nc bnc" id="L837" title="All 2 branches missed.">		if (!pairList.contains(usPairs)) {</span>
+<span class="nc" id="L838">			String us1 = getUsName1(usPairs);</span>
+<span class="nc" id="L839">			String us2 = getUsName2(usPairs);</span>
+<span class="nc" id="L840">			pairList.add(usPairs);</span>
+			// Add also reverse item
+<span class="nc" id="L842">			pairList.add(us2 + &quot;_AND_&quot; + us1);</span>
+
+<span class="nc" id="L844">			return false;</span>
+		} else {
+
+<span class="nc" id="L847">			return true;</span>
+		}
+	}
+
+	private boolean hasTargets(ArrayList&lt;String&gt; arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+<span class="nc bnc" id="L852" title="All 2 branches missed.">		for (String item : arrayMaximalElementsNames) {</span>
+<span class="nc bnc" id="L853" title="All 2 branches missed.">			for (Targets target : redundancyItems.getTargets()) {</span>
+<span class="nc bnc" id="L854" title="All 2 branches missed.">				if (item.equals(target.getName())) {</span>
+<span class="nc" id="L855">					return true;</span>
+				}
+			}
+		}
+<span class="nc" id="L859">		return false;</span>
+	}
+
+	private boolean hasActions(ArrayList&lt;String&gt; arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+<span class="nc bnc" id="L863" title="All 2 branches missed.">		for (String item : arrayMaximalElementsNames) {</span>
+<span class="nc bnc" id="L864" title="All 2 branches missed.">			for (SecondaryAction secondaryAction : redundancyItems.getSecondaryAction()) {</span>
+<span class="nc bnc" id="L865" title="All 2 branches missed.">				if (item.equals(secondaryAction.getName())) {</span>
+<span class="nc" id="L866">					return true;</span>
+				}
+			}
+<span class="nc bnc" id="L869" title="All 2 branches missed.">			for (PrimaryAction primaryAction : redundancyItems.getPrimaryActions()) {</span>
+<span class="nc bnc" id="L870" title="All 2 branches missed.">				if (item.equals(primaryAction.getName())) {</span>
+<span class="nc" id="L871">					return true;</span>
+				}
+			}
+		}
+<span class="nc" id="L875">		return false;</span>
+	}
+
+	private boolean hasEntitys(ArrayList&lt;String&gt; arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+<span class="nc bnc" id="L879" title="All 2 branches missed.">		for (String item : arrayMaximalElementsNames) {</span>
+<span class="nc bnc" id="L880" title="All 2 branches missed.">			for (SecondaryEntity secondaryEntity : redundancyItems.getSecondaryEntity()) {</span>
+<span class="nc bnc" id="L881" title="All 2 branches missed.">				if (item.equals(secondaryEntity.getName())) {</span>
+<span class="nc" id="L882">					return true;</span>
+				}
+			}
+<span class="nc bnc" id="L885" title="All 2 branches missed.">			for (PrimaryEntity primaryEntity : redundancyItems.getPrimaryEntity()) {</span>
+<span class="nc bnc" id="L886" title="All 2 branches missed.">				if (item.equals(primaryEntity.getName())) {</span>
+<span class="nc" id="L887">					return true;</span>
+				}
+			}
+		}
+
+<span class="nc" id="L892">		return false;</span>
+	}
+
+	// get USs Text from JSON File and add them into redundancyItems
+	private void getUssTexts(String usPair, RedundancyItems redundancyItems)
+			throws JsonFileNotFound, IOException, EmptyOrNotExistJsonFile {
+<span class="nc" id="L898">		JSONArray json = null;</span>
+<span class="nc" id="L899">		String us1 = getUsName1(usPair);</span>
+<span class="nc" id="L900">		String us2 = getUsName2(usPair);</span>
+
+<span class="nc" id="L902">		json = readJsonArrayFromFile(getAbsoluteFinalReportDir());</span>
+<span class="nc bnc" id="L903" title="All 2 branches missed.">		for (int i = 0; i &lt; json.length(); i++) {</span>
+<span class="nc" id="L904">			JSONObject jsonObject = json.getJSONObject(i);</span>
+
+			// check if two related object are exist in JSON file
+			// if so
+
+<span class="nc" id="L909">			String usNr = jsonObject.getString(&quot;US_Nr&quot;);</span>
+			// all words should be lower case to avoid mismatching
+<span class="nc" id="L911">			String usText = jsonObject.getString(&quot;Text&quot;).toLowerCase();</span>
+<span class="nc bnc" id="L912" title="All 2 branches missed.">			if (usNr.equals(us1)) {</span>
+<span class="nc" id="L913">				redundancyItems.setTextUs1(usText);</span>
+
+<span class="nc bnc" id="L915" title="All 2 branches missed.">			} else if (usNr.equals(us2)) {</span>
+
+<span class="nc" id="L917">				redundancyItems.setTextUs2(usText);</span>
+
+			}
+
+		}
+
+<span class="nc" id="L923">	}</span>
+
+	private void writeUsText(String usPair, ArrayList&lt;String&gt; arrayMax, List&lt;RedundantPair&gt; redundantPairs,
+			RedundancyItems redundancyItems, FileWriter fileWriter, List&lt;TargetsPair&gt; targetsPairs,
+			List&lt;TriggersPair&gt; triggersPairs, List&lt;ContainsPair&gt; containsPairs, JSONObject jsonRedundancyPair)
+			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
+<span class="nc" id="L929">		String us1 = getUsName1(usPair);</span>
+<span class="nc" id="L930">		String us2 = getUsName2(usPair);</span>
+
+		// add conflict pairs with maximal overlapping and save it
+		// in order to filling table
+<span class="nc" id="L934">		RedundantPair redundantPair = new RedundantPair();</span>
+
+		// here i try to add US_Nr from USs into the highlightConflicts
+<span class="nc" id="L937">		redundancyItems.setUsNr1(us1);</span>
+<span class="nc" id="L938">		redundancyItems.setUsNr2(us2);</span>
+
+		// get USs Text from JSON File and add them into redundancyItems
+<span class="nc" id="L941">		getUssTexts(usPair, redundancyItems);</span>
+		
+			// here I want to send both USs as parameter for highlightingConflicts
+<span class="nc" id="L944">			redundancyItems = highlightRedundancies(redundancyItems, usPair, targetsPairs, triggersPairs, containsPairs,</span>
+<span class="nc" id="L945">					jsonRedundancyPair);</span>
+
+<span class="nc" id="L947">			String highlightedUs2 = redundancyItems.getTextUs2();</span>
+<span class="nc" id="L948">			fileWriter.write(&quot;\n\n &quot; + us2 + &quot;: &quot; + highlightedUs2.toLowerCase());</span>
+
+<span class="nc" id="L950">			String highlightedUs1 = redundancyItems.getTextUs1();</span>
+<span class="nc" id="L951">			fileWriter.write(&quot;\n\n &quot; + us1 + &quot;: &quot; + highlightedUs1.toLowerCase());</span>
+<span class="nc" id="L952">			redundantPair.setRedundantPair1(us1);</span>
+<span class="nc" id="L953">			redundantPair.setRedundantPair2(us2);</span>
+<span class="nc" id="L954">			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());</span>
+<span class="nc" id="L955">			redundantPairs.add(redundantPair);</span>
+
+
+<span class="nc" id="L958">	}</span>
+
+	// Separate user story &quot;Text&quot; with comma and then find in each area related
+	// element.
+	// For example if we are in second region (which means it need to looking for
+	// primary
+	// action/entity) after finding it check if the element contains in Targets, if
+	// so,
+	// add hash symbol(#) at the beginning and ending of the words.
+	// For secondary action entity we looking ad the third region of sentence.
+	// I want to check both user stories and separate their parts of sentence
+	// through comma and first try to find the match is in secondPartOfSentence of
+	// both user
+	// stories. I should check US1_Part_1 vs US2_part_1, then if US1_Part_2 &amp;&amp;
+	// US2_Part_2
+	// are exist then try to file the match is in thirdPartOfSentence of both USs
+	// then try
+	// to replace
+	private RedundancyItems highlightRedundancies(RedundancyItems redundancyItems, String usPair,
+			List&lt;TargetsPair&gt; targetsPairs, List&lt;TriggersPair&gt; triggersPairs, List&lt;ContainsPair&gt; containsPairs,
+			JSONObject jsonRedundancyPair) throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
+
+<span class="nc" id="L980">		String textUs1 = redundancyItems.getTextUs1();</span>
+<span class="nc" id="L981">		String textUs2 = redundancyItems.getTextUs2();</span>
+<span class="nc" id="L982">		int mainConflict = redundancyItems.getMainRedundancyCount();</span>
+<span class="nc" id="L983">		int benefitConflict = redundancyItems.getBenefitRedundancyCount();</span>
+		//if (textUs1.length() &lt;= 0 &amp;&amp; textUs2.length() &lt;= 0) {
+	//		return null;
+	//	}
+
+		// find the index of first comma
+<span class="nc" id="L989">		int firstCommaUs1 = textUs1.indexOf(',');</span>
+<span class="nc" id="L990">		int firstCommaUs2 = textUs2.indexOf(',');</span>
+		// if there is no main part in the sentence
+		// which include triggers and targets
+//		if (firstCommaUs1 == -1 || firstCommaUs2 == -1) {
+//			return redundancyItems;
+		// receive the index of first comma in both Text in USs
+		// subString will be like this: I want to be able to ....
+//		}
+<span class="nc" id="L998">		String subStringFirstUs1 = textUs1.substring(0, firstCommaUs1);</span>
+<span class="nc" id="L999">		String subStringFirstUs2 = textUs2.substring(0, firstCommaUs2);</span>
+
+		// receive the index of second comma
+<span class="nc" id="L1002">		int benefitPlaceHolderUs1 = textUs1.indexOf(&quot;so that&quot;, firstCommaUs1 + 1);</span>
+<span class="nc" id="L1003">		int benefitPlaceHolderUs2 = textUs2.indexOf(&quot;so that&quot;, firstCommaUs2 + 1);</span>
+
+		// if one of USs does't have benefit, then there is no conflicted
+		// element at benefit at all just return benefit as it is
+		// if US_1 does't have benefit
+<span class="nc bnc" id="L1008" title="All 4 branches missed.">		if (benefitPlaceHolderUs1 == -1 &amp;&amp; benefitPlaceHolderUs2 != -1) {</span>
+
+<span class="nc" id="L1010">			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);</span>
+<span class="nc" id="L1011">			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);</span>
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this main part, if so then add hash symbol
+<span class="nc" id="L1015">			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,</span>
+<span class="nc" id="L1016">					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1017">			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];</span>
+<span class="nc" id="L1018">			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1020">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// subString from second comma until the end of story ;)
+<span class="nc" id="L1023">			String subStringBenefitUs2 = redundancyItems.getTextUs2().substring(benefitPlaceHolderUs2);</span>
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+<span class="nc bnc" id="L1027" title="All 2 branches missed.">			if (hasMoreThanSixHashSymbols(textUs1)) {</span>
+<span class="nc" id="L1028">				usText = applyHashSymbolPersona(triggersPairs, redundancyItems, textUs1, textUs2);</span>
+<span class="nc" id="L1029">				textUs1 = usText[0];</span>
+<span class="nc" id="L1030">				textUs2 = usText[1];</span>
+				// add the number of conflict pairs from main sentence
+<span class="nc" id="L1032">				mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+			}
+			// Apply hash symbol to common element in the both user stories if any
+<span class="nc" id="L1035">			usText = applyHashSymbolContaiansMain(containsPairs, redundancyItems, textUs1, textUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1036">			textUs1 = usText[0];</span>
+<span class="nc" id="L1037">			textUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1039">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+<span class="nc" id="L1042">			textUs2 = textUs2 + subStringBenefitUs2;</span>
+
+		}
+		// if US_2 does't have benefit
+<span class="nc bnc" id="L1046" title="All 4 branches missed.">		if (benefitPlaceHolderUs1 != -1 &amp;&amp; benefitPlaceHolderUs2 == -1) {</span>
+
+<span class="nc" id="L1048">			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);</span>
+<span class="nc" id="L1049">			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);</span>
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+<span class="nc" id="L1053">			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,</span>
+<span class="nc" id="L1054">					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1055">			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];</span>
+<span class="nc" id="L1056">			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1058">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// subString from second comma until the end of story ;)
+<span class="nc" id="L1061">			String subStringBenefitUs1 = redundancyItems.getTextUs1().substring(benefitPlaceHolderUs1);</span>
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+<span class="nc bnc" id="L1065" title="All 2 branches missed.">			if (hasMoreThanSixHashSymbols(textUs1)) {</span>
+<span class="nc" id="L1066">				usText = applyHashSymbolPersona(triggersPairs, redundancyItems, textUs1, textUs2);</span>
+<span class="nc" id="L1067">				textUs1 = usText[0];</span>
+<span class="nc" id="L1068">				textUs2 = usText[1];</span>
+				// add the number of conflict pairs from main sentence
+<span class="nc" id="L1070">				mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			}
+
+			// Apply hash symbol to common element in the both user stories if any
+<span class="nc" id="L1075">			usText = applyHashSymbolContaiansMain(containsPairs, redundancyItems, textUs1, textUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1076">			textUs1 = usText[0];</span>
+<span class="nc" id="L1077">			textUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1079">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+<span class="nc" id="L1083">			textUs1 = textUs1 + subStringBenefitUs1;</span>
+
+		}
+		// if both does't have benefit
+<span class="nc bnc" id="L1087" title="All 4 branches missed.">		if (benefitPlaceHolderUs1 == -1 &amp;&amp; benefitPlaceHolderUs2 == -1) {</span>
+<span class="nc" id="L1088">			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);</span>
+<span class="nc" id="L1089">			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);</span>
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+<span class="nc" id="L1093">			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,</span>
+<span class="nc" id="L1094">					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1095">			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];</span>
+<span class="nc" id="L1096">			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1098">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+<span class="nc bnc" id="L1102" title="All 2 branches missed.">			if (hasMoreThanSixHashSymbols(textUs1)) {</span>
+<span class="nc" id="L1103">				usText = applyHashSymbolPersona(triggersPairs, redundancyItems, textUs1, textUs2);</span>
+<span class="nc" id="L1104">				textUs1 = usText[0];</span>
+<span class="nc" id="L1105">				textUs2 = usText[1];</span>
+				// add the number of conflict pairs from main sentence
+<span class="nc" id="L1107">				mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+			}
+
+			// subString from second comma until the end of story ;)
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+
+			// Apply hash symbol to common elements in the both user stories if any
+<span class="nc" id="L1115">			usText = applyHashSymbolContaiansMain(containsPairs, redundancyItems, textUs1, textUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1116">			textUs1 = usText[0];</span>
+<span class="nc" id="L1117">			textUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1119">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+		}
+		// if both USs have benefit
+<span class="nc bnc" id="L1123" title="All 4 branches missed.">		if (benefitPlaceHolderUs1 != -1 &amp;&amp; benefitPlaceHolderUs2 != -1) {</span>
+<span class="nc" id="L1124">			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);</span>
+<span class="nc" id="L1125">			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);</span>
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this sentence part, if so then add hash symbol
+			// first try to find conflict pairs at the main sentence
+<span class="nc" id="L1129">			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,</span>
+<span class="nc" id="L1130">					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);</span>
+
+<span class="nc" id="L1132">			textUs1 = usText[0];</span>
+<span class="nc" id="L1133">			textUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1135">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// check if there are hash symbol more than 3 pair first and main section
+			// if so then highlight the Persona
+<span class="nc bnc" id="L1139" title="All 2 branches missed.">			if (hasMoreThanFourHashSymbols(textUs1)) {</span>
+<span class="nc" id="L1140">				usText = applyHashSymbolPersona(triggersPairs, redundancyItems, subStringFirstUs1, subStringFirstUs2);</span>
+<span class="nc" id="L1141">				subStringFirstUs1 = usText[0];</span>
+<span class="nc" id="L1142">				subStringFirstUs2 = usText[1];</span>
+				// add the number of conflict pairs from main sentence
+<span class="nc" id="L1144">				mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+			}
+
+			// Apply hash symbol to common elements in Main from the both user stories if
+			// any
+<span class="nc" id="L1149">			usText = applyHashSymbolContaiansMain(containsPairs, redundancyItems, textUs1, textUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1150">			textUs1 = usText[0];</span>
+<span class="nc" id="L1151">			textUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1153">			mainConflict = mainConflict + Integer.parseInt(usText[2]);</span>
+
+			// subString from second comma until the end of story ;)
+<span class="nc" id="L1156">			String subStringBenefitUs1 = redundancyItems.getTextUs1().substring(benefitPlaceHolderUs1);</span>
+<span class="nc" id="L1157">			String subStringBenefitUs2 = redundancyItems.getTextUs2().substring(benefitPlaceHolderUs2);</span>
+
+			// I want to check if targetsPair.aciton/entity are already exist
+			// in this benefit part, if so then add hash symbol
+			// first try to find conflict pairs at the benefit sentence
+<span class="nc" id="L1162">			usText = applyHashSymbolTargetsBenefit(targetsPairs, containsPairs, redundancyItems, subStringBenefitUs1,</span>
+<span class="nc" id="L1163">					subStringBenefitUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1164">			subStringBenefitUs1 = usText[0];</span>
+<span class="nc" id="L1165">			subStringBenefitUs2 = usText[1];</span>
+
+			// add the number of conflict pairs from benefit sentence
+<span class="nc" id="L1168">			benefitConflict = benefitConflict + Integer.parseInt(usText[2]);</span>
+
+			// Apply hash symbol to common elements in Benefit part of the both user stories
+			// if any
+<span class="nc" id="L1172">			usText = applyHashSymbolContaiansBenefit(containsPairs, redundancyItems, subStringBenefitUs1,</span>
+<span class="nc" id="L1173">					subStringBenefitUs2, jsonRedundancyPair);</span>
+<span class="nc" id="L1174">			subStringBenefitUs1 = usText[0];</span>
+<span class="nc" id="L1175">			subStringBenefitUs2 = usText[1];</span>
+			// add the number of conflict pairs from main sentence
+<span class="nc" id="L1177">			benefitConflict = benefitConflict + Integer.parseInt(usText[2]);</span>
+
+			// concatenate main part and benefit parts
+<span class="nc" id="L1180">			textUs1 = textUs1 + subStringBenefitUs1;</span>
+<span class="nc" id="L1181">			textUs2 = textUs2 + subStringBenefitUs2;</span>
+
+			// if contains elements are distributed in both parts
+			// (one element in main and on in benefit), it the conflict element of main
+			// should be increased not main and benefit
+			// Apply hash symbol to common elements in the both user stories if any
+<span class="nc" id="L1187">			textUs1 = subStringFirstUs1 + &quot;,&quot; + textUs1;</span>
+<span class="nc" id="L1188">			textUs2 = subStringFirstUs2 + &quot;,&quot; + textUs2;</span>
+
+		}
+
+		// add amount of founded conflict pairs from main/benefit sentence
+		// into Benefit/MainConflict Count
+<span class="nc" id="L1194">		redundancyItems.setBenefitRedundancyCount(benefitConflict);</span>
+<span class="nc" id="L1195">		redundancyItems.setMainRedundancyCount(mainConflict);</span>
+<span class="nc" id="L1196">		redundancyItems.setMaxRedundancyCount(mainConflict + benefitConflict);</span>
+<span class="nc" id="L1197">		redundancyItems.setTextUs1(textUs1);</span>
+<span class="nc" id="L1198">		redundancyItems.setTextUs2(textUs2);</span>
+
+<span class="nc" id="L1200">		return redundancyItems;</span>
+
+	}
+
+	private String[] applyHashSymbolContaiansMain(List&lt;ContainsPair&gt; containsPairs, RedundancyItems redundancyItems,
+			String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1206">		String[] usTexts = new String[4];</span>
+<span class="nc" id="L1207">		int redundancyCount = 0;</span>
+<span class="nc" id="L1208">		JSONArray jsonContains = new JSONArray();</span>
+		// iterate through commonContains and check other element of pair related to
+		// the containsPair if any exist but filter: [containsPair,contain] case
+		// which is the same pair in which is already parsed
+<span class="nc bnc" id="L1212" title="All 2 branches missed.">		for (ContainsPair containsPair2 : containsPairs) {</span>
+<span class="nc" id="L1213">			String child = containsPair2.getChildEntity();</span>
+<span class="nc" id="L1214">			String parent = containsPair2.getParentEntity();</span>
+			// check if both elements of contains is included in both segment part
+			// and check do so if
+<span class="nc bnc" id="L1217" title="All 6 branches missed.">			if ((subStringUs1.contains(child) &amp;&amp; subStringUs2.contains(child) &amp;&amp; subStringUs1.contains(parent)</span>
+<span class="nc bnc" id="L1218" title="All 2 branches missed.">					&amp;&amp; subStringUs2.contains(parent))) {</span>
+
+				// add hash symbol to contains pairs
+<span class="nc" id="L1221">				String[] matches = { parent, child };</span>
+<span class="nc" id="L1222">				subStringUs1 = applyHashSymbols(subStringUs1, matches);</span>
+<span class="nc" id="L1223">				subStringUs2 = applyHashSymbols(subStringUs2, matches);</span>
+
+<span class="nc" id="L1225">				redundancyCount++;</span>
+				// break in order to avoid of counting redundant items
+				// add to JOSN report as Common Contains in Main
+<span class="nc" id="L1228">				JSONArray jsonContain = new JSONArray().put(parent).put(child);</span>
+<span class="nc" id="L1229">				jsonContains.put(jsonContain);</span>
+			}
+		}
+<span class="nc" id="L1232">		JSONObject jsonCommonContains = new JSONObject();</span>
+<span class="nc" id="L1233">		jsonCommonContains.put(&quot;Main Part&quot;, jsonContains);</span>
+<span class="nc" id="L1234">		jsonRedundancyPair.put(&quot;Common Contains&quot;, jsonCommonContains);</span>
+<span class="nc" id="L1235">		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1236">		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1237">		usTexts[2] = String.valueOf(redundancyCount);</span>
+<span class="nc" id="L1238">		return usTexts;</span>
+	}
+
+	private String[] applyHashSymbolTargetsMain(List&lt;TargetsPair&gt; targetsPairs, List&lt;ContainsPair&gt; containsPairs,
+			RedundancyItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1243">		String[] usTexts = new String[4];</span>
+<span class="nc" id="L1244">		int redundancyCount = 0;</span>
+<span class="nc" id="L1245">		JSONArray jsonTargets = new JSONArray();</span>
+		// I want to check if targetsPair.aciton/entity are already exist
+		// in this sentence part, if so then add hash symbol
+<span class="nc bnc" id="L1248" title="All 2 branches missed.">		for (TargetsPair targetsPair : targetsPairs) {</span>
+			// replace all pairs in this part of sentence if it
+			// exist in both sentence parts
+<span class="nc" id="L1251">			String action = targetsPair.getAction();</span>
+<span class="nc" id="L1252">			String entity = targetsPair.getEntity();</span>
+<span class="nc bnc" id="L1253" title="All 4 branches missed.">			if ((subStringUs1.contains(action) &amp;&amp; subStringUs1.contains(entity))</span>
+<span class="nc bnc" id="L1254" title="All 4 branches missed.">					&amp;&amp; (subStringUs2.contains(action) &amp;&amp; subStringUs2.contains(entity))) {</span>
+				// US_1 add hash symbol at the beginning and ending of each word
+<span class="nc" id="L1256">				String[] actionMatches = { action };</span>
+<span class="nc" id="L1257">				String[] entityMatches = { entity };</span>
+<span class="nc" id="L1258">				subStringUs1 = applyHashSymbols(subStringUs1, actionMatches);</span>
+<span class="nc" id="L1259">				subStringUs1 = applyHashSymbols(subStringUs1, entityMatches);</span>
+
+				// US_2 add hash symbol at the beginning and ending of each word
+<span class="nc" id="L1262">				subStringUs2 = applyHashSymbols(subStringUs2, actionMatches);</span>
+<span class="nc" id="L1263">				subStringUs2 = applyHashSymbols(subStringUs2, entityMatches);</span>
+
+				// count conflicts in this sentence part in order to know which sentence
+				// part how many conflict pairs exist
+<span class="nc" id="L1267">				redundancyCount++;</span>
+				// check if entity exist in contains list
+
+				// add to JOSN report as Common Targets in Main
+<span class="nc" id="L1271">				JSONArray josnTarget = new JSONArray().put(action).put(entity);</span>
+<span class="nc" id="L1272">				jsonTargets.put(josnTarget);</span>
+			}
+		}
+<span class="nc" id="L1275">		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject(&quot;Common Targets&quot;);</span>
+<span class="nc bnc" id="L1276" title="All 2 branches missed.">		if (jsonCommonTargets == null) {</span>
+<span class="nc" id="L1277">			jsonCommonTargets = new JSONObject();</span>
+<span class="nc" id="L1278">			jsonCommonTargets.put(&quot;Main Part&quot;, jsonTargets);</span>
+<span class="nc" id="L1279">			jsonRedundancyPair.put(&quot;Common Targets&quot;, jsonCommonTargets);</span>
+		}
+<span class="nc" id="L1281">		jsonCommonTargets.put(&quot;Main Part&quot;, jsonTargets);</span>
+
+<span class="nc" id="L1283">		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1284">		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1285">		usTexts[2] = String.valueOf(redundancyCount);</span>
+<span class="nc" id="L1286">		return usTexts;</span>
+	}
+
+	private String[] applyHashSymbolTargetsBenefit(List&lt;TargetsPair&gt; targetsPairs, List&lt;ContainsPair&gt; containsPairs,
+			RedundancyItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1291">		String[] usTexts = new String[4];</span>
+<span class="nc" id="L1292">		int redundancyCount = 0;</span>
+<span class="nc" id="L1293">		JSONArray jsonTargets = new JSONArray();</span>
+		// I want to check if targetsPair.aciton/entity are already exist
+		// in this sentence part, if so then add hash symbol
+<span class="nc bnc" id="L1296" title="All 2 branches missed.">		for (TargetsPair targetsPair : targetsPairs) {</span>
+			// replace all pairs in this part of sentence if it
+			// exist in both sentence parts
+<span class="nc" id="L1299">			String action = targetsPair.getAction();</span>
+<span class="nc" id="L1300">			String entity = targetsPair.getEntity();</span>
+<span class="nc bnc" id="L1301" title="All 4 branches missed.">			if ((subStringUs1.contains(action) &amp;&amp; subStringUs1.contains(entity))</span>
+<span class="nc bnc" id="L1302" title="All 4 branches missed.">					&amp;&amp; (subStringUs2.contains(action) &amp;&amp; subStringUs2.contains(entity))) {</span>
+				// US_1 add hash symbol at the beginning and ending of each word
+<span class="nc" id="L1304">				String[] actionMatches = { action };</span>
+<span class="nc" id="L1305">				String[] entityMatches = { entity };</span>
+<span class="nc" id="L1306">				subStringUs1 = applyHashSymbols(subStringUs1, actionMatches);</span>
+<span class="nc" id="L1307">				subStringUs1 = applyHashSymbols(subStringUs1, entityMatches);</span>
+
+				// US_2 add hash symbol at the beginning and ending of each word
+<span class="nc" id="L1310">				subStringUs2 = applyHashSymbols(subStringUs2, actionMatches);</span>
+<span class="nc" id="L1311">				subStringUs2 = applyHashSymbols(subStringUs2, entityMatches);</span>
+
+				// count conflicts in this sentence part in order to know which sentence
+				// part how many conflict pairs exist
+<span class="nc" id="L1315">				redundancyCount++;</span>
+
+				// check if entity exist in contains list
+				// add to JOSN report as Common Targets in Benefit
+<span class="nc" id="L1319">				JSONArray josnTarget = new JSONArray().put(action).put(entity);</span>
+<span class="nc" id="L1320">				jsonTargets.put(josnTarget);</span>
+			}
+		}
+
+		// JSONObject jsonCommonTargets = new JSONObject();
+<span class="nc" id="L1325">		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject(&quot;Common Targets&quot;);</span>
+<span class="nc bnc" id="L1326" title="All 2 branches missed.">		if (jsonCommonTargets == null) {</span>
+<span class="nc" id="L1327">			jsonCommonTargets = new JSONObject();</span>
+<span class="nc" id="L1328">			jsonRedundancyPair.put(&quot;Common Targets&quot;, jsonCommonTargets);</span>
+		}
+<span class="nc" id="L1330">		jsonCommonTargets.put(&quot;Benefit Part&quot;, jsonTargets);</span>
+<span class="nc" id="L1331">		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1332">		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1333">		usTexts[2] = String.valueOf(redundancyCount);</span>
+<span class="nc" id="L1334">		return usTexts;</span>
+	}
+
+	private boolean hasMoreThanFourHashSymbols(String textUs1) {
+<span class="nc bnc" id="L1338" title="All 2 branches missed.">		long count = textUs1.chars().filter(ch -&gt; ch == '#').count();</span>
+<span class="nc bnc" id="L1339" title="All 2 branches missed.">		return count &gt;= 4;</span>
+
+	}
+
+	private String[] applyHashSymbolPersona(List&lt;TriggersPair&gt; triggers, RedundancyItems redundancyItems,
+			String subStringFirstUs1, String subStringFirstUs2) {
+<span class="nc" id="L1345">		String[] usTexts = new String[4];</span>
+<span class="nc" id="L1346">		int redundancyCount = 0;</span>
+
+		// I want to check if TriggersPair persona/action are already exist
+		// in this sentence part, if so then add hash symbol
+		// Add if and only if the action in triggers pair are exist in
+		// *.redundanted targets pairs
+<span class="nc bnc" id="L1352" title="All 2 branches missed.">		for (TriggersPair triggerPair : triggers) {</span>
+<span class="nc" id="L1353">			String persona = triggerPair.getPersona();</span>
+			// replace all pairs in this part of sentence if it
+			// exist in both sentence parts
+<span class="nc bnc" id="L1356" title="All 4 branches missed.">			if (subStringFirstUs1.contains(persona) &amp;&amp; subStringFirstUs2.contains(persona)) {</span>
+
+				// US_1/US_2 add hash symbol at the beginning and ending of each word
+<span class="nc" id="L1359">				String[] matches = { persona };</span>
+<span class="nc" id="L1360">				subStringFirstUs1 = applyHashSymbols(subStringFirstUs1, matches);</span>
+<span class="nc" id="L1361">				subStringFirstUs2 = applyHashSymbols(subStringFirstUs2, matches);</span>
+
+				// count conflicts in this sentence part in order to know which sentence
+				// part how many conflict pairs exist
+				// after highlighting persona it should be check if
+				// to pairs of triggers elements exist, then increase the count
+				// of elements if and only if the action is also in targets
+
+<span class="nc" id="L1369">				redundancyCount++;</span>
+
+			}
+
+		}
+<span class="nc" id="L1374">		usTexts[0] = subStringFirstUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1375">		usTexts[1] = subStringFirstUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1376">		usTexts[2] = String.valueOf(redundancyCount);</span>
+<span class="nc" id="L1377">		return usTexts;</span>
+	}
+
+	// replace hash symbol at beginning and ending of founded element
+	private String applyHashSymbols(String subString, String[] matches) {
+<span class="nc" id="L1382">		Arrays.sort(matches, Comparator.comparing(String::length).reversed());</span>
+<span class="nc bnc" id="L1383" title="All 2 branches missed.">		for (String match : matches) {</span>
+<span class="nc" id="L1384">			subString = subString.replaceAll(&quot;\\b&quot; + match + &quot;\\b&quot;, &quot;#&quot; + match + &quot;#&quot;);</span>
+		}
+<span class="nc" id="L1386">		return subString;</span>
+	}
+
+	// Check in the main part of sentence if there is any redundancy
+	// more than 6 hash mark exist
+	private boolean hasMoreThanSixHashSymbols(String textUs1) {
+<span class="nc bnc" id="L1392" title="All 2 branches missed.">		long count = textUs1.chars().filter(ch -&gt; ch == '#').count();</span>
+<span class="nc bnc" id="L1393" title="All 2 branches missed.">		return count &gt;= 6;</span>
+	}
+
+	private String[] applyHashSymbolContaiansBenefit(List&lt;ContainsPair&gt; containsPairs, RedundancyItems redundancyItems,
+			String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1398">		String[] usTexts = new String[4];</span>
+<span class="nc" id="L1399">		int redundancyCount = 0;</span>
+<span class="nc" id="L1400">		JSONArray jsonContains = new JSONArray();</span>
+		// iterate through commonContains and check other element of pair related to
+		// the containsPair if any exist but filter: [containsPair,contain] case
+		// which is the same pair in which is already parsed
+<span class="nc bnc" id="L1404" title="All 2 branches missed.">		for (ContainsPair containsPair2 : containsPairs) {</span>
+<span class="nc" id="L1405">			String child = containsPair2.getChildEntity();</span>
+<span class="nc" id="L1406">			String parent = containsPair2.getParentEntity();</span>
+			// check if both elements of contains is included in both segment part
+			// and check do so if
+<span class="nc bnc" id="L1409" title="All 6 branches missed.">			if ((subStringUs1.contains(child) &amp;&amp; subStringUs2.contains(child) &amp;&amp; subStringUs1.contains(parent)</span>
+<span class="nc bnc" id="L1410" title="All 2 branches missed.">					&amp;&amp; subStringUs2.contains(parent))</span>
+			// &amp;&amp; !(subStringUs1.contains(&quot;#&quot; + child + &quot;#&quot;)
+//							&amp;&amp; subStringUs2.contains(&quot;#&quot; + child + &quot;#&quot;)
+//							&amp;&amp; subStringUs1.contains(&quot;#&quot; + parent + &quot;#&quot;)
+//							&amp;&amp; subStringUs2.contains(&quot;#&quot; + parent + &quot;#&quot;)
+			) {
+
+				// add hash symbol to contains pairs
+<span class="nc" id="L1418">				String[] matches = { parent, child };</span>
+<span class="nc" id="L1419">				subStringUs1 = applyHashSymbols(subStringUs1, matches);</span>
+<span class="nc" id="L1420">				subStringUs2 = applyHashSymbols(subStringUs2, matches);</span>
+
+<span class="nc" id="L1422">				redundancyCount++;</span>
+				// break in order to avoid of counting redundant items
+				// add to JOSN report as Common Contains in Benefit
+<span class="nc" id="L1425">				JSONArray jsonContain = new JSONArray().put(parent).put(child);</span>
+<span class="nc" id="L1426">				jsonContains.put(jsonContain);</span>
+			}
+		}
+
+<span class="nc" id="L1430">		JSONObject jsonCommonContains = jsonRedundancyPair.optJSONObject(&quot;Common Contains&quot;);</span>
+<span class="nc bnc" id="L1431" title="All 2 branches missed.">		if (jsonCommonContains == null) {</span>
+<span class="nc" id="L1432">			jsonCommonContains = new JSONObject();</span>
+<span class="nc" id="L1433">			jsonRedundancyPair.put(&quot;Common Contains&quot;, jsonCommonContains);</span>
+		}
+<span class="nc" id="L1435">		jsonCommonContains.put(&quot;Benefit Part&quot;, jsonContains);</span>
+
+<span class="nc" id="L1437">		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1438">		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);</span>
+<span class="nc" id="L1439">		usTexts[2] = String.valueOf(redundancyCount);</span>
+<span class="nc" id="L1440">		return usTexts;</span>
+
+	}
+
+	private void iteratePackages(EPackage minimalPackage, ArrayList&lt;String&gt; arrayMaximalElements,
+			ArrayList&lt;String&gt; arrayMaximalElementsNames, RedundancyItems redundancyItems) throws IOException {
+
+<span class="nc" id="L1447">		String className = null;</span>
+
+<span class="nc bnc" id="L1449" title="All 2 branches missed.">		for (EClassifier eClassifier : minimalPackage.getEClassifiers()) {</span>
+<span class="nc bnc" id="L1450" title="All 2 branches missed.">			if (eClassifier instanceof EClass) {</span>
+<span class="nc" id="L1451">				EClass eClass = (EClass) eClassifier;</span>
+<span class="nc" id="L1452">				className = getClassName(eClass.getName());</span>
+
+				// if there is conflict between Attributes of tow USs, the hash symbol will
+				// appear on the class-Name and not directly on attribute,
+				// so we try to verify class name and check if it contains any hash symbol?
+<span class="nc bnc" id="L1457" title="All 2 branches missed.">				if (eClass.getName().contains(&quot;#&quot;)) {</span>
+
+<span class="nc" id="L1459">					EAttribute attribute = (EAttribute) eClass.getEStructuralFeature(0);</span>
+<span class="nc bnc" id="L1460" title="All 4 branches missed.">					if (attribute != null &amp;&amp; !arrayMaximalElements.contains(attribute.getName())) {</span>
+
+<span class="nc" id="L1462">						String attName = getAttName(attribute.getName());</span>
+
+<span class="nc" id="L1464">						arrayMaximalElements.add(attribute.getName());</span>
+<span class="nc" id="L1465">						arrayMaximalElementsNames.add(attName);</span>
+
+						// store conflicted Attributes according to their class
+<span class="nc bnc" id="L1468" title="All 5 branches missed.">						switch (className) {</span>
+						case &quot;Primary Action&quot;:
+<span class="nc" id="L1470">							redundancyItems.addPrimaryAction(new PrimaryAction(attName));</span>
+<span class="nc" id="L1471">							break;</span>
+						case &quot;Secondary Action&quot;:
+<span class="nc" id="L1473">							redundancyItems.addSecondaryAction(new SecondaryAction(attName));</span>
+<span class="nc" id="L1474">							break;</span>
+						case &quot;Secondary Entity&quot;:
+<span class="nc" id="L1476">							redundancyItems.addSecondaryEntity(new SecondaryEntity(attName));</span>
+<span class="nc" id="L1477">							break;</span>
+						case &quot;Primary Entity&quot;:
+<span class="nc" id="L1479">							redundancyItems.addPrimaryEntity(new PrimaryEntity(attName));</span>
+<span class="nc" id="L1480">							break;</span>
+						default:
+							break;
+						}
+
+					}
+				}
+				// add all EReferences from EClass into corresponding
+				// type(Contains, Targets, Triggers)
+<span class="nc bnc" id="L1489" title="All 2 branches missed.">				for (EReference eReference : eClass.getEReferences()) {</span>
+<span class="nc bnc" id="L1490" title="All 4 branches missed.">					if (eReference.getName().contains(&quot;#&quot;) &amp;&amp; !arrayMaximalElements.contains(eReference.getName())) {</span>
+
+<span class="nc" id="L1492">						String refName = getRefName(eReference.getName());</span>
+<span class="nc" id="L1493">						arrayMaximalElements.add(eReference.getName());</span>
+<span class="nc" id="L1494">						arrayMaximalElementsNames.add(refName);</span>
+
+<span class="nc bnc" id="L1496" title="All 2 branches missed.">						if (refName.equals(&quot;triggers&quot;)) {</span>
+
+<span class="nc" id="L1498">							redundancyItems.addTriggers(new Triggers(refName, className));</span>
+
+<span class="nc bnc" id="L1500" title="All 2 branches missed.">						} else if (refName.equals(&quot;targets&quot;)) {</span>
+
+<span class="nc" id="L1502">							redundancyItems.addTargets(new Targets(refName, className));</span>
+
+<span class="nc bnc" id="L1504" title="All 2 branches missed.">						} else if (refName.equals(&quot;contains&quot;)) {</span>
+<span class="nc" id="L1505">							redundancyItems.addContains(new Contains(refName, className));</span>
+
+						}
+
+					}
+
+				}
+			}
+
+		}
+
+<span class="nc" id="L1516">	}</span>
+
+	private String getRefName(String name) {
+<span class="nc" id="L1519">		name = name.replaceAll(&quot;#&quot;, &quot;&quot;);</span>
+<span class="nc" id="L1520">		return name;</span>
+	}
+
+	private String getClassName(String name) {
+<span class="nc" id="L1524">		name = name.replaceAll(&quot;#&quot;, &quot;&quot;).replaceAll(&quot;.*:(.*)&quot;, &quot;$1&quot;);</span>
+<span class="nc" id="L1525">		return name;</span>
+	}
+
+	private String getAttName(String name) {
+<span class="nc" id="L1529">		name = name.replaceAll(&quot;name=\&quot;(.*)\&quot;-&gt;.*\&quot;(.*).*&quot;, &quot;$1&quot;);</span>
+<span class="nc" id="L1530">		return name;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>RuleCreator_Test (1) (23.04.2024 16:59:35)</div></body></html>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Evaluation.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ReportExtractorTest (23.04.2024 16:45:09)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlog</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlog.code.evaluation</a> &gt; <span class="el_source">Evaluation.java</span></div><h1>Evaluation.java</h1><pre class="source lang-java linenums">package org.henshin.backlog.code.evaluation;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
+import org.henshin.backlog.code.rule.JsonFileNotFound;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+public class Evaluation {
+
+<span class="fc" id="L14">	public Evaluation() {</span>
+
+<span class="fc" id="L16">	}</span>
+
+	// - two user stories are fully redundant(&quot;Full Redundant in Main Part&quot; : true):
+	// if in Main Part: if JSONArray &quot;Triggers&quot; is not empty or null.
+	// if &quot;All Targets/Contains in Main Part&quot; of at lease one of to USs are equal to
+	// &quot;Common Targets/Contains in Main Part&quot;
+//	   Otherwise, &quot;Full Redundant in Main Part&quot; : false and
+	// &quot;Partially Redundant in Main Part&quot; : true.
+	public void evaluateRedundancyCriteria(JSONObject jsonData, String us1, String us2) {
+
+<span class="fc" id="L26">		JSONObject allTargets = jsonData.getJSONObject(&quot;All Targets&quot;);</span>
+<span class="fc" id="L27">		JSONObject allContains = jsonData.getJSONObject(&quot;All Contains&quot;);</span>
+<span class="fc" id="L28">		JSONArray triggers = jsonData.getJSONArray(&quot;Triggers&quot;);</span>
+
+<span class="fc" id="L30">		JSONObject commonTargets = jsonData.getJSONObject(&quot;Common Targets&quot;);</span>
+<span class="fc" id="L31">		JSONObject commonContains = jsonData.getJSONObject(&quot;Common Contains&quot;);</span>
+
+		// Extract data for both user stories in all targets
+<span class="fc" id="L34">		JSONObject targetsAllUs1Data = allTargets.getJSONObject(us1);</span>
+<span class="fc" id="L35">		JSONObject targetsAllUs2Data = allTargets.getJSONObject(us2);</span>
+
+		// Get Main and Benefit parts in All targets
+<span class="fc" id="L38">		JSONArray targetsAllUs1MainPart = targetsAllUs1Data.getJSONArray(&quot;Main Part&quot;);</span>
+<span class="fc" id="L39">		JSONArray targetsAllUs1BenefitPart = getJSONArraySafely(targetsAllUs1Data, &quot;Benefit Part&quot;);</span>
+
+<span class="fc" id="L41">		JSONArray targetsAllUs2MainPart = targetsAllUs2Data.getJSONArray(&quot;Main Part&quot;);</span>
+<span class="fc" id="L42">		JSONArray targetsAllUs2BenefitPart = getJSONArraySafely(targetsAllUs2Data, &quot;Benefit Part&quot;);</span>
+
+		// Get Main and Benefit Parts in Common Targets
+<span class="fc" id="L45">		JSONArray targetsCommonMainPart = commonTargets.getJSONArray(&quot;Main Part&quot;);</span>
+		// JSONArray targetsCommonBenefitPart = commonTargets.getJSONArray(&quot;Benefit
+		// Part&quot;);
+<span class="fc" id="L48">		JSONArray targetsCommonBenefitPart = getJSONArraySafely(commonTargets, &quot;Benefit Part&quot;);</span>
+		// Extract data for both user stories in All contains
+<span class="fc" id="L50">		JSONObject containsAllUs1Data = allContains.getJSONObject(us1);</span>
+<span class="fc" id="L51">		JSONObject containsAllUs2Data = allContains.getJSONObject(us2);</span>
+
+		// Get Main and Benefit parts in All contains
+<span class="fc" id="L54">		JSONArray containsAllUs1MainPart = containsAllUs1Data.getJSONArray(&quot;Main Part&quot;);</span>
+<span class="fc" id="L55">		JSONArray containsAllUs1BenefitPart = getJSONArraySafely(containsAllUs1Data, &quot;Benefit Part&quot;);</span>
+<span class="fc" id="L56">		JSONArray containsAllUs2MainPart = containsAllUs2Data.getJSONArray(&quot;Main Part&quot;);</span>
+<span class="fc" id="L57">		JSONArray containsAllUs2BenefitPart = getJSONArraySafely(containsAllUs2Data, &quot;Benefit Part&quot;);</span>
+
+		// Get main and benefit parts in common Contains
+<span class="fc" id="L60">		JSONArray containsCommonMainPart = commonContains.getJSONArray(&quot;Main Part&quot;);</span>
+<span class="fc" id="L61">		JSONArray containsCommonBenefitPart = getJSONArraySafely(commonContains, &quot;Benefit Part&quot;);</span>
+
+		// Check Full redundancy
+		// Check targets, Contains and Trigger in main part, if they are equal
+
+<span class="fc" id="L66">		boolean isTriggersRedundant = triggers.isEmpty();</span>
+		boolean isTargetsMainFullyRedundant;
+		boolean isContainsMainFullyRedundant;
+//		System.out.println(redPair);
+		// if there is no targets in common Main part and one of user stories don't have
+		// target elements
+
+		// Targets in Main
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		if ((targetsCommonMainPart.length() == 0</span>
+<span class="pc bpc" id="L75" title="2 of 4 branches missed.">				&amp;&amp; (targetsAllUs1MainPart.length() != 0 &amp;&amp; targetsAllUs2MainPart.length() == 0))</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">				|| (targetsCommonMainPart.length() == 0</span>
+<span class="pc bpc" id="L77" title="3 of 4 branches missed.">						&amp;&amp; (targetsAllUs1MainPart.length() == 0 &amp;&amp; targetsAllUs2MainPart.length() != 0))) {</span>
+<span class="nc" id="L78">			isTargetsMainFullyRedundant = true;</span>
+			// if there is no targets in common Main part and one
+<span class="pc bpc" id="L80" title="3 of 4 branches missed.">		} else if (targetsAllUs1MainPart.length() == 0 &amp;&amp; targetsAllUs2MainPart.length() == 0) {</span>
+<span class="nc" id="L81">			isTargetsMainFullyRedundant = true;</span>
+<span class="nc" id="L82">		} else {</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">			isTargetsMainFullyRedundant = checkFullRedaundat(targetsAllUs1MainPart, targetsCommonMainPart)</span>
+<span class="fc bfc" id="L84" title="All 2 branches covered.">					|| checkFullRedaundat(targetsAllUs2MainPart, targetsCommonMainPart);</span>
+		}
+		// Contains in Main
+<span class="fc bfc" id="L87" title="All 2 branches covered.">		if ((containsCommonMainPart.length() == 0</span>
+<span class="fc bfc" id="L88" title="All 4 branches covered.">				&amp;&amp; (containsAllUs1MainPart.length() == 0 &amp;&amp; containsAllUs2MainPart.length() != 0))</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">				|| (containsCommonMainPart.length() == 0</span>
+<span class="fc bfc" id="L90" title="All 4 branches covered.">						&amp;&amp; (containsAllUs1MainPart.length() != 0 &amp;&amp; containsAllUs2MainPart.length() == 0))) {</span>
+<span class="fc" id="L91">			isContainsMainFullyRedundant = true;</span>
+<span class="pc bpc" id="L92" title="1 of 4 branches missed.">		} else if (containsAllUs1MainPart.length() == 0 &amp;&amp; containsAllUs2MainPart.length() == 0) {</span>
+<span class="fc" id="L93">			isContainsMainFullyRedundant = true;</span>
+<span class="fc" id="L94">		} else {</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">			isContainsMainFullyRedundant = checkFullRedaundat(containsAllUs1MainPart, containsCommonMainPart)</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">					|| checkFullRedaundat(containsAllUs2MainPart, containsCommonMainPart);</span>
+		}
+
+//		System.out.println(&quot;isTargetsMainRedundant &quot;+ isTargetsMainFullyRedundant);
+//		System.out.println(&quot;isContainsMainRedundant &quot;+isContainsMainFullyRedundant);
+<span class="pc bpc" id="L101" title="2 of 6 branches missed.">		boolean isMainFullRedundant = isTargetsMainFullyRedundant &amp;&amp; isContainsMainFullyRedundant</span>
+<span class="pc bpc" id="L102" title="3 of 6 branches missed.">				&amp;&amp; !isTriggersRedundant &amp;&amp; (targetsCommonMainPart.length() != 0 || containsCommonMainPart.length() != 0)</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">				&amp;&amp; ((targetsAllUs1MainPart.length() &gt;= targetsAllUs2MainPart.length()</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">						&amp;&amp; containsAllUs1MainPart.length() &gt;= containsAllUs2MainPart.length())</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">						|| (targetsAllUs2MainPart.length() &gt;= targetsAllUs1MainPart.length()</span>
+<span class="nc" id="L106">								&amp;&amp; containsAllUs2MainPart.length() &gt;= containsAllUs1MainPart.length()));</span>
+
+		// Check targets, Contains and Trigger in benefit part, if they are equal
+<span class="fc" id="L109">		boolean isBenefitFullRedundant = false;</span>
+		// if there is no common contains but one the USs has contains, it means there
+		// is no full
+		// redundant in contains benefit
+		// System.out.println(redPair);
+		boolean isTargetsBenefitRedundant;
+////		System.out.println(&quot;targetsAllUs1BenefitPart: &quot; + targetsAllUs1BenefitPart.length());
+//		System.out.println(&quot;targetsAllUs2BenefitPart: &quot; + targetsAllUs2BenefitPart.length());
+//		System.out.println(&quot;containsAllUs1BenefitPart: &quot; + containsAllUs1BenefitPart.length());
+//		System.out.println(&quot;containsAllUs2BenefitPart: &quot; + containsAllUs2BenefitPart.length());
+		// Targets in Benefit
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		if ((targetsCommonBenefitPart.length() == 0</span>
+<span class="fc bfc" id="L121" title="All 4 branches covered.">				&amp;&amp; (targetsAllUs1BenefitPart.length() != 0 &amp;&amp; targetsAllUs2BenefitPart.length() == 0))</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">				|| (targetsCommonBenefitPart.length() == 0</span>
+<span class="fc bfc" id="L123" title="All 4 branches covered.">						&amp;&amp; (targetsAllUs1BenefitPart.length() == 0 &amp;&amp; targetsAllUs2BenefitPart.length() != 0))) {</span>
+<span class="fc" id="L124">			isTargetsBenefitRedundant = true;</span>
+//			System.out.println(&quot;isTargetsBenefitRedundant_if: &quot; + isTargetsBenefitRedundant);
+<span class="pc bpc" id="L126" title="1 of 4 branches missed.">		} else if (targetsAllUs1BenefitPart.length() == 0 &amp;&amp; targetsAllUs2BenefitPart.length() == 0) {</span>
+<span class="fc" id="L127">			isTargetsBenefitRedundant = true;</span>
+//			System.out.println(&quot;isTargetsBenefitRedundant_esle_if: &quot; + isTargetsBenefitRedundant);
+<span class="fc" id="L129">		} else {</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">			isTargetsBenefitRedundant = checkFullRedaundat(targetsAllUs1BenefitPart, targetsCommonBenefitPart)</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">					|| checkFullRedaundat(targetsAllUs2BenefitPart, targetsCommonBenefitPart);</span>
+//			System.out.println(&quot;isTargetsBenefitRedundant_else: &quot; + isTargetsBenefitRedundant);
+		}
+		boolean isContainsBenefitRedundant;
+
+		// Contains in Benefit
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		if ((containsCommonBenefitPart.length() == 0</span>
+<span class="fc bfc" id="L138" title="All 4 branches covered.">				&amp;&amp; (containsAllUs1BenefitPart.length() == 0 &amp;&amp; containsAllUs2BenefitPart.length() != 0))</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">				|| (containsCommonBenefitPart.length() == 0</span>
+<span class="pc bpc" id="L140" title="1 of 4 branches missed.">						&amp;&amp; (containsAllUs1BenefitPart.length() != 0 &amp;&amp; containsAllUs2BenefitPart.length() == 0))) {</span>
+<span class="fc" id="L141">			isContainsBenefitRedundant = true;</span>
+//			System.out.println(&quot;isContainsBenefitRedundant_if: &quot; + isContainsBenefitRedundant);
+<span class="pc bpc" id="L143" title="1 of 4 branches missed.">		} else if (containsAllUs1BenefitPart.length() == 0 &amp;&amp; containsAllUs2BenefitPart.length() == 0) {</span>
+<span class="fc" id="L144">			isContainsBenefitRedundant = true;</span>
+//			System.out.println(&quot;isContainsBenefitRedundant_else_if: &quot; + isContainsBenefitRedundant);
+
+<span class="fc" id="L147">		} else {</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">			isContainsBenefitRedundant = (checkFullRedaundat(containsAllUs1BenefitPart, containsCommonBenefitPart)</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">					|| checkFullRedaundat(containsAllUs2BenefitPart, containsCommonBenefitPart));</span>
+//			System.out.println(&quot;isContainsBenefitRedundant_else: &quot; + isContainsBenefitRedundant);
+		}
+
+		// System.out.println(&quot;isContainsBenefitRedundant&quot; +
+		// isContainsBenefitRedundant);
+		// benefit part is full redundant if all elements of contains and targets are
+		// redundant
+
+		// Assume: if US_X contains US_Y then all elements(in targets &quot;AND&quot; contains)
+		// in US_Y should be equal or less than elements(in targets &quot;AND&quot; contains) and
+		// vice versa
+<span class="pc bpc" id="L161" title="2 of 6 branches missed.">		isBenefitFullRedundant = isTargetsBenefitRedundant &amp;&amp; isContainsBenefitRedundant</span>
+<span class="pc bpc" id="L162" title="1 of 4 branches missed.">				&amp;&amp; (targetsCommonBenefitPart.length() != 0 || containsCommonBenefitPart.length() != 0)</span>
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">				&amp;&amp; ((targetsAllUs1BenefitPart.length() &gt;= targetsAllUs2BenefitPart.length()</span>
+<span class="pc bpc" id="L164" title="1 of 2 branches missed.">						&amp;&amp; containsAllUs1BenefitPart.length() &gt;= containsAllUs2BenefitPart.length())</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">						|| (targetsAllUs2BenefitPart.length() &gt;= targetsAllUs1BenefitPart.length()</span>
+<span class="nc" id="L166">								&amp;&amp; containsAllUs2BenefitPart.length() &gt;= containsAllUs1BenefitPart.length()));</span>
+
+		// Evaluate partial redundancy
+<span class="fc" id="L169">		boolean isMainPartiallyRedundant = false;</span>
+<span class="pc bpc" id="L170" title="3 of 6 branches missed.">		if (isMainFullRedundant || (targetsAllUs1MainPart.length()==0 &amp;&amp; targetsAllUs2MainPart.length()==0</span>
+<span class="nc bnc" id="L171" title="All 4 branches missed.">				&amp;&amp; containsAllUs1MainPart.length() == 0 &amp;&amp; containsAllUs2MainPart.length() == 0)) {</span>
+<span class="fc" id="L172">			isMainPartiallyRedundant = false;</span>
+<span class="fc" id="L173">		} else {</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">			isMainPartiallyRedundant = checkPartialRedundancy(targetsAllUs1MainPart, targetsCommonMainPart)</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">					|| checkPartialRedundancy(targetsAllUs2MainPart, targetsCommonMainPart)</span>
+<span class="pc bpc" id="L176" title="1 of 2 branches missed.">					|| checkPartialRedundancy(containsAllUs1MainPart, containsCommonMainPart)</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">					|| checkPartialRedundancy(containsAllUs2MainPart, containsCommonMainPart);</span>
+
+		}
+<span class="fc" id="L180">		boolean isBenefitPartiallyRedundant = false;</span>
+<span class="fc bfc" id="L181" title="All 6 branches covered.">		if (isBenefitFullRedundant || (targetsAllUs1BenefitPart.isEmpty() &amp;&amp; targetsAllUs2BenefitPart.isEmpty()</span>
+<span class="pc bpc" id="L182" title="2 of 4 branches missed.">				&amp;&amp; containsAllUs1BenefitPart.isEmpty() &amp;&amp; containsAllUs2BenefitPart.isEmpty())) {</span>
+<span class="fc" id="L183">			isBenefitPartiallyRedundant = false;</span>
+<span class="fc" id="L184">		} else {</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">			isBenefitPartiallyRedundant = checkPartialRedundancy(targetsAllUs1BenefitPart, targetsCommonBenefitPart)</span>
+<span class="pc bpc" id="L186" title="1 of 2 branches missed.">					|| checkPartialRedundancy(targetsAllUs2BenefitPart, targetsCommonBenefitPart)</span>
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">					|| checkPartialRedundancy(containsAllUs1BenefitPart, containsCommonBenefitPart)</span>
+<span class="pc bpc" id="L188" title="1 of 2 branches missed.">					|| checkPartialRedundancy(containsAllUs2BenefitPart, containsCommonBenefitPart);</span>
+
+		}
+		// Add redundancy status to the JSON object
+<span class="fc" id="L192">		JSONObject status = jsonData.getJSONObject(&quot;Status&quot;);</span>
+<span class="fc" id="L193">		status.put(&quot;Main Part Fully Redundant&quot;, isMainFullRedundant);</span>
+<span class="fc" id="L194">		status.put(&quot;Main Part Partially Redundant&quot;, isMainPartiallyRedundant);</span>
+<span class="fc" id="L195">		status.put(&quot;Benefit Part Fully Redundant&quot;, isBenefitFullRedundant);</span>
+<span class="fc" id="L196">		status.put(&quot;Benefit Part Partially Redundant&quot;, isBenefitPartiallyRedundant);</span>
+<span class="fc" id="L197">	}</span>
+
+	private JSONArray getJSONArraySafely(JSONObject jsonObject, String key) {
+<span class="fc bfc" id="L200" title="All 2 branches covered.">		return jsonObject.has(key) ? jsonObject.getJSONArray(key) : new JSONArray();</span>
+	}
+
+	// checking partial redundancy by counting matches between the elements
+	// of the given JSONArrays and updating the JSON object with both full
+	// and partial redundancy statuses.
+	private boolean checkPartialRedundancy(JSONArray part1, JSONArray part2) {
+<span class="fc" id="L207">		int matchCount = 0;</span>
+
+<span class="fc bfc" id="L209" title="All 4 branches covered.">		if (part1.length() &gt; 0 &amp;&amp; part2.length() &gt; 0) {</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">			for (int i = 0; i &lt; part1.length(); i++) {</span>
+<span class="fc" id="L211">				JSONArray jsonArrayI = part1.getJSONArray(i);</span>
+<span class="fc" id="L212">				String elementI1 = jsonArrayI.getString(0);</span>
+<span class="fc" id="L213">				String elementI2 = jsonArrayI.getString(1);</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">				for (int j = 0; j &lt; part2.length(); j++) {</span>
+<span class="fc" id="L215">					JSONArray jsonArrayJ = part2.getJSONArray(j);</span>
+<span class="fc" id="L216">					String elementJ1 = jsonArrayJ.getString(0);</span>
+<span class="fc" id="L217">					String elementJ2 = jsonArrayJ.getString(1);</span>
+<span class="fc bfc" id="L218" title="All 4 branches covered.">					if (elementI1.equals(elementJ1) &amp;&amp; elementI2.equals(elementJ2)) {</span>
+<span class="fc" id="L219">						matchCount++;</span>
+<span class="fc" id="L220">						break;</span>
+					}
+				}
+			}
+		}
+<span class="fc bfc" id="L225" title="All 2 branches covered.">		return matchCount &gt; 0;</span>
+	}
+
+	// contains/targets are full redundant if their length and their elements are
+	// are the same
+	private boolean checkFullRedaundat(JSONArray allElements, JSONArray commonElements) {
+<span class="fc bfc" id="L231" title="All 2 branches covered.">		if (allElements.length() != commonElements.length()) {</span>
+<span class="fc" id="L232">			return false;</span>
+		}
+//		System.out.println(&quot;allElements: &quot; + allElements);
+//		System.out.println(&quot;commonElements: &quot; + commonElements);
+<span class="fc" id="L236">		int length = allElements.length();</span>
+<span class="fc" id="L237">		int count = 0;</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">		for (int i = 0; i &lt; allElements.length(); i++) {</span>
+<span class="fc" id="L239">			JSONArray jsonArrayAll = allElements.getJSONArray(i);</span>
+
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">			for (int j = 0; j &lt; commonElements.length(); j++) {</span>
+<span class="fc" id="L242">				JSONArray jsonArrayCommon = commonElements.getJSONArray(j);</span>
+//				System.out.println(&quot;second Loop_jsonArrayAll: &quot;+ jsonArrayAll);
+//				System.out.println(&quot;second Loop_jsonArrayCommon: &quot;+jsonArrayCommon);
+<span class="fc bfc" id="L245" title="All 2 branches covered.">				if (jsonArrayAll.toString().equalsIgnoreCase(jsonArrayCommon.toString())) {</span>
+//					System.out.println(&quot;second Loop_inside_if_jsonArrayAll: &quot;+jsonArrayAll);
+//					System.out.println(&quot;second Loop_inside_if_jsonArrayCommon: &quot;+jsonArrayCommon);
+<span class="fc" id="L248">					count++;</span>
+//					System.out.println(&quot;count: &quot; + count);
+<span class="fc" id="L250">					break;</span>
+				}
+			}
+
+		}
+<span class="pc bpc" id="L255" title="1 of 2 branches missed.">		return length == count;</span>
+	}
+
+	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+		JSONArray jsonArray;
+<span class="nc" id="L260">		try (FileReader reader = new FileReader(path)) {</span>
+<span class="nc" id="L261">			JSONTokener tokener = new JSONTokener(reader);</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			if (!tokener.more()) {</span>
+<span class="nc" id="L263">				throw new EmptyOrNotExistJsonFile();</span>
+
+			}
+			// Read JSON file
+<span class="nc" id="L267">			jsonArray = new JSONArray(tokener);</span>
+
+<span class="nc" id="L269">			return jsonArray;</span>
+<span class="nc" id="L270">		} catch (IOException e) {</span>
+<span class="nc" id="L271">			throw e;</span>
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>ReportExtractorTest (23.04.2024 16:45:09)</div></body></html>

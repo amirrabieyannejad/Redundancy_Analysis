@@ -35,7 +35,7 @@ public class EvaluationTest {
 	// Benefit partially redundant
 	// commonContains: null
 	@Test
-	public void testEvaluateRedundancyCriteria_benefitParial_Case1()
+	public void testEvaluateRedundancyCriteria_benefitParial()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
 		String jsonReportPath = "Tests\\Evaluation\\Benefit_Partially_Redundant\\Case1\\JSON_Report_g03.json";
 
@@ -101,7 +101,7 @@ public class EvaluationTest {
 
 	// Benefit fully redundant
 	// commonContains: not null
-	// allTargets: null but AllTargets US1 not null
+	// AllTargets US1/US2 not null
 	@Test
 	public void testEvaluateRedundancyCriteria_benefitFull_Case3()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
@@ -191,7 +191,7 @@ public class EvaluationTest {
 	// commonContains and commonTargets are null
 	// allContainsUs1/Us2 and allTargetsUs1/Us2 are null
 	@Test
-	public void testEvaluateRedundancyCriteria_mainNotRedundant_Case1()
+	public void testEvaluateRedundancyCriteria_mainNotRedundant()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
 		String jsonReportPath = "Tests\\Evaluation\\Main_Not_Redundant\\Case1\\JSON_Report_g04.json";
 
@@ -304,7 +304,7 @@ public class EvaluationTest {
 	// Main fully redundant
 	// commonContains: null
 	@Test
-	public void testEvaluateRedundancyCriteria_mainBenefitFull_Case1()
+	public void testEvaluateRedundancyCriteria_mainBenefitFull()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
 		String jsonReportPath = "Tests\\Evaluation\\Main_Benefit_Fully_Redundant\\Case1\\JSON_Report_g14.json";
 
@@ -329,7 +329,7 @@ public class EvaluationTest {
 	// Main fully redundant
 	// Benefit partially redundant
 	@Test
-	public void testEvaluateRedundancyCriteria_mainPartialBenefitFull_Case1()
+	public void testEvaluateRedundancyCriteria_mainPartialBenefitFull()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
 		String jsonReportPath = "Tests\\Evaluation\\Main_Partial_Benefit_Full\\Case1\\JSON_Report_g05.json";
 
@@ -352,7 +352,7 @@ public class EvaluationTest {
 	// Main partially redundant
 	// Benefit fully redundant
 	@Test
-	public void testEvaluateRedundancyCriteria_mainFullBenefitPartial_Case1()
+	public void testEvaluateRedundancyCriteria_mainFullBenefitPartial()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, JsonFileNotFound {
 		String jsonReportPath = "Tests\\Evaluation\\Main_Full_Benefit_Partial\\Case1\\JSON_Report_g14.json";
 
