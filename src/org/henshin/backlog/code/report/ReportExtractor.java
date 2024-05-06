@@ -64,8 +64,8 @@ public class ReportExtractor {
 //		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
 //		 "21", "22", "23", "24",
 //		 "25", "26", "27", "28" };
-		String[] datasets = { "03" };
-
+		String[] datasets = { "04","11","10","27","19" };
+		reportExtractor(datasets);
 	}
 	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
@@ -73,6 +73,7 @@ public class ReportExtractor {
 //		 Version of data set "18", "19"
 		for (int i = 0; i < datasets.length; i++) {
 			System.out.println("Dataset: " + datasets[i]);
+			long startTime = System.nanoTime();
 			ReportExtractor cdaConvertor = new ReportExtractor(
 					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
 					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
@@ -88,6 +89,9 @@ public class ReportExtractor {
 			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
 			cdaConvertor.writeTable(cdaReport, listConflictPairs);
+			long endTime = System.nanoTime();
+			double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;
+	        System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
 
 		}
 		

@@ -72,9 +72,12 @@ public class RuleCreator {
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
-		String version = "03";
+		long startTime = System.nanoTime();
+		String version = "19";
 		createRules(version);
-
+		long endTime = System.nanoTime();
+		double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;
+        System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
 	}
 
 	public static void createRules(String version) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
@@ -435,7 +438,7 @@ public class RuleCreator {
 
 //					try {
 						// add an edge from first Entity to second Entity and annotated it as<delete>
-					System.out.println("contains is in targets: " + firstEntity);	
+//					System.out.println("contains is in targets: " + firstEntity);	
 					nodefirstEntity.createEdge(nodeSecondEntity, "contains", "delete");
 
 					//					} catch (RuntimeException e) {
