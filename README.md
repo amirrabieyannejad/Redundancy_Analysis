@@ -4,6 +4,13 @@ Our system initiates with backlogs annotated with [Doccano tool](https://github.
 Subsequently, these rules serve as inputs for the Henshin [Conflict and Dependency Analysis](https://wiki.eclipse.org/Henshin/Conflict_and_Dependency_Analysis) (CDA) tool , which automates the identification of potentially redundant US pairs. The output from the CDA tool is then utilized to create a report that compiles information on these potentially redundant pairs. This report, in turn, becomes the input for the evaluation process, which outputs statistical data concerning redundancy among USs.
 Following Figure illustrates how each step in this sequence is interconnected, with the output of one step feeding directly into the next. This diagram effectively demonstrates the toolchain and process workflow, highlighting how each tool transforms artefacts and contributes to the overall objective of redundancy detection.
 <img width="750" alt="passive" src="https://github.com/amirrabieyannejad/Masterarbeit/blob/main/images/operational_flow.png"> 
+## Requirement
+*  [Eclipse](https://www.eclipse.org/downloads/packages/release/2023-03/r) version `2023-03`
+*  [Henshin](https://download.eclipse.org/modeling/emft/henshin/updates/release/) version `4` cannot be installed with the latest version of Eclipse
+*  [Eclipse Modelling Project](https://eclipse.dev/modeling/)
+*  [Henshin API](https://wiki.eclipse.org/Henshin/Compact_API) `Compact API`
+*  JDK 15.0.1, JUnit 4.10
+    * `org.json`,  `org.eclipse.core.*`, `org.eclipse.emf.henshin.multicda.cda.source`
 ## US labelling in JSON files
 As the annotated USs in the JSON files do not contain identifiers, a  [customised Python script](https://github.com/amirrabieyannejad/USs_Annotation/tree/main/Skript/nummerize_us), is used to assign an unique identifier to each US, which is stored in a JSON object named `US_Nr`
 ## Gathering all Extracted report using VBa
