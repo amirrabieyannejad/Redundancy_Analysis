@@ -1,4 +1,4 @@
-package org.henshin.backlog.code.report;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ReportExtractor.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.report</a> &gt; <span class="el_source">ReportExtractor.java</span></div><h1>ReportExtractor.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.report;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,12 +28,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.henshin.backlog.code.evaluation.Evaluation;
-//import org.graalvm.compiler.hotspot.nodes.PatchReturnAddressNode;
-import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
-import org.henshin.backlog.code.rule.JsonFileNotFound;
-import org.henshin.backlog.code.rule.TextInJsonFileNotFound;
-import org.henshin.backlog.code.rule.UsNrInJsonFileNotFound;
+import org.henshin.backlogconflict.code.evaluation.Evaluation;
+<span class="nc" id="L32">import org.henshin.backlogconflict.code.rule.EmptyOrNotExistJsonFile;</span>
+import org.henshin.backlogconflict.code.rule.JsonFileNotFound;
+import org.henshin.backlogconflict.code.rule.TextInJsonFileNotFound;
+import org.henshin.backlogconflict.code.rule.UsNrInJsonFileNotFound;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,59 +57,59 @@ public class ReportExtractor {
 		jsonDatasetFile = jsonFileName;
 	}
 
-	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
-			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+<span class="nc" id="L60">	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,</span>
+			CdaReportDirNotFound, JsonFileNotFound, , CdaReportDirIsEmpty {
 
-//		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-//		 "21", "22", "23", "24",
-//		 "25", "26", "27", "28" };
-		String[] datasets = { "19" };
+//		 String[] datasets = { &quot;03&quot;, &quot;04&quot;, &quot;05&quot;, &quot;08&quot;, &quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;14&quot;, &quot;16&quot;,
+//		 &quot;21&quot;, &quot;22&quot;, &quot;23&quot;, &quot;24&quot;,
+//		 &quot;25&quot;, &quot;26&quot;, &quot;27&quot;, &quot;28&quot; };
+		String[] datasets = { &quot;04&quot;,&quot;11&quot;,&quot;10&quot;,&quot;27&quot;,&quot;19&quot; };
 		reportExtractor(datasets);
 	}
-	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
+<span class="nc" id="L69">	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {</span>
+		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\&quot;);
 		// checked: 21, 04,03 ,05,08,10,11,12,14,16
-//		 Version of data set "18", "19"
-		for (int i = 0; i < datasets.length; i++) {
-			System.out.println("Dataset: " + datasets[i]);
+//		 Version of data set &quot;18&quot;, &quot;19&quot;
+		for (int i = 0; i &lt; datasets.length; i++) {
+			System.out.println(&quot;Dataset: &quot; + datasets[i]);
 			long startTime = System.nanoTime();
 			ReportExtractor cdaConvertor = new ReportExtractor(
-					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
-					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
+					&quot;eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g&quot; + datasets[i],
+					&quot;Final_Reports\\Textual_Report_g&quot; + datasets[i] + &quot;\\g&quot; + datasets[i] + &quot;_baseline_pos.json&quot;);
 
 			// Create text file in order to report to user a readable format
-			File cdaReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
-					+ "\\Textual_Report_g" + datasets[i] + ".txt");
+			File cdaReport = new File(cdaConvertor.getFinalReportDir(path) + &quot;\\Textual_Report_g&quot; + datasets[i]
+					+ &quot;\\Textual_Report_g&quot; + datasets[i] + &quot;.txt&quot;);
 			FileWriter fileWriter = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 
 			// Create JSON File in order to have systematic overview of result
-			File jsonReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
-					+ "\\JSON_Report_g" + datasets[i] + ".json");
+			File jsonReport = new File(cdaConvertor.getFinalReportDir(path) + &quot;\\Textual_Report_g&quot; + datasets[i]
+					+ &quot;\\JSON_Report_g&quot; + datasets[i] + &quot;.json&quot;);
 			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
-			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
+			List&lt;ConflictPair&gt; listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
 			cdaConvertor.writeTable(cdaReport, listConflictPairs);
 			long endTime = System.nanoTime();
 			double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;
-	        System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
+	        System.out.println(&quot;Processing time: &quot; + elapsedTimeInSeconds + &quot; seconds&quot;);
 
 		}
 		
 	}
 
-	public String getDirName() {
+<span class="nc" id="L99">	public String getDirName() {</span>
 		return dirName;
 	}
 
-	public String getJsonDatasetFile() {
+<span class="nc" id="L103">	public String getJsonDatasetFile() {</span>
 		return jsonDatasetFile;
 	}
 
 	public String getAbsoluteDirPath()
-			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		Path path = Paths.get("C:\\Users\\amirr\\" + getDirName());
+<span class="nc" id="L108">			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {</span>
+		Path path = Paths.get(&quot;C:\\Users\\amirr\\&quot; + getDirName());
 		if (Files.exists(path)) {
 			if (Files.isDirectory(path)) { // Check if it's a directory
-				DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path);
+				DirectoryStream&lt;Path&gt; directoryStream = Files.newDirectoryStream(path);
 				boolean isEmpty = true;
 				boolean hasSubDirectories = false;
 
@@ -122,11 +121,11 @@ public class ReportExtractor {
 				}
 
 				// if (isEmpty) {
-				// throw new CdaReportDirIsEmpty("CDA Report Directory is empty!");
+				// throw new CdaReportDirIsEmpty(&quot;CDA Report Directory is empty!&quot;);
 				// }
 
 				if (!hasSubDirectories) {
-					throw new CdaReportDirIsEmpty("CDA Report Directory found but doesn't have any subdirectories!");
+					throw new CdaReportDirIsEmpty(&quot;CDA Report Directory found but doesn't have any subdirectories!&quot;);
 				} else {
 					return path.toString();
 				}
@@ -139,8 +138,8 @@ public class ReportExtractor {
 		}
 	}
 
-	public String getAbsoluteFinalReportDir() throws JsonFileNotFound {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getJsonDatasetFile());
+<span class="nc" id="L141">	public String getAbsoluteFinalReportDir() throws JsonFileNotFound {</span>
+		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\&quot; + getJsonDatasetFile());
 		if (Files.exists(path)) {
 
 			return path.toString();
@@ -149,7 +148,7 @@ public class ReportExtractor {
 		}
 	}
 
-	public String getFinalReportDir(Path path) {
+<span class="nc" id="L151">	public String getFinalReportDir(Path path) {</span>
 
 		if (Files.exists(path)) {
 
@@ -161,53 +160,53 @@ public class ReportExtractor {
 	}
 
 	// Create or overwrite report file which return/pass the FileWriter object
-	public FileWriter createOrOverwriteReportFile(File totalCda) throws IOException {
+<span class="nc" id="L163">	public FileWriter createOrOverwriteReportFile(File totalCda) throws IOException {</span>
 		FileWriter cdaWriter = null;
 		if (totalCda.createNewFile()) {
-			// System.out.println("File created succesfully: " + totalCda.getName());
+			// System.out.println(&quot;File created succesfully: &quot; + totalCda.getName());
 			cdaWriter = new FileWriter(totalCda);
 			return cdaWriter;
 
 		} else {
 			cdaWriter = new FileWriter(totalCda);
-			// System.out.println("File already exists. Try to overwrite..!");
+			// System.out.println(&quot;File already exists. Try to overwrite..!&quot;);
 			return cdaWriter;
 		}
 	}
 
-	public List<RedundantPair> extractReports(FileWriter fileWriter, FileWriter jsonWriter)
-			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
+	public List&lt;ConflictPair&gt; extractReports(FileWriter fileWriter, FileWriter jsonWriter)
+<span class="nc" id="L178">			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,</span>
 			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
 		// create JSON array in order to contains all redundant pairs and their
 		JSONArray jsonArray = new JSONArray();
 
-		RedundancyItems redundancyItems;
-		List<RedundantPair> redundantPairs;
-		ArrayList<String> arrayTotalElements;
-		ArrayList<String> arrayTotalElementsNames;
-		List<String> pairList = new ArrayList<>();
+		ConflictItems redundancyItems;
+		List&lt;ConflictPair&gt; redundantPairs;
+		ArrayList&lt;String&gt; arrayTotalElements;
+		ArrayList&lt;String&gt; arrayTotalElementsNames;
+		List&lt;String&gt; pairList = new ArrayList&lt;&gt;();
 		File main = new File(getAbsoluteDirPath());
 		// Instantiate redundantPairs
-		redundantPairs = new ArrayList<>();
+		redundantPairs = new ArrayList&lt;&gt;();
 		// Iterate through critical pairs
-		if (main.exists() && main.list().length != 0) {
+		if (main.exists() &amp;&amp; main.list().length != 0) {
 			for (String redPair : main.list()) {
-				if (!checkIfReportExist(redPair, pairList) && containsAnd(redPair)) {
-					File conflictReasonDir = new File(getAbsoluteDirPath() + "\\" + redPair);
+				if (!checkIfReportExist(redPair, pairList) &amp;&amp; containsAnd(redPair)) {
+					File conflictReasonDir = new File(getAbsoluteDirPath() + &quot;\\&quot; + redPair);
 					if (!conflictReasonDir.isFile()) {
 						JSONObject jsonRedundancyPair = new JSONObject();
-						arrayTotalElementsNames = new ArrayList<>();
-						arrayTotalElements = new ArrayList<>();
-						redundancyItems = new RedundancyItems();
+						arrayTotalElementsNames = new ArrayList&lt;&gt;();
+						arrayTotalElements = new ArrayList&lt;&gt;();
+						redundancyItems = new ConflictItems();
 						String[] conflictReasonListing = conflictReasonDir.list();
 						// Iterate through conflict reasons if there is more than one conflict_reason.
-						if (conflictReasonListing.length > 1) {
+						if (conflictReasonListing.length &gt; 1) {
 							for (String conflictReason : conflictReasonListing) {
 								// Check if minimal ECore exist
 								if (minimalEcoreExist(redPair, conflictReason)) {
-									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + "\\" + redPair + "\\"
-											+ conflictReason + "\\minimal-model.ecore");
+									File minimalModelEcoreFile = new File(getAbsoluteDirPath() + &quot;\\&quot; + redPair + &quot;\\&quot;
+											+ conflictReason + &quot;\\minimal-model.ecore&quot;);
 
 									processMinimalModels(minimalModelEcoreFile, arrayTotalElements,
 											arrayTotalElementsNames, redundancyItems);
@@ -218,16 +217,16 @@ public class ReportExtractor {
 						// Write only the Elements which contains Primary/Secondary Action and
 						// Primary/Secondary Entity
 						if (hasEntitys(arrayTotalElementsNames, redundancyItems)
-								&& hasActions(arrayTotalElementsNames, redundancyItems)
-								&& hasTargets(arrayTotalElementsNames, redundancyItems)) {
-							fileWriter.write("\n------------------[Potential Redundant User"
-									+ " Stories found]--------------------------\n{" + redPair + "}\n  ");
-							jsonRedundancyPair.put("Potential Redundant User Stories", redPair);
+								&amp;&amp; hasActions(arrayTotalElementsNames, redundancyItems)
+								&amp;&amp; hasTargets(arrayTotalElementsNames, redundancyItems)) {
+							fileWriter.write(&quot;\n------------------[Potential Redundant User&quot;
+									+ &quot; Stories found]--------------------------\n{&quot; + redPair + &quot;}\n  &quot;);
+							jsonRedundancyPair.put(&quot;Potential Redundant User Stories&quot;, redPair);
 
-							fileWriter.write("\nRedundant clauses within user stories are: ");
-							List<TargetsPair> targetsPairs = getCommonTargets(redPair, jsonRedundancyPair);
-							List<ContainsPair> containsPairs = getCommonContains(redPair, jsonRedundancyPair);
-							List<TriggersPair> triggersPairs = getCommonTriggers(redPair);
+							fileWriter.write(&quot;\nRedundant clauses within user stories are: &quot;);
+							List&lt;TargetsPair&gt; targetsPairs = getCommonTargets(redPair, jsonRedundancyPair);
+							List&lt;ContainsPair&gt; containsPairs = getCommonContains(redPair, jsonRedundancyPair);
+							List&lt;TriggersPair&gt; triggersPairs = getCommonTriggers(redPair);
 							redundancyItems.printRedundantItems(fileWriter, targetsPairs, containsPairs, triggersPairs,
 									jsonRedundancyPair);
 
@@ -239,12 +238,12 @@ public class ReportExtractor {
 							// add JSON Object into main JSON array
 							JSONObject jsonConflictStatus = getRedundancyStatus(redundancyItems);
 
-							// put all in Status as subPart of "Status"
-							jsonRedundancyPair.put("Status", jsonConflictStatus);
+							// put all in Status as subPart of &quot;Status&quot;
+							jsonRedundancyPair.put(&quot;Status&quot;, jsonConflictStatus);
 
-							if (redundancyItems.getTextUs1() != null && redundancyItems.getTextUs2() != null) {
-								fileWriter.write("\n\nThe following sentence parts are" + " candidates for possible"
-										+ " redundancies between user stories:\n\n");
+							if (redundancyItems.getTextUs1() != null &amp;&amp; redundancyItems.getTextUs2() != null) {
+								fileWriter.write(&quot;\n\nThe following sentence parts are&quot; + &quot; candidates for possible&quot;
+										+ &quot; redundancies between user stories:\n\n&quot;);
 
 								// here we should write USsSentenceParts
 								writeUsSentencePart(redPair, redundancyItems, fileWriter, jsonRedundancyPair);
@@ -256,15 +255,15 @@ public class ReportExtractor {
 								evaluation.evaluateRedundancyCriteria(jsonRedundancyPair, us1, us2);
 								// Add JSONObject Texts of two user story and store them into Text JSONObject
 								JSONObject jsonText = new JSONObject();
-								jsonText.put("First UserStory",
-										getUsName1(redPair) + ": " + redundancyItems.getTextUs1());
-								jsonText.put("Second UserStory",
-										getUsName2(redPair) + ": " + redundancyItems.getTextUs2());
-								jsonRedundancyPair.put("Text", jsonText);
+								jsonText.put(&quot;First UserStory&quot;,
+										getUsName1(redPair) + &quot;: &quot; + redundancyItems.getTextUs1());
+								jsonText.put(&quot;Second UserStory&quot;,
+										getUsName2(redPair) + &quot;: &quot; + redundancyItems.getTextUs2());
+								jsonRedundancyPair.put(&quot;Text&quot;, jsonText);
 
 								// select project Number and save it to JSONFile
-								String projectNr = redundancyItems.getTextUs1().replaceAll(".*#(g\\d\\d)#.*", "$1");
-								jsonRedundancyPair.put("Project Number", projectNr);
+								String projectNr = redundancyItems.getTextUs1().replaceAll(&quot;.*#(g\\d\\d)#.*&quot;, &quot;$1&quot;);
+								jsonRedundancyPair.put(&quot;Project Number&quot;, projectNr);
 							}
 
 							// add JSON Object into main JSON array
@@ -277,7 +276,7 @@ public class ReportExtractor {
 			}
 
 			if (redundantPairs.size() == 0) {
-				fileWriter.write("No redundancy found between user stories!");
+				fileWriter.write(&quot;No redundancy found between user stories!&quot;);
 
 			}
 			jsonWriter.write(jsonArray.toString(4));
@@ -290,27 +289,27 @@ public class ReportExtractor {
 
 	// Add Status Elements(Main/Benefit/Total Part Conflicted Elements) into JSON
 	// data
-	private JSONObject getRedundancyStatus(RedundancyItems redundancyItems) {
+	private JSONObject getRedundancyStatus(ConflictItems redundancyItems) {
 		JSONObject jsonRedundancyStatus = new JSONObject();
 
 		// add observed conflicted pairs in Main part sentence
-		jsonRedundancyStatus.put("Main Part Redundancy Clauses", redundancyItems.getMainRedundancyCount());
+<span class="nc" id="L296">		jsonRedundancyStatus.put(&quot;Main Part Redundancy Clauses&quot;, redundancyItems.getMainRedundancyCount());</span>
 
 		// add observed conflicted pairs in Benefit part sentence
-		jsonRedundancyStatus.put("Benefit Part Redundancy Clause", redundancyItems.getBenefitRedundancyCount());
+		jsonRedundancyStatus.put(&quot;Benefit Part Redundancy Clause&quot;, redundancyItems.getBenefitRedundancyCount());
 
 		// add observed total conflicted pairs
-		jsonRedundancyStatus.put("Total Redundancy Clauses", redundancyItems.getTotalRedundancyCount());
+		jsonRedundancyStatus.put(&quot;Total Redundancy Clauses&quot;, redundancyItems.getTotalRedundancyCount());
 		return jsonRedundancyStatus;
 	}
 
-	// receive a conflict Pair and a String which corresponds to "Targets" array
+	// receive a conflict Pair and a String which corresponds to &quot;Targets&quot; array
 	// Object in JSON file
-	private List<TargetsPair> getCommonTargets(String redPair, JSONObject jsonRedundancyPair)
-			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+	private List&lt;TargetsPair&gt; getCommonTargets(String redPair, JSONObject jsonRedundancyPair)
+<span class="nc" id="L309">			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {</span>
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
-		List<TargetsPair> targetPairs = new ArrayList<>();
+		List&lt;TargetsPair&gt; targetPairs = new ArrayList&lt;&gt;();
 		JSONArray us1TargetsArray = null;
 		JSONArray us2TargetsArray = null;
 		JSONArray jsonTargetsMainUs1 = new JSONArray();
@@ -323,25 +322,25 @@ public class ReportExtractor {
 
 		// Check if there US_Nr and Targets Objects exists in JOSN file
 		// if so return the ArrayObjects of Targets
-		for (int i = 0; i < jsonArray.length(); i++) {
+		for (int i = 0; i &lt; jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
-			if (jsonObject.has("US_Nr") && jsonObject.has("Targets")) {
-				String usNr = jsonObject.getString("US_Nr");
+			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Targets&quot;)) {
+				String usNr = jsonObject.getString(&quot;US_Nr&quot;);
 				if (usNr.equals(us1)) {
-					us1TargetsArray = jsonObject.getJSONArray("Targets");
-					us1Text = jsonObject.getString("Text").toLowerCase();
+					us1TargetsArray = jsonObject.getJSONArray(&quot;Targets&quot;);
+					us1Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();
 
 				} else if (usNr.equals(us2)) {
-					us2TargetsArray = jsonObject.getJSONArray("Targets");
-					us2Text = jsonObject.getString("Text").toLowerCase();
+					us2TargetsArray = jsonObject.getJSONArray(&quot;Targets&quot;);
+					us2Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();
 
 				}
 			}
 		}
 		// check if TargetArrays of both USs not null then find the Common
 		// Targets Pairs and add it to TargetPairs List
-		if (us2TargetsArray != null && us1TargetsArray != null) {
-			for (int i = 0; i < us1TargetsArray.length(); i++) {
+		if (us2TargetsArray != null &amp;&amp; us1TargetsArray != null) {
+			for (int i = 0; i &lt; us1TargetsArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1TargetsArray.getJSONArray(i);
 				String actionUs1 = jsonArrayUs1.getString(0).toLowerCase();
 				String entityUs1 = jsonArrayUs1.getString(1).toLowerCase();
@@ -355,18 +354,18 @@ public class ReportExtractor {
 				if (benefitTargetsUs1 != null) {
 					jsonTargetsBenefitUs1.put(benefitTargetsUs1);
 				}
-				for (int j = 0; j < us2TargetsArray.length(); j++) {
+				for (int j = 0; j &lt; us2TargetsArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2TargetsArray.getJSONArray(j);
 					String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
 					String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
-					if (enttiyUs2.equalsIgnoreCase(entityUs1) && actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
+					if (enttiyUs2.equalsIgnoreCase(entityUs1) &amp;&amp; actionUs2.equalsIgnoreCase(actionUs1.toLowerCase())) {
 						targetPairs.add(new TargetsPair(actionUs1, entityUs1));
 						break;
 					}
 				}
 			}
 			// iterate through other US and gather all Targets in there
-			for (int j = 0; j < us2TargetsArray.length(); j++) {
+			for (int j = 0; j &lt; us2TargetsArray.length(); j++) {
 				JSONArray jsonArrayUs2 = us2TargetsArray.getJSONArray(j);
 				String actionUs2 = jsonArrayUs2.getString(0).toLowerCase();
 				String enttiyUs2 = jsonArrayUs2.getString(1).toLowerCase();
@@ -392,27 +391,27 @@ public class ReportExtractor {
 		JSONObject jsonAllTargetsUS2Main = new JSONObject();
 		JSONObject jsonAllTargetsUS2Benefit = new JSONObject();
 
-		jsonObjectAllTargetsUS1.put("Main Part", jsonTargetsMainUs1);
-		jsonObjectAllTargetsUS1.put("Benefit Part", jsonTargetsBenefitUs1);
+		jsonObjectAllTargetsUS1.put(&quot;Main Part&quot;, jsonTargetsMainUs1);
+		jsonObjectAllTargetsUS1.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs1);
 
-		jsonAllTargetsUS2Main.put("Main Part", jsonTargetsMainUs2);
-		jsonAllTargetsUS2Benefit.put("Benefit Part", jsonTargetsBenefitUs2);
+		jsonAllTargetsUS2Main.put(&quot;Main Part&quot;, jsonTargetsMainUs2);
+		jsonAllTargetsUS2Benefit.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs2);
 
-		jsonObjectAllTargetsUS2.put("Main Part", jsonTargetsMainUs2);
-		jsonObjectAllTargetsUS2.put("Benefit Part", jsonTargetsBenefitUs2);
+		jsonObjectAllTargetsUS2.put(&quot;Main Part&quot;, jsonTargetsMainUs2);
+		jsonObjectAllTargetsUS2.put(&quot;Benefit Part&quot;, jsonTargetsBenefitUs2);
 
 		jsonAllTargets.put(us1, jsonObjectAllTargetsUS1);
 		jsonAllTargets.put(us2, jsonObjectAllTargetsUS2);
-		jsonRedundancyPair.put("All Targets", jsonAllTargets);
+		jsonRedundancyPair.put(&quot;All Targets&quot;, jsonAllTargets);
 
 		return targetPairs;
 	}
 
-	private JSONArray getAllTargetsInBenefit(String action, String entity, String usText,
+<span class="nc" id="L410">	private JSONArray getAllTargetsInBenefit(String action, String entity, String usText,</span>
 			JSONObject jsonRedundancyPair) {
-		int benefitIndex = usText.indexOf("so that");
+		int benefitIndex = usText.indexOf(&quot;so that&quot;);
 		JSONArray jsonBenefit = new JSONArray();
-		String benefitPart = "";
+		String benefitPart = &quot;&quot;;
 		if (benefitIndex != -1) {
 			benefitPart = usText.substring(benefitIndex);
 			jsonBenefit = processElements(action, entity, benefitPart, jsonRedundancyPair);
@@ -423,8 +422,8 @@ public class ReportExtractor {
 
 	}
 
-	private JSONArray getAllTargetsInMain(String action, String entity, String usText, JSONObject jsonRedundancyPair) {
-		int benefitIndex = usText.indexOf("so that");
+<span class="nc" id="L425">	private JSONArray getAllTargetsInMain(String action, String entity, String usText, JSONObject jsonRedundancyPair) {</span>
+		int benefitIndex = usText.indexOf(&quot;so that&quot;);
 		String mainPart = usText;
 		JSONArray jsonMain = new JSONArray();
 		if (benefitIndex != -1) {
@@ -436,45 +435,45 @@ public class ReportExtractor {
 
 	}
 
-	// receive a conflict Pair and a String which corresponds to "Triggers" array
+	// receive a conflict Pair and a String which corresponds to &quot;Triggers&quot; array
 	// Object in JSON file
-	private List<TriggersPair> getCommonTriggers(String redPair)
-			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+	private List&lt;TriggersPair&gt; getCommonTriggers(String redPair)
+<span class="nc" id="L441">			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {</span>
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
-		List<TriggersPair> triggersPairs = new ArrayList<>();
+		List&lt;TriggersPair&gt; triggersPairs = new ArrayList&lt;&gt;();
 
 		JSONArray us1TriggersArray = null;
 		JSONArray us2TriggersArray = null;
 		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());
 
-		for (int i = 0; i < jsonArray.length(); i++) {
+		for (int i = 0; i &lt; jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
-			if (jsonObject.has("US_Nr") && jsonObject.has("Triggers")) {
-				String usNr = jsonObject.getString("US_Nr");
+			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Triggers&quot;)) {
+				String usNr = jsonObject.getString(&quot;US_Nr&quot;);
 				if (usNr.equals(us1)) {
-					us1TriggersArray = jsonObject.getJSONArray("Triggers");
+					us1TriggersArray = jsonObject.getJSONArray(&quot;Triggers&quot;);
 
 				} else if (usNr.equals(us2)) {
-					us2TriggersArray = jsonObject.getJSONArray("Triggers");
+					us2TriggersArray = jsonObject.getJSONArray(&quot;Triggers&quot;);
 
 				}
 			}
 		}
-		if (us2TriggersArray != null && us1TriggersArray != null) {
+		if (us2TriggersArray != null &amp;&amp; us1TriggersArray != null) {
 			// first check if entity in Triggers is also exist in common Targets
 
-			for (int i = 0; i < us1TriggersArray.length(); i++) {
+			for (int i = 0; i &lt; us1TriggersArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1TriggersArray.getJSONArray(i);
 				String personaUs1 = jsonArrayUs1.getString(0).toLowerCase();
 				String actionUs1 = jsonArrayUs1.getString(1).toLowerCase();
-				for (int j = 0; j < us2TriggersArray.length(); j++) {
+				for (int j = 0; j &lt; us2TriggersArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2TriggersArray.getJSONArray(j);
 					String personaUs2 = jsonArrayUs2.getString(0).toLowerCase();
 					String actionUs2 = jsonArrayUs2.getString(1).toLowerCase();
 					// check if both action and persona in triggers from USs
 					// are the same
-					if (actionUs2.equalsIgnoreCase(actionUs1) && personaUs2.equalsIgnoreCase(personaUs1)) {
+					if (actionUs2.equalsIgnoreCase(actionUs1) &amp;&amp; personaUs2.equalsIgnoreCase(personaUs1)) {
 						triggersPairs.add(new TriggersPair(personaUs1, actionUs1));
 						break;
 						// }
@@ -487,13 +486,13 @@ public class ReportExtractor {
 		return triggersPairs;
 	}
 
-	// receive a conflict Pair and a String which corresponds to "Contains" array
+	// receive a conflict Pair and a String which corresponds to &quot;Contains&quot; array
 	// Object in JSON file
-	private List<ContainsPair> getCommonContains(String redPair, JSONObject jsonRedundancyPair)
-			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+	private List&lt;ContainsPair&gt; getCommonContains(String redPair, JSONObject jsonRedundancyPair)
+<span class="nc" id="L492">			throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {</span>
 		String us1 = getUsName1(redPair);
 		String us2 = getUsName2(redPair);
-		List<ContainsPair> containsPairs = new ArrayList<>();
+		List&lt;ContainsPair&gt; containsPairs = new ArrayList&lt;&gt;();
 		JSONArray us1ContainsArray = null;
 		JSONArray us2ContainsArray = null;
 		JSONArray jsonContainsMainUs1 = new JSONArray();
@@ -504,22 +503,22 @@ public class ReportExtractor {
 		String us2Text = null;
 		JSONArray jsonArray = readJsonArrayFromFile(getAbsoluteFinalReportDir());
 
-		for (int i = 0; i < jsonArray.length(); i++) {
+		for (int i = 0; i &lt; jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
-			if (jsonObject.has("US_Nr") && jsonObject.has("Contains")) {
-				String usNr = jsonObject.getString("US_Nr");
+			if (jsonObject.has(&quot;US_Nr&quot;) &amp;&amp; jsonObject.has(&quot;Contains&quot;)) {
+				String usNr = jsonObject.getString(&quot;US_Nr&quot;);
 				if (usNr.equals(us1)) {
-					us1ContainsArray = jsonObject.getJSONArray("Contains");
-					us1Text = jsonObject.getString("Text").toLowerCase();
+					us1ContainsArray = jsonObject.getJSONArray(&quot;Contains&quot;);
+					us1Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();
 
 				} else if (usNr.equals(us2)) {
-					us2ContainsArray = jsonObject.getJSONArray("Contains");
-					us2Text = jsonObject.getString("Text").toLowerCase();
+					us2ContainsArray = jsonObject.getJSONArray(&quot;Contains&quot;);
+					us2Text = jsonObject.getString(&quot;Text&quot;).toLowerCase();
 				}
 			}
 		}
-		if (us2ContainsArray != null && us1ContainsArray != null) {
-			for (int i = 0; i < us1ContainsArray.length(); i++) {
+		if (us2ContainsArray != null &amp;&amp; us1ContainsArray != null) {
+			for (int i = 0; i &lt; us1ContainsArray.length(); i++) {
 				JSONArray jsonArrayUs1 = us1ContainsArray.getJSONArray(i);
 				String parentUs1 = jsonArrayUs1.getString(0).toLowerCase();
 				String childUs1 = jsonArrayUs1.getString(1).toLowerCase();
@@ -535,17 +534,17 @@ public class ReportExtractor {
 				if (benefitContainsUs1 != null) {
 					jsonContainsBenefitUs1.put(benefitContainsUs1);
 				}
-				for (int j = 0; j < us2ContainsArray.length(); j++) {
+				for (int j = 0; j &lt; us2ContainsArray.length(); j++) {
 					JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
 					String parentUs2 = jsonArrayUs2.getString(0).toLowerCase();
 					String childUs2 = jsonArrayUs2.getString(1).toLowerCase();
-					if (childUs2.equalsIgnoreCase(childUs1) && parentUs2.equalsIgnoreCase(parentUs1.toLowerCase())) {
+					if (childUs2.equalsIgnoreCase(childUs1) &amp;&amp; parentUs2.equalsIgnoreCase(parentUs1.toLowerCase())) {
 						containsPairs.add(new ContainsPair(parentUs1, childUs1));
 					}
 				}
 			}
 			// iterate through other US and gather all contains in there
-			for (int j = 0; j < us2ContainsArray.length(); j++) {
+			for (int j = 0; j &lt; us2ContainsArray.length(); j++) {
 				JSONArray jsonArrayUs2 = us2ContainsArray.getJSONArray(j);
 				String parentUs2 = jsonArrayUs2.getString(0).toLowerCase();
 				String childUs2 = jsonArrayUs2.getString(1).toLowerCase();
@@ -572,27 +571,27 @@ public class ReportExtractor {
 		JSONObject jsonAllContainsUS2Main = new JSONObject();
 		JSONObject jsonAllContainsUS2Benefit = new JSONObject();
 
-		jsonObjectAllContainsUS1.put("Main Part", jsonContainsMainUs1);
-		jsonObjectAllContainsUS1.put("Benefit Part", jsonContainsBenefitUs1);
+		jsonObjectAllContainsUS1.put(&quot;Main Part&quot;, jsonContainsMainUs1);
+		jsonObjectAllContainsUS1.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs1);
 
-		jsonAllContainsUS2Main.put("Main Part", jsonContainsMainUs2);
-		jsonAllContainsUS2Benefit.put("Benefit Part", jsonContainsBenefitUs2);
+		jsonAllContainsUS2Main.put(&quot;Main Part&quot;, jsonContainsMainUs2);
+		jsonAllContainsUS2Benefit.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs2);
 
-		jsonObjectAllContainsUS2.put("Main Part", jsonContainsMainUs2);
-		jsonObjectAllContainsUS2.put("Benefit Part", jsonContainsBenefitUs2);
+		jsonObjectAllContainsUS2.put(&quot;Main Part&quot;, jsonContainsMainUs2);
+		jsonObjectAllContainsUS2.put(&quot;Benefit Part&quot;, jsonContainsBenefitUs2);
 
 		jsonAllContains.put(us1, jsonObjectAllContainsUS1);
 		jsonAllContains.put(us2, jsonObjectAllContainsUS2);
-		jsonRedundancyPair.put("All Contains", jsonAllContains);
+		jsonRedundancyPair.put(&quot;All Contains&quot;, jsonAllContains);
 
 		return containsPairs;
 	}
 
-	private JSONArray getAllContainsInBenefit(String parentUs, String childUs, String usText,
+<span class="nc" id="L590">	private JSONArray getAllContainsInBenefit(String parentUs, String childUs, String usText,</span>
 			JSONObject jsonRedundancyPair) {
-		int benefitIndex = usText.indexOf("so that");
+		int benefitIndex = usText.indexOf(&quot;so that&quot;);
 		JSONArray jsonBenefit = new JSONArray();
-		String benefitPart = "";
+		String benefitPart = &quot;&quot;;
 		if (benefitIndex != -1) {
 			benefitPart = usText.substring(benefitIndex);
 			jsonBenefit = processElements(parentUs, childUs, benefitPart, jsonRedundancyPair);
@@ -603,9 +602,9 @@ public class ReportExtractor {
 
 	}
 
-	private JSONArray getAllContainsInMain(String parentUs, String childUs, String usText,
+<span class="nc" id="L605">	private JSONArray getAllContainsInMain(String parentUs, String childUs, String usText,</span>
 			JSONObject jsonRedundancyPair) {
-		int benefitIndex = usText.indexOf("so that");
+		int benefitIndex = usText.indexOf(&quot;so that&quot;);
 		String mainPart = usText;
 		JSONArray jsonMain = new JSONArray();
 		if (benefitIndex != -1) {
@@ -616,8 +615,8 @@ public class ReportExtractor {
 
 	}
 
-	private JSONArray processElements(String parentUs, String childUs, String UsPart, JSONObject jsonRedundancyPair) {
-		if (UsPart.contains(parentUs) && UsPart.contains(childUs)) {
+<span class="nc" id="L618">	private JSONArray processElements(String parentUs, String childUs, String UsPart, JSONObject jsonRedundancyPair) {</span>
+		if (UsPart.contains(parentUs) &amp;&amp; UsPart.contains(childUs)) {
 			JSONArray contain = new JSONArray().put(parentUs).put(childUs);
 			return contain;
 		}
@@ -625,8 +624,8 @@ public class ReportExtractor {
 	}
 
 	public boolean minimalEcoreExist(String redPair, String conflictReason)
-			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		Path path = Paths.get(getAbsoluteDirPath() + "\\" + redPair + "\\" + conflictReason + "\\minimal-model.ecore");
+<span class="nc" id="L627">			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {</span>
+		Path path = Paths.get(getAbsoluteDirPath() + &quot;\\&quot; + redPair + &quot;\\&quot; + conflictReason + &quot;\\minimal-model.ecore&quot;);
 		if (Files.exists(path)) {
 			return true;
 		} else {
@@ -639,23 +638,23 @@ public class ReportExtractor {
 //	with \textit{\_AND\_} due to the fact that through CDA 
 //	generated report is formatted like \enquote{user\_story\_\textless 
 //		digit \textgreater\_AND\_user\_story\_\textless
-	private boolean containsAnd(String folder) {
-		if (folder.toLowerCase().contains("and")) {
+<span class="nc" id="L641">	private boolean containsAnd(String folder) {</span>
+		if (folder.toLowerCase().contains(&quot;and&quot;)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	private void processMinimalModels(File minimalModelEcoreFile, ArrayList<String> arrayMaximalElements,
-			ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) throws IOException {
-		if (minimalModelEcoreFile.exists() && minimalModelEcoreFile.length() > 0) {
+<span class="nc" id="L649">	private void processMinimalModels(File minimalModelEcoreFile, ArrayList&lt;String&gt; arrayMaximalElements,</span>
+			ArrayList&lt;String&gt; arrayMaximalElementsNames, ConflictItems redundancyItems) throws IOException {
+		if (minimalModelEcoreFile.exists() &amp;&amp; minimalModelEcoreFile.length() &gt; 0) {
 			Resource.Factory.Registry resourceFactoryRegistry = Resource.Factory.Registry.INSTANCE;
-			resourceFactoryRegistry.getExtensionToFactoryMap().put("ecore", new XMIResourceFactoryImpl());
+			resourceFactoryRegistry.getExtensionToFactoryMap().put(&quot;ecore&quot;, new XMIResourceFactoryImpl());
 			ResourceSet resourceSet = new ResourceSetImpl();
 			Resource resource = resourceSet.getResource(URI.createFileURI(minimalModelEcoreFile.getAbsolutePath()),
 					true);
-			if (resource != null && !resource.getContents().isEmpty()) {
+			if (resource != null &amp;&amp; !resource.getContents().isEmpty()) {
 
 				for (EObject eObject : resource.getContents()) {
 					EPackage minimalPackage = (EPackage) eObject;
@@ -667,18 +666,18 @@ public class ReportExtractor {
 		}
 	}
 
-	private String getUsName1(String us) {
-		return us.replaceAll("(.*)_AND.*", "$1");
+<span class="nc" id="L669">	private String getUsName1(String us) {</span>
+		return us.replaceAll(&quot;(.*)_AND.*&quot;, &quot;$1&quot;);
 	}
 
-	private String getUsName2(String us) {
-		return us.replaceAll(".*_AND_(.*)", "$1");
+<span class="nc" id="L673">	private String getUsName2(String us) {</span>
+		return us.replaceAll(&quot;.*_AND_(.*)&quot;, &quot;$1&quot;);
 	}
 
 	// Receive user stories texts with highlighted elements and
 	// return only the part/region of sentences which highlighted elements is
 	// appears
-	private void writeUsSentencePart(String string, RedundancyItems redundancyItems, FileWriter fileWriter,
+<span class="nc" id="L680">	private void writeUsSentencePart(String string, ConflictItems redundancyItems, FileWriter fileWriter,</span>
 			JSONObject jsonObject) throws IOException {
 		String usNum1 = getUsName1(string);
 		String usNum2 = getUsName2(string);
@@ -688,14 +687,14 @@ public class ReportExtractor {
 
 	}
 
-	private void splitUsText(String usText1, String usNum1, String usText2, String usNum2, FileWriter fileWriter,
+<span class="nc" id="L690">	private void splitUsText(String usText1, String usNum1, String usText2, String usNum2, FileWriter fileWriter,</span>
 			JSONObject jsonObject) throws IOException {
-		String[] parts1 = usText1.split(",", 3);
-		String[] parts2 = usText2.split(",", 3);
+		String[] parts1 = usText1.split(&quot;,&quot;, 3);
+		String[] parts2 = usText2.split(&quot;,&quot;, 3);
 		// show only part of sentences which include more that two hash symbol pairs
-		String regex = "#[^#]+#";
-		Set<String> writtenUserStoryPart1 = new HashSet<>();
-		Set<String> writtenUserStoryPart2 = new HashSet<>();
+		String regex = &quot;#[^#]+#&quot;;
+		Set&lt;String&gt; writtenUserStoryPart1 = new HashSet&lt;&gt;();
+		Set&lt;String&gt; writtenUserStoryPart2 = new HashSet&lt;&gt;();
 		Pattern pattern = Pattern.compile(regex);
 		// Initialize JOSN Object as Parts of Sentence
 		JSONObject jsonPartOfSentence = new JSONObject();
@@ -706,10 +705,10 @@ public class ReportExtractor {
 			int count = 0;
 			while (matcher.find()) {
 				count++;
-				if (count >= 2 && !writtenUserStoryPart1.contains(part)) {
-					fileWriter.write(usNum1 + ": " + part + "\n");
+				if (count &gt;= 2 &amp;&amp; !writtenUserStoryPart1.contains(part)) {
+					fileWriter.write(usNum1 + &quot;: &quot; + part + &quot;\n&quot;);
 					// Write sentence Part first user story on sentence part A
-					jsonPartOfSentence.put("First UserStory", new JSONArray().put(part));
+					jsonPartOfSentence.put(&quot;First UserStory&quot;, new JSONArray().put(part));
 					writtenUserStoryPart1.add(part);
 				}
 			}
@@ -721,19 +720,19 @@ public class ReportExtractor {
 			int count = 0;
 			while (matcher.find()) {
 				count++;
-				if (count >= 2 && !writtenUserStoryPart2.contains(part)) {
-					fileWriter.write(usNum2 + ": " + part + "\n");
+				if (count &gt;= 2 &amp;&amp; !writtenUserStoryPart2.contains(part)) {
+					fileWriter.write(usNum2 + &quot;: &quot; + part + &quot;\n&quot;);
 					// Write sentence Part first user story on sentence part A
-					jsonPartOfSentence.put("Second UserStory", new JSONArray().put(part));
+					jsonPartOfSentence.put(&quot;Second UserStory&quot;, new JSONArray().put(part));
 					writtenUserStoryPart2.add(part);
 				}
 			}
 		}
-		jsonObject.put("Part of Sentence", jsonPartOfSentence);
+		jsonObject.put(&quot;Part of Sentence&quot;, jsonPartOfSentence);
 
 	}
 
-	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+<span class="nc" id="L735">	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {</span>
 		JSONArray jsonArray;
 		FileReader reader = new FileReader(path);
 		JSONTokener tokener = new JSONTokener(reader);
@@ -751,14 +750,14 @@ public class ReportExtractor {
 	// in order to insert the table at the very first place of the file
 	// we need to first store the report at StringBuilder and then make
 	// file again but at this time writing the table first
-	public void writeTable(File totalCda, List<RedundantPair> redundantPairs) throws IOException {
+	public void writeTable(File totalCda, List&lt;ConflictPair&gt; redundantPairs) throws IOException {
 
-		List<String> pairListSeperate = new ArrayList<>();
+		List&lt;String&gt; pairListSeperate = new ArrayList&lt;&gt;();
 		StringBuilder report = new StringBuilder();
 		BufferedReader reader = new BufferedReader(new FileReader(totalCda));
 		String line;
 		while ((line = reader.readLine()) != null) {
-			report.append(line).append("\n");
+			report.append(line).append(&quot;\n&quot;);
 		}
 		reader.close();
 		FileWriter writer = new FileWriter(totalCda);
@@ -766,11 +765,11 @@ public class ReportExtractor {
 		// display the table
 		StringBuilder table = new StringBuilder();
 		// add new line before the table
-		table.append("* Table of potential redundancies between user stories"
-				+ " and the number of their overlapping elements\n\n");
-		// table.append("\t");
-		for (RedundantPair redundantPair : redundantPairs) {
-			if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {
+		table.append(&quot;* Table of potential redundancies between user stories&quot;
+				+ &quot; and the number of their overlapping elements\n\n&quot;);
+		// table.append(&quot;\t&quot;);
+		for (ConflictPair redundantPair : redundantPairs) {
+<span class="nc" id="L772">			if (!pairListSeperate.contains(redundantPair.getRedundantPair1())) {</span>
 				pairListSeperate.add(redundantPair.getRedundantPair1());
 			}
 			if (!pairListSeperate.contains(redundantPair.getRedundantPair2())) {
@@ -783,16 +782,16 @@ public class ReportExtractor {
 		// find the maximum width for each column
 		int[] maxWidths = new int[numCols];
 		for (String[] row : stringTable) {
-			for (int j = 0; j < numCols; j++) {
+			for (int j = 0; j &lt; numCols; j++) {
 				maxWidths[j] = Math.max(maxWidths[j], row[j].length());
 			}
 		}
 		for (String[] row : stringTable) {
-			for (int j = 0; j < numCols; j++) {
+			for (int j = 0; j &lt; numCols; j++) {
 
-				table.append(String.format("%-" + (maxWidths[j] + 2) + "s", row[j]));
+				table.append(String.format(&quot;%-&quot; + (maxWidths[j] + 2) + &quot;s&quot;, row[j]));
 			}
-			table.append("\n");
+			table.append(&quot;\n&quot;);
 		}
 		writer.write(table.toString());
 		writer.write(report.toString());
@@ -800,17 +799,17 @@ public class ReportExtractor {
 
 	}
 
-	private String[][] createTable(List<String> pairListSeperate2, List<RedundantPair> redundantPairs2) {
+<span class="nc" id="L802">	private String[][] createTable(List&lt;String&gt; pairListSeperate2, List&lt;ConflictPair&gt; redundantPairs2) {</span>
 		int size = pairListSeperate2.size();
 		String[][] table = new String[size + 1][size + 1];
 
-		table[0][0] = "";
-		for (int i = 0; i < size; i++) {
-			table[0][i + 1] = pairListSeperate2.get(i).replaceAll("user_story", "us"); // header row
-			table[i + 1][0] = pairListSeperate2.get(i).replaceAll("user_story", "us"); // first column
+		table[0][0] = &quot;&quot;;
+		for (int i = 0; i &lt; size; i++) {
+			table[0][i + 1] = pairListSeperate2.get(i).replaceAll(&quot;user_story&quot;, &quot;us&quot;); // header row
+			table[i + 1][0] = pairListSeperate2.get(i).replaceAll(&quot;user_story&quot;, &quot;us&quot;); // first column
 		}
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
+		for (int i = 0; i &lt; size; i++) {
+			for (int j = 0; j &lt; size; j++) {
 				String pair1 = pairListSeperate2.get(i);
 				String pair2 = pairListSeperate2.get(j);
 				int maximal = getTotalRedundanciesFromPair(redundantPairs2, pair1, pair2);
@@ -821,11 +820,11 @@ public class ReportExtractor {
 		return table;
 	}
 
-	private int getTotalRedundanciesFromPair(List<RedundantPair> redundantPairs, String pair1, String pair2) {
-		for (RedundantPair redundantPair : redundantPairs) {
-			if ((redundantPair.getRedundantPair1().equals(pair1) && redundantPair.getRedundantPair2().equals(pair2))
+	private int getTotalRedundanciesFromPair(List&lt;ConflictPair&gt; redundantPairs, String pair1, String pair2) {
+		for (ConflictPair redundantPair : redundantPairs) {
+<span class="nc" id="L825">			if ((redundantPair.getRedundantPair1().equals(pair1) &amp;&amp; redundantPair.getRedundantPair2().equals(pair2))</span>
 					|| (redundantPair.getRedundantPair1().equals(pair2)
-							&& redundantPair.getRedundantPair2().equals(pair1))) {
+							&amp;&amp; redundantPair.getRedundantPair2().equals(pair1))) {
 				return redundantPair.getMaximal();
 			}
 		}
@@ -837,13 +836,13 @@ public class ReportExtractor {
 	// whether user_story_XX_AND_user_story_YY
 	// or user_story_YY_AND_user_story_XX, if yes return true,
 	// Otherwise return false
-	private boolean checkIfReportExist(String usPairs, List<String> pairList) {
+<span class="nc" id="L839">	private boolean checkIfReportExist(String usPairs, List&lt;String&gt; pairList) {</span>
 		if (!pairList.contains(usPairs)) {
 			String us1 = getUsName1(usPairs);
 			String us2 = getUsName2(usPairs);
 			pairList.add(usPairs);
 			// Add also reverse item
-			pairList.add(us2 + "_AND_" + us1);
+			pairList.add(us2 + &quot;_AND_&quot; + us1);
 
 			return false;
 		} else {
@@ -852,7 +851,7 @@ public class ReportExtractor {
 		}
 	}
 
-	private boolean hasTargets(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+<span class="nc" id="L854">	private boolean hasTargets(ArrayList&lt;String&gt; arrayMaximalElementsNames, ConflictItems redundancyItems) {</span>
 		for (String item : arrayMaximalElementsNames) {
 			for (Targets target : redundancyItems.getTargets()) {
 				if (item.equals(target.getName())) {
@@ -863,9 +862,9 @@ public class ReportExtractor {
 		return false;
 	}
 
-	private boolean hasActions(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+	private boolean hasActions(ArrayList&lt;String&gt; arrayMaximalElementsNames, ConflictItems redundancyItems) {
 		for (String item : arrayMaximalElementsNames) {
-			for (SecondaryAction secondaryAction : redundancyItems.getSecondaryAction()) {
+<span class="nc" id="L867">			for (SecondaryAction secondaryAction : redundancyItems.getSecondaryAction()) {</span>
 				if (item.equals(secondaryAction.getName())) {
 					return true;
 				}
@@ -879,14 +878,14 @@ public class ReportExtractor {
 		return false;
 	}
 
-	private boolean hasEntitys(ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) {
+	private boolean hasEntitys(ArrayList&lt;String&gt; arrayMaximalElementsNames, ConflictItems redundancyItems) {
 		for (String item : arrayMaximalElementsNames) {
-			for (SecondaryEntity secondaryEntity : redundancyItems.getSecondaryEntity()) {
+<span class="nc" id="L883">			for (SecondaryEntity secondaryEntity : redundancyItems.getSecondaryEntity()) {</span>
 				if (item.equals(secondaryEntity.getName())) {
 					return true;
 				}
 			}
-			for (PrimaryEntity primaryEntity : redundancyItems.getPrimaryEntity()) {
+			for (Entity primaryEntity : redundancyItems.getPrimaryEntity()) {
 				if (item.equals(primaryEntity.getName())) {
 					return true;
 				}
@@ -897,22 +896,22 @@ public class ReportExtractor {
 	}
 
 	// get USs Text from JSON File and add them into redundancyItems
-	private void getUssTexts(String usPair, RedundancyItems redundancyItems)
-			throws JsonFileNotFound, IOException, EmptyOrNotExistJsonFile {
+	private void getUssTexts(String usPair, ConflictItems redundancyItems)
+<span class="nc" id="L900">			throws JsonFileNotFound, IOException, EmptyOrNotExistJsonFile {</span>
 		JSONArray json = null;
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
 
 		json = readJsonArrayFromFile(getAbsoluteFinalReportDir());
-		for (int i = 0; i < json.length(); i++) {
+		for (int i = 0; i &lt; json.length(); i++) {
 			JSONObject jsonObject = json.getJSONObject(i);
 
 			// check if two related object are exist in JSON file
 			// if so
 
-			String usNr = jsonObject.getString("US_Nr");
+			String usNr = jsonObject.getString(&quot;US_Nr&quot;);
 			// all words should be lower case to avoid mismatching
-			String usText = jsonObject.getString("Text").toLowerCase();
+			String usText = jsonObject.getString(&quot;Text&quot;).toLowerCase();
 			if (usNr.equals(us1)) {
 				redundancyItems.setTextUs1(usText);
 
@@ -926,16 +925,16 @@ public class ReportExtractor {
 
 	}
 
-	private void writeUsText(String usPair, ArrayList<String> arrayMax, List<RedundantPair> redundantPairs,
-			RedundancyItems redundancyItems, FileWriter fileWriter, List<TargetsPair> targetsPairs,
-			List<TriggersPair> triggersPairs, List<ContainsPair> containsPairs, JSONObject jsonRedundancyPair)
-			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
+	private void writeUsText(String usPair, ArrayList&lt;String&gt; arrayMax, List&lt;ConflictPair&gt; redundantPairs,
+			ConflictItems redundancyItems, FileWriter fileWriter, List&lt;TargetsPair&gt; targetsPairs,
+			List&lt;TriggersPair&gt; triggersPairs, List&lt;ContainsPair&gt; containsPairs, JSONObject jsonRedundancyPair)
+<span class="nc" id="L931">			throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {</span>
 		String us1 = getUsName1(usPair);
 		String us2 = getUsName2(usPair);
 
 		// add conflict pairs with maximal overlapping and save it
 		// in order to filling table
-		RedundantPair redundantPair = new RedundantPair();
+		ConflictPair redundantPair = new ConflictPair();
 
 		// here i try to add US_Nr from USs into the highlightConflicts
 		redundancyItems.setUsNr1(us1);
@@ -949,10 +948,10 @@ public class ReportExtractor {
 					jsonRedundancyPair);
 
 			String highlightedUs2 = redundancyItems.getTextUs2();
-			fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
+			fileWriter.write(&quot;\n\n &quot; + us2 + &quot;: &quot; + highlightedUs2.toLowerCase());
 
 			String highlightedUs1 = redundancyItems.getTextUs1();
-			fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
+			fileWriter.write(&quot;\n\n &quot; + us1 + &quot;: &quot; + highlightedUs1.toLowerCase());
 			redundantPair.setRedundantPair1(us1);
 			redundantPair.setRedundantPair2(us2);
 			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
@@ -961,7 +960,7 @@ public class ReportExtractor {
 
 	}
 
-	// Separate user story "Text" with comma and then find in each area related
+	// Separate user story &quot;Text&quot; with comma and then find in each area related
 	// element.
 	// For example if we are in second region (which means it need to looking for
 	// primary
@@ -972,20 +971,20 @@ public class ReportExtractor {
 	// I want to check both user stories and separate their parts of sentence
 	// through comma and first try to find the match is in secondPartOfSentence of
 	// both user
-	// stories. I should check US1_Part_1 vs US2_part_1, then if US1_Part_2 &&
+	// stories. I should check US1_Part_1 vs US2_part_1, then if US1_Part_2 &amp;&amp;
 	// US2_Part_2
 	// are exist then try to file the match is in thirdPartOfSentence of both USs
 	// then try
 	// to replace
-	private RedundancyItems highlightRedundancies(RedundancyItems redundancyItems, String usPair,
-			List<TargetsPair> targetsPairs, List<TriggersPair> triggersPairs, List<ContainsPair> containsPairs,
-			JSONObject jsonRedundancyPair) throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {
+	private ConflictItems highlightRedundancies(ConflictItems redundancyItems, String usPair,
+			List&lt;TargetsPair&gt; targetsPairs, List&lt;TriggersPair&gt; triggersPairs, List&lt;ContainsPair&gt; containsPairs,
+<span class="nc" id="L981">			JSONObject jsonRedundancyPair) throws IOException, EmptyOrNotExistJsonFile, JsonFileNotFound {</span>
 
 		String textUs1 = redundancyItems.getTextUs1();
 		String textUs2 = redundancyItems.getTextUs2();
 		int mainConflict = redundancyItems.getMainRedundancyCount();
 		int benefitConflict = redundancyItems.getBenefitRedundancyCount();
-		//if (textUs1.length() <= 0 && textUs2.length() <= 0) {
+		//if (textUs1.length() &lt;= 0 &amp;&amp; textUs2.length() &lt;= 0) {
 	//		return null;
 	//	}
 
@@ -1003,13 +1002,13 @@ public class ReportExtractor {
 		String subStringFirstUs2 = textUs2.substring(0, firstCommaUs2);
 
 		// receive the index of second comma
-		int benefitPlaceHolderUs1 = textUs1.indexOf("so that", firstCommaUs1 + 1);
-		int benefitPlaceHolderUs2 = textUs2.indexOf("so that", firstCommaUs2 + 1);
+		int benefitPlaceHolderUs1 = textUs1.indexOf(&quot;so that&quot;, firstCommaUs1 + 1);
+		int benefitPlaceHolderUs2 = textUs2.indexOf(&quot;so that&quot;, firstCommaUs2 + 1);
 
 		// if one of USs does't have benefit, then there is no conflicted
 		// element at benefit at all just return benefit as it is
 		// if US_1 does't have benefit
-		if (benefitPlaceHolderUs1 == -1 && benefitPlaceHolderUs2 != -1) {
+		if (benefitPlaceHolderUs1 == -1 &amp;&amp; benefitPlaceHolderUs2 != -1) {
 
 			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);
 			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);
@@ -1018,8 +1017,8 @@ public class ReportExtractor {
 			// in this main part, if so then add hash symbol
 			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,
 					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);
-			textUs1 = subStringFirstUs1 + "," + usText[0];
-			textUs2 = subStringFirstUs2 + "," + usText[1];
+			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];
+			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];
 			// add the number of conflict pairs from main sentence
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
@@ -1047,7 +1046,7 @@ public class ReportExtractor {
 
 		}
 		// if US_2 does't have benefit
-		if (benefitPlaceHolderUs1 != -1 && benefitPlaceHolderUs2 == -1) {
+		if (benefitPlaceHolderUs1 != -1 &amp;&amp; benefitPlaceHolderUs2 == -1) {
 
 			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);
 			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);
@@ -1056,8 +1055,8 @@ public class ReportExtractor {
 			// in this sentence part, if so then add hash symbol
 			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,
 					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);
-			textUs1 = subStringFirstUs1 + "," + usText[0];
-			textUs2 = subStringFirstUs2 + "," + usText[1];
+			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];
+			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];
 			// add the number of conflict pairs from main sentence
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
@@ -1088,7 +1087,7 @@ public class ReportExtractor {
 
 		}
 		// if both does't have benefit
-		if (benefitPlaceHolderUs1 == -1 && benefitPlaceHolderUs2 == -1) {
+		if (benefitPlaceHolderUs1 == -1 &amp;&amp; benefitPlaceHolderUs2 == -1) {
 			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1);
 			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1);
 
@@ -1096,8 +1095,8 @@ public class ReportExtractor {
 			// in this sentence part, if so then add hash symbol
 			String[] usText = applyHashSymbolTargetsMain(targetsPairs, containsPairs, redundancyItems,
 					subStringSecondUs1, subStringSecondUs2, jsonRedundancyPair);
-			textUs1 = subStringFirstUs1 + "," + usText[0];
-			textUs2 = subStringFirstUs2 + "," + usText[1];
+			textUs1 = subStringFirstUs1 + &quot;,&quot; + usText[0];
+			textUs2 = subStringFirstUs2 + &quot;,&quot; + usText[1];
 			// add the number of conflict pairs from main sentence
 			mainConflict = mainConflict + Integer.parseInt(usText[2]);
 
@@ -1124,7 +1123,7 @@ public class ReportExtractor {
 
 		}
 		// if both USs have benefit
-		if (benefitPlaceHolderUs1 != -1 && benefitPlaceHolderUs2 != -1) {
+		if (benefitPlaceHolderUs1 != -1 &amp;&amp; benefitPlaceHolderUs2 != -1) {
 			String subStringSecondUs1 = textUs1.substring(firstCommaUs1 + 1, benefitPlaceHolderUs1);
 			String subStringSecondUs2 = textUs2.substring(firstCommaUs2 + 1, benefitPlaceHolderUs2);
 			// I want to check if targetsPair.aciton/entity are already exist
@@ -1188,8 +1187,8 @@ public class ReportExtractor {
 			// (one element in main and on in benefit), it the conflict element of main
 			// should be increased not main and benefit
 			// Apply hash symbol to common elements in the both user stories if any
-			textUs1 = subStringFirstUs1 + "," + textUs1;
-			textUs2 = subStringFirstUs2 + "," + textUs2;
+			textUs1 = subStringFirstUs1 + &quot;,&quot; + textUs1;
+			textUs2 = subStringFirstUs2 + &quot;,&quot; + textUs2;
 
 		}
 
@@ -1205,7 +1204,7 @@ public class ReportExtractor {
 
 	}
 
-	private String[] applyHashSymbolContaiansMain(List<ContainsPair> containsPairs, RedundancyItems redundancyItems,
+<span class="nc" id="L1207">	private String[] applyHashSymbolContaiansMain(List&lt;ContainsPair&gt; containsPairs, ConflictItems redundancyItems,</span>
 			String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
 		String[] usTexts = new String[4];
 		int redundancyCount = 0;
@@ -1218,8 +1217,8 @@ public class ReportExtractor {
 			String parent = containsPair2.getParentEntity();
 			// check if both elements of contains is included in both segment part
 			// and check do so if
-			if ((subStringUs1.contains(child) && subStringUs2.contains(child) && subStringUs1.contains(parent)
-					&& subStringUs2.contains(parent))) {
+			if ((subStringUs1.contains(child) &amp;&amp; subStringUs2.contains(child) &amp;&amp; subStringUs1.contains(parent)
+					&amp;&amp; subStringUs2.contains(parent))) {
 
 				// add hash symbol to contains pairs
 				String[] matches = { parent, child };
@@ -1234,16 +1233,16 @@ public class ReportExtractor {
 			}
 		}
 		JSONObject jsonCommonContains = new JSONObject();
-		jsonCommonContains.put("Main Part", jsonContains);
-		jsonRedundancyPair.put("Common Contains", jsonCommonContains);
-		usTexts[0] = subStringUs1.replaceAll("#+", "#");
-		usTexts[1] = subStringUs2.replaceAll("#+", "#");
+		jsonCommonContains.put(&quot;Main Part&quot;, jsonContains);
+		jsonRedundancyPair.put(&quot;Common Contains&quot;, jsonCommonContains);
+		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);
+		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);
 		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
-	private String[] applyHashSymbolTargetsMain(List<TargetsPair> targetsPairs, List<ContainsPair> containsPairs,
-			RedundancyItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1244">	private String[] applyHashSymbolTargetsMain(List&lt;TargetsPair&gt; targetsPairs, List&lt;ContainsPair&gt; containsPairs,</span>
+			ConflictItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
 		String[] usTexts = new String[4];
 		int redundancyCount = 0;
 		JSONArray jsonTargets = new JSONArray();
@@ -1254,8 +1253,8 @@ public class ReportExtractor {
 			// exist in both sentence parts
 			String action = targetsPair.getAction();
 			String entity = targetsPair.getEntity();
-			if ((subStringUs1.contains(action) && subStringUs1.contains(entity))
-					&& (subStringUs2.contains(action) && subStringUs2.contains(entity))) {
+			if ((subStringUs1.contains(action) &amp;&amp; subStringUs1.contains(entity))
+					&amp;&amp; (subStringUs2.contains(action) &amp;&amp; subStringUs2.contains(entity))) {
 				// US_1 add hash symbol at the beginning and ending of each word
 				String[] actionMatches = { action };
 				String[] entityMatches = { entity };
@@ -1276,22 +1275,22 @@ public class ReportExtractor {
 				jsonTargets.put(josnTarget);
 			}
 		}
-		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject("Common Targets");
+		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject(&quot;Common Targets&quot;);
 		if (jsonCommonTargets == null) {
 			jsonCommonTargets = new JSONObject();
-			jsonCommonTargets.put("Main Part", jsonTargets);
-			jsonRedundancyPair.put("Common Targets", jsonCommonTargets);
+			jsonCommonTargets.put(&quot;Main Part&quot;, jsonTargets);
+			jsonRedundancyPair.put(&quot;Common Targets&quot;, jsonCommonTargets);
 		}
-		jsonCommonTargets.put("Main Part", jsonTargets);
+		jsonCommonTargets.put(&quot;Main Part&quot;, jsonTargets);
 
-		usTexts[0] = subStringUs1.replaceAll("#+", "#");
-		usTexts[1] = subStringUs2.replaceAll("#+", "#");
+		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);
+		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);
 		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
-	private String[] applyHashSymbolTargetsBenefit(List<TargetsPair> targetsPairs, List<ContainsPair> containsPairs,
-			RedundancyItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
+<span class="nc" id="L1292">	private String[] applyHashSymbolTargetsBenefit(List&lt;TargetsPair&gt; targetsPairs, List&lt;ContainsPair&gt; containsPairs,</span>
+			ConflictItems redundancyItems, String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
 		String[] usTexts = new String[4];
 		int redundancyCount = 0;
 		JSONArray jsonTargets = new JSONArray();
@@ -1302,8 +1301,8 @@ public class ReportExtractor {
 			// exist in both sentence parts
 			String action = targetsPair.getAction();
 			String entity = targetsPair.getEntity();
-			if ((subStringUs1.contains(action) && subStringUs1.contains(entity))
-					&& (subStringUs2.contains(action) && subStringUs2.contains(entity))) {
+			if ((subStringUs1.contains(action) &amp;&amp; subStringUs1.contains(entity))
+					&amp;&amp; (subStringUs2.contains(action) &amp;&amp; subStringUs2.contains(entity))) {
 				// US_1 add hash symbol at the beginning and ending of each word
 				String[] actionMatches = { action };
 				String[] entityMatches = { entity };
@@ -1326,25 +1325,25 @@ public class ReportExtractor {
 		}
 
 		// JSONObject jsonCommonTargets = new JSONObject();
-		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject("Common Targets");
+		JSONObject jsonCommonTargets = jsonRedundancyPair.optJSONObject(&quot;Common Targets&quot;);
 		if (jsonCommonTargets == null) {
 			jsonCommonTargets = new JSONObject();
-			jsonRedundancyPair.put("Common Targets", jsonCommonTargets);
+			jsonRedundancyPair.put(&quot;Common Targets&quot;, jsonCommonTargets);
 		}
-		jsonCommonTargets.put("Benefit Part", jsonTargets);
-		usTexts[0] = subStringUs1.replaceAll("#+", "#");
-		usTexts[1] = subStringUs2.replaceAll("#+", "#");
+		jsonCommonTargets.put(&quot;Benefit Part&quot;, jsonTargets);
+		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);
+		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);
 		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
-	private boolean hasMoreThanFourHashSymbols(String textUs1) {
-		long count = textUs1.chars().filter(ch -> ch == '#').count();
-		return count >= 4;
+<span class="nc" id="L1340">	private boolean hasMoreThanFourHashSymbols(String textUs1) {</span>
+		long count = textUs1.chars().filter(ch -&gt; ch == '#').count();
+		return count &gt;= 4;
 
 	}
 
-	private String[] applyHashSymbolPersona(List<TriggersPair> triggers, RedundancyItems redundancyItems,
+<span class="nc" id="L1346">	private String[] applyHashSymbolPersona(List&lt;TriggersPair&gt; triggers, ConflictItems redundancyItems,</span>
 			String subStringFirstUs1, String subStringFirstUs2) {
 		String[] usTexts = new String[4];
 		int redundancyCount = 0;
@@ -1357,7 +1356,7 @@ public class ReportExtractor {
 			String persona = triggerPair.getPersona();
 			// replace all pairs in this part of sentence if it
 			// exist in both sentence parts
-			if (subStringFirstUs1.contains(persona) && subStringFirstUs2.contains(persona)) {
+			if (subStringFirstUs1.contains(persona) &amp;&amp; subStringFirstUs2.contains(persona)) {
 
 				// US_1/US_2 add hash symbol at the beginning and ending of each word
 				String[] matches = { persona };
@@ -1375,29 +1374,29 @@ public class ReportExtractor {
 			}
 
 		}
-		usTexts[0] = subStringFirstUs1.replaceAll("#+", "#");
-		usTexts[1] = subStringFirstUs2.replaceAll("#+", "#");
+		usTexts[0] = subStringFirstUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);
+		usTexts[1] = subStringFirstUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);
 		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 	}
 
 	// replace hash symbol at beginning and ending of founded element
-	private String applyHashSymbols(String subString, String[] matches) {
+<span class="nc" id="L1384">	private String applyHashSymbols(String subString, String[] matches) {</span>
 		Arrays.sort(matches, Comparator.comparing(String::length).reversed());
 		for (String match : matches) {
-			subString = subString.replaceAll("\\b" + match + "\\b", "#" + match + "#");
+			subString = subString.replaceAll(&quot;\\b&quot; + match + &quot;\\b&quot;, &quot;#&quot; + match + &quot;#&quot;);
 		}
 		return subString;
 	}
 
 	// Check in the main part of sentence if there is any redundancy
 	// more than 6 hash mark exist
-	private boolean hasMoreThanSixHashSymbols(String textUs1) {
-		long count = textUs1.chars().filter(ch -> ch == '#').count();
-		return count >= 6;
+<span class="nc" id="L1394">	private boolean hasMoreThanSixHashSymbols(String textUs1) {</span>
+		long count = textUs1.chars().filter(ch -&gt; ch == '#').count();
+		return count &gt;= 6;
 	}
 
-	private String[] applyHashSymbolContaiansBenefit(List<ContainsPair> containsPairs, RedundancyItems redundancyItems,
+<span class="nc" id="L1399">	private String[] applyHashSymbolContaiansBenefit(List&lt;ContainsPair&gt; containsPairs, ConflictItems redundancyItems,</span>
 			String subStringUs1, String subStringUs2, JSONObject jsonRedundancyPair) {
 		String[] usTexts = new String[4];
 		int redundancyCount = 0;
@@ -1410,12 +1409,12 @@ public class ReportExtractor {
 			String parent = containsPair2.getParentEntity();
 			// check if both elements of contains is included in both segment part
 			// and check do so if
-			if ((subStringUs1.contains(child) && subStringUs2.contains(child) && subStringUs1.contains(parent)
-					&& subStringUs2.contains(parent))
-			// && !(subStringUs1.contains("#" + child + "#")
-//							&& subStringUs2.contains("#" + child + "#")
-//							&& subStringUs1.contains("#" + parent + "#")
-//							&& subStringUs2.contains("#" + parent + "#")
+			if ((subStringUs1.contains(child) &amp;&amp; subStringUs2.contains(child) &amp;&amp; subStringUs1.contains(parent)
+					&amp;&amp; subStringUs2.contains(parent))
+			// &amp;&amp; !(subStringUs1.contains(&quot;#&quot; + child + &quot;#&quot;)
+//							&amp;&amp; subStringUs2.contains(&quot;#&quot; + child + &quot;#&quot;)
+//							&amp;&amp; subStringUs1.contains(&quot;#&quot; + parent + &quot;#&quot;)
+//							&amp;&amp; subStringUs2.contains(&quot;#&quot; + parent + &quot;#&quot;)
 			) {
 
 				// add hash symbol to contains pairs
@@ -1431,22 +1430,22 @@ public class ReportExtractor {
 			}
 		}
 
-		JSONObject jsonCommonContains = jsonRedundancyPair.optJSONObject("Common Contains");
+		JSONObject jsonCommonContains = jsonRedundancyPair.optJSONObject(&quot;Common Contains&quot;);
 		if (jsonCommonContains == null) {
 			jsonCommonContains = new JSONObject();
-			jsonRedundancyPair.put("Common Contains", jsonCommonContains);
+			jsonRedundancyPair.put(&quot;Common Contains&quot;, jsonCommonContains);
 		}
-		jsonCommonContains.put("Benefit Part", jsonContains);
+		jsonCommonContains.put(&quot;Benefit Part&quot;, jsonContains);
 
-		usTexts[0] = subStringUs1.replaceAll("#+", "#");
-		usTexts[1] = subStringUs2.replaceAll("#+", "#");
+		usTexts[0] = subStringUs1.replaceAll(&quot;#+&quot;, &quot;#&quot;);
+		usTexts[1] = subStringUs2.replaceAll(&quot;#+&quot;, &quot;#&quot;);
 		usTexts[2] = String.valueOf(redundancyCount);
 		return usTexts;
 
 	}
 
-	private void iteratePackages(EPackage minimalPackage, ArrayList<String> arrayMaximalElements,
-			ArrayList<String> arrayMaximalElementsNames, RedundancyItems redundancyItems) throws IOException {
+	private void iteratePackages(EPackage minimalPackage, ArrayList&lt;String&gt; arrayMaximalElements,
+			ArrayList&lt;String&gt; arrayMaximalElementsNames, ConflictItems redundancyItems) throws IOException {
 
 		String className = null;
 
@@ -1458,10 +1457,10 @@ public class ReportExtractor {
 				// if there is conflict between Attributes of tow USs, the hash symbol will
 				// appear on the class-Name and not directly on attribute,
 				// so we try to verify class name and check if it contains any hash symbol?
-				if (eClass.getName().contains("#")) {
+				if (eClass.getName().contains(&quot;#&quot;)) {
 
 					EAttribute attribute = (EAttribute) eClass.getEStructuralFeature(0);
-					if (attribute != null && !arrayMaximalElements.contains(attribute.getName())) {
+					if (attribute != null &amp;&amp; !arrayMaximalElements.contains(attribute.getName())) {
 
 						String attName = getAttName(attribute.getName());
 
@@ -1470,17 +1469,17 @@ public class ReportExtractor {
 
 						// store conflicted Attributes according to their class
 						switch (className) {
-						case "Primary Action":
-							redundancyItems.addPrimaryAction(new PrimaryAction(attName));
+						case &quot;Primary Action&quot;:
+<span class="nc" id="L1473">							redundancyItems.addPrimaryAction(new PrimaryAction(attName));</span>
 							break;
-						case "Secondary Action":
+						case &quot;Secondary Action&quot;:
 							redundancyItems.addSecondaryAction(new SecondaryAction(attName));
 							break;
-						case "Secondary Entity":
+						case &quot;Secondary Entity&quot;:
 							redundancyItems.addSecondaryEntity(new SecondaryEntity(attName));
 							break;
-						case "Primary Entity":
-							redundancyItems.addPrimaryEntity(new PrimaryEntity(attName));
+						case &quot;Primary Entity&quot;:
+							redundancyItems.addPrimaryEntity(new Entity(attName));
 							break;
 						default:
 							break;
@@ -1491,21 +1490,21 @@ public class ReportExtractor {
 				// add all EReferences from EClass into corresponding
 				// type(Contains, Targets, Triggers)
 				for (EReference eReference : eClass.getEReferences()) {
-					if (eReference.getName().contains("#") && !arrayMaximalElements.contains(eReference.getName())) {
+					if (eReference.getName().contains(&quot;#&quot;) &amp;&amp; !arrayMaximalElements.contains(eReference.getName())) {
 
 						String refName = getRefName(eReference.getName());
 						arrayMaximalElements.add(eReference.getName());
 						arrayMaximalElementsNames.add(refName);
 
-						if (refName.equals("triggers")) {
+						if (refName.equals(&quot;triggers&quot;)) {
 
 							redundancyItems.addTriggers(new Triggers(refName, className));
 
-						} else if (refName.equals("targets")) {
+						} else if (refName.equals(&quot;targets&quot;)) {
 
 							redundancyItems.addTargets(new Targets(refName, className));
 
-						} else if (refName.equals("contains")) {
+						} else if (refName.equals(&quot;contains&quot;)) {
 							redundancyItems.addContains(new Contains(refName, className));
 
 						}
@@ -1519,19 +1518,20 @@ public class ReportExtractor {
 
 	}
 
-	private String getRefName(String name) {
-		name = name.replaceAll("#", "");
+<span class="nc" id="L1521">	private String getRefName(String name) {</span>
+		name = name.replaceAll(&quot;#&quot;, &quot;&quot;);
 		return name;
 	}
 
-	private String getClassName(String name) {
-		name = name.replaceAll("#", "").replaceAll(".*:(.*)", "$1");
+<span class="nc" id="L1526">	private String getClassName(String name) {</span>
+		name = name.replaceAll(&quot;#&quot;, &quot;&quot;).replaceAll(&quot;.*:(.*)&quot;, &quot;$1&quot;);
 		return name;
 	}
 
-	private String getAttName(String name) {
-		name = name.replaceAll("name=\"(.*)\"->.*\"(.*).*", "$1");
+<span class="nc" id="L1531">	private String getAttName(String name) {</span>
+		name = name.replaceAll(&quot;name=\&quot;(.*)\&quot;-&gt;.*\&quot;(.*).*&quot;, &quot;$1&quot;);
 		return name;
 	}
 
 }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

@@ -73,7 +73,7 @@ public class RuleCreator {
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
 		long startTime = System.nanoTime();
-		String version = "19";
+		String version = "22";
 		createRules(version);
 		long endTime = System.nanoTime();
 		double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;

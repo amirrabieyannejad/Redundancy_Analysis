@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ActionsAnnotationsCreator.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.preparation</a> &gt; <span class="el_source">ActionsAnnotationsCreator.java</span></div><h1>ActionsAnnotationsCreator.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.preparation;
+
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.opencsv.exceptions.CsvValidationException;
+import java.io.FileWriter;
+
+public class ActionsAnnotationsCreator {
+	// String datasetNum;
+	private VerbFinder verbFinder;
+
+<span class="nc" id="L17">	public ActionsAnnotationsCreator() {</span>
+//		this.datasetNum = dataset;
+<span class="nc" id="L19">	}</span>
+
+	public void addActionsRules(String[] dataSets, String filePath,String[] fileNames) throws EmptyOrNotExistJsonFile, CsvValidationException, IOException {
+		
+<span class="nc bnc" id="L23" title="All 2 branches missed.">		for (int j = 0; j &lt; dataSets.length; j++) {</span>
+<span class="nc" id="L24">		String path = filePath + dataSets[j] + &quot;\\&quot; + fileNames[j] + &quot;.json&quot;;</span>
+<span class="nc" id="L25">		ReadJsonFile file = new ReadJsonFile();</span>
+<span class="nc" id="L26">		JSONArray jsonArray = file.readJsonArrayFromFile(path);</span>
+<span class="nc" id="L27">		this.verbFinder = new VerbFinder(&quot;actions_rules.csv&quot;);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		for (int i = 0; i &lt; jsonArray.length(); i++) {</span>
+<span class="nc" id="L29">			JSONObject jsonObject = jsonArray.getJSONObject(i);</span>
+<span class="nc" id="L30">			addActionRule(jsonObject); </span>
+		}
+<span class="nc" id="L32">		try (FileWriter fileWriter = new FileWriter(path)) {</span>
+<span class="nc" id="L33">			fileWriter.write(jsonArray.toString(4)); // Indent with 4 spaces for readability</span>
+		}
+		}
+<span class="nc" id="L36">	}</span>
+
+	public String findActionRule(String verb) {
+<span class="nc" id="L39">		return verbFinder.getActionRule(verb);</span>
+	}
+
+	private void addActionRule(JSONObject jsonObject) {
+<span class="nc" id="L43">		JSONObject main = jsonObject.getJSONObject(&quot;Main&quot;);</span>
+<span class="nc" id="L44">		JSONObject benefit = jsonObject.getJSONObject(&quot;Benefit&quot;);</span>
+
+<span class="nc" id="L46">		JSONArray mainTargets = main.getJSONArray(&quot;Targets&quot;);</span>
+<span class="nc" id="L47">		JSONArray mainContains = main.getJSONArray(&quot;Contains&quot;);</span>
+
+<span class="nc" id="L49">		JSONArray benefitTargets = benefit.getJSONArray(&quot;Targets&quot;);</span>
+<span class="nc" id="L50">		JSONArray benefitContains = benefit.getJSONArray(&quot;Contains&quot;);</span>
+
+<span class="nc" id="L52">		JSONArray mainTargetActionRules = new JSONArray();</span>
+<span class="nc" id="L53">		JSONArray mainContainActionRules = new JSONArray();</span>
+
+<span class="nc" id="L55">		JSONArray benefitTargetActionRules = new JSONArray();</span>
+<span class="nc" id="L56">		JSONArray benefitContainActionRules = new JSONArray();</span>
+
+<span class="nc" id="L58">		Set&lt;String&gt; setMainTargets = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L59">		Set&lt;String&gt; setMainContains = new HashSet&lt;&gt;();</span>
+
+<span class="nc" id="L61">		Set&lt;String&gt; setBenefitTargets = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L62">		Set&lt;String&gt; setBenefitContains = new HashSet&lt;&gt;();</span>
+
+		JSONArray targetPair;
+		JSONArray containPair;
+
+		// Proceed Targets in Main part
+<span class="nc bnc" id="L68" title="All 2 branches missed.">		for (int i = 0; i &lt; mainTargets.length(); i++) {</span>
+<span class="nc" id="L69">			JSONArray target = mainTargets.getJSONArray(i);</span>
+<span class="nc" id="L70">			String verb = target.getString(0);</span>
+<span class="nc" id="L71">			String entity = target.getString(1);</span>
+<span class="nc" id="L72">			String key = verb.toLowerCase() + entity.toLowerCase();</span>
+<span class="nc" id="L73">			String actionRule = findActionRule(verb.toLowerCase());</span>
+
+			// System.out.println(&quot;action Rule is: &quot; + actionRule + &quot; verb is: &quot; + verb);
+<span class="nc" id="L76">			targetPair = new JSONArray();</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			if (actionRule == null) {</span>
+<span class="nc" id="L78">				System.out.println(&quot;ERROR: &quot; + jsonObject.getString(&quot;US_Nr&quot;) + &quot;Verb in Main part not found: &quot; + verb);</span>
+<span class="nc" id="L79">			} else {</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">				if (!setMainTargets.contains(key)) {</span>
+<span class="nc" id="L81">					targetPair.put(verb.toLowerCase());</span>
+<span class="nc" id="L82">					targetPair.put(entity.toLowerCase());</span>
+<span class="nc" id="L83">					targetPair.put(actionRule);</span>
+<span class="nc" id="L84">					setMainTargets.add(key);</span>
+<span class="nc" id="L85">					mainTargetActionRules.put(targetPair);</span>
+				}
+				// Proceed Contains in Main part
+<span class="nc bnc" id="L88" title="All 2 branches missed.">				for (int j = 0; j &lt; mainContains.length(); j++) {</span>
+<span class="nc" id="L89">					JSONArray contain = mainContains.getJSONArray(j);</span>
+<span class="nc" id="L90">					String entity1 = contain.getString(0).toLowerCase();</span>
+<span class="nc" id="L91">					String entity2 = contain.getString(1).toLowerCase();</span>
+<span class="nc" id="L92">					String keyContain = entity1 + entity2;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">					if (entity1.equalsIgnoreCase(entity)) {</span>
+//						System.out.println(&quot;entity is: &quot; + entity);
+<span class="nc" id="L95">						containPair = new JSONArray();</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">						if (!setMainContains.contains(keyContain)) {</span>
+<span class="nc" id="L97">							containPair.put(entity1);</span>
+<span class="nc" id="L98">							containPair.put(entity2);</span>
+<span class="nc" id="L99">							containPair.put(actionRule);</span>
+<span class="nc" id="L100">							containPair.put(verb);</span>
+<span class="nc" id="L101">							mainContainActionRules.put(containPair);</span>
+<span class="nc" id="L102">							setMainContains.add(keyContain);</span>
+						}
+					}
+<span class="nc bnc" id="L105" title="All 2 branches missed.">					if (entity2.equalsIgnoreCase(entity)) {</span>
+<span class="nc" id="L106">						containPair = new JSONArray();</span>
+//						System.out.println(&quot;entity is if2: &quot; + entity);
+<span class="nc bnc" id="L108" title="All 2 branches missed.">						if (!setMainContains.contains(keyContain)) {</span>
+<span class="nc" id="L109">							containPair.put(entity1);</span>
+<span class="nc" id="L110">							containPair.put(entity2);</span>
+<span class="nc" id="L111">							containPair.put(actionRule);</span>
+<span class="nc" id="L112">							containPair.put(verb);</span>
+<span class="nc" id="L113">							mainContainActionRules.put(containPair);</span>
+<span class="nc" id="L114">							setMainContains.add(keyContain);</span>
+						}
+					}
+				}
+			}
+
+		}
+
+		// Proceed Targets in Benefit part
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		for (int i = 0; i &lt; benefitTargets.length(); i++) {</span>
+<span class="nc" id="L124">			JSONArray target = benefitTargets.getJSONArray(i);</span>
+<span class="nc" id="L125">			String verb = target.getString(0);</span>
+<span class="nc" id="L126">			String entity = target.getString(1);</span>
+<span class="nc" id="L127">			String key = verb.toLowerCase()+entity.toLowerCase();</span>
+			
+<span class="nc" id="L129">			String actionRule = findActionRule(verb.toLowerCase());</span>
+
+			// System.out.println(&quot;action Rule is: &quot; + actionRule + &quot; verb is: &quot; + verb);
+<span class="nc" id="L132">			targetPair = new JSONArray();</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">			if (actionRule == null) {</span>
+<span class="nc" id="L134">				System.out</span>
+<span class="nc" id="L135">						.println(&quot;ERROR: &quot; + jsonObject.getString(&quot;US_Nr&quot;) + &quot;Verb in Benefit part not found: &quot; + verb);</span>
+<span class="nc" id="L136">			} else {</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">				if (!setBenefitTargets.contains(key)) {</span>
+<span class="nc" id="L138">					targetPair.put(verb.toLowerCase());</span>
+<span class="nc" id="L139">					targetPair.put(entity.toLowerCase());</span>
+<span class="nc" id="L140">					targetPair.put(actionRule);</span>
+<span class="nc" id="L141">					setBenefitTargets.add(key);</span>
+<span class="nc" id="L142">					benefitTargetActionRules.put(targetPair);</span>
+				}
+				// Proceed Contains in Benefit part
+<span class="nc bnc" id="L145" title="All 2 branches missed.">				for (int j = 0; j &lt; benefitContains.length(); j++) {</span>
+<span class="nc" id="L146">					JSONArray contain = benefitContains.getJSONArray(j);</span>
+<span class="nc" id="L147">					String entity1 = contain.getString(0);</span>
+<span class="nc" id="L148">					String entity2 = contain.getString(1);</span>
+<span class="nc" id="L149">					String keyContain = entity1.toLowerCase()+ entity2.toLowerCase();</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">					if (entity1.equalsIgnoreCase(entity)) {</span>
+//								System.out.println(&quot;entity is: &quot; + entity);
+<span class="nc" id="L152">						containPair = new JSONArray();</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">						if (!setBenefitContains.contains(keyContain)) {</span>
+<span class="nc" id="L154">							containPair.put(entity1);</span>
+<span class="nc" id="L155">							containPair.put(entity2);</span>
+<span class="nc" id="L156">							containPair.put(actionRule);</span>
+<span class="nc" id="L157">							benefitContainActionRules.put(containPair);</span>
+<span class="nc" id="L158">							setBenefitContains.add(keyContain);</span>
+						}
+					}
+<span class="nc bnc" id="L161" title="All 2 branches missed.">					if (entity2.equalsIgnoreCase(entity)) {</span>
+<span class="nc" id="L162">						containPair = new JSONArray();</span>
+//								System.out.println(&quot;entity is if2: &quot; + entity);
+<span class="nc bnc" id="L164" title="All 2 branches missed.">						if (!setBenefitContains.contains(keyContain)) {</span>
+<span class="nc" id="L165">							containPair.put(entity1);</span>
+<span class="nc" id="L166">							containPair.put(entity2);</span>
+<span class="nc" id="L167">							containPair.put(actionRule);</span>
+<span class="nc" id="L168">							benefitContainActionRules.put(containPair);</span>
+<span class="nc" id="L169">							setBenefitContains.add(keyContain);</span>
+						}
+					}
+				}
+			}
+
+		}
+
+		// Add Action Rules into Main and return the root jsonobject
+<span class="nc" id="L178">		JSONObject mainActionRules = new JSONObject();</span>
+<span class="nc" id="L179">		mainActionRules.put(&quot;Target Action Rules&quot;, mainTargetActionRules);</span>
+<span class="nc" id="L180">		mainActionRules.put(&quot;Contain Action Rules&quot;, mainContainActionRules);</span>
+<span class="nc" id="L181">		main.put(&quot;Action Rules&quot;, mainActionRules);</span>
+
+		// Add Action Rules into Main and return the root jsonobject
+<span class="nc" id="L184">		JSONObject benefitActionRules = new JSONObject();</span>
+<span class="nc" id="L185">		benefitActionRules.put(&quot;Target Action Rules&quot;, benefitTargetActionRules);</span>
+<span class="nc" id="L186">		benefitActionRules.put(&quot;Contain Action Rules&quot;, benefitContainActionRules);</span>
+<span class="nc" id="L187">		benefit.put(&quot;Action Rules&quot;, benefitActionRules);</span>
+
+<span class="nc" id="L189">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

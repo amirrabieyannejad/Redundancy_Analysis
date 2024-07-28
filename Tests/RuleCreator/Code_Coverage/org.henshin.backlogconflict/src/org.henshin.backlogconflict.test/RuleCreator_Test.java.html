@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RuleCreator_Test.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.test</a> &gt; <span class="el_source">RuleCreator_Test.java</span></div><h1>RuleCreator_Test.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.test;
+
+import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.eclipse.emf.henshin.model.compact.CModule;
+import org.henshin.backlogconflict.code.evaluation.Evaluation;
+import org.henshin.backlogconflict.code.preparation.ActionInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.ContainsInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.EcoreFileNotFound;
+import org.henshin.backlogconflict.code.preparation.EdgeWithSameSourceAndTarget;
+import org.henshin.backlogconflict.code.preparation.EmptyOrNotExistJsonFile;
+import org.henshin.backlogconflict.code.preparation.EntityInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.JsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.PersonaInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.RuleCreator;
+import org.henshin.backlogconflict.code.preparation.TargetsInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.TextInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.TriggersInJsonFileNotFound;
+import org.henshin.backlogconflict.code.preparation.UsNrInJsonFileNotFound;
+import org.json.JSONArray;
+import org.junit.Test;
+
+<span class="nc" id="L29">public class RuleCreator_Test {</span>
+
+	// testAssignCmodule&amp; assing a dummy ECore model &amp;Through an exception:
+	// \textit{EcoreFileNotFound.class}&amp;Check whether the ECore model already exists
+	// and CModule is correctly assigned \\
+	@Test(expected = EcoreFileNotFound.class)
+	public void testAssignCmodule()
+			throws EcoreFileNotFound, EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\g03_baseline_pos_num.json&quot;,
+				&quot;backlog_v4&quot;, &quot;dummy.ecore&quot;);
+<span class="nc" id="L41">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+
+	}
+
+	@Test(expected = EmptyOrNotExistJsonFile.class)
+	public void testEmptyOrNotExistJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+
+		// Read the JSON_report_Test file to verify the results
+		RuleCreator creator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\empty_json_file.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L52">		creator_v4.readJsonArrayFromFile();</span>
+
+	}
+
+
+	@Test(expected = EmptyOrNotExistJsonFile.class)
+	public void testReadJsonArrayFromFile() throws EmptyOrNotExistJsonFile, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\dummy_json_file.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L61">		ruleCreator_v4.readJsonArrayFromFile();</span>
+
+	}
+
+	// UsNrNotExist \newline(testProcessJsonFile)&amp;JSON file with a US without
+	// \enquote{Us\_Nr} entry&amp;Through an exception:
+	// \textit{UsNrInJsonFileNotFound.class}&amp;Check whether there is an entry
+	// \enquote{US\_Nr} in the related US in JSON file\\
+	@Test(expected = UsNrInJsonFileNotFound.class)
+	public void testProcessJsonFile_UsNrNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\US_Nr_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L76">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// testProcessJsonFile (PersonaNotExist)&amp;A JSON file with a US without
+	// \enquote{Persona} entry &amp;Through an exception:
+	// \textit{PersonaInJsonFileNotFound.class} &amp; Check whether there is an entry
+	// \enquote{Persona} in the related US in JSON file\\
+	@Test(expected = PersonaInJsonFileNotFound.class)
+	public void testProcessJsonFile_PersonaNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Persona_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L91">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+
+	}
+
+	// testProcessJsonFile (ActionNotExist)&amp;Specify an action that is not contained
+	// as \textit{Action} in the JSON file, but appears as \textit{Contains, Targets
+	// or Triggers}&amp;Through an exception: \textit{ActionInJsonFileNotFound.class}&amp;
+	// Check whether the action that appears in the \enquote{Targets},
+	// \enquote{Contains} or \enquote{Triggers} entries has already been identified
+	// as an action
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testProcessJsonFile_ActionNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Action_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L109">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+
+	}
+
+	// testProcessJsonFile (EntityNotExist)&amp;A JSON file with a US without
+	// \enquote{Entity} entry &amp;Through an
+	// exception:\textit{EntityInJsonFileNotFound.class} &amp; Check whether there is an
+	// entry \enquote{Entity} in the related US\\
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessJsonFile_EntityNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Entity_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L125">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// TriggersNotExist (testProcessJsonFile)&amp;JSON file with a US without
+	// \enquote{Triggers} entry &amp;Through an exception:
+	// \textit{TriggersInJsonFileNotFound.class}&amp;Check whether there is an entry
+	// \enquote{Triggers} in the related US in JSON file\\
+	@Test(expected = TriggersInJsonFileNotFound.class)
+	public void testProcessJsonFile_TriggersNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Triggers_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L140">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// testProcessJsonFile (TargetsNotExist)&amp;A JSON file with a US without
+	// \enquote{Targets} entry &amp;Through an exception:
+	// \textit{TargetsInJsonFileNotFound.class} &amp; Check whether there is an entry
+	// \enquote{Targets} in the related US in JSON file\\
+	@Test(expected = TargetsInJsonFileNotFound.class)
+	public void testProcessJsonFile_TargetsNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Targets_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L155">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// testProcessJsonFile (ContainsNotExist)&amp;A JSON file with a US without
+	// \enquote{Contains} entry &amp;Through an
+	// exception:\textit{ContainsInJsonFileNotFound.class} &amp; Check whether there is
+	// an entry \enquote{Contains} in the related US\\
+	@Test(expected = ContainsInJsonFileNotFound.class)
+	public void testProcessJsonFile_ContainsNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Contains_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L170">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// TextNotExist (testProcessJsonFile) &amp;JSON file with a US without
+	// \enquote{Text} entry &amp;Through an exception:
+	// \textit{TextInJsonFileNotFound.class}&amp;Check whether there is an entry
+	// \enquote{Text} in the related US in JSON file\\
+	@Test(expected = TextInJsonFileNotFound.class)
+	public void testProcessJsonFile_TextNotExist()
+			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
+			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\Text_Not_Exist.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L185">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// testProcessContainsEdges (UndefindedEntity)&amp; Specify an entity that is not
+	// contained as \enquote{Entity} in the JSON file, but appears as
+	// \enquote{Contains}&amp; Through an exception:
+	// \textit{EntityInJsonFileNotFound.class}&amp; Check whether the entity that
+	// appears in the \textit{Contains} entry has already been identified as an
+	// entity \\
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessContainsEdges_UndefindedEntity()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\UndefindedEntity_in_Contains.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L202">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+
+	}
+
+
+	@Test
+	public void testProcessContainsEdges_ContainsInTargets()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\ContainsInTargets.json&quot;, &quot;backlog_v4&quot;,
+				&quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L215">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		// ruleCreator_v4.processJsonFile(jsonArray);
+		// ruleCreator_v4.createRules(&quot;03&quot;);
+		RuleCreator.createRules(&quot;03&quot;);
+		Path filePath = Paths.get(&quot;Henshin_backlog_g03.henshin&quot;);
+
+		// Assert that the file exits
+		assertTrue(&quot;File does not exist&quot;, Files.exists(filePath));
+
+	}
+	
+//	@Test(expected= EdgeWithSameSourceAndTarget.class)
+//	public void testProcessContainsEdges_DuplicateTriggers()
+//			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+//			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+//			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+//		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\DuplicateTriggers.json&quot;, &quot;backlog_v4&quot;,
+//				&quot;Backlog_v2.3.ecore&quot;);
+//		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+//		System.out.println(jsonArray.toString());
+//		 ruleCreator_v4.processJsonFile(jsonArray);
+//		// ruleCreator_v4.createRules(&quot;03&quot;);
+////		RuleCreator_v4.createRules(&quot;03&quot;);
+////		Path filePath = Paths.get(&quot;Henshin_backlog_g03.henshin&quot;);
+//
+//		// Assert that the file exits
+////		assertTrue(&quot;File does not exist&quot;, Files.exists(filePath));
+//	}
+	
+	// UndefindedEntity \newline(testProcessTargetsEdges) &amp;Specify an entity that is
+	// not contained as \enquote{Entity} in the JSON file, but appears as
+	// \enquote{Targets}&amp;Through an exception:
+	// \textit{EntityInJsonFileNotFound.class}&amp;Check whether the entity that appears
+	// in the \textit{Targets} entry has already been identified as an entity\\
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_UndefindedEntity()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\UndefindedEntity_in_Targets.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L256">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// PrimaryEntityNotFound \newline(testProcessTargetsEdges)&amp;Specify a primary
+	// entity that is not contained as \enquote{Primary Entity} in the JSON file,
+	// but appears as \enquote{Targets}&amp;Through an exception:
+	// \textit{EntityInJsonFileNotFound.class}&amp;Check whether the primary entity that
+	// appears in the \textit{Targets} entry has already been identified as a
+	// primary entity\\
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_PrimaryEntityNotFound()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\PrimaryEntityNotFound.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L273">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// SecondaryEntityNotFound \newline(testProcessTargetsEdges)&amp;Specify a secondary
+	// entity that is not contained as \enquote{Secondary Entity} in the JSON file,
+	// but appears as \enquote{Targets}&amp;Through an exception:
+	// \textit{EntityInJsonFileNotFound.class}&amp;Check whether the secondary entity
+	// that appears in the \textit{Targets} entry has already been identified as a
+	// secondary entity\\
+	@Test(expected = EntityInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_SecondaryEntityNotFound()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\SecondaryEntityNotFound.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L290">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// PrimaryActionNotFound \newline(testProcessTargetsEdges)&amp;Specify an entity
+	// that is not contained as \enquote{Primary Action} in the JSON file, but
+	// appears as \enquote{Targets}&amp;Through an exception:
+	// \textit{ActionInJsonFileNotFound.class}&amp;Check whether the primary action that
+	// appears in the \textit{Targets} entry has already been identified as a
+	// primary action\\
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_PrimaryActionNotFound()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\PrimaryActionNotFound.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L307">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+	//TODO: Add this to paper
+	// PrimaryActionNotFound \newline(testProcessTargetsEdges)&amp;Specify an entity
+	// that is not contained as \enquote{Primary Action} in the JSON file, but
+	// appears as \enquote{Targets}&amp;Through an exception:
+	// \textit{ActionInJsonFileNotFound.class}&amp;Check whether the primary action that
+	// appears in the \textit{Targets} entry has already been identified as a
+	// primary action\\
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_ActionNotFound()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\ActionInTargetsNotFound.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L324">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+	// SecondaryActionNotFound \newline(testProcessTargetsEdges)&amp;Specify a secondary
+	// action that is not contained as \enquote{Secondary Action} in the JSON file,
+	// but appears as \enquote{Targets}&amp;Through an exception:
+	// \textit{ActionInJsonFileNotFound.class}&amp;Check whether the secondary action
+	// that appears in the \textit{Targets} entry has already been identified as a
+	// secondary action\\
+	@Test(expected = ActionInJsonFileNotFound.class)
+	public void testProcessTargetsEdges_SecondaryActionNotFound()
+			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
+			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
+		RuleCreator ruleCreator_v4 = new RuleCreator(&quot;Tests\\RuleCreator\\SecondrayActionNotFound.json&quot;,
+				&quot;backlog_v4&quot;, &quot;Backlog_v2.3.ecore&quot;);
+<span class="nc" id="L341">		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();</span>
+		ruleCreator_v4.processJsonFile(jsonArray);
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ConflictPair.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.report</a> &gt; <span class="el_source">ConflictPair.java</span></div><h1>ConflictPair.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.report;
+
+import org.json.JSONObject;
+
+public class ConflictPair {
+	private String conflictPair1;
+	private String conflictPair2;
+	private JSONObject jsonConflict1;
+	private JSONObject jsonConflict2;
+	private String conflictReason;
+	private String pId;
+	private String nounMainUs1;
+	private String nounMainUs2;
+	private String nounContainUs1;
+	private String nounContainUs2;
+	private String actionUs1;
+	private String actionUs2;
+	private String actionRuleUs1;
+	private String actionRuleUs2;
+
+	@Override
+	public boolean equals(Object o) {
+<span class="nc bnc" id="L23" title="All 2 branches missed.">		if (this == o) return true;</span>
+<span class="nc bnc" id="L24" title="All 4 branches missed.">		if (o == null || getClass() != o.getClass())return false;</span>
+		
+<span class="nc" id="L26">		ConflictPair that = (ConflictPair) o;</span>
+		
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		if(!conflictPair1.equals(that.conflictPair1))return false;</span>
+<span class="nc" id="L29">		return conflictPair2.equals(that.conflictPair2);</span>
+	}
+	@Override
+	public int hashCode() {
+<span class="nc" id="L33">		int result = conflictPair1.hashCode();</span>
+<span class="nc" id="L34">		result=31 * result+ conflictPair2.hashCode();</span>
+<span class="nc" id="L35">		return result;</span>
+	}
+
+	public String getpId() {
+<span class="nc" id="L39">		return pId;</span>
+	}
+
+	public void setpId(String pId) {
+<span class="nc" id="L43">		this.pId = pId;</span>
+<span class="nc" id="L44">	}</span>
+
+	public JSONObject getJsonConflict1() {
+<span class="nc" id="L47">		return jsonConflict1;</span>
+	}
+
+	public void setJsonConflict1(JSONObject jsonConflict1) {
+<span class="nc" id="L51">		this.jsonConflict1 = jsonConflict1;</span>
+<span class="nc" id="L52">	}</span>
+
+	public JSONObject getJsonConflict2() {
+<span class="nc" id="L55">		return jsonConflict2;</span>
+	}
+
+	public void setJsonConflict2(JSONObject jsonConflict2) {
+<span class="nc" id="L59">		this.jsonConflict2 = jsonConflict2;</span>
+<span class="nc" id="L60">	}</span>
+
+	public String getConflictReason() {
+<span class="nc" id="L63">		return conflictReason;</span>
+	}
+
+	public void setConflictReason(String conflictReason) {
+<span class="nc" id="L67">		this.conflictReason = conflictReason;</span>
+<span class="nc" id="L68">	}</span>
+
+<span class="nc" id="L70">	public ConflictPair() {</span>
+
+<span class="nc" id="L72">	}</span>
+
+	public String getConflictPair1() {
+<span class="nc" id="L75">		return conflictPair1;</span>
+	}
+
+	public void setConflictPair1(String conflictPair1) {
+<span class="nc" id="L79">		this.conflictPair1 = conflictPair1;</span>
+<span class="nc" id="L80">	}</span>
+
+	public String getConflictPair2() {
+<span class="nc" id="L83">		return conflictPair2;</span>
+	}
+
+	public void setConflictPair2(String conflictPair2) {
+<span class="nc" id="L87">		this.conflictPair2 = conflictPair2;</span>
+<span class="nc" id="L88">	}</span>
+	public String getNounMainUs1() {
+<span class="nc" id="L90">		return nounMainUs1;</span>
+	}
+	public void setNounMainUs1(String nounUs1) {
+<span class="nc" id="L93">		this.nounMainUs1 = nounUs1;</span>
+<span class="nc" id="L94">	}</span>
+	public String getActionRuleUs1() {
+<span class="nc" id="L96">		return actionRuleUs1;</span>
+	}
+	public void setActionRuleUs1(String actionRuleUs1) {
+<span class="nc" id="L99">		this.actionRuleUs1 = actionRuleUs1;</span>
+<span class="nc" id="L100">	}</span>
+	public String getActionRuleUs2() {
+<span class="nc" id="L102">		return actionRuleUs2;</span>
+	}
+	public void setActionRuleUs2(String actionRuleUs2) {
+<span class="nc" id="L105">		this.actionRuleUs2 = actionRuleUs2;</span>
+<span class="nc" id="L106">	}</span>
+	public String getActionUs1() {
+<span class="nc" id="L108">		return actionUs1;</span>
+	}
+	public void setActionUs1(String actionUs1) {
+<span class="nc" id="L111">		this.actionUs1 = actionUs1;</span>
+<span class="nc" id="L112">	}</span>
+	public String getActionUs2() {
+<span class="nc" id="L114">		return actionUs2;</span>
+	}
+	public void setActionUs2(String actionUs2) {
+<span class="nc" id="L117">		this.actionUs2 = actionUs2;</span>
+<span class="nc" id="L118">	}</span>
+	public String getNounContainUs1() {
+<span class="nc" id="L120">		return nounContainUs1;</span>
+	}
+	public void setNounContainUs1(String nounContainUs1) {
+<span class="nc" id="L123">		this.nounContainUs1 = nounContainUs1;</span>
+<span class="nc" id="L124">	}</span>
+	public String getNounContainUs2() {
+<span class="nc" id="L126">		return nounContainUs2;</span>
+	}
+	public void setNounContainUs2(String nounContainUs2) {
+<span class="nc" id="L129">		this.nounContainUs2 = nounContainUs2;</span>
+<span class="nc" id="L130">	}</span>
+	public String getNounMainUs2() {
+<span class="nc" id="L132">		return nounMainUs2;</span>
+	}
+	public void setNounMainUs2(String nounMainUs2) {
+<span class="nc" id="L135">		this.nounMainUs2 = nounMainUs2;</span>
+<span class="nc" id="L136">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

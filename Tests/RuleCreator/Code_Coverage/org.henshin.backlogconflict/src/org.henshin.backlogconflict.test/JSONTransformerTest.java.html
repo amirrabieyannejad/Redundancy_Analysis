@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>JSONTransformerTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.test</a> &gt; <span class="el_source">JSONTransformerTest.java</span></div><h1>JSONTransformerTest.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.test;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.henshin.backlogconflict.code.preparation.EmptyOrNotExistJsonFile;
+import org.henshin.backlogconflict.code.preparation.EntityInRelationsNotFound;
+import org.henshin.backlogconflict.code.preparation.JSONTransformer;
+import org.henshin.backlogconflict.code.preparation.ReadJsonFile;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+<span class="fc" id="L24">public class JSONTransformerTest {</span>
+
+	// check if PID already has been founded and correctly placed into transformed
+	// json
+	@Test
+	public void testPid() throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+<span class="fc" id="L30">		String[] dataSets = { &quot;g03_loudoun&quot; };</span>
+<span class="fc" id="L31">		String filePath = &quot;00_annotated_datasets\\&quot; + dataSets[0];</span>
+
+<span class="fc" id="L33">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+<span class="fc" id="L34">		String outputFilePath = filePath +&quot;\\&quot; + dataSets[0] + &quot;.json&quot;;</span>
+<span class="fc" id="L35">		ReadJsonFile file = new ReadJsonFile();</span>
+<span class="fc" id="L36">		JSONArray jsonArray = file.readJsonArrayFromFile(outputFilePath);</span>
+<span class="fc" id="L37">		JSONObject jsonObject = jsonArray.getJSONObject(0);</span>
+<span class="fc" id="L38">		String pId = jsonObject.getString(&quot;PID&quot;);</span>
+<span class="fc" id="L39">		assertTrue(pId.equals(&quot;#G03#&quot;));</span>
+
+<span class="fc" id="L41">	}</span>
+
+	// check what happen if benefit are not exist
+	@Test
+	public void testBenefitNotExist()
+			throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+<span class="fc" id="L47">		String[] dataSets = { &quot;g04_recycling&quot; };</span>
+<span class="fc" id="L48">		String filePath = &quot;00_annotated_datasets\\&quot; + dataSets[0];</span>
+<span class="fc" id="L49">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+<span class="fc" id="L50">		String outputFilePath = filePath + &quot;\\&quot; + dataSets[0] + &quot;.json&quot;;</span>
+<span class="fc" id="L51">		ReadJsonFile file = new ReadJsonFile();</span>
+<span class="fc" id="L52">		JSONArray jsonArray = file.readJsonArrayFromFile(outputFilePath);</span>
+<span class="fc" id="L53">		JSONObject jsonObject = jsonArray.getJSONObject(19);</span>
+<span class="fc" id="L54">		JSONObject benefit = jsonObject.getJSONObject(&quot;Benefit&quot;);</span>
+<span class="fc" id="L55">		JSONArray benefitEntity = benefit.getJSONArray(&quot;Entity&quot;);</span>
+<span class="fc" id="L56">		JSONArray benefitAction = benefit.getJSONArray(&quot;Action&quot;);</span>
+<span class="fc" id="L57">		JSONArray benefitContains = benefit.getJSONArray(&quot;Contains&quot;);</span>
+<span class="fc" id="L58">		JSONArray benefitTargets = benefit.getJSONArray(&quot;Targets&quot;);</span>
+<span class="pc bpc" id="L59" title="3 of 6 branches missed.">		assertTrue(benefitEntity.length() == 0 &amp;&amp; benefitAction.length() == 0 &amp;&amp; benefitContains.length() == 0</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">				&amp;&amp; benefitTargets.length() == 0);</span>
+
+<span class="fc" id="L62">	}</span>
+
+	// check what happen if unexpected type has been occurred, as input a wrong type
+	// is given
+	@Test(expected = JSONException.class)
+	public void testUnexpectedType()
+			throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+<span class="fc" id="L69">		String[] dataSets = { &quot;g03_loudoun&quot; };</span>
+<span class="fc" id="L70">		String filePath = &quot;Tests\\JSONTransformer\\&quot; + dataSets[0] + &quot;\\&quot;;</span>
+<span class="nc" id="L71">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+
+<span class="nc" id="L73">	}</span>
+
+	// In a case that file not found
+	@Test(expected = NoSuchFileException.class)
+	public void testFileNotFound()
+			throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+//		String[] dataSets = { &quot;g03_loudoun_Access_Denided&quot; };
+<span class="fc" id="L80">		String[] dataSets = { &quot;Dummy&quot; };</span>
+<span class="fc" id="L81">		String filePath = &quot;Dummy\\&quot;;</span>
+//		String filePath = &quot;Tests\\JSONTransformer\\&quot;;
+<span class="nc" id="L83">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+
+<span class="nc" id="L85">	}</span>
+
+	// check what happen if entity are not found in relations
+	// one is null
+	@Test(expected = NullPointerException.class)
+	public void testEntityInRelationNotFound_Case1()
+			throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+<span class="fc" id="L92">		String[] dataSets = { &quot;g03_loudoun&quot; };</span>
+
+<span class="fc" id="L94">		String filePath = &quot;Tests\\JSONTransformer\\&quot; + &quot;g03_loudoun_Entity_in_Relations_Not_Found_Case1\\&quot;;</span>
+<span class="nc" id="L95">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+
+<span class="nc" id="L97">	}</span>
+
+	// check what happen if entity are not found in relations
+	// another is null
+	@Test(expected = NullPointerException.class)
+	public void testEntityInRelationNotFound_Case2()
+			throws EmptyOrNotExistJsonFile, JSONException, IOException, EntityInRelationsNotFound {
+<span class="fc" id="L104">		String[] dataSets = { &quot;g03_loudoun&quot; };</span>
+
+<span class="fc" id="L106">		String filePath = &quot;Tests\\JSONTransformer\\&quot; + &quot;g03_loudoun_Entity_in_Relations_Not_Found_Case2\\&quot;;</span>
+<span class="nc" id="L107">		JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+
+<span class="nc" id="L109">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

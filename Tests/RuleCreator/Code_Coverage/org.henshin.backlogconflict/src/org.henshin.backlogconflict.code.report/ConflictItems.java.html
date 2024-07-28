@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ConflictItems.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.report</a> &gt; <span class="el_source">ConflictItems.java</span></div><h1>ConflictItems.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.report;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Set;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashSet;
+
+public class ConflictItems {
+	private List&lt;Entity&gt; entity;
+	private List&lt;Action&gt; action;
+	private List&lt;Triggers&gt; triggers;
+	private List&lt;Targets&gt; targets;
+	private List&lt;Contains&gt; contains;
+	private String textUs1;
+	private String textUs2;
+	private String UsNr1;
+	private String UsNr2;
+
+	// this values are used to find out how many conflict pairs
+	// are found in which sentence part(main vs benefit)
+	private int mainConflictCount;
+
+	public int getMainConflictCount() {
+<span class="nc" id="L31">		return mainConflictCount;</span>
+	}
+
+	public void setMainConflictCount(int mainConflictCount) {
+<span class="nc" id="L35">		this.mainConflictCount = mainConflictCount;</span>
+<span class="nc" id="L36">	}</span>
+
+	public String getUsNr1() {
+<span class="nc" id="L39">		return UsNr1;</span>
+	}
+
+	public void setUsNr1(String usNr1) {
+<span class="nc" id="L43">		UsNr1 = usNr1;</span>
+<span class="nc" id="L44">	}</span>
+
+	public String getUsNr2() {
+<span class="nc" id="L47">		return UsNr2;</span>
+	}
+
+	public void setUsNr2(String usNr2) {
+<span class="nc" id="L51">		UsNr2 = usNr2;</span>
+<span class="nc" id="L52">	}</span>
+
+<span class="nc" id="L54">	public ConflictItems() {</span>
+
+<span class="nc" id="L56">		this.entity = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L57">		this.action = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">		this.triggers = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L59">		this.targets = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L60">		this.contains = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L61">	}</span>
+
+	public void addEntity(Entity entity) {
+<span class="nc" id="L64">		this.entity.add(entity);</span>
+
+<span class="nc" id="L66">	}</span>
+
+	public void addAction(Action action) {
+<span class="nc" id="L69">		this.action.add(action);</span>
+<span class="nc" id="L70">	}</span>
+
+	public void addTriggers(Triggers trigger) {
+<span class="nc" id="L73">		triggers.add(trigger);</span>
+<span class="nc" id="L74">	}</span>
+
+	public void addTargets(Targets target) {
+<span class="nc" id="L77">		targets.add(target);</span>
+<span class="nc" id="L78">	}</span>
+
+	public void addContains(Contains contain) {
+<span class="nc" id="L81">		contains.add(contain);</span>
+<span class="nc" id="L82">	}</span>
+
+	public List&lt;Entity&gt; getEntity() {
+<span class="nc" id="L85">		return entity;</span>
+	}
+
+	public List&lt;Action&gt; getActions() {
+<span class="nc" id="L89">		return action;</span>
+	}
+
+	public List&lt;Triggers&gt; getTriggers() {
+<span class="nc" id="L93">		return triggers;</span>
+	}
+
+	public List&lt;Targets&gt; getTargets() {
+<span class="nc" id="L97">		return targets;</span>
+	}
+
+	public List&lt;Contains&gt; getContains() {
+<span class="nc" id="L101">		return contains;</span>
+	}
+
+	public String getTextUs1() {
+<span class="nc" id="L105">		return textUs1;</span>
+	}
+
+	public void setTextUs1(String textUs1) {
+<span class="nc" id="L109">		this.textUs1 = textUs1;</span>
+<span class="nc" id="L110">	}</span>
+
+	public String getTextUs2() {
+<span class="nc" id="L113">		return textUs2;</span>
+	}
+
+	public void setTextUs2(String textUs2) {
+<span class="nc" id="L117">		this.textUs2 = textUs2;</span>
+<span class="nc" id="L118">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

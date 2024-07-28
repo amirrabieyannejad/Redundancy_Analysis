@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ReadJsonFile.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.preparation</a> &gt; <span class="el_source">ReadJsonFile.java</span></div><h1>ReadJsonFile.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.preparation;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+import org.json.JSONArray;
+import org.json.JSONTokener;
+
+public class ReadJsonFile {
+	
+
+<span class="fc" id="L12">	public ReadJsonFile() {</span>
+		
+<span class="fc" id="L14">	}</span>
+	// This method receives a JSON file as input and reads the JSON file,
+	// tokenises the JSON content and parses the JSON content into a JSON
+	// array and returns the parsed JSON array.
+	public JSONArray readJsonArrayFromFile(String path) throws EmptyOrNotExistJsonFile, FileNotFoundException {
+		JSONArray jsonArray;
+		// System.out.println(&quot;getJsonFileAbsolutePath(): &quot; +
+		// getJsonFileAbsolutePath());
+<span class="fc" id="L22">		FileReader reader = new FileReader(path);</span>
+
+<span class="fc" id="L24">		JSONTokener tokener = new JSONTokener(reader);</span>
+<span class="pc bpc" id="L25" title="1 of 2 branches missed.">		if (!tokener.more()) {</span>
+<span class="nc" id="L26">			throw new EmptyOrNotExistJsonFile();</span>
+
+		}
+		// Read JSON file
+<span class="fc" id="L30">		jsonArray = new JSONArray(tokener);</span>
+
+<span class="fc" id="L32">		return jsonArray;</span>
+
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

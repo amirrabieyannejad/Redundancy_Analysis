@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RuleCreator.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.preparation</a> &gt; <span class="el_source">RuleCreator.java</span></div><h1>RuleCreator.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.preparation;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.eclipse.emf.henshin.model.compact.CModule;
+import org.eclipse.emf.henshin.model.compact.CNode;
+import org.eclipse.emf.henshin.model.compact.CRule;
+import org.eclipse.emf.henshin.model.compact.CUnit;
+import org.henshin.backlogconflict.code.preparation.ActionInJsonFileNotFound.ExceptionSupplier;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import com.opencsv.exceptions.CsvValidationException;
+
+/*  Delete Annotation for Attributes actions and entities
+ *  plus their edges which have target edges or triggers edge
+ *  This version is include US's Text
+ */
+public class RuleCreator {
+	private String jsonFile;
+	private String henshinFile;
+	private String eCoreFile;
+
+<span class="nc" id="L32">	public RuleCreator(String JsonFileName, String henshinFileName, String eCoreFileName)</span>
+			throws IOException, CsvValidationException {
+<span class="nc" id="L34">		jsonFile = JsonFileName;</span>
+<span class="nc" id="L35">		henshinFile = henshinFileName;</span>
+<span class="nc" id="L36">		eCoreFile = eCoreFileName;</span>
+
+<span class="nc" id="L38">	}</span>
+
+	public String getJsonFile() {
+<span class="nc" id="L41">		return jsonFile;</span>
+	}
+
+	public String getJsonFileAbsolutePath() throws EmptyOrNotExistJsonFile {
+<span class="nc" id="L45">		Path path = Paths</span>
+<span class="nc" id="L46">				.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\&quot; + &quot;org.henshin.backlogconflict\\&quot; + getJsonFile());</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+<span class="nc" id="L48">			return path.toString();</span>
+
+		} else {
+<span class="nc" id="L51">			throw new EmptyOrNotExistJsonFile();</span>
+		}
+
+	}
+
+	public String getEcoreFileAbsolutePath() {
+<span class="nc" id="L57">		Path path = Paths</span>
+<span class="nc" id="L58">				.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\&quot; + &quot;org.henshin.backlogconflict\\&quot; + getEcoreFile());</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		if (Files.exists(path)) {</span>
+<span class="nc" id="L60">			return path.toString();</span>
+
+		}
+<span class="nc" id="L63">		return null;</span>
+
+	}
+
+	public String getHenshinFile() {
+<span class="nc" id="L68">		return henshinFile;</span>
+	}
+
+	public String getEcoreFile() {
+<span class="nc" id="L72">		return eCoreFile;</span>
+	}
+
+	// private static final Logger LOGGER =
+	// Logger.getLogger(RuleCreator_v4.class.getName());
+
+	public static void main(String[] args) throws Exception {
+
+<span class="nc" id="L80">		String[] version = { &quot;g03_loudoun&quot;, &quot;g04_recycling&quot;, &quot;g05_open_spending&quot;, &quot;g08_frictionless&quot;,</span>
+<span class="nc" id="L81">				&quot;g10_scrum_alliance&quot;, &quot;g11_nsf&quot;, &quot;g12_camperplus&quot;, &quot;g14_datahub&quot;, &quot;g16_mis&quot;, &quot;g18_neurohub&quot;,</span>
+<span class="nc" id="L82">				&quot;g19_alfred&quot;, &quot;g21_badcamp&quot;, &quot;g22_rdadmp&quot;, &quot;g23_archives_space&quot;, &quot;g24_unibath&quot;, &quot;g25_duraspace&quot;,</span>
+<span class="nc" id="L83">				&quot;g26_racdam&quot;, &quot;g27_culrepo&quot;, &quot;g28_zooniverse&quot; };</span>
+//		String[] version = { &quot;g03_loudoun&quot; };
+<span class="nc bnc" id="L85" title="All 2 branches missed.">		for (int i = 0; i &lt; version.length; i++) {</span>
+<span class="nc" id="L86">			long startTime = System.nanoTime();</span>
+<span class="nc" id="L87">			System.out.println(&quot;-------------Creating Dataset &quot;+version[i]+&quot; --------------&quot;);</span>
+<span class="nc" id="L88">			createRules(version[i]);</span>
+<span class="nc" id="L89">			long endTime = System.nanoTime();</span>
+<span class="nc" id="L90">			double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;</span>
+<span class="nc" id="L91">			System.out.println(&quot;Processing time: &quot; + elapsedTimeInSeconds + &quot; seconds&quot;);</span>
+		}
+
+<span class="nc" id="L94">	}</span>
+
+	public static void createRules(String version) throws Exception {
+
+<span class="nc" id="L98">		RuleCreator ruleCreator = new RuleCreator(&quot;00_annotated_datasets\\&quot; + version + &quot;\\&quot; + version + &quot;.json&quot;,</span>
+<span class="nc" id="L99">				&quot;Henshin_backlog_&quot; + version, &quot;Backlog_v2.4.ecore&quot;);</span>
+//		ActionsRulesCreator actionsRulesCreator = new ActionsRulesCreator();
+//		actionsRulesCreator
+//				.addActionsRules(&quot;Final_Reports\\Textual_Report_g&quot; + version + &quot;\\g&quot; + version + &quot;_baseline_pos.json&quot;);
+<span class="nc" id="L103">		ReadJsonFile readJsonFile = new ReadJsonFile();</span>
+<span class="nc" id="L104">		JSONArray jsonArray = readJsonFile.readJsonArrayFromFile(ruleCreator.getJsonFileAbsolutePath());</span>
+<span class="nc" id="L105">		CModule cModule = ruleCreator.processJsonFile(jsonArray);</span>
+<span class="nc" id="L106">		System.out.println(&quot;saving&quot;);</span>
+<span class="nc" id="L107">		cModule.save();</span>
+<span class="nc" id="L108">	}</span>
+
+//	This method assign a CModule to a Ecore meta-model. 
+//	It creates a new CModule object with the provided Henshin-file name,
+//	adds imports from the Ecore file, and returns the module. 
+	public CModule assignCmodule() throws EcoreFileNotFound {
+<span class="nc" id="L114">		CModule module = new CModule(getHenshinFile());</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">		if (getEcoreFileAbsolutePath() == null) {</span>
+<span class="nc" id="L116">			throw new EcoreFileNotFound();</span>
+		}
+<span class="nc" id="L118">		module.addImportsFromFile(getEcoreFile());</span>
+<span class="nc" id="L119">		return module;</span>
+
+	}
+
+	// It takes parsed JSON array as input and processes their attributes,
+//	such as persona, actions/entities, entities, text and their edges, such
+//	as targets, triggers. Corresponding elements are created as output in a 
+//	the Henshin transformation module (CModule).
+	public CModule processJsonFile(JSONArray json) throws Exception {
+<span class="nc" id="L128">		CModule cModule = assignCmodule();</span>
+<span class="nc" id="L129">		String usNrM = null;</span>
+
+<span class="nc" id="L131">		System.out.println(&quot;iterate through jsonArray the main Structure&quot;);</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">		for (int i = 0; i &lt; json.length(); i++) {</span>
+<span class="nc" id="L133">			System.out.println(&quot;get the current JSONObject&quot;);</span>
+<span class="nc" id="L134">			JSONObject jsonObject = json.getJSONObject(i);</span>
+<span class="nc" id="L135">			System.out.println(&quot;get the US_Nr form jsonObject&quot;);</span>
+<span class="nc" id="L136">			usNrM = getUs(jsonObject, &quot;US_Nr&quot;);</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">			if (jsonObject.has(&quot;Main&quot;)) {</span>
+<span class="nc" id="L138">				JSONObject jsonMain = jsonObject.getJSONObject(&quot;Main&quot;);</span>
+<span class="nc" id="L139">				System.out.println(&quot;current jsonObject has Main Part. &quot;);</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">				if (jsonMain.length() != 0) {</span>
+<span class="nc" id="L141">					System.out.println(&quot;jsonMain is not empy. try to process main part..&quot;);</span>
+<span class="nc" id="L142">					processMainPart(jsonMain, usNrM, cModule);</span>
+
+				}
+			}
+<span class="nc bnc" id="L146" title="All 2 branches missed.">			if (jsonObject.has(&quot;Benefit&quot;)) {</span>
+<span class="nc" id="L147">				System.out.println(&quot;current jsonObject has Main Part. &quot;);</span>
+//				JSONObject jsonBenefit = jsonObject.getJSONObject(&quot;Benefit&quot;);
+//				if (jsonBenefit.length() != 0) {
+//					System.out.println(&quot;jsonBenefit is not empy. try to process benefit part..&quot;);
+//					processBenefitPart(jsonBenefit, usNrM, cModule);
+//				}
+
+			}
+		}
+
+
+<span class="nc" id="L158">		return cModule;</span>
+	}
+
+	private void processBenefitPart(JSONObject jsonBenefit, String usNrM, CModule cModule) throws Exception {
+<span class="nc" id="L162">		JSONArray actionMain = getArray(jsonBenefit, &quot;Action&quot;, ActionInJsonFileNotFound::new);</span>
+<span class="nc" id="L163">		System.out.println(&quot;[processMainPart] Action from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L165">		JSONArray entityArray = getArray(jsonBenefit, &quot;Entity&quot;, EntityInJsonFileNotFound::new);</span>
+<span class="nc" id="L166">		System.out.println(&quot;Entity from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L168">		JSONArray targetsArrayBenefit = getArray(jsonBenefit, &quot;Targets&quot;, TargetsInJsonFileNotFound::new);</span>
+<span class="nc" id="L169">		System.out.println(&quot;Targets from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L171">		JSONArray containsArrayBenefit = getArray(jsonBenefit, &quot;Contains&quot;, ContainsInJsonFileNotFound::new);</span>
+<span class="nc" id="L172">		System.out.println(&quot;Contains from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L174">		String textMain = getString(jsonBenefit, &quot;Text&quot;, TextInJsonFileNotFound::new);</span>
+<span class="nc" id="L175">		System.out.println(&quot;Text from current jsonObejct readed.&quot;);</span>
+
+		JSONArray targetActionRules;
+		JSONArray containActionRules;
+<span class="nc bnc" id="L179" title="All 2 branches missed.">		if (jsonBenefit.has(&quot;Action Rules&quot;)) {</span>
+<span class="nc" id="L180">			JSONObject jsonActionRules = jsonBenefit.getJSONObject(&quot;Action Rules&quot;);</span>
+<span class="nc bnc" id="L181" title="All 2 branches missed.">			if (jsonActionRules.has(&quot;Target Action Rules&quot;)) {</span>
+<span class="nc" id="L182">				targetActionRules = jsonActionRules.getJSONArray(&quot;Target Action Rules&quot;);</span>
+<span class="nc" id="L183">				System.out.println(&quot;Target Action Rules from current jsonObejct readed.&quot;);</span>
+<span class="nc" id="L184">			} else {</span>
+<span class="nc" id="L185">				throw new ActionRuleInJsonFileNotFound(&quot;Target Action Rules in Aciton-Rule not found&quot;);</span>
+			}
+<span class="nc bnc" id="L187" title="All 2 branches missed.">			if (jsonActionRules.has(&quot;Contain Action Rules&quot;)) {</span>
+<span class="nc" id="L188">				containActionRules = jsonActionRules.getJSONArray(&quot;Contain Action Rules&quot;);</span>
+<span class="nc" id="L189">				System.out.println(&quot;Contains Action Rules from current jsonObejct readed.&quot;);</span>
+<span class="nc" id="L190">			} else {</span>
+<span class="nc" id="L191">				throw new ActionRuleInJsonFileNotFound(&quot;Contain Action Rules in Aciton-Rule not found&quot;);</span>
+			}
+		} else {
+<span class="nc" id="L194">			throw new ActionRuleInJsonFileNotFound();</span>
+		}
+<span class="nc" id="L196">		System.out.println(&quot;[processMainPart]try to process Action Rules...&quot;);</span>
+<span class="nc" id="L197">		processActionRules(targetActionRules, containActionRules, usNrM, cModule, jsonBenefit, actionMain, entityArray,</span>
+<span class="nc" id="L198">				null, targetsArrayBenefit, containsArrayBenefit, textMain, null, false);</span>
+
+<span class="nc" id="L200">	}</span>
+
+	private void processMainPart(JSONObject jsonMain, String usNrM, CModule cModule) throws Exception {
+
+<span class="nc" id="L204">		JSONArray actionMain = getArray(jsonMain, &quot;Action&quot;, ActionInJsonFileNotFound::new);</span>
+<span class="nc" id="L205">		System.out.println(&quot;[processMainPart] Action from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L207">		JSONArray entityArray = getArray(jsonMain, &quot;Entity&quot;, EntityInJsonFileNotFound::new);</span>
+<span class="nc" id="L208">		System.out.println(&quot;Entity from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L210">		JSONArray triggersArrayMain = getArray(jsonMain, &quot;Triggers&quot;, TriggersInJsonFileNotFound::new);</span>
+<span class="nc" id="L211">		System.out.println(&quot;Triggers from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L213">		JSONArray targetsArrayMain = getArray(jsonMain, &quot;Targets&quot;, TargetsInJsonFileNotFound::new);</span>
+<span class="nc" id="L214">		System.out.println(&quot;Targets from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L216">		JSONArray containsArrayMain = getArray(jsonMain, &quot;Contains&quot;, ContainsInJsonFileNotFound::new);</span>
+<span class="nc" id="L217">		System.out.println(&quot;Contains from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L219">		JSONArray persona = getArray(jsonMain, &quot;Persona&quot;, PersonaInJsonFileNotFound::new);</span>
+<span class="nc" id="L220">		System.out.println(&quot;Persona from current jsonObejct readed.&quot;);</span>
+
+<span class="nc" id="L222">		String textMain = getString(jsonMain, &quot;Text&quot;, TextInJsonFileNotFound::new);</span>
+<span class="nc" id="L223">		System.out.println(&quot;Text from current jsonObejct readed.&quot;);</span>
+
+		JSONArray targetActionRules;
+		JSONArray containActionRules;
+<span class="nc bnc" id="L227" title="All 2 branches missed.">		if (jsonMain.has(&quot;Action Rules&quot;)) {</span>
+<span class="nc" id="L228">			JSONObject jsonActionRules = jsonMain.getJSONObject(&quot;Action Rules&quot;);</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">			if (jsonActionRules.has(&quot;Target Action Rules&quot;)) {</span>
+<span class="nc" id="L230">				targetActionRules = jsonActionRules.getJSONArray(&quot;Target Action Rules&quot;);</span>
+<span class="nc" id="L231">				System.out.println(&quot;Target Action Rules from current jsonObejct readed.&quot;);</span>
+<span class="nc" id="L232">			} else {</span>
+<span class="nc" id="L233">				throw new ActionRuleInJsonFileNotFound(&quot;Target Action Rules in Aciton-Rule not found&quot;);</span>
+			}
+<span class="nc bnc" id="L235" title="All 2 branches missed.">			if (jsonActionRules.has(&quot;Contain Action Rules&quot;)) {</span>
+<span class="nc" id="L236">				containActionRules = jsonActionRules.getJSONArray(&quot;Contain Action Rules&quot;);</span>
+<span class="nc" id="L237">				System.out.println(&quot;Contains Action Rules from current jsonObejct readed.&quot;);</span>
+<span class="nc" id="L238">			} else {</span>
+<span class="nc" id="L239">				throw new ActionRuleInJsonFileNotFound(&quot;Contain Action Rules in Aciton-Rule not found&quot;);</span>
+			}
+		} else {
+<span class="nc" id="L242">			throw new ActionRuleInJsonFileNotFound();</span>
+		}
+<span class="nc" id="L244">		System.out.println(&quot;[processMainPart]try to process Action Rules...&quot;);</span>
+<span class="nc" id="L245">		processActionRules(targetActionRules, containActionRules, usNrM, cModule, jsonMain, actionMain, entityArray,</span>
+<span class="nc" id="L246">				triggersArrayMain, targetsArrayMain, containsArrayMain, textMain, persona, true);</span>
+
+<span class="nc" id="L248">	}</span>
+
+	// handle ambiguity in action-rules and atomic rules
+	private void processActionRules(JSONArray targetActionRules, JSONArray containActionRules, String usNrM,
+			CModule cModule, JSONObject jsonObject, JSONArray actionArray, JSONArray entityArray,
+			JSONArray triggersArray, JSONArray targetsArray, JSONArray containsArray, String text, JSONArray persona,
+			boolean inMainPart) throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile,
+			EntityInJsonFileNotFound {
+<span class="nc" id="L256">		CRule cRule = null;</span>
+
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		for (int j = 0; j &lt; targetActionRules.length(); j++) {</span>
+<span class="nc" id="L259">			JSONArray current = targetActionRules.getJSONArray(j);</span>
+<span class="nc" id="L260">			System.out.println(&quot;[processAcitonRules] reading targetAction Rule.. &quot; + (j + 1));</span>
+<span class="nc" id="L261">			String verb = current.getString(0).toLowerCase();</span>
+<span class="nc" id="L262">			String noun = current.getString(1).toLowerCase();</span>
+<span class="nc" id="L263">			System.out.println(&quot;targetActionRule verb is: &quot; + verb);</span>
+<span class="nc" id="L264">			System.out.println(&quot;targetActionRule noun is: &quot; + noun);</span>
+<span class="nc" id="L265">			String actionRule = current.getString(2).toLowerCase();</span>
+<span class="nc bnc" id="L266" title="All 2 branches missed.">			if (actionRule.contains(&quot;;&quot;)) {</span>
+<span class="nc" id="L267">				System.out.println(&quot;found ambiguity in ActionRule.. Try to handle&quot;);</span>
+<span class="nc" id="L268">				String[] items = actionRule.split(&quot;;&quot;);</span>
+<span class="nc bnc" id="L269" title="All 2 branches missed.">				for (String actionRuleAmbiguity : items) {</span>
+<span class="nc" id="L270">					System.out.println(&quot;proceed action rule: &quot; + actionRuleAmbiguity);</span>
+<span class="nc bnc" id="L271" title="All 2 branches missed.">					if (inMainPart) {</span>
+<span class="nc" id="L272">						cRule = processRule(usNrM + &quot;_main_&quot; + verb + &quot;_&quot; + actionRuleAmbiguity + &quot;_&quot; + noun, cModule);</span>
+<span class="nc" id="L273">						System.out.println(&quot;--------------------------------------Rule Created &quot; + usNrM + &quot;_main_&quot;</span>
+<span class="nc" id="L274">								+ verb + &quot;_&quot; + actionRuleAmbiguity);</span>
+<span class="nc" id="L275">					} else {</span>
+<span class="nc" id="L276">						cRule = processRule(usNrM + &quot;_benefit_&quot; + verb + &quot;_&quot; + actionRuleAmbiguity + &quot;_&quot; + noun,</span>
+<span class="nc" id="L277">								cModule);</span>
+<span class="nc" id="L278">						System.out.println(&quot;--------------------------------------Rule Created &quot; + usNrM + &quot;_benefit_&quot;</span>
+<span class="nc" id="L279">								+ verb + &quot;_&quot; + actionRuleAmbiguity);</span>
+					}
+<span class="nc" id="L281">					System.out.println(&quot;[processAcitonRule] &quot;);</span>
+<span class="nc" id="L282">					executeProcessActions(jsonObject, actionArray, targetActionRules, containActionRules, entityArray,</span>
+<span class="nc" id="L283">							triggersArray, targetsArray, containsArray, text, persona, cRule, usNrM, verb, noun,</span>
+<span class="nc" id="L284">							actionRuleAmbiguity, false);</span>
+
+				}
+
+<span class="nc" id="L288">			} else {</span>
+
+<span class="nc" id="L290">				System.out.println(&quot;process atomic action Rule&quot;);</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">				if (inMainPart) {</span>
+<span class="nc" id="L292">					cRule = processRule(usNrM + &quot;_main_&quot; + verb + &quot;_&quot; + actionRule + &quot;_&quot; + noun, cModule);</span>
+<span class="nc" id="L293">					System.out</span>
+<span class="nc" id="L294">							.println(&quot;atomic rule created: &quot; + usNrM + &quot;_main_&quot; + verb + &quot;_&quot; + actionRule + &quot;_&quot; + noun);</span>
+<span class="nc" id="L295">				} else {</span>
+<span class="nc" id="L296">					cRule = processRule(usNrM + &quot;_benefit_&quot; + verb + &quot;_&quot; + actionRule + &quot;_&quot; + noun, cModule);</span>
+<span class="nc" id="L297">					System.out.println(</span>
+<span class="nc" id="L298">							&quot;atomic rule created: &quot; + usNrM + &quot;_benefit_&quot; + verb + &quot;_&quot; + actionRule + &quot;_&quot; + noun);</span>
+				}
+<span class="nc" id="L300">				executeProcessActions(jsonObject, actionArray, targetActionRules, containActionRules, entityArray,</span>
+<span class="nc" id="L301">						triggersArray, targetsArray, containsArray, text, persona, cRule, usNrM, null, null, actionRule,</span>
+<span class="nc" id="L302">						true);</span>
+			}
+		}
+
+<span class="nc" id="L306">	}</span>
+
+	private void executeProcessActions(JSONObject jsonObject, JSONArray actionArray, JSONArray targetActionRules,
+			JSONArray containActionRules, JSONArray entityArray, JSONArray triggersArray, JSONArray targetsArray,
+			JSONArray containsArray, String text, JSONArray persona, CRule cRule, String usNr, String verb, String noun,
+			String actionRuleAmbiguity, boolean isActionAtomic) throws ActionInJsonFileNotFound,
+			EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile, EntityInJsonFileNotFound {
+
+		// only applicable for main part
+//		CNode personaNode = processPersona(persona, cRule);
+//		if (personaNode == null) {
+//			System.out.println(&quot;Persona not Found &gt;&gt; handle as Benefit&quot;);
+//		} else {
+//			System.out.println(&quot;Persona node as been created&quot;);
+//		}
+		// store all entities in one map which the string is the name of entities and
+		// CNode correspond to their CNode Object
+<span class="nc" id="L323">		Map&lt;String, CNode&gt; mapEntityMain = new HashMap&lt;&gt;();</span>
+
+		// store all actions in one map which the string is the name of actions and
+		// CNode correspond to their CNode Object
+<span class="nc" id="L327">		Map&lt;String, CNode&gt; mapActionMain = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L329">		processText(cRule, text);</span>
+<span class="nc bnc" id="L330" title="All 2 branches missed.">		if (actionRuleAmbiguity != null) {</span>
+<span class="nc" id="L331">			System.out.println(&quot;actionRuleAmbiguity  &quot; + actionRuleAmbiguity);</span>
+<span class="nc" id="L332">		} else {</span>
+<span class="nc" id="L333">			System.out.println(&quot;proceeding atomic action rule&quot;);</span>
+		}
+
+//		System.out.println(&quot;process Action&quot;);
+//		processActions(cRule, jsonObject, actionArray, triggersArray, personaNode, mapActionMain, actionRuleAmbiguity,
+//				verb, isActionAtomic);
+
+<span class="nc" id="L340">		System.out.println(&quot;process Entity&quot;);</span>
+<span class="nc" id="L341">		processEntities(jsonObject, cRule, entityArray, containActionRules, mapEntityMain, actionRuleAmbiguity, noun,</span>
+<span class="nc" id="L342">				isActionAtomic);</span>
+
+//		System.out.println(&quot;process Targets&quot;);
+//		processTargetsEdges(jsonObject, targetActionRules, mapEntityMain, mapActionMain, usNr, actionRuleAmbiguity,
+//				verb, noun, isActionAtomic);
+
+<span class="nc" id="L348">		System.out.println(&quot;process Contains&quot;);</span>
+<span class="nc" id="L349">		processContainsEdges(jsonObject, containActionRules, mapEntityMain, usNr, actionRuleAmbiguity, noun,</span>
+<span class="nc" id="L350">				isActionAtomic);</span>
+
+<span class="nc" id="L352">	}</span>
+
+	// return jsonArray from specific jsonObject
+	private JSONArray getArray(JSONObject jsonObject, String key,
+			ExceptionSupplier&lt;? extends Exception&gt; exceptionSupplier) throws Exception {
+<span class="nc bnc" id="L357" title="All 2 branches missed.">		if (jsonObject.has(key)) {</span>
+<span class="nc" id="L358">			return jsonObject.getJSONArray(key);</span>
+		}
+<span class="nc" id="L360">		return null;</span>
+	}
+
+	// return String from specific jsonObject
+	private String getString(JSONObject jsonObject, String key,
+			ExceptionSupplier&lt;? extends Exception&gt; exceptionSupplier) throws Exception {
+<span class="nc bnc" id="L366" title="All 2 branches missed.">		if (jsonObject.has(key)) {</span>
+<span class="nc" id="L367">			return jsonObject.getString(key);</span>
+		}
+<span class="nc" id="L369">		return null;</span>
+	}
+
+	// Get UsNr from jsonObject and return back
+	private String getUs(JSONObject jsonObject, String key) throws UsNrInJsonFileNotFound {
+<span class="nc bnc" id="L374" title="All 2 branches missed.">		if (jsonObject.has(key)) {</span>
+<span class="nc" id="L375">			return jsonObject.getString(key);</span>
+
+		} else {
+<span class="nc" id="L378">			throw new UsNrInJsonFileNotFound();</span>
+		}
+
+	}
+
+//	It takes the \enquote{US\_Nr} JSON-object as input 
+//	and creates a new CRule with the name of unique US 
+//	identifier in the CModule.
+	private CRule processRule(String usNr, CModule module) {
+<span class="nc" id="L387">		CRule userStory = module.createRule(usNr);</span>
+<span class="nc" id="L388">		return userStory;</span>
+	}
+
+//	It receives as input US text extracted from JSON data and 
+//	the associated CRule to create a new CNode representing the 
+//	text within the provided CRule and adds the attribute 
+//	\enquote{text} with US text as value. Finally, the created 
+//	CNode representing the US text is returned.
+	private void processText(CRule userStory, String text) {
+
+//		CNode nodeText = userStory.createNode(&quot;Story&quot;);
+//		text = text.replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();
+//		nodeText.createAttribute(&quot;text&quot;, &quot;\&quot;&quot; + text + &quot;\&quot;&quot;);
+
+<span class="nc" id="L402">	}</span>
+
+	private CNode processPersona(JSONArray persona, CRule userStory) {
+
+<span class="nc bnc" id="L406" title="All 2 branches missed.">		if (persona == null) {</span>
+<span class="nc" id="L407">			return null;</span>
+		}
+<span class="nc" id="L409">		CNode nodePersona = userStory.createNode(&quot;Persona&quot;);</span>
+<span class="nc" id="L410">		String person = persona.getString(0).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+<span class="nc" id="L411">		nodePersona.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + person + &quot;\&quot;&quot;);</span>
+<span class="nc" id="L412">		return nodePersona;</span>
+
+	}
+
+	private void processActions(CRule userStory, JSONObject jsonObject, JSONArray actions, JSONArray triggersArray,
+			CNode nodePersona, Map&lt;String, CNode&gt; actionMap, String actionRule, String verb, boolean atomicRule)
+			throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
+<span class="nc" id="L419">		CNode cNode = null;</span>
+<span class="nc bnc" id="L420" title="All 2 branches missed.">		if (atomicRule) {</span>
+			// Creating Nodes for Action/s
+<span class="nc bnc" id="L422" title="All 2 branches missed.">			for (int i = 0; i &lt; actions.length(); i++) {</span>
+<span class="nc" id="L423">				String action = actions.getString(i).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+
+<span class="nc" id="L425">				System.out.println(&quot;(1)action Rule is: &quot; + actionRule);</span>
+<span class="nc bnc" id="L426" title="All 6 branches missed.">				if ((&quot;preserve&quot;.equals(actionRule) || actionRule == null) &amp;&amp; !atomicRule</span>
+<span class="nc bnc" id="L427" title="All 2 branches missed.">						&amp;&amp; actionMap.get(action) == null) {</span>
+<span class="nc" id="L428">					System.out.println(&quot;[Action]: actionRule: &quot; + actionRule + &quot; AtomicRule is false&quot;);</span>
+<span class="nc" id="L429">					cNode = userStory.createNode(&quot;Action&quot;);</span>
+<span class="nc" id="L430">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + action + &quot;\&quot;&quot;);</span>
+<span class="nc" id="L431">					System.out.println(&quot;action Node &quot; + action + &quot; has been create!&quot;);</span>
+<span class="nc bnc" id="L432" title="All 2 branches missed.">					if (triggersArray != null) {</span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">						for (int j = 0; j &lt; triggersArray.length(); j++) {</span>
+<span class="nc" id="L434">							JSONArray trigger = triggersArray.getJSONArray(j);</span>
+<span class="nc" id="L435">							String actionTrigger = trigger.getString(1);</span>
+<span class="nc bnc" id="L436" title="All 4 branches missed.">							if (nodePersona != null &amp;&amp; actionTrigger.equalsIgnoreCase(action)) {</span>
+<span class="nc" id="L437">								nodePersona.createEdge(cNode, &quot;triggers&quot;);</span>
+<span class="nc" id="L438">								break;</span>
+							}
+						}
+					}
+<span class="nc" id="L442">					actionMap.put(action, cNode);</span>
+
+<span class="nc bnc" id="L444" title="All 4 branches missed.">				} else if (atomicRule &amp;&amp; actionMap.get(action) == null) {</span>
+<span class="nc" id="L445">					System.out.println(&quot;Atomic rule is TRUE&quot; + &quot; Action is: &quot; + action);</span>
+<span class="nc" id="L446">					JSONObject jsonActionRules = jsonObject.getJSONObject(&quot;Action Rules&quot;);</span>
+<span class="nc" id="L447">					JSONArray targetActionRules = jsonActionRules.getJSONArray(&quot;Target Action Rules&quot;);</span>
+					String actionRuleCurrent;
+					String verbCurrent;
+					String noun;
+
+<span class="nc bnc" id="L452" title="All 2 branches missed.">					for (int j = 0; j &lt; targetActionRules.length(); j++) {</span>
+<span class="nc" id="L453">						JSONArray current = targetActionRules.getJSONArray(j);</span>
+<span class="nc" id="L454">						verbCurrent = current.getString(0).toLowerCase();</span>
+<span class="nc" id="L455">						noun = current.getString(1).toLowerCase();</span>
+//					System.out.println(&quot;Target verb: &quot; + verb);
+<span class="nc bnc" id="L457" title="All 2 branches missed.">						if (actionRule == null) {</span>
+<span class="nc" id="L458">							actionRuleCurrent = current.getString(2).toLowerCase();</span>
+<span class="nc" id="L459">							System.out.println(&quot;actionRule is null&quot;);</span>
+<span class="nc" id="L460">						} else {</span>
+<span class="nc" id="L461">							actionRuleCurrent = actionRule;</span>
+<span class="nc" id="L462">							System.out.println(&quot;actionRule is not null&quot;);</span>
+						}
+<span class="nc bnc" id="L464" title="All 4 branches missed.">						if (verbCurrent.equals(action) &amp;&amp; actionMap.get(action) == null) {</span>
+<span class="nc" id="L465">							System.out.println(&quot;Aciton &quot; + action + &quot; actionRule &quot; + actionRuleCurrent);</span>
+<span class="nc" id="L466">							cNode = userStory.createNode(&quot;Action&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L467">							cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + action + &quot;\&quot;&quot;, actionRuleCurrent);</span>
+<span class="nc bnc" id="L468" title="All 2 branches missed.">							if (triggersArray != null) {</span>
+<span class="nc bnc" id="L469" title="All 2 branches missed.">								for (int k = 0; k &lt; triggersArray.length(); k++) {</span>
+<span class="nc" id="L470">									JSONArray trigger = triggersArray.getJSONArray(k);</span>
+<span class="nc" id="L471">									String actionTrigger = trigger.getString(1);</span>
+<span class="nc bnc" id="L472" title="All 4 branches missed.">									if (nodePersona != null &amp;&amp; actionTrigger.equalsIgnoreCase(action)) {</span>
+<span class="nc" id="L473">										nodePersona.createEdge(cNode, &quot;triggers&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L474">										break;</span>
+									}
+								}
+							}
+<span class="nc" id="L478">							actionMap.put(action, cNode);</span>
+						}
+					}
+<span class="nc bnc" id="L481" title="All 2 branches missed.">				} else if (actionMap.get(action) == null) {</span>
+<span class="nc" id="L482">					cNode = userStory.createNode(&quot;Action&quot;, actionRule);</span>
+<span class="nc" id="L483">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + action + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc bnc" id="L484" title="All 2 branches missed.">					if (nodePersona != null) {</span>
+<span class="nc" id="L485">						nodePersona.createEdge(cNode, &quot;triggers&quot;, actionRule);</span>
+					}
+<span class="nc" id="L487">					actionMap.put(action, cNode);</span>
+				}
+
+			}
+<span class="nc" id="L491">		} else {</span>
+<span class="nc" id="L492">			cNode = userStory.createNode(&quot;Action&quot;, actionRule);</span>
+<span class="nc" id="L493">			cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + verb + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc" id="L494">			System.out.println(&quot;action Node &quot; + verb + &quot; has been create! with action rule: &quot; + actionRule);</span>
+<span class="nc bnc" id="L495" title="All 2 branches missed.">			if (triggersArray != null) {</span>
+<span class="nc bnc" id="L496" title="All 2 branches missed.">				for (int j = 0; j &lt; triggersArray.length(); j++) {</span>
+<span class="nc" id="L497">					JSONArray trigger = triggersArray.getJSONArray(j);</span>
+<span class="nc" id="L498">					String actionTrigger = trigger.getString(1);</span>
+<span class="nc bnc" id="L499" title="All 4 branches missed.">					if (nodePersona != null &amp;&amp; actionTrigger.equalsIgnoreCase(verb)) {</span>
+<span class="nc" id="L500">						nodePersona.createEdge(cNode, &quot;triggers&quot;, actionRule);</span>
+<span class="nc" id="L501">						break;</span>
+					}
+				}
+			}
+<span class="nc" id="L505">			actionMap.put(verb, cNode);</span>
+		}
+
+<span class="nc" id="L508">	}</span>
+
+	private void processEntities(JSONObject jsonObject, CRule userStory, JSONArray entities,
+			JSONArray containActionRules, Map&lt;String, CNode&gt; entityMap, String actionRule, String noun,
+			boolean atomicRule) throws EntityInJsonFileNotFound {
+		// Creating Nodes for Primary Entity/s
+<span class="nc" id="L514">		CNode cNode = null;</span>
+
+<span class="nc bnc" id="L516" title="All 2 branches missed.">		if (atomicRule) {</span>
+<span class="nc bnc" id="L517" title="All 2 branches missed.">			for (int i = 0; i &lt; entities.length(); i++) {</span>
+<span class="nc" id="L518">				System.out.println(&quot;[Entity]------------------all entites are&quot; + entities.toString());</span>
+<span class="nc" id="L519">				String entity = entities.getString(i).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();</span>
+				// check if entity exist in entityMap
+
+<span class="nc bnc" id="L522" title="All 2 branches missed.">				if (entityMap.get(entity) == null) {</span>
+//				System.out.println(&quot;noun is:&quot; + noun);
+//				System.out.println(&quot;action rule is :&quot; + actionRule);
+<span class="nc" id="L525">					cNode = userStory.createNode(&quot;Entity&quot;, actionRule);</span>
+<span class="nc" id="L526">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + entity + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc" id="L527">					System.out.println(&quot;Node for Entity is Created: &quot; + entity + &quot; with action Rule: &quot; + actionRule);</span>
+<span class="nc" id="L528">					entityMap.put(entity, cNode);</span>
+<span class="nc bnc" id="L529" title="All 2 branches missed.">					for (int j = 0; j &lt; containActionRules.length(); j++) {</span>
+<span class="nc" id="L530">						System.out.println(&quot;proceed contains in Entity&quot;);</span>
+<span class="nc" id="L531">						JSONArray current = containActionRules.getJSONArray(j);</span>
+<span class="nc" id="L532">						String noun1Current = current.getString(0).toLowerCase();</span>
+<span class="nc" id="L533">						String noun2Current = current.getString(1).toLowerCase();</span>
+<span class="nc" id="L534">						System.out.println(&quot;[ContainActionRule] noun1: &quot; + noun1Current + &quot; noun2: &quot; + noun2Current</span>
+<span class="nc" id="L535">								+ &quot; Entity is: &quot; + entity);</span>
+<span class="nc" id="L536">						String actionRuleCurrent = actionRule;</span>
+
+<span class="nc bnc" id="L538" title="All 4 branches missed.">						if (entity.equalsIgnoreCase(noun2Current) &amp;&amp; entityMap.get(noun1Current) == null) {</span>
+<span class="nc" id="L539">							System.out.println(</span>
+<span class="nc" id="L540">									&quot;Contains: annotate entity is &quot; + noun1Current + &quot; with &quot; + actionRuleCurrent);</span>
+<span class="nc" id="L541">							cNode = userStory.createNode(&quot;Entity&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L542">							cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + noun1Current + &quot;\&quot;&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L543">							entityMap.put(noun1Current, cNode);</span>
+
+<span class="nc bnc" id="L545" title="All 4 branches missed.">						} else if (entity.equalsIgnoreCase(noun1Current) &amp;&amp; entityMap.get(noun2Current) == null) {</span>
+<span class="nc" id="L546">							System.out.println(</span>
+<span class="nc" id="L547">									&quot;Contains: annotate entity is &quot; + noun2Current + &quot; with &quot; + actionRuleCurrent);</span>
+<span class="nc" id="L548">							cNode = userStory.createNode(&quot;Entity&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L549">							cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + noun2Current + &quot;\&quot;&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L550">							entityMap.put(noun2Current, cNode);</span>
+
+<span class="nc" id="L552">						} else {</span>
+<span class="nc" id="L553">							System.out.println(&quot;Entity Contain Else: entity is : &quot; + entity);</span>
+						}
+
+					}
+
+				}
+
+<span class="nc bnc" id="L560" title="All 4 branches missed.">				if (entityMap.get(entity) == null &amp;&amp; entity != null) {</span>
+<span class="nc" id="L561">					cNode = userStory.createNode(&quot;Entity&quot;);</span>
+<span class="nc" id="L562">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + entity + &quot;\&quot;&quot;);</span>
+<span class="nc" id="L563">					entityMap.put(entity, cNode);</span>
+
+				}
+
+//			else {
+//				throw new EntityInJsonFileNotFound(&quot;Entity in JSON file not found!&quot;);
+//			}
+			}
+<span class="nc" id="L571">		} else {</span>
+<span class="nc" id="L572">			System.out.println(&quot;process multi action rule in Entity&quot;);</span>
+<span class="nc" id="L573">			cNode = userStory.createNode(&quot;Entity&quot;, actionRule);</span>
+<span class="nc" id="L574">			cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + noun + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc" id="L575">			System.out.println(&quot;Entity: &quot; + noun + &quot; with action: &quot; + actionRule + &quot; is created&quot;);</span>
+<span class="nc" id="L576">			entityMap.put(noun, cNode);</span>
+<span class="nc bnc" id="L577" title="All 2 branches missed.">			for (int j = 0; j &lt; containActionRules.length(); j++) {</span>
+<span class="nc" id="L578">				System.out.println(&quot;proceed contains in Entity&quot;);</span>
+<span class="nc" id="L579">				JSONArray current = containActionRules.getJSONArray(j);</span>
+<span class="nc" id="L580">				String noun1Current = current.getString(0).toLowerCase();</span>
+<span class="nc" id="L581">				String noun2Current = current.getString(1).toLowerCase();</span>
+<span class="nc" id="L582">				System.out.println(&quot;[ContainActionRule] noun1: &quot; + noun1Current + &quot; noun2: &quot; + noun2Current</span>
+<span class="nc" id="L583">						+ &quot; Entity is: &quot; + noun);</span>
+<span class="nc bnc" id="L584" title="All 4 branches missed.">				if (noun.equalsIgnoreCase(noun2Current) &amp;&amp; entityMap.get(noun1Current) == null) {</span>
+<span class="nc" id="L585">					cNode = userStory.createNode(&quot;Entity&quot;, actionRule);</span>
+<span class="nc" id="L586">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + noun1Current + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc" id="L587">					System.out.println(&quot;Contains: create entity: &quot; + noun1Current + &quot; with &quot; + actionRule);</span>
+<span class="nc" id="L588">					entityMap.put(noun1Current, cNode);</span>
+
+<span class="nc bnc" id="L590" title="All 4 branches missed.">				} else if (noun.equalsIgnoreCase(noun1Current) &amp;&amp; entityMap.get(noun2Current) == null) {</span>
+<span class="nc" id="L591">					cNode = userStory.createNode(&quot;Entity&quot;, actionRule);</span>
+<span class="nc" id="L592">					cNode.createAttribute(&quot;name&quot;, &quot;\&quot;&quot; + noun2Current + &quot;\&quot;&quot;, actionRule);</span>
+<span class="nc" id="L593">					System.out.println(&quot;Contains: create entity: &quot; + noun2Current + &quot; with &quot; + actionRule);</span>
+<span class="nc" id="L594">					entityMap.put(noun2Current, cNode);</span>
+
+<span class="nc" id="L596">				} else {</span>
+<span class="nc" id="L597">					System.out.println(</span>
+<span class="nc" id="L598">							&quot;Contains: entities are not belogs to Contains: &quot; + noun1Current + &quot; and: &quot; + noun2Current);</span>
+				}
+
+			}
+
+		}
+
+<span class="nc" id="L605">	}</span>
+//	It receives as parameters the JSON-object with information about the entities,
+//	the CRule object representing the US to which the entities belong and the
+//	JSON-array with information about the targets associated with the entities. 
+//	The method checks whether primary/secondary entities are present, then creates 
+//	a CNode for each primary/secondary entity and checks whether the entity is
+//	present in the target array. If this is the case, its attribute \enquote{name} 
+//	is annotated for deletion.
+
+//	It receives the JSON object to be processed, the JSON array with information 
+//	about the target edges and the US identifier as parameters. The method checks
+//	whether the action and entity in the target array exists in the JSON file.
+//	If the action and the entity exist, an edge with the name \enquote{targets} 
+//	is created between them in the Henshin files and annotated for deletion.
+
+	// processTargetsEdges(jsonBenefit, targetsArrayBenefit, mapEntityBenefit,
+	// mapActionBenefit, usNrM, null, null,false);
+	private void processTargetsEdges(JSONObject jsonObject, JSONArray targetsActionRuleArray,
+			Map&lt;String, CNode&gt; entityMap, Map&lt;String, CNode&gt; actionMap, String usNrM, String actionRule, String verb,
+			String noun, boolean atomicRule)
+			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget, ActionInJsonFileNotFound {
+<span class="nc" id="L626">		CNode nodeEntity = null;</span>
+<span class="nc" id="L627">		CNode nodeAction = null;</span>
+<span class="nc bnc" id="L628" title="All 2 branches missed.">		if (atomicRule) {</span>
+<span class="nc bnc" id="L629" title="All 2 branches missed.">			for (int i = 0; i &lt; targetsActionRuleArray.length(); i++) {</span>
+				// replace space at the end of text if any
+//			String action = currentArray.getString(0).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();
+//			String entity = currentArray.getString(1).replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;).toLowerCase();
+
+<span class="nc" id="L634">				JSONArray current = targetsActionRuleArray.getJSONArray(i);</span>
+<span class="nc" id="L635">				String action = current.getString(0).toLowerCase().replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;);</span>
+<span class="nc" id="L636">				String entity = current.getString(1).toLowerCase().replaceAll(&quot; $&quot;, &quot;&quot;).replaceAll(&quot;^ &quot;, &quot;&quot;);</span>
+
+<span class="nc" id="L638">				System.out.println(&quot;Target verb: &quot; + action);</span>
+<span class="nc" id="L639">				System.out.println(&quot;Target noun: &quot; + entity);</span>
+				String actionRuleCurrent;
+<span class="nc bnc" id="L641" title="All 2 branches missed.">				if (actionRule == null) {</span>
+<span class="nc" id="L642">					actionRuleCurrent = current.getString(2).toLowerCase();</span>
+<span class="nc" id="L643">					System.out.println(&quot;Action Rule : &quot; + actionRuleCurrent);</span>
+<span class="nc" id="L644">				} else {</span>
+<span class="nc" id="L645">					actionRuleCurrent = actionRule;</span>
+				}
+				// CNode nodeAction = actionMap.get(action);
+<span class="nc bnc" id="L648" title="All 2 branches missed.">				if ((actionMap.get(action.toLowerCase()) != null)) {</span>
+<span class="nc" id="L649">					nodeAction = actionMap.get(action.toLowerCase());</span>
+//				System.out.println(&quot;node Action is found and not added to map: &quot; + action);
+<span class="nc" id="L651">				} else {</span>
+<span class="nc" id="L652">					throw new ActionInJsonFileNotFound(</span>
+<span class="nc" id="L653">							&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Action: \&quot;&quot; + action.toString() + &quot;\&quot; is not found!&quot;);</span>
+				}
+<span class="nc bnc" id="L655" title="All 2 branches missed.">				if ((entityMap.get(entity) != null)) {</span>
+
+<span class="nc" id="L657">					nodeEntity = entityMap.get(entity);</span>
+<span class="nc" id="L658">				} else {</span>
+
+<span class="nc" id="L660">					throw new EntityInJsonFileNotFound(</span>
+<span class="nc" id="L661">							&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Entity: \&quot;&quot; + entity.toString() + &quot;\&quot; is not found!&quot;);</span>
+				}
+<span class="nc" id="L663">				nodeAction.createEdge(nodeEntity, &quot;targets&quot;, actionRuleCurrent);</span>
+<span class="nc" id="L664">				System.out.println(&quot;targets edge has been created for action: &quot; + action + &quot; and entity: &quot; + entity</span>
+<span class="nc" id="L665">						+ &quot; with actionRule &quot; + actionRule);</span>
+
+			}
+<span class="nc" id="L668">		} else {</span>
+<span class="nc bnc" id="L669" title="All 2 branches missed.">			if ((actionMap.get(verb.toLowerCase()) != null)) {</span>
+<span class="nc" id="L670">				nodeAction = actionMap.get(verb.toLowerCase());</span>
+//			System.out.println(&quot;node Action is found and not added to map: &quot; + action);
+<span class="nc" id="L672">			} else {</span>
+<span class="nc" id="L673">				throw new ActionInJsonFileNotFound(</span>
+<span class="nc" id="L674">						&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Action: \&quot;&quot; + verb.toString() + &quot;\&quot; is not found!&quot;);</span>
+			}
+<span class="nc bnc" id="L676" title="All 2 branches missed.">			if ((entityMap.get(noun) != null)) {</span>
+
+<span class="nc" id="L678">				nodeEntity = entityMap.get(noun);</span>
+<span class="nc" id="L679">			} else {</span>
+
+<span class="nc" id="L681">				throw new EntityInJsonFileNotFound(</span>
+<span class="nc" id="L682">						&quot;In \&quot;Targets\&quot; of &quot; + usNrM + &quot;, Entity: \&quot;&quot; + noun.toString() + &quot;\&quot; is not found!&quot;);</span>
+			}
+<span class="nc" id="L684">			nodeAction.createEdge(nodeEntity, &quot;targets&quot;, actionRule);</span>
+<span class="nc" id="L685">			System.out.println(&quot;targets edge has been created for action: &quot; + verb + &quot; and entity: &quot; + noun</span>
+<span class="nc" id="L686">					+ &quot; with actionRule &quot; + actionRule);</span>
+
+		}
+<span class="nc" id="L689">	}</span>
+
+	private void processContainsEdges(JSONObject jsonObject, JSONArray containsActionRulesArray,
+			Map&lt;String, CNode&gt; entityMap, String usNrM, String actionRules, String noun, boolean atomicRule)
+			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
+
+<span class="nc bnc" id="L695" title="All 2 branches missed.">		if (atomicRule) {</span>
+			// iterate through contains JSONArray
+<span class="nc bnc" id="L697" title="All 2 branches missed.">			for (int i = 0; i &lt; containsActionRulesArray.length(); i++) {</span>
+<span class="nc" id="L698">				JSONArray currentArray = containsActionRulesArray.getJSONArray(i);</span>
+
+<span class="nc" id="L700">				String firstEntity = currentArray.getString(0).toLowerCase();</span>
+<span class="nc" id="L701">				String secondEntity = currentArray.getString(1).toLowerCase();</span>
+				String actionRule;
+<span class="nc bnc" id="L703" title="All 2 branches missed.">				if (actionRules == null) {</span>
+<span class="nc" id="L704">					actionRule = currentArray.getString(2).toLowerCase();</span>
+<span class="nc" id="L705">					System.out.println(&quot;Action rule is null! get action from containArray&quot;);</span>
+<span class="nc" id="L706">				} else {</span>
+<span class="nc" id="L707">					actionRule = actionRules;</span>
+<span class="nc" id="L708">					System.out.println(&quot;Action rule is &quot; + actionRule);</span>
+				}
+				// make sure that both entity is already listed in entityMap
+//			System.out.println(firstEntity +&quot; and &quot; + secondEntity);
+<span class="nc bnc" id="L712" title="All 4 branches missed.">				if ((entityMap.get(firstEntity) != null) &amp;&amp; (entityMap.get(secondEntity) != null)) {</span>
+<span class="nc" id="L713">					System.out</span>
+<span class="nc" id="L714">							.println(&quot;contains entity mapping first: &quot; + firstEntity + &quot; -- second : &quot; + secondEntity);</span>
+<span class="nc" id="L715">					CNode nodefirstEntity = entityMap.get(firstEntity);</span>
+<span class="nc" id="L716">					CNode nodeSecondEntity = entityMap.get(secondEntity);</span>
+<span class="nc" id="L717">					nodefirstEntity.createEdge(nodeSecondEntity, &quot;contains&quot;, actionRule);</span>
+<span class="nc" id="L718">				} else {</span>
+<span class="nc" id="L719">					throw new EntityInJsonFileNotFound(&quot;In &quot; + usNrM + &quot;, following entties are missing: &quot;</span>
+<span class="nc" id="L720">							+ firstEntity.toString() + &quot; and &quot; + secondEntity.toString());</span>
+				}
+			}
+<span class="nc" id="L723">		} else {</span>
+<span class="nc" id="L724">			System.out.println(&quot;Contains in mulit action-rule already proceed!&quot;);</span>
+		}
+
+<span class="nc" id="L727">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

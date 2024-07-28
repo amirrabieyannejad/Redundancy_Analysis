@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>RunnerActionsRulesCreator.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.preparation</a> &gt; <span class="el_source">RunnerActionsRulesCreator.java</span></div><h1>RunnerActionsRulesCreator.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.preparation;
+
+import java.io.IOException;
+
+import org.json.JSONException;
+
+import com.opencsv.exceptions.CsvValidationException;
+
+public class RunnerActionsRulesCreator {
+
+<span class="nc" id="L11">	public RunnerActionsRulesCreator() {</span>
+		// TODO Auto-generated constructor stub
+<span class="nc" id="L13">	}</span>
+
+	public static void main(String[] args) throws CsvValidationException, EmptyOrNotExistJsonFile, IOException,
+			JSONException, EntityInRelationsNotFound {
+
+		// String[] dataSets = { &quot;g03_loudoun&quot;, &quot;g04_recycling&quot;, &quot;g05_open_spending&quot;,
+		// &quot;g08_frictionless&quot;,
+//				&quot;g10_scrum_alliance&quot;, &quot;g11_nsf&quot;, &quot;g12_camperplus&quot;, &quot;g14_datahub&quot;, &quot;g16_mis&quot;, &quot;g18_neurohub&quot;,
+//				&quot;g19_alfred&quot;, &quot;g21_badcamp&quot;, &quot;g22_rdadmp&quot;, &quot;g23_archives_space&quot;, &quot;g24_unibath&quot;, &quot;g25_duraspace&quot;,
+//				&quot;g26_racdam&quot;, &quot;g27_culrepo&quot;, &quot;g28_zooniverse&quot; };
+<span class="nc" id="L23">		String[] dataSets = { &quot;g03_loudoun&quot; };</span>
+<span class="nc" id="L24">		String[] fileName = { &quot;&quot; };</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">		for (int j = 0; j &lt; dataSets.length; j++) {</span>
+<span class="nc" id="L26">			String filePath = &quot;Tests\\JSONTransformer\\&quot;+ dataSets[j] +&quot;\\&quot;;</span>
+<span class="nc" id="L27">			JSONTransformer.runJsonTransformer(dataSets, filePath);</span>
+<span class="nc" id="L28">			ActionsAnnotationsCreator actionsRulesCreator = new ActionsAnnotationsCreator();</span>
+<span class="nc" id="L29">			actionsRulesCreator.addActionsRules(dataSets, filePath, dataSets);</span>
+		}
+<span class="nc" id="L31">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ReportExtractorTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.test</a> &gt; <span class="el_source">ReportExtractorTest.java</span></div><h1>ReportExtractorTest.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.test;
+
+import org.henshin.backlogconflict.code.evaluation.Evaluation;
+import org.henshin.backlogconflict.code.preparation.EmptyOrNotExistJsonFile;
+import org.henshin.backlogconflict.code.preparation.JsonFileNotFound;
+import org.henshin.backlogconflict.code.report.CdaReportDirIsEmpty;
+import org.henshin.backlogconflict.code.report.CdaReportDirIsNotADirectory;
+import org.henshin.backlogconflict.code.report.CdaReportDirNotFound;
+import org.henshin.backlogconflict.code.report.ConflictPair;
+import org.henshin.backlogconflict.code.report.ReportExtractor;
+import org.henshin.backlog.code.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
+<span class="nc" id="L28">public class ReportExtractorTest {</span>
+
+	// completeMajorElements\_edge \newline(testExtractReports)&amp;Provision of a CDA
+	// report for US-pair containing exactly one \enquote{Targets} edge&amp;Inclusion of
+	// this US-pair in the text report with the nodes \enquote{Action},
+	// \enquote{Entity} and \enquote{Targets} edge.
+	@Test
+	public void testExtractReports_completeMajorElements_edge() throws EmptyOrNotExistJsonFile, NullPointerException,
+<span class="nc" id="L36">			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {</span>
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\g03_baseline_pos_num.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+			assertTrue(result.toString().contains(&quot;Secondary Entity: compliance&quot;)
+					&amp;&amp; result.toString().contains(&quot;Secondary Action: review&quot;)
+					&amp;&amp; result.toString().contains(&quot;Targets: Link from \&quot;review\&quot; to \&quot;compliance\&quot; is found.&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	// completeMajorElements\_edge \newline(testExtractReports)&amp;Provision of a CDA
+	// report for US-pair containing exactly one \enquote{Targets} edge&amp;Inclusion of
+	// this US-pair in the text report with the nodes \enquote{Action},
+	// \enquote{Entity} and \enquote{Targets} edge.
+	@Test
+<span class="nc" id="L73">	public void testReportExtractor() throws EmptyOrNotExistJsonFile, NullPointerException, CdaReportDirNotFound,</span>
+			JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\g03_baseline_pos_num.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+		// cdaConvertor.extractReports(fileWrite, jsonWriter);
+		String[] dataset = { &quot;03&quot; };
+		ReportExtractor.reportExtractor(dataset);
+		assertTrue(true);
+
+	}
+
+	@Test(expected = JSONException.class)
+	public void testJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\dummy_corrupt.json&quot;;
+		// Read the JSON_report_Test file to verify the results
+		ReportExtractor reportExtractor = new ReportExtractor(directoryName, jsonFileName);
+<span class="nc" id="L96">		reportExtractor.readJsonArrayFromFile(jsonFileName);</span>
+	}
+
+// completeMajorElements\_upperEdge\newline(testExtractReports)&amp;Provide a CDA report for a US-pair that contains at least one \enquote{Targets} edge and other redundancy elements such as \enquote{Triggers} edges&amp;Generated textual report contains information about Secondary Entities, Secondary Actions, Targets, and \enquote{Triggers}&amp;Verifies extractReports method when all major elements are present in the CDA report and the upper edge case is reached\\
+	@Test
+	public void testExtractReports_completeMajorElements_upperEdge()
+<span class="nc" id="L102">			throws EmptyOrNotExistJsonFile, NullPointerException, CdaReportDirNotFound, JsonFileNotFound,</span>
+			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch_upperEdge&quot;;
+
+		String jsonFileName = &quot;Tests\\ReportExtractor\\g03_baseline_pos_num.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+			assertTrue(result.toString().contains(&quot;Secondary Entity: compliance&quot;)
+					&amp;&amp; result.toString().contains(&quot;Secondary Action: ensure&quot;)
+					&amp;&amp; result.toString().contains(&quot;Targets: Link from \&quot;ensure\&quot; to \&quot;compliance\&quot; is found.&quot;)
+					&amp;&amp; result.toString().contains(&quot;Triggers: Link from \&quot;staff member\&quot; to \&quot;manage\&quot; is found&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+// 	notCompleteMajorElements\newline(testExtractReports)&amp;Provide a CDA report for a US-pair without \enquote{Targets} edge, but with action and entity&amp;The US-pair should not reported&amp;Verifies the behavior of the extractReports methodwhen not all major elements are present in the input data\\
+	@Test
+	public void testExtractReports_notCompleteMajorElements() throws EmptyOrNotExistJsonFile, NullPointerException,
+<span class="nc" id="L139">			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {</span>
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\MajorElementNotFound&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\g03_baseline_pos_num.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+			assertTrue(result.toString().contains(&quot;No redundancy found between user stories!&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+<span class="nc" id="L166">	@Test(expected = CdaReportDirNotFound.class)</span>
+	public void testInvalidDirectoryName() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
+			CdaReportDirIsNotADirectory, NullPointerException, IOException, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\Dummy&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\g03_baseline_pos_num.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+		cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+	}
+
+	// Check if JSON file is already exist
+	@Test(expected = JsonFileNotFound.class)
+<span class="nc" id="L182">	public void testInvalidJsonFile() throws JsonFileNotFound, NullPointerException, IOException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, EmptyOrNotExistJsonFile, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\dummyJOSN.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; + cdaConvertor.getAbsoluteFinalReportDir());
+		System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; + cdaConvertor.getAbsoluteDirPath());
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+		cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+	}
+
+	// testEmptyDirectroy&amp;Assing a dummy directory&amp;Through an exception:
+	// \textit{CdaReportDirIsEmpty.class}&amp;Check if CDA Report directory is empty\\
+<span class="nc" id="L199">	@Test(expected = CdaReportDirIsEmpty.class)</span>
+	public void testEmptyDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\EmptyDirectory&quot;;
+		String jsonFileName = &quot;dummy&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+	}
+
+	
+	// testCdaDirNotDirectroy&amp;Assing not directory&amp;Through an exception:
+	// \textit{CdaReportDirIsEmpty.class}&amp;Check if CDA Report directory is empty\\
+<span class="nc" id="L211">	@Test(expected = CdaReportDirIsNotADirectory.class)</span>
+	public void testCdaDirNotDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\EmptyDirectory\\Textual_Report_Test.txt&quot;;
+		String jsonFileName = &quot;dummy&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+	}
+
+	// testEmptyDirectroy&amp;Assing not directory&amp;Through an exception:
+	// \textit{CdaReportDirIsEmpty.class}&amp;Check if CDA Report directory is empty\\
+<span class="nc" id="L222">	@Test(expected = CdaReportDirNotFound.class)</span>
+	public void testCdaDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\NotAccessibleDirectory&quot;;
+		String jsonFileName = &quot;dummy&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+	}
+
+	
+	// Check if final reports directory all null or not
+	@Test
+<span class="nc" id="L234">	public void testFinalReportDir() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,</span>
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\NotAccessibleDirectory&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\&quot;);
+		Path pathDummy = Paths.get(&quot;dummy&quot;);
+		String report = cdaConvertor.getFinalReportDir(path);
+		String reportDummy = cdaConvertor.getFinalReportDir(pathDummy);
+		// System.out.println(&quot;path: &quot;+ path);
+		// System.out.println(&quot;report: &quot;+report);
+		assertEquals(report, path.toString());
+		assertNull(reportDummy);
+	}
+
+	// 
+	// check minimalEcore are exist
+	@Test
+<span class="nc" id="L252">	public void testMinimalEcoreExist() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,</span>
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+		Path path = Paths.get(&quot;C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\&quot;);
+
+		boolean eCoreExist = cdaConvertor.minimalEcoreExist(&quot;dummy&quot;, &quot;dummy&quot;);
+
+		// System.out.println(&quot;path: &quot;+ path);
+		// System.out.println(&quot;report: &quot;+report);
+		assertFalse(eCoreExist);
+
+	}
+
+
+	// check minimalEcore are exist
+	@Test
+<span class="nc" id="L270">	public void testWriteTable() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,</span>
+			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, JsonFileNotFound {
+		String directoryName = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\writeTable\\ExactMatch&quot;;
+		String jsonFileName = &quot;Tests\\ReportExtractor\\writeTable\\ExactMatch\\g03_baseline_pos.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		// This line should throw EmptyJsonFile exception
+		List&lt;ConflictPair&gt; listConflictPairs = cdaConvertor.extractReports(fileWrite, jsonWriter);
+		cdaConvertor.writeTable(cdaReport, listConflictPairs);
+		// System.out.println(&quot;path: &quot;+ path);
+		// System.out.println(&quot;report: &quot;+report);
+		try {
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(&quot;Table of potential redundancies&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// testEmptyJSONFile&amp;Assing an empty JSON dataset file&amp;Through an exception:
+	// \textit{EmptyOrNotExistJsonFile.class}&amp;Check if JSON dataset file is empty\\
+	@Test(expected = EmptyOrNotExistJsonFile.class)
+	public void testEmptyJSONFile() throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException,
+<span class="nc" id="L308">			CdaReportDirNotFound, CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {</span>
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\empty_json_file.json&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		// This line should throw EmptyJsonFile exception
+		cdaConvertor.extractReports(fileWrite, jsonWriter);
+		// String[] dataset= {&quot;empty_json_file&quot;};
+		// ReportExtractor.reportExtractor(dataset);
+	}
+
+	// highlightPersona\newline(testExtractReports)&amp;Providing a CDA report for a
+	// US-pair with redundancy clause in \enquote{Triggers}edge (from Persona to
+	// Primary Action)&amp;The persona should only be marked with a hash symbol if there
+	// is a redundant clause in the main part&amp;Checks the behaviour of the
+	// extractReports method when highlighting redundant personas in USs\\
+	// check if potential redundant user stories has same Persona, if so, check
+	// if persona will be highlighted
+	@Test
+	public void testExtractReports_highlightPersona() throws NullPointerException, EmptyOrNotExistJsonFile, IOException,
+<span class="nc" id="L337">			JSONException, CdaReportDirNotFound, CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {</span>
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json&quot;;
+		String persona = &quot;Triggers: Link from \&quot;data publishing user\&quot; to \&quot;import\&quot; is found&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+			assertTrue(result.toString().contains(persona) &amp;&amp; result.toString().contains(&quot;#data publishing user#&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+// noBenefitInUs1\newline(testhigHlightRedundancies)&amp;Provision of a CDA report for a US-pair where only the first US do have the \enquote{benefit} part&amp;Search only the main part of USs and mark redundancy clauses with a hash symbol&amp;Verifies the behaviour of the \textit{highlightRedundancies} method when only the first US have benefit\\
+	@Test
+	public void testHighlightRedundancies_noBenefitInUs1()
+<span class="nc" id="L373">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit\\g04_baseline_pos.json&quot;;
+		String uS1 = &quot;user_story_26: #g04# as an employee from the hr department, i want to #have# &quot;
+				+ &quot;#access# to the full information of all employees working for this business.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(uS1) &amp;&amp; !result.toString().contains(uS1 + &quot;so that&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+// noBenefitInUs2\newline(testhigHlightRedundancies)&amp;Provision of a CDA report for a US-pair where only the first US have the \enquote{benefit} part&amp;Search only the main part of USs and mark redundancy clauses with a hash symbol&amp;Verifies the behaviour of the \textit{highlightRedundancies} method when only the first US have benefit\\
+	@Test
+	public void testHighlightRedundancies_noBenefitInUs2()
+<span class="nc" id="L412">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit\\g11_baseline_pos.json&quot;;
+		String uS2 = &quot; user_story_73: #g11# as a team member, i want to #understand# #how# work&quot;
+				+ &quot; moves between ux/content &gt; visual design &gt; front end dev for a sprint cycle.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+// cdaConvertor.getAbsoluteFinalReportDir());
+// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(uS2) &amp;&amp; !result.toString().contains(uS2 + &quot;so that&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+// noBenefitInBothUss\newline(testhigHlightRedundancies)&amp;Provision of a CDA report for a US-pair where both USs do not have the \enquote{benefit} part&amp;Search only the main part of USs and mark redundancy clauses with a hash symbol if they occur&amp;Verifies the behaviour of the \textit{highlightRedundancies} method when both USs don't have benefits\\
+	@Test
+	public void testHighlightRedundancies_noBenefitInBothUss()
+<span class="nc" id="L451">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit\\g04_baseline_pos.json&quot;;
+		String uS2 = &quot;user_story_10: #g04# as a #user#, i want to be able to #view# a #map display# &quot;
+				+ &quot;of the special waste drop off sites around my #area#.&quot;;
+		String uS1 = &quot;user_story_09: #g04# as a #user#, i want to be able to #view# a &quot;
+				+ &quot;#map display# of the public recycling bins around my #area#.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+// cdaConvertor.getAbsoluteFinalReportDir());
+// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(uS2) &amp;&amp; !result.toString().contains(uS2 + &quot;so that&quot;)
+					&amp;&amp; result.toString().contains(uS1) &amp;&amp; !result.toString().contains(uS1 + &quot;so that&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// BenefitInBothUss (testHighlightConflicts)&amp;Provision of a CDA report for a
+	// US-pair where both USs have \enquote{benefit} segment&amp;Generated textual
+	// report contains both USs with their respective \enquote{main} parts and
+	// \enquote{benefits}&amp;Verifies the behaviour of the \textit{highlightConflicts}
+	// method when both USs have benefits\\
+	@Test
+	public void testHighlightRedundancies_BenefitInBothUss()
+<span class="nc" id="L497">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json&quot;;
+		String uS2Main = &quot;user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#&quot;;
+		String uS2Benefit = &quot;, so that i can share the dataset publicly with everyone.&quot;;
+		String uS1Main = &quot;user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#&quot;;
+		String uS1Benefit = &quot;, so that i can view just the dataset with a few people.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+// cdaConvertor.getAbsoluteFinalReportDir());
+// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(uS1Main) &amp;&amp; result.toString().contains(uS1Benefit)
+					&amp;&amp; result.toString().contains(uS2Main) &amp;&amp; result.toString().contains(uS2Benefit));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// BenefitInBothUss (testHighlightConflicts)&amp;Provision of a CDA report for a
+	// US-pair where both USs have \enquote{benefit} segment&amp;Generated textual
+	// report contains both USs with their respective \enquote{main} parts and
+	// \enquote{benefits}&amp;Verifies the behaviour of the \textit{highlightConflicts}
+	// method when both USs have benefits\\
+	@Test
+	public void testHighlightRedundancies_TextsLenghtsNull()
+<span class="nc" id="L543">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json&quot;;
+		String uS2Main = &quot;user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#&quot;;
+		String uS2Benefit = &quot;, so that i can share the dataset publicly with everyone.&quot;;
+		String uS1Main = &quot;user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#&quot;;
+		String uS1Benefit = &quot;, so that i can view just the dataset with a few people.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(uS1Main) &amp;&amp; result.toString().contains(uS1Benefit)
+					&amp;&amp; result.toString().contains(uS2Main) &amp;&amp; result.toString().contains(uS2Benefit));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Check if number of maximal redundancy clauses are match to the value stored
+	// in
+	// JSON_Report_Test.json File
+	// getTotalRedundanciesElements\newline(testExtractReports)&amp;Provision of a CDA
+	// report for a US-pair that contains redundancy clauses in the
+	// \enquote{Main}and \enquote{Benefit} parts&amp;Check whether the count of
+	// redundancy clauses in the main and benefit parts of the USs matches the value
+	// \enquote{Total Redundancy Clause} specified in the JSON\_Report file&amp;Verifies
+	// the behaviour of the extractReports method when there are redundancy elements
+	// in the main and benefit parts of USs\\
+	@Test
+	public void testExtractReports_getTotalRedundancyElements()
+<span class="nc" id="L594">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;;
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(jsonReportPath);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the JSON_report_Test file to verify the results
+			JSONArray jsonArray = cdaConvertor.readJsonArrayFromFile(jsonReportPath);
+			// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+			// jsonArray.toString());
+			JSONObject jsonObject = jsonArray.getJSONObject(0);
+			JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);
+			int maximal = jsonStatus.getInt(&quot;Total Redundancy Clauses&quot;);
+
+			fileWrite.close();
+			// check if maximal number of redundancy clause barbells are match
+			assertTrue(maximal == 2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Check if number of redundancy clauses in Main part of user stories are match
+	// to the value stored in
+	// JSON_Report_Test.json File
+	// getMainPartRedundanciesElements\newline(testExtractReports)&amp;Provision of a
+	// CDA report for a US-pair that only contains redundancy clauses in the
+	// \enquote{Main} part&amp;Check whether the count of redundancy clauses in the main
+	// part of the USs matches the value \enquote{Main Part Redundancy Clause}
+	// specified in the JSON\_Report file&amp;Verifies the behaviour of the
+	// extractReports method when there are redundancy elements only in the main
+	// parts of USs\\
+	@Test
+	public void testExtractReports_getMainPartRedundanciesElements()
+<span class="nc" id="L638">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;;
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(jsonReportPath);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the JSON_report_Test file to verify the results
+			JSONArray jsonArray = cdaConvertor.readJsonArrayFromFile(jsonReportPath);
+			// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+			// jsonArray.toString());
+			JSONObject jsonObject = jsonArray.getJSONObject(0);
+			JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);
+			int main = jsonStatus.getInt(&quot;Main Part Redundancy Clauses&quot;);
+
+			fileWrite.close();
+			// check if maximal number of redundancy clause barbells are match
+			assertTrue(main == 2);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// getBenefitPartRedundanciesElements\newline(testExtractReports)&amp;Provision of a
+	// CDA report for a US-pair that only contains redundancy clauses in the
+	// \enquote{benefit} segment&amp;Check whether the count of redundancy clauses in
+	// the benefit part of the USs matches the value \enquote{Benefit Part
+	// Redundancy Clause} specified in the
+	// JSON\_Report file&amp;Verifies the behaviour of the extractReports method when
+	// there are redundancy elements in the benefit parts of USs\\
+	@Test
+	public void testExtractReports_getBenefitPartRedundanciesElements()
+<span class="nc" id="L679">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements\\g05_baseline_pos.json&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;;
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(jsonReportPath);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the JSON_report_Test file to verify the results
+			JSONArray jsonArray = cdaConvertor.readJsonArrayFromFile(jsonReportPath);
+			// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+			// jsonArray.toString());
+			JSONObject jsonObject = jsonArray.getJSONObject(0);
+			JSONObject jsonStatus = jsonObject.getJSONObject(&quot;Status&quot;);
+			int benefit = jsonStatus.getInt(&quot;Benefit Part Redundancy Clause&quot;);
+
+			fileWrite.close();
+			// check if maximal number of redundancy clause barbells are match
+			assertTrue(benefit == 4);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+// ContainInBenefitPart\newline(testHighlightRedundancies)&amp;Provide a CDA report for a US-pair with redundancy clauses of \enquote{Contains} within \enquote{Benefit} part&amp;The entities included in Contains should be marked with hash symbol&amp;Checks the behaviour of the \textit{highlightRedundancies} method when highlighting redundant personas in USs\\
+	@Test
+	public void testHighlightRedundancies_ContainInBenefitPart()
+<span class="nc" id="L714">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part\\g08_baseline_pos.json&quot;;
+
+		String contains = &quot;Contains: Link between \&quot;validity\&quot; and \&quot;trust\&quot; is found.&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(contains) &amp;&amp; result.toString().contains(&quot;#validity#&quot;)
+					&amp;&amp; result.toString().contains(&quot;#trust#&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Check if contains in included in main part of sentence. If so, then
+	// highlighting contains
+	// should be expected
+	// ContainInMainPart\newline(testHighlightRedundancies)&amp;Provide a CDA report for
+	// a US-pair with redundancy clauses of \enquote{Contains} within \enquote{Main}
+	// part&amp;The entities included in Contains should be marked with hash
+	// symbol&amp;Checks the behaviour of the \textit{highlightRedundancies} method when
+	// highlighting redundant entities included in the Contains\\
+	@Test
+	public void testHighlightRedundancies_ContainInMainPart()
+<span class="nc" id="L762">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part\\g18_baseline_pos.json&quot;;
+
+		String contains = &quot;Contains: Link between \&quot;experiment\&quot; and \&quot;log book page\&quot; is found.&quot;;
+
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(contains) &amp;&amp; result.toString().contains(&quot;#experiment#&quot;)
+					&amp;&amp; result.toString().contains(&quot;#log book page#&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Check if more than one targets in main part of sentence will be highlighted
+	// as expected
+	@Test
+	public void testHighlightRedundancies_TargetsInMainPart()
+<span class="nc" id="L804">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part\\g22_baseline_pos.json&quot;;
+
+		String us1 = &quot;#g22# as an it staff member, i want to #know# #how# the #data# is #used#, &quot;
+				+ &quot;so that i can determine what kind of basic services and functionalities are required.&quot;;
+
+		String us2 = &quot;#g22# as a data manager, i want to #know# #how# the #data# is #used#, so that i can develop more&quot;
+				+ &quot; detailed usage and support scenarios with researchers.&quot;;
+
+		String targets1 = &quot;Targets: Link from \&quot;know\&quot; to \&quot;how\&quot; is found.&quot;;
+		String targets2 = &quot;Targets: Link from \&quot;used\&quot; to \&quot;data\&quot; is found.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(targets1) &amp;&amp; result.toString().contains(targets2)
+					&amp;&amp; result.toString().contains(&quot;#know#&quot;) &amp;&amp; result.toString().contains(&quot;#how#&quot;)
+					&amp;&amp; result.toString().contains(&quot;#data#&quot;) &amp;&amp; result.toString().contains(&quot;#used#&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// Check if more than one targets is included in benefit part of sentence. If
+	// so, then highlighting clauses accordingly
+	// should be expected
+	@Test
+	public void testHighlightRedundancies_TargetsInBenefitPart()
+<span class="nc" id="L854">			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,</span>
+			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
+		String directoryNamed = &quot;eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part&quot;;
+		String jsonFileNameds = &quot;Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part\\g22_baseline_pos.json&quot;;
+
+		String us1 = &quot;#g22# as a data manager, i want to know which formats are used, so that i #know# what #technology#&quot;
+				+ &quot; or #background information# might be necessary to use the data.&quot;;
+
+		String us2 = &quot;#g22# as a data manager, i want to know with which software or technology the data is produced or used, so that i #know# what #technology# &quot;
+				+ &quot;or #background information# might be necessary to (re-)use the data.&quot;;
+
+		String targets1 = &quot;Targets: Link from \&quot;know\&quot; to \&quot;background information\&quot; is found.&quot;;
+		String targets2 = &quot;Targets: Link from \&quot;know\&quot; to \&quot;technology\&quot; is found.&quot;;
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		// System.out.println(&quot;[testEmptyJSONFile] json path is: &quot; +
+		// cdaConvertor.getAbsoluteFinalReportDir());
+		// System.out.println(&quot;[testEmptyJSONFile] dir path is: &quot; +
+		// cdaConvertor.getAbsoluteDirPath());
+
+		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\Textual_Report_Test.txt&quot;);
+		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + &quot;\\JSON_Report_Test.json&quot;);
+		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
+
+		try {
+			cdaConvertor.extractReports(fileWrite, jsonWriter);
+
+			// Read the Textual_report_Test file to verify the results
+			BufferedReader reader = new BufferedReader(new FileReader(cdaReport));
+			StringBuilder result = new StringBuilder();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				result.append(line).append(&quot;\n&quot;);
+			}
+			reader.close();
+			fileWrite.close();
+
+			assertTrue(result.toString().contains(targets1) &amp;&amp; result.toString().contains(targets2)
+					&amp;&amp; result.toString().contains(&quot;#know#&quot;) &amp;&amp; result.toString().contains(&quot;#technology#&quot;)
+					&amp;&amp; result.toString().contains(&quot;#background information#&quot;));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>VerbFinder.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">JSONTransformerTest (04.07.2024 14:34:06)</a> &gt; <a href="../../index.html" class="el_group">org.henshin.backlogconflict</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">org.henshin.backlogconflict.code.preparation</a> &gt; <span class="el_source">VerbFinder.java</span></div><h1>VerbFinder.java</h1><pre class="source lang-java linenums">package org.henshin.backlogconflict.code.preparation;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvValidationException;
+
+public class VerbFinder {
+	String actionsRulesPath;
+	private Map&lt;String,String&gt; verbMap;
+
+<span class="nc" id="L17">	public VerbFinder(String csvFilePath) throws IOException, CsvValidationException {</span>
+		
+<span class="nc" id="L19">		this.verbMap= new HashMap&lt;&gt;();</span>
+//        System.out.println(&quot;Initializing VerbFinder with CSV file path: &quot; + csvFilePath);
+<span class="nc" id="L21">		loadCSV(csvFilePath);</span>
+//        System.out.println(&quot;VerbFinder initialization complete. Loaded &quot; + verbMap.size() + &quot; entries.&quot;);
+<span class="nc" id="L23">	}</span>
+
+	private void loadCSV(String csvFilePath) throws IOException, CsvValidationException {
+//		System.out.println(&quot;loadCSV&quot;);
+<span class="nc" id="L27">		try(CSVReader reader = new CSVReaderBuilder(new FileReader(csvFilePath))</span>
+<span class="nc" id="L28">				.withCSVParser(new CSVParserBuilder().withSeparator(';').build()).build()){</span>
+			String [] nextLine;
+<span class="nc bnc" id="L30" title="All 2 branches missed.">			while((nextLine = reader.readNext())!=null) {</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">				if(nextLine.length &gt;= 2) {</span>
+<span class="nc" id="L32">					String verb = nextLine[0];</span>
+//					System.out.println(&quot;loadCSV- verb: &quot; + verb);
+<span class="nc" id="L34">					String actionRule = nextLine[1];</span>
+//					System.out.println(&quot;loadCSV- action_rule: &quot; + actionRule);
+<span class="nc" id="L36">					verbMap.put(verb.toLowerCase(), actionRule);</span>
+					}				
+				}
+			}
+		
+<span class="nc" id="L41">		}</span>
+	
+	// receive the corresponding rule action of verb
+	public String getActionRule(String verb) {
+<span class="nc" id="L45">		return verbMap.get(verb);</span>
+		
+	}
+	
+
+		
+	}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span>JSONTransformerTest (04.07.2024 14:34:06)</div></body></html>
