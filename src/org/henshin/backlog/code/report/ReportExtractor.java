@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.henshin.backlog.code.evaluation.Evaluation;
+import org.henshin.backlog.code.rule.ConfigLoader;
 //import org.graalvm.compiler.hotspot.nodes.PatchReturnAddressNode;
 import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
 import org.henshin.backlog.code.rule.JsonFileNotFound;
@@ -42,72 +43,74 @@ import org.json.JSONTokener;
 import java.util.Set;
 import java.util.HashSet;
 
-/** Report maximal overlap if and only if in Minimal Models
- * at least Entity, Action and Triggers exist. With Table summary
- */
 /**
- * @author amirr
+ * Report maximal overlap if and only if in Minimal Models at least Entity,
+ * Action and Triggers exist. With Table summary
+ * 
+ * @author Amir Rabieyan Nejad
  *
  */
 public class ReportExtractor {
-	private static String dirName;
 	private static String jsonDatasetFile;
+	private String cdaReportDirName;
 
 	public ReportExtractor(String directroyName, String jsonFileName) {
-		dirName = directroyName;
+		cdaReportDirName = directroyName;
 		jsonDatasetFile = jsonFileName;
 	}
 
 	public static void main(String[] args) throws IOException, NullPointerException, EmptyOrNotExistJsonFile,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
 
-//		 String[] datasets = { "03", "04", "05", "08", "10", "11", "12", "14", "16",
-//		 "21", "22", "23", "24",
-//		 "25", "26", "27", "28" };
-		String[] datasets = { "19" };
+		String[] datasets = ConfigLoader.getInstance().getProjectIds();
 		reportExtractor(datasets);
 	}
-	public static void reportExtractor(String[] datasets) throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
-		// checked: 21, 04,03 ,05,08,10,11,12,14,16
-//		 Version of data set "18", "19"
-		for (int i = 0; i < datasets.length; i++) {
-			System.out.println("Dataset: " + datasets[i]);
+
+	public static void reportExtractor(String[] datasets)
+			throws IOException, NullPointerException, EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
+			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
+		// make path for output reports
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String cdaReportsDirectory = ConfigLoader.getInstance().getCdaReportsDirectroy();
+		Path path = Paths.get(baseDirectory, "\\Final_Reports\\");
+
+		for (String dataset : datasets) {
+			System.out.println("Dataset: " + dataset);
 			long startTime = System.nanoTime();
-			ReportExtractor cdaConvertor = new ReportExtractor(
-					"eclipse-workspace_2023_12\\CDA_Reports\\CDA_Report_backlog_g" + datasets[i],
-					"Final_Reports\\Textual_Report_g" + datasets[i] + "\\g" + datasets[i] + "_baseline_pos.json");
+			ReportExtractor reportExtractor = new ReportExtractor(
+					cdaReportsDirectory + "\\CDA_Report_backlog_g" + dataset, baseDirectory
+							+ "\\Final_Reports\\Textual_Report_g" + dataset + "\\g" + dataset + "_baseline_pos.json");
 
 			// Create text file in order to report to user a readable format
-			File cdaReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
-					+ "\\Textual_Report_g" + datasets[i] + ".txt");
-			FileWriter fileWriter = cdaConvertor.createOrOverwriteReportFile(cdaReport);
+			File cdaReport = new File(reportExtractor.getFinalReportDir(path) + "\\Textual_Report_g" + dataset
+					+ "\\Textual_Report_g" + dataset + ".txt");
+			FileWriter fileWriter = reportExtractor.createOrOverwriteReportFile(cdaReport);
 
 			// Create JSON File in order to have systematic overview of result
-			File jsonReport = new File(cdaConvertor.getFinalReportDir(path) + "\\Textual_Report_g" + datasets[i]
-					+ "\\JSON_Report_g" + datasets[i] + ".json");
-			FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
-			List<RedundantPair> listConflictPairs = cdaConvertor.extractReports(fileWriter, jsonWriter);
-			cdaConvertor.writeTable(cdaReport, listConflictPairs);
+			File jsonReport = new File(reportExtractor.getFinalReportDir(path) + "\\Textual_Report_g" + dataset
+					+ "\\JSON_Report_g" + dataset + ".json");
+			FileWriter jsonWriter = reportExtractor.createOrOverwriteReportFile(jsonReport);
+			List<RedundantPair> listConflictPairs = reportExtractor.extractReports(fileWriter, jsonWriter);
+			reportExtractor.writeTable(cdaReport, listConflictPairs);
 			long endTime = System.nanoTime();
-			double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;
-	        System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
-
+			double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
+			System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
 		}
-		
+
 	}
 
-	public String getDirName() {
-		return dirName;
+	private String getCdaReportsDir() {
+		return cdaReportDirName;
 	}
 
-	public String getJsonDatasetFile() {
+	private String getJsonDatasetFile() {
 		return jsonDatasetFile;
 	}
 
-	public String getAbsoluteDirPath()
+	private String getAbsoluteDirPath()
 			throws CdaReportDirNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		Path path = Paths.get("C:\\Users\\amirr\\" + getDirName());
+		// get CDA report
+		Path path = Paths.get(getCdaReportsDir());
 		if (Files.exists(path)) {
 			if (Files.isDirectory(path)) { // Check if it's a directory
 				DirectoryStream<Path> directoryStream = Files.newDirectoryStream(path);
@@ -139,8 +142,8 @@ public class ReportExtractor {
 		}
 	}
 
-	public String getAbsoluteFinalReportDir() throws JsonFileNotFound {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\" + getJsonDatasetFile());
+	public String getAbsoluteFinalReportDir() throws JsonFileNotFound, IOException {
+		Path path = Paths.get(getJsonDatasetFile());
 		if (Files.exists(path)) {
 
 			return path.toString();
@@ -153,7 +156,7 @@ public class ReportExtractor {
 
 		if (Files.exists(path)) {
 
-			System.out.println(path.toString());
+//			System.out.println(path.toString());
 			return path.toString();
 		} else {
 			return null;
@@ -943,21 +946,20 @@ public class ReportExtractor {
 
 		// get USs Text from JSON File and add them into redundancyItems
 		getUssTexts(usPair, redundancyItems);
-		
-			// here I want to send both USs as parameter for highlightingConflicts
-			redundancyItems = highlightRedundancies(redundancyItems, usPair, targetsPairs, triggersPairs, containsPairs,
-					jsonRedundancyPair);
 
-			String highlightedUs2 = redundancyItems.getTextUs2();
-			fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
+		// here I want to send both USs as parameter for highlightingConflicts
+		redundancyItems = highlightRedundancies(redundancyItems, usPair, targetsPairs, triggersPairs, containsPairs,
+				jsonRedundancyPair);
 
-			String highlightedUs1 = redundancyItems.getTextUs1();
-			fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
-			redundantPair.setRedundantPair1(us1);
-			redundantPair.setRedundantPair2(us2);
-			redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
-			redundantPairs.add(redundantPair);
+		String highlightedUs2 = redundancyItems.getTextUs2();
+		fileWriter.write("\n\n " + us2 + ": " + highlightedUs2.toLowerCase());
 
+		String highlightedUs1 = redundancyItems.getTextUs1();
+		fileWriter.write("\n\n " + us1 + ": " + highlightedUs1.toLowerCase());
+		redundantPair.setRedundantPair1(us1);
+		redundantPair.setRedundantPair2(us2);
+		redundantPair.setMaximal(redundancyItems.getTotalRedundancyCount());
+		redundantPairs.add(redundantPair);
 
 	}
 
@@ -985,9 +987,9 @@ public class ReportExtractor {
 		String textUs2 = redundancyItems.getTextUs2();
 		int mainConflict = redundancyItems.getMainRedundancyCount();
 		int benefitConflict = redundancyItems.getBenefitRedundancyCount();
-		//if (textUs1.length() <= 0 && textUs2.length() <= 0) {
-	//		return null;
-	//	}
+		// if (textUs1.length() <= 0 && textUs2.length() <= 0) {
+		// return null;
+		// }
 
 		// find the index of first comma
 		int firstCommaUs1 = textUs1.indexOf(',');

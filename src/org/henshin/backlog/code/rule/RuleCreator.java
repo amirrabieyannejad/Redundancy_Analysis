@@ -1,19 +1,18 @@
 package org.henshin.backlog.code.rule;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
 import org.eclipse.emf.henshin.model.compact.CModule;
 import org.eclipse.emf.henshin.model.compact.CNode;
 import org.eclipse.emf.henshin.model.compact.CRule;
-import org.eclipse.emf.henshin.model.compact.CUnit;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -26,29 +25,20 @@ public class RuleCreator {
 	private String henshinFile;
 	private String eCoreFile;
 
-	public RuleCreator(String JsonFileName, String henshinFileName, String eCoreFileName) {
+	public RuleCreator(String JsonFileName, String henshinFileName, String eCoreFileName) throws IOException {
 		jsonFile = JsonFileName;
 		henshinFile = henshinFileName;
 		eCoreFile = eCoreFileName;
+
 	}
 
 	public String getJsonFile() {
 		return jsonFile;
 	}
 
-	public String getJsonFileAbsolutePath() throws EmptyOrNotExistJsonFile {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\" + "org.henshin.backlog2\\" + getJsonFile());
-		if (Files.exists(path)) {
-			return path.toString();
-
-		} else {
-			throw new EmptyOrNotExistJsonFile();
-		}
-
-	}
-
-	public String getEcoreFileAbsolutePath() {
-		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\" + "org.henshin.backlog2\\" + getEcoreFile());
+	public String getEcoreFileAbsolutePath() throws IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		Path path = Paths.get(baseDirectory, getEcoreFile());
 		if (Files.exists(path)) {
 			return path.toString();
 
@@ -65,42 +55,50 @@ public class RuleCreator {
 		return eCoreFile;
 	}
 
-	// private static final Logger LOGGER =
-	// Logger.getLogger(RuleCreator_v4.class.getName());
-
 	public static void main(String[] args) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
 		long startTime = System.nanoTime();
-		String version = "22";
-		createRules(version);
+		// add project number here
+		String[] projectIds = ConfigLoader.getInstance().getProjectIds();
+		System.out.println("Datasets: " + Arrays.toString(projectIds));
+		createRules(projectIds);
 		long endTime = System.nanoTime();
-		double elapsedTimeInSeconds= (endTime-startTime)/ 1_000_000_000.0;
-        System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
+		double elapsedTimeInSeconds = (endTime - startTime) / 1_000_000_000.0;
+		System.out.println("Processing time: " + elapsedTimeInSeconds + " seconds");
 	}
 
-	public static void createRules(String version) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
+	public static void createRules(String[] datasets) throws IOException, EcoreFileNotFound, EmptyOrNotExistJsonFile,
 			PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound, EntityInJsonFileNotFound,
 			TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound, TriggersInJsonFileNotFound,
 			EdgeWithSameSourceAndTarget {
 
-		RuleCreator ruleCreator = new RuleCreator(
-				"Final_Reports\\Textual_Report_g" + version + "\\g" + version + "_baseline_pos.json",
-				"Henshin_backlog_g" + version, "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator.readJsonArrayFromFile();
-		CModule cModule = ruleCreator.processJsonFile(jsonArray);
-		cModule.save();
+//		RuleCreator ruleCreator = new RuleCreator(
+//				"Final_Reports\\Textual_Report_g" + projectID + "\\g" + projectID + "_baseline_pos.json",
+//				"Henshin_backlog_g" + projectID, "Backlog_v2.3.ecore");
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		for (String dataset: datasets) {
+			System.out.println("Dataset: " + dataset);
+			RuleCreator ruleCreator = new RuleCreator(baseDirectory + "\\Final_Reports\\Textual_Report_g" + dataset
+					+ "\\g" + dataset + "_baseline_pos.json", "Henshin_backlog_g" + dataset,
+					"Backlog_v2.3.ecore");
+			JSONArray jsonArray = ruleCreator.readJsonArrayFromFile(dataset);
+			CModule cModule = ruleCreator.processJsonFile(jsonArray);
+			cModule.save();
+		}
 	}
 
 	// This method receives a JSON file as input and reads the JSON file,
 	// tokenises the JSON content and parses the JSON content into a JSON
 	// array and returns the parsed JSON array.
-	public JSONArray readJsonArrayFromFile() throws EmptyOrNotExistJsonFile, FileNotFoundException {
+	public JSONArray readJsonArrayFromFile(String dataset) throws EmptyOrNotExistJsonFile, IOException {
 		JSONArray jsonArray;
 		// System.out.println("getJsonFileAbsolutePath(): " +
 		// getJsonFileAbsolutePath());
-		FileReader reader = new FileReader(getJsonFileAbsolutePath());
+		String inputDirectroy = ConfigLoader.getInstance().getBaseDirectory()+ "\\Final_Reports\\Textual_Report_g" + dataset + "\\g" + dataset
+				+ "_baseline_pos.json";
+		FileReader reader = new FileReader(inputDirectroy);
 
 		JSONTokener tokener = new JSONTokener(reader);
 		if (!tokener.more()) {
@@ -117,7 +115,7 @@ public class RuleCreator {
 //	This method assign a CModule to a Ecore meta-model. 
 //	It creates a new CModule object with the provided Henshin-file name,
 //	adds imports from the Ecore file, and returns the module. 
-	public CModule assignCmodule() throws EcoreFileNotFound {
+	public CModule assignCmodule() throws EcoreFileNotFound, IOException {
 		CModule module = new CModule(getHenshinFile());
 		if (getEcoreFileAbsolutePath() == null) {
 			throw new EcoreFileNotFound();
@@ -134,7 +132,7 @@ public class RuleCreator {
 	public CModule processJsonFile(JSONArray json)
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
+			TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile, IOException {
 		CModule cModule = assignCmodule();
 		String usNrM = null;
 		CRule userStoryM = null;
@@ -207,8 +205,7 @@ public class RuleCreator {
 			processActions(jsonObject, userStoryM, actionM, personaNode, actionMap, usNrM);
 			processEntities(jsonObject, userStoryM, entityM, targetsArrayM, entityMap, usNrM);
 			processTargetsEdges(jsonObject, targetsArrayM, entityMap, actionMap, usNrM);
-			processContainsEdges(jsonObject, containsArrayM, targetsArrayM, entityMap, usNrM,cModule);
-			
+			processContainsEdges(jsonObject, containsArrayM, targetsArrayM, entityMap, usNrM, cModule);
 
 		}
 		return cModule;
@@ -245,7 +242,8 @@ public class RuleCreator {
 	}
 
 	private void processActions(JSONObject jsonObject, CRule userStory, JSONObject action, CNode nodePersona,
-			Map<String, CNode> actionMap, String usNrM) throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
+			Map<String, CNode> actionMap, String usNrM)
+			throws ActionInJsonFileNotFound, EdgeWithSameSourceAndTarget, EmptyOrNotExistJsonFile {
 
 		if (action.has("Primary Action")) {
 
@@ -261,7 +259,7 @@ public class RuleCreator {
 				// primary actions
 
 //				try {
-					nodePersona.createEdge(cNode, "triggers", "delete");
+				nodePersona.createEdge(cNode, "triggers", "delete");
 //				} catch (RuntimeException e) {
 //
 //					throw new EdgeWithSameSourceAndTarget(
@@ -279,15 +277,16 @@ public class RuleCreator {
 			JSONArray secondaryAction = action.getJSONArray("Secondary Action");
 			for (int i = 0; i < secondaryAction.length(); i++) {
 				String secAction = secondaryAction.getString(i).replaceAll(" $", "").replaceAll("^ ", "").toLowerCase();
-				//System.out.println("secAction: " + secAction +" path: " + getJsonFileAbsolutePath());
+				// System.out.println("secAction: " + secAction +" path: " +
+				// getJsonFileAbsolutePath());
 				CNode cNode = userStory.createNode("Secondary Action");
-				
+
 				cNode.createAttribute("name", "\"" + secAction + "\"", "delete");
 
 				actionMap.put(secAction, cNode);
 			}
 		} else {
-			System.out.println("Secondary Action not found!" );
+			System.out.println("Secondary Action not found!");
 			throw new ActionInJsonFileNotFound("Secondary Action in JOSNObject not found!");
 		}
 
@@ -323,7 +322,7 @@ public class RuleCreator {
 					cNode = userStory.createNode("Primary Entity");
 					cNode.createAttribute("name", "\"" + priEntity + "\"");
 					entityMap.put(priEntity, cNode);
-					
+
 				}
 			}
 		} else {
@@ -394,7 +393,7 @@ public class RuleCreator {
 
 			// throw exception if Failed to create Edge
 //			try {
-				nodeAction.createEdge(nodeEntity, "targets", "delete");
+			nodeAction.createEdge(nodeEntity, "targets", "delete");
 //			} catch (RuntimeException e) {
 //
 //				throw new EdgeWithSameSourceAndTarget("In \"Targets\" of " + usNrM + ", Edge with Action: \""
@@ -413,7 +412,8 @@ public class RuleCreator {
 //	edge is annotated for deletion. If none of the entities is a target,
 //	the edge is annotated as \enquote{preserve}.
 	private void processContainsEdges(JSONObject jsonObject, JSONArray containsArray, JSONArray targetsArray,
-			Map<String, CNode> entityMap, String usNrM, CModule cModule) throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
+			Map<String, CNode> entityMap, String usNrM, CModule cModule)
+			throws EntityInJsonFileNotFound, EdgeWithSameSourceAndTarget {
 
 		// iterate through contains JSONArray
 		for (int i = 0; i < containsArray.length(); i++) {
@@ -437,11 +437,11 @@ public class RuleCreator {
 				if (checkEntityIsTarget(firstEntity, targetsArray) || checkEntityIsTarget(secondEntity, targetsArray)) {
 
 //					try {
-						// add an edge from first Entity to second Entity and annotated it as<delete>
+					// add an edge from first Entity to second Entity and annotated it as<delete>
 //					System.out.println("contains is in targets: " + firstEntity);	
 					nodefirstEntity.createEdge(nodeSecondEntity, "contains", "delete");
 
-					//					} catch (RuntimeException e) {
+					// } catch (RuntimeException e) {
 
 //						throw new EdgeWithSameSourceAndTarget("In \"Contains\" of " + usNrM + ", Edge with Entity: \""
 //								+ firstEntity.toLowerCase().toString() + "\" and Entity \"" + secondEntity.toString()
@@ -455,11 +455,11 @@ public class RuleCreator {
 //						}
 //						}		
 //					}
-					
+
 				} else {
 //					try {
-						// add an edge from first Entity to second Entity and annotated it as<preserve>
-						nodefirstEntity.createEdge(nodeSecondEntity, "contains");
+					// add an edge from first Entity to second Entity and annotated it as<preserve>
+					nodefirstEntity.createEdge(nodeSecondEntity, "contains");
 //					} catch (RuntimeException e) {
 
 //						throw new EdgeWithSameSourceAndTarget("In \"Contains\" of " + usNrM + ", Edge with Entity: \""
