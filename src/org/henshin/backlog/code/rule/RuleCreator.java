@@ -78,12 +78,12 @@ public class RuleCreator {
 //				"Final_Reports\\Textual_Report_g" + projectID + "\\g" + projectID + "_baseline_pos.json",
 //				"Henshin_backlog_g" + projectID, "Backlog_v2.3.ecore");
 		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
-		for (String dataset: datasets) {
+		for (String dataset : datasets) {
+			String jsonFile = baseDirectory + "\\Final_Reports\\Textual_Report_g" + dataset + "\\g" + dataset
+					+ "_baseline_pos.json";
 			System.out.println("Dataset: " + dataset);
-			RuleCreator ruleCreator = new RuleCreator(baseDirectory + "\\Final_Reports\\Textual_Report_g" + dataset
-					+ "\\g" + dataset + "_baseline_pos.json", "Henshin_backlog_g" + dataset,
-					"Backlog_v2.3.ecore");
-			JSONArray jsonArray = ruleCreator.readJsonArrayFromFile(dataset);
+			RuleCreator ruleCreator = new RuleCreator(jsonFile, "Henshin_backlog_g" + dataset, "Backlog_v2.3.ecore");
+			JSONArray jsonArray = ruleCreator.readJsonArrayFromFile(jsonFile);
 			CModule cModule = ruleCreator.processJsonFile(jsonArray);
 			cModule.save();
 		}
@@ -96,8 +96,7 @@ public class RuleCreator {
 		JSONArray jsonArray;
 		// System.out.println("getJsonFileAbsolutePath(): " +
 		// getJsonFileAbsolutePath());
-		String inputDirectroy = ConfigLoader.getInstance().getBaseDirectory()+ "\\Final_Reports\\Textual_Report_g" + dataset + "\\g" + dataset
-				+ "_baseline_pos.json";
+		String inputDirectroy = dataset;
 		FileReader reader = new FileReader(inputDirectroy);
 
 		JSONTokener tokener = new JSONTokener(reader);

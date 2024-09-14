@@ -5,6 +5,7 @@ import org.henshin.backlog.code.report.CdaReportDirIsNotADirectory;
 import org.henshin.backlog.code.report.CdaReportDirNotFound;
 import org.henshin.backlog.code.report.RedundantPair;
 import org.henshin.backlog.code.report.ReportExtractor;
+import org.henshin.backlog.code.rule.ConfigLoader;
 import org.henshin.backlog.code.rule.EmptyOrNotExistJsonFile;
 import org.henshin.backlog.code.rule.JsonFileNotFound;
 import org.henshin.backlog.code.*;
@@ -34,13 +35,14 @@ public class ReportExtractorTest {
 	@Test
 	public void testExtractReports_completeMajorElements_edge() throws EmptyOrNotExistJsonFile, NullPointerException,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\ExactMatch";
 		String jsonFileName = "Tests\\ReportExtractor\\g03_baseline_pos_num.json";
 
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -72,13 +74,14 @@ public class ReportExtractorTest {
 	@Test
 	public void testReportExtractor() throws EmptyOrNotExistJsonFile, NullPointerException, CdaReportDirNotFound,
 			JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\ExactMatch";
 		String jsonFileName = "Tests\\ReportExtractor\\g03_baseline_pos_num.json";
 
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 		// cdaConvertor.extractReports(fileWrite, jsonWriter);
 		String[] dataset = { "03" };
@@ -89,7 +92,8 @@ public class ReportExtractorTest {
 
 	@Test(expected = JSONException.class)
 	public void testJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile";
 		String jsonFileName = "Tests\\ReportExtractor\\dummy_corrupt.json";
 		// Read the JSON_report_Test file to verify the results
 		ReportExtractor reportExtractor = new ReportExtractor(directoryName, jsonFileName);
@@ -101,14 +105,15 @@ public class ReportExtractorTest {
 	public void testExtractReports_completeMajorElements_upperEdge()
 			throws EmptyOrNotExistJsonFile, NullPointerException, CdaReportDirNotFound, JsonFileNotFound,
 			CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\ExactMatch_upperEdge";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\ExactMatch_upperEdge";
 
 		String jsonFileName = "Tests\\ReportExtractor\\g03_baseline_pos_num.json";
 
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -137,13 +142,14 @@ public class ReportExtractorTest {
 	@Test
 	public void testExtractReports_notCompleteMajorElements() throws EmptyOrNotExistJsonFile, NullPointerException,
 			CdaReportDirNotFound, JsonFileNotFound, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, IOException {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\MajorElementNotFound";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\MajorElementNotFound";
 		String jsonFileName = "Tests\\ReportExtractor\\g03_baseline_pos_num.json";
 
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 		try {
 			cdaConvertor.extractReports(fileWrite, jsonWriter);
@@ -166,12 +172,13 @@ public class ReportExtractorTest {
 	@Test(expected = CdaReportDirNotFound.class)
 	public void testInvalidDirectoryName() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, JsonFileNotFound,
 			CdaReportDirIsNotADirectory, NullPointerException, IOException, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\Dummy";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\Dummy";
 		String jsonFileName = "Tests\\ReportExtractor\\g03_baseline_pos_num.json";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 		cdaConvertor.extractReports(fileWrite, jsonWriter);
 
@@ -181,14 +188,15 @@ public class ReportExtractorTest {
 	@Test(expected = JsonFileNotFound.class)
 	public void testInvalidJsonFile() throws JsonFileNotFound, NullPointerException, IOException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, EmptyOrNotExistJsonFile, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\ExactMatch_testInvalidJsonFile";
 		String jsonFileName = "Tests\\ReportExtractor\\dummyJOSN.json";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
 		System.out.println("[testEmptyJSONFile] json path is: " + cdaConvertor.getAbsoluteFinalReportDir());
-		System.out.println("[testEmptyJSONFile] dir path is: " + cdaConvertor.getAbsoluteDirPath());
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		System.out.println("[testEmptyJSONFile] dir path is: " + directoryName);
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 		cdaConvertor.extractReports(fileWrite, jsonWriter);
 
@@ -199,10 +207,11 @@ public class ReportExtractorTest {
 	@Test(expected = CdaReportDirIsEmpty.class)
 	public void testEmptyDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\EmptyDirectory";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\EmptyDirectory";
 		String jsonFileName = "dummy";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		new File(directoryName + "\\Textual_Report_Test.txt");
 	}
 
 	
@@ -211,10 +220,11 @@ public class ReportExtractorTest {
 	@Test(expected = CdaReportDirIsNotADirectory.class)
 	public void testCdaDirNotDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\EmptyDirectory\\Textual_Report_Test.txt";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "Tests\\ReportExtractor\\EmptyDirectory\\Textual_Report_Test.txt";
 		String jsonFileName = "dummy";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		new File(directoryName + "\\Textual_Report_Test.txt");
 	}
 
 	// testEmptyDirectroy&Assing not directory&Through an exception:
@@ -222,10 +232,11 @@ public class ReportExtractorTest {
 	@Test(expected = CdaReportDirNotFound.class)
 	public void testCdaDirectroy() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\NotAccessibleDirectory";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\NotAccessibleDirectory";
 		String jsonFileName = "dummy";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
-		new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		new File(directoryName + "\\Textual_Report_Test.txt");
 	}
 
 	
@@ -233,7 +244,8 @@ public class ReportExtractorTest {
 	@Test
 	public void testFinalReportDir() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\NotAccessibleDirectory";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\NotAccessibleDirectory";
 		String jsonFileName = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
 		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
@@ -251,7 +263,8 @@ public class ReportExtractorTest {
 	@Test
 	public void testMinimalEcoreExist() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile";
 		String jsonFileName = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
 		Path path = Paths.get("C:\\Users\\amirr\\eclipse-workspace_new\\org.henshin.backlog2\\Final_Reports\\");
@@ -269,13 +282,14 @@ public class ReportExtractorTest {
 	@Test
 	public void testWriteTable() throws EmptyOrNotExistJsonFile, CdaReportDirNotFound, NullPointerException,
 			IOException, CdaReportDirIsNotADirectory, CdaReportDirIsEmpty, JsonFileNotFound {
-		String directoryName = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\writeTable\\ExactMatch";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\writeTable\\ExactMatch";
 		String jsonFileName = "Tests\\ReportExtractor\\writeTable\\ExactMatch\\g03_baseline_pos.json";
 		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		// This line should throw EmptyJsonFile exception
@@ -306,17 +320,18 @@ public class ReportExtractorTest {
 	@Test(expected = EmptyOrNotExistJsonFile.class)
 	public void testEmptyJSONFile() throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException,
 			CdaReportDirNotFound, CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\ExactMatch_testEmptyJSONFile";
 		String jsonFileNameds = "Tests\\ReportExtractor\\empty_json_file.json";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		// This line should throw EmptyJsonFile exception
@@ -335,18 +350,19 @@ public class ReportExtractorTest {
 	@Test
 	public void testExtractReports_highlightPersona() throws NullPointerException, EmptyOrNotExistJsonFile, IOException,
 			JSONException, CdaReportDirNotFound, CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_persona_redundancy\\g05_baseline_pos.json";
 		String persona = "Triggers: Link from \"data publishing user\" to \"import\" is found";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -372,19 +388,20 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_noBenefitInUs1()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US1_No_Benefit\\g04_baseline_pos.json";
 		String uS1 = "user_story_26: #g04# as an employee from the hr department, i want to #have# "
 				+ "#access# to the full information of all employees working for this business.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -411,19 +428,20 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_noBenefitInUs2()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_US2_No_Benefit\\g11_baseline_pos.json";
 		String uS2 = " user_story_73: #g11# as a team member, i want to #understand# #how# work"
 				+ " moves between ux/content > visual design > front end dev for a sprint cycle.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 // System.out.println("[testEmptyJSONFile] json path is: " +
 // cdaConvertor.getAbsoluteFinalReportDir());
 // System.out.println("[testEmptyJSONFile] dir path is: " +
-// cdaConvertor.getAbsoluteDirPath());
+// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -450,21 +468,22 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_noBenefitInBothUss()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_No_Benefit\\g04_baseline_pos.json";
 		String uS2 = "user_story_10: #g04# as a #user#, i want to be able to #view# a #map display# "
 				+ "of the special waste drop off sites around my #area#.";
 		String uS1 = "user_story_09: #g04# as a #user#, i want to be able to #view# a "
 				+ "#map display# of the public recycling bins around my #area#.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 // System.out.println("[testEmptyJSONFile] json path is: " +
 // cdaConvertor.getAbsoluteFinalReportDir());
 // System.out.println("[testEmptyJSONFile] dir path is: " +
-// cdaConvertor.getAbsoluteDirPath());
+// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -496,21 +515,22 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_BenefitInBothUss()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json";
 		String uS2Main = "user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#";
 		String uS2Benefit = ", so that i can share the dataset publicly with everyone.";
 		String uS1Main = "user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#";
 		String uS1Benefit = ", so that i can view just the dataset with a few people.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 // System.out.println("[testEmptyJSONFile] json path is: " +
 // cdaConvertor.getAbsoluteFinalReportDir());
 // System.out.println("[testEmptyJSONFile] dir path is: " +
-// cdaConvertor.getAbsoluteDirPath());
+// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -542,21 +562,22 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_TextsLenghtsNull()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json";
 		String uS2Main = "user_story_02: #g14# as a #publisher#, i want to #publish# a #dataset#";
 		String uS2Benefit = ", so that i can share the dataset publicly with everyone.";
 		String uS1Main = "user_story_01: #g14# as a #publisher#, i want to #publish# a #dataset#";
 		String uS1Benefit = ", so that i can view just the dataset with a few people.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -593,13 +614,14 @@ public class ReportExtractorTest {
 	public void testExtractReports_getTotalRedundancyElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json";
 
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
-		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json";
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
+		String jsonReportPath = directoryName + "\\JSON_Report_Test.json";
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 		File jsonReport = new File(jsonReportPath);
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
@@ -637,13 +659,14 @@ public class ReportExtractorTest {
 	public void testExtractReports_getMainPartRedundanciesElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit";
 		String jsonFileNameds = "Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_both_has_Benefit\\g14_baseline_pos.json";
 
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
-		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json";
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
+		String jsonReportPath = directoryName + "\\JSON_Report_Test.json";
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 		File jsonReport = new File(jsonReportPath);
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
@@ -678,13 +701,14 @@ public class ReportExtractorTest {
 	public void testExtractReports_getBenefitPartRedundanciesElements()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements";
 		String jsonFileNameds = "Tests\\ReportExtractor\\extractReports\\CDA_Report_gTest_Benefit_part_conflicted_Elements\\g05_baseline_pos.json";
 
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
-		String jsonReportPath = cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json";
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
+		String jsonReportPath = directoryName + "\\JSON_Report_Test.json";
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
 		File jsonReport = new File(jsonReportPath);
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
@@ -713,20 +737,21 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_ContainInBenefitPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Benefit_Part\\g08_baseline_pos.json";
 
 		String contains = "Contains: Link between \"validity\" and \"trust\" is found.";
 
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -761,20 +786,21 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_ContainInMainPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Contains_In_Main_Part\\g18_baseline_pos.json";
 
 		String contains = "Contains: Link between \"experiment\" and \"log book page\" is found.";
 
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -803,7 +829,8 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_TargetsInMainPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Main_Part\\g22_baseline_pos.json";
 
 		String us1 = "#g22# as an it staff member, i want to #know# #how# the #data# is #used#, "
@@ -814,15 +841,15 @@ public class ReportExtractorTest {
 
 		String targets1 = "Targets: Link from \"know\" to \"how\" is found.";
 		String targets2 = "Targets: Link from \"used\" to \"data\" is found.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {
@@ -853,7 +880,8 @@ public class ReportExtractorTest {
 	public void testHighlightRedundancies_TargetsInBenefitPart()
 			throws NullPointerException, EmptyOrNotExistJsonFile, IOException, JSONException, CdaReportDirNotFound,
 			CdaReportDirIsNotADirectory, JsonFileNotFound, CdaReportDirIsEmpty {
-		String directoryNamed = "eclipse-workspace_new\\org.henshin.backlog2\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part";
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String directoryName = baseDirectory + "\\Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part";
 		String jsonFileNameds = "Tests\\ReportExtractor\\highlightConflicts\\CDA_Report_gTest_Targets_In_Benefit_Part\\g22_baseline_pos.json";
 
 		String us1 = "#g22# as a data manager, i want to know which formats are used, so that i #know# what #technology#"
@@ -864,15 +892,15 @@ public class ReportExtractorTest {
 
 		String targets1 = "Targets: Link from \"know\" to \"background information\" is found.";
 		String targets2 = "Targets: Link from \"know\" to \"technology\" is found.";
-		ReportExtractor cdaConvertor = new ReportExtractor(directoryNamed, jsonFileNameds);
+		ReportExtractor cdaConvertor = new ReportExtractor(directoryName, jsonFileNameds);
 		// System.out.println("[testEmptyJSONFile] json path is: " +
 		// cdaConvertor.getAbsoluteFinalReportDir());
 		// System.out.println("[testEmptyJSONFile] dir path is: " +
-		// cdaConvertor.getAbsoluteDirPath());
+		// directoryName);
 
-		File cdaReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\Textual_Report_Test.txt");
+		File cdaReport = new File(directoryName + "\\Textual_Report_Test.txt");
 		FileWriter fileWrite = cdaConvertor.createOrOverwriteReportFile(cdaReport);
-		File jsonReport = new File(cdaConvertor.getAbsoluteDirPath() + "\\JSON_Report_Test.json");
+		File jsonReport = new File(directoryName + "\\JSON_Report_Test.json");
 		FileWriter jsonWriter = cdaConvertor.createOrOverwriteReportFile(jsonReport);
 
 		try {

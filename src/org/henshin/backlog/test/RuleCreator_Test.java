@@ -2,7 +2,6 @@ package org.henshin.backlog.test;
 
 import static org.junit.Assert.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,6 +10,7 @@ import java.nio.file.Paths;
 import org.eclipse.emf.henshin.model.compact.CModule;
 import org.henshin.backlog.code.evaluation.Evaluation;
 import org.henshin.backlog.code.rule.ActionInJsonFileNotFound;
+import org.henshin.backlog.code.rule.ConfigLoader;
 import org.henshin.backlog.code.rule.ContainsInJsonFileNotFound;
 import org.henshin.backlog.code.rule.EcoreFileNotFound;
 import org.henshin.backlog.code.rule.EdgeWithSameSourceAndTarget;
@@ -35,30 +35,35 @@ public class RuleCreator_Test {
 	public void testAssignCmodule()
 			throws EcoreFileNotFound, EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\g03_baseline_pos_num.json",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\g03_baseline_pos_num.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "dummy.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 
 	}
 
 	@Test(expected = EmptyOrNotExistJsonFile.class)
 	public void testEmptyOrNotExistJsonFile() throws EmptyOrNotExistJsonFile, JsonFileNotFound, IOException {
-
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\empty_json_file.json";
 		// Read the JSON_report_Test file to verify the results
-		RuleCreator creator_v4 = new RuleCreator("Tests\\RuleCreator\\empty_json_file.json", "backlog_v4",
+		RuleCreator creator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		creator_v4.readJsonArrayFromFile();
+		creator_v4.readJsonArrayFromFile(fullPath);
 
 	}
 
 
 	@Test(expected = EmptyOrNotExistJsonFile.class)
-	public void testReadJsonArrayFromFile() throws EmptyOrNotExistJsonFile, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\dummy_json_file.json", "backlog_v4",
+	public void testReadJsonArrayFromFile() throws EmptyOrNotExistJsonFile, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\dummy_json_file.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		ruleCreator_v4.readJsonArrayFromFile();
+		ruleCreator_v4.readJsonArrayFromFile(fullPath);
 
 	}
 
@@ -70,10 +75,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_UsNrNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\US_Nr_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\US_Nr_Not_Exist.json"; 
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -85,10 +92,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_PersonaNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Persona_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Persona_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 
 	}
@@ -103,10 +112,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_ActionNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Action_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Action_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 
 	}
@@ -119,10 +130,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_EntityNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Entity_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Entity_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -134,10 +147,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_TriggersNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Triggers_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Triggers_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -149,10 +164,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_TargetsNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Targets_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Targets_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -164,10 +181,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_ContainsNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Contains_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Contains_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -179,10 +198,12 @@ public class RuleCreator_Test {
 	public void testProcessJsonFile_TextNotExist()
 			throws EmptyOrNotExistJsonFile, PersonaInJsonFileNotFound, EcoreFileNotFound, UsNrInJsonFileNotFound,
 			ActionInJsonFileNotFound, EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound,
-			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\Text_Not_Exist.json", "backlog_v4",
+			TextInJsonFileNotFound, TriggersInJsonFileNotFound, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\Text_Not_Exist.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -196,10 +217,12 @@ public class RuleCreator_Test {
 	public void testProcessContainsEdges_UndefindedEntity()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\UndefindedEntity_in_Contains.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\UndefindedEntity_in_Contains.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 
 	}
@@ -210,12 +233,15 @@ public class RuleCreator_Test {
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
 			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\ContainsInTargets.json", "backlog_v4",
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\ContainsInTargets.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath, "backlog_v4",
 				"Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		// ruleCreator_v4.processJsonFile(jsonArray);
 		// ruleCreator_v4.createRules("03");
-		RuleCreator.createRules("03");
+		String[] projectId = {"03"};
+		RuleCreator.createRules(projectId);
 		Path filePath = Paths.get("Henshin_backlog_g03.henshin");
 
 		// Assert that the file exits
@@ -250,10 +276,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_UndefindedEntity()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\UndefindedEntity_in_Targets.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\UndefindedEntity_in_Targets.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -267,10 +295,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_PrimaryEntityNotFound()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\PrimaryEntityNotFound.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\PrimaryEntityNotFound.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -284,10 +314,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_SecondaryEntityNotFound()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\SecondaryEntityNotFound.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\SecondaryEntityNotFound.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -301,10 +333,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_PrimaryActionNotFound()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\PrimaryActionNotFound.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\PrimaryActionNotFound.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 	//TODO: Add this to paper
@@ -318,10 +352,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_ActionNotFound()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\ActionInTargetsNotFound.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\ActionInTargetsNotFound.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
@@ -335,10 +371,12 @@ public class RuleCreator_Test {
 	public void testProcessTargetsEdges_SecondaryActionNotFound()
 			throws EcoreFileNotFound, PersonaInJsonFileNotFound, UsNrInJsonFileNotFound, ActionInJsonFileNotFound,
 			EntityInJsonFileNotFound, TargetsInJsonFileNotFound, ContainsInJsonFileNotFound, TextInJsonFileNotFound,
-			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, FileNotFoundException {
-		RuleCreator ruleCreator_v4 = new RuleCreator("Tests\\RuleCreator\\SecondrayActionNotFound.json",
+			TriggersInJsonFileNotFound, EmptyOrNotExistJsonFile, EdgeWithSameSourceAndTarget, IOException {
+		String baseDirectory = ConfigLoader.getInstance().getBaseDirectory();
+		String fullPath = baseDirectory + "\\Tests\\RuleCreator\\SecondrayActionNotFound.json";
+		RuleCreator ruleCreator_v4 = new RuleCreator(fullPath,
 				"backlog_v4", "Backlog_v2.3.ecore");
-		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile();
+		JSONArray jsonArray = ruleCreator_v4.readJsonArrayFromFile(fullPath);
 		ruleCreator_v4.processJsonFile(jsonArray);
 	}
 
